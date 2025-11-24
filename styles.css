@@ -75,8 +75,6 @@ footer {
   }
   .wrapper {
     padding: 24px;
-    height: 98dvh;
-    overflow: auto;
   }
   .list-item {
     flex-direction: column;
