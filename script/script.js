@@ -45,3 +45,36 @@ function copiarComTooltip(evento) {
       console.error("Erro ao copiar:", erro);
     });
 }
+
+// Prefetching logic
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll('a[href^="/"], a[href^="."]');
+  const prefetchedUrls = new Set();
+
+  const prefetchUrl = (url) => {
+    if (prefetchedUrls.has(url)) return;
+
+    // Check if it's a valid internal URL and not just a hash
+    if (!url || url.startsWith("#")) return;
+
+    prefetchedUrls.add(url);
+
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.href = url;
+    document.head.appendChild(link);
+
+    // Fallback fetch for browsers that might ignore link rel=prefetch
+    fetch(url, { priority: "low" }).catch(() => { });
+  };
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      prefetchUrl(link.getAttribute("href"));
+    });
+
+    link.addEventListener("touchstart", () => {
+      prefetchUrl(link.getAttribute("href"));
+    }, { passive: true });
+  });
+});
