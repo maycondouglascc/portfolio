@@ -10,6 +10,10 @@
   --shadow-inner: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 @font-face {
   font-family: "Inter";
   src: url(/files/font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
@@ -70,6 +74,20 @@ footer {
   max-width: 592px;
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .list-item {
@@ -157,6 +175,10 @@ span {
 
 .mb-16 {
   margin-bottom: 16px;
+}
+
+.mt-16 {
+  margin-top: 16px;
 }
 
 .horizontal-stack {
@@ -260,4 +282,9 @@ span {
   font-weight: 500;
   font-size: 14px;
   z-index: 2;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 14px;
 }
