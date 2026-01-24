@@ -1,31 +1,13 @@
 :root {
-  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.1),
-    0px -1px 2px 0px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0px 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0px 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0px 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-inner: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+  /* Shadows */
+  --shadow-2xl: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-xl: 0px 10px 10px -5px rgba(0, 0, 0, 0.04), 0px 20px 25px -5px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0px 4px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0px 2px 4px -1px rgba(0, 0, 0, 0.06), 0px 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+  --shadow-xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 
-  /* Typography */
-  --text-xs: 0.75rem;
-  /* 12px */
-  --text-sm: 0.875rem;
-  /* 14px */
-  --text-base: 0.938rem;
-  /* 15px */
-  --text-lg: 1.125rem;
-  /* 18px */
-  --text-xl: 1.25rem;
-  /* 20px */
-  --text-2xl: 1.5rem;
-  /* 24px */
-  --text-3xl: 1.875rem;
-  /* 30px */
-  --text-4xl: 2.25rem;
-  /* 36px */
+  --shadow-inner: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
 }
 
 @view-transition {
@@ -38,19 +20,16 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  /* Optional: control font loading behavior */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-size: 16px;
-  letter-spacing: -0.25px;
-  text-wrap: pretty;
+  /* Remove default font settings to enforce explicit tokens */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -62,7 +41,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  padding: 96px;
+  padding: 40px;
   background-color: #fdfdf8;
 }
 
@@ -88,27 +67,15 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  padding: 96px 96px 40px 96px;
-  max-width: 592px;
+  padding: 64px 40px 40px 40px;
+  max-width: 680px;
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
 }
 
-.wrapper-lg {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
-  padding: 96px 96px 40px 96px;
-  max-width: 780px;
-  border-radius: 16px;
-  box-shadow: var(--shadow-sm);
-  opacity: 0;
-  animation: fadeIn 0.3s ease-in forwards;
-}
+
 
 @keyframes fadeIn {
   from {
@@ -185,70 +152,23 @@ li {
 
 h1,
 h2,
+h3,
+h4,
+h5,
+h6,
 p,
-span {
-  font-size: var(--text-base);
-  font-weight: 500;
-  letter-spacing: -0.2px;
-  line-height: 1.5;
+span,
+a,
+li {
+  /* Reset default margins/sizes to force use of token classes */
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
 }
 
-/* Typography Utilities */
-.text-xs {
-  font-size: var(--text-xs);
-  line-height: 1.5;
-}
+/* Typography Utilities - Legacy classes removed. Use .type-* tokens. */
 
-.text-sm {
-  font-size: var(--text-sm);
-  line-height: 1.5;
-}
-
-.text-base {
-  font-size: var(--text-base);
-  line-height: 1.5;
-}
-
-.text-lg {
-  font-size: var(--text-lg);
-  line-height: 1.4;
-}
-
-.text-xl {
-  font-size: var(--text-xl);
-  line-height: 1.3;
-}
-
-.text-2xl {
-  font-size: var(--text-2xl);
-  line-height: 1.2;
-}
-
-.text-3xl {
-  font-size: var(--text-3xl);
-  line-height: 1.1;
-}
-
-.text-4xl {
-  font-size: var(--text-4xl);
-  line-height: 1.1;
-}
-
-.font-normal {
-  font-weight: 400;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.font-bold {
-  font-weight: 700;
-}
 
 .secondary {
   color: #555;
@@ -277,7 +197,7 @@ span {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -340,12 +260,13 @@ span {
 
 .case-card {
   width: 100%;
-  height: 200px;
+  height: 180px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-xs);
+
 }
 
 .case-card:hover {
@@ -360,20 +281,268 @@ span {
   display: block;
 }
 
-.case-card span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  color: white;
-  font-weight: 500;
-  font-size: 14px;
-  z-index: 2;
-}
 
 .back-link {
   display: inline-block;
   font-size: 14px;
+}
+
+/* New Typography System per docs/typography.md */
+
+/* DISPLAY */
+.type-display-72-medium {
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 76px;
+  letter-spacing: -0.045em;
+}
+
+.type-display-72-regular {
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 80px;
+  letter-spacing: -0.04em;
+}
+
+.type-display-64-medium {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 70px;
+  letter-spacing: -0.04em;
+}
+
+.type-display-64-regular {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 72px;
+  letter-spacing: -0.035em;
+}
+
+.type-display-56-medium {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 62px;
+  letter-spacing: -0.035em;
+}
+
+.type-display-56-regular {
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: -0.03em;
+}
+
+/* HEADINGS */
+.type-heading-48-medium {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 56px;
+  letter-spacing: -0.03em;
+}
+
+.type-heading-48-regular {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -0.025em;
+}
+
+.type-heading-40-medium {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -0.025em;
+}
+
+.type-heading-40-regular {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -0.02em;
+}
+
+/* HEADINGS (smaller) */
+.type-heading-36-medium {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+}
+
+.type-heading-36-regular {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 46px;
+  letter-spacing: -0.015em;
+}
+
+.type-heading-32-medium {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.015em;
+}
+
+.type-heading-32-regular {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 42px;
+  letter-spacing: -0.01em;
+}
+
+.type-heading-28-medium {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.01em;
+}
+
+.type-heading-28-regular {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: -0.005em;
+}
+
+/* SUBHEADINGS & EMPHASIS */
+.type-subheading-24-medium {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.0075em;
+}
+
+.type-subheading-24-regular {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: -0.005em;
+}
+
+.type-subheading-20-medium {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.0025em;
+}
+
+.type-subheading-20-regular {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+}
+
+/* BODY */
+.type-body-18-medium {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: 0em;
+}
+
+.type-body-18-regular {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+
+.type-body-16-medium {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0em;
+}
+
+.type-body-16-regular {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+}
+
+.type-body-15-medium {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 23px;
+  letter-spacing: 0em;
+}
+
+.type-body-15-regular {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+
+.type-body-14-medium {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0.0025em;
+}
+
+.type-body-14-regular {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
+
+/* CAPTIONS */
+.type-caption-13-medium {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0.0075em;
+}
+
+.type-caption-13-regular {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.005em;
+}
+
+.type-caption-12-medium {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0.0125em;
+}
+
+.type-caption-12-regular {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+}
+
+.type-caption-11-medium {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.0175em;
+}
+
+.type-caption-11-regular {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.015em;
+}
+
+.type-caption-10-medium {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0.0225em;
+}
+
+.type-caption-10-regular {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0.02em;
 }
