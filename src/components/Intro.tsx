@@ -11,7 +11,7 @@ function Intro() {
       />
       <div className="flex flex-col gap-2">
         <h1 className="text-body-18-medium font-medium text-primary">
-          &#x1F44B;&#x1F3FF; Oi, eu sou o Maycon
+          &#x1F44F;&#x1F3FD; Oi, eu sou o Maycon
         </h1>
         <p className="text-body-16-regular font-normal text-secondary">
           Atuo como designer h&aacute; 8 anos e tenho
