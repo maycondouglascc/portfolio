@@ -1,4 +1,12 @@
 :root {
+  /* Colors */
+  --color-primary: #111;
+  --color-secondary: #555;
+  --color-background: #fdfdf8;
+  --color-border: #f2f2f2;
+  --color-link: #222;
+  --color-link-hover: #111;
+
   /* Shadows */
   --shadow-2xl: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-xl: 0px 10px 10px -5px rgba(0, 0, 0, 0.04), 0px 20px 25px -5px rgba(0, 0, 0, 0.10);
@@ -16,8 +24,8 @@
 
 @font-face {
   font-family: "Inter";
-  src: url(/files/font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
-  font-weight: 500;
+  src: url("/files/font/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -42,7 +50,7 @@ body {
   align-items: center;
   gap: 24px;
   padding: 40px;
-  background-color: #fdfdf8;
+  background-color: var(--color-background);
 }
 
 section {
@@ -56,8 +64,7 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #f2f2f2;
-  display: flex;
+  border-top: 1px solid var(--color-border);
   padding: 24px 0 0 0px;
 }
 
@@ -123,15 +130,20 @@ footer {
 /* Texts & Links */
 
 a {
-  color: #222;
+  color: var(--color-link);
   text-decoration: none;
-  outline: none;
   font-weight: 500;
 }
 
 a:hover {
-  color: #111;
+  color: var(--color-link-hover);
   text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .tabular {
@@ -171,11 +183,11 @@ li {
 
 
 .secondary {
-  color: #555;
+  color: var(--color-secondary);
 }
 
 .primary {
-  color: #111;
+  color: var(--color-primary);
 }
 
 .mb-8 {
@@ -219,8 +231,8 @@ li {
   position: absolute;
   visibility: hidden;
   width: 120px;
-  background-color: #fdfdf8;
-  color: #111;
+  background-color: var(--color-background);
+  color: var(--color-primary);
   text-align: center;
   border-radius: 6px;
   padding: 8px;
@@ -450,42 +462,42 @@ li {
 
 .type-body-16-medium {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 25px;
   letter-spacing: 0em;
 }
 
 .type-body-16-regular {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 26px;
   letter-spacing: 0em;
 }
 
 .type-body-15-medium {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 23px;
   letter-spacing: 0em;
 }
 
 .type-body-15-regular {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 24px;
   letter-spacing: 0em;
 }
 
 .type-body-14-medium {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 22px;
   letter-spacing: 0.0025em;
 }
 
 .type-body-14-regular {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
 }
@@ -493,56 +505,73 @@ li {
 /* CAPTIONS */
 .type-caption-13-medium {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 21px;
   letter-spacing: 0.0075em;
 }
 
 .type-caption-13-regular {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 21px;
   letter-spacing: 0.005em;
 }
 
 .type-caption-12-medium {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 19px;
   letter-spacing: 0.0125em;
 }
 
 .type-caption-12-regular {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.01em;
 }
 
 .type-caption-11-medium {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 18px;
   letter-spacing: 0.0175em;
 }
 
 .type-caption-11-regular {
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 18px;
   letter-spacing: 0.015em;
 }
 
 .type-caption-10-medium {
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 17px;
   letter-spacing: 0.0225em;
 }
 
 .type-caption-10-regular {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 17px;
   letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .case-card {
+    transition: none;
+  }
+
+  .meu-tooltip,
+  .mostrar-tooltip {
+    transition: none;
+  }
 }
