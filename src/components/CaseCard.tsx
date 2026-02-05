@@ -13,15 +13,15 @@ export function CaseCard({
   href,
   imageSrc,
   imageAlt,
-  thumbnailHeight = 180,
+  thumbnailHeight = 320,
 }: CaseCardProps) {
   return (
     <a
       href={href}
-      className="group block focus-visible:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+      className="group block no-underline hover:no-underline focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
     >
       <div
-        className="relative overflow-hidden rounded-xl shadow-xs transition-[transform,box-shadow] duration-200 ease-in group-hover:-translate-y-0.5 group-hover:shadow-xl motion-reduce:transition-none"
+        className="relative overflow-hidden rounded-md shadow-xs transition-[transform,box-shadow] duration-200 ease-in group-hover:-translate-y-0.5 group-hover:shadow-xl motion-reduce:transition-none"
         style={{ height: thumbnailHeight }}
       >
         <img

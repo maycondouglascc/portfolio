@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: theme("fontFamily.sans");
+  }
+
+  body {
+    @apply min-h-screen bg-background text-primary antialiased;
+  }
+
+  a {
+    @apply text-link underline-offset-2;
+  }
+
+  a:hover {
+    @apply text-link-hover underline;
+  }
+
+  a:focus-visible {
+    @apply rounded outline outline-2 outline-primary outline-offset-2;
+  }
+}

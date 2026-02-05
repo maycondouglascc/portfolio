@@ -7,30 +7,24 @@ const projects = [
     title: "Project title 1",
     description: "Project description 1",
     href: "#",
-    imageSrc: "/files/case-thumbnails/01.jpg",
+    imageSrc: "/files/case-thumbnails/project-thumbnail-1.png",
     imageAlt: "Project title 1",
   },
   {
     title: "Project title 2",
     description: "Project description 2",
     href: "#",
-    imageSrc: "/files/case-thumbnails/01.jpg",
+    imageSrc: "/files/case-thumbnails/project-thumbnail-2.png",
     imageAlt: "Project title 2",
   },
   {
     title: "Project title 3",
     description: "Project description 3",
     href: "#",
-    imageSrc: "/files/case-thumbnails/01.jpg",
+    imageSrc: "/files/case-thumbnails/project-thumbnail-3.png",
     imageAlt: "Project title 3",
   },
-  {
-    title: "Project title 4",
-    description: "Project description 4",
-    href: "#",
-    imageSrc: "/files/case-thumbnails/01.jpg",
-    imageAlt: "Project title 4",
-  },
+
 ]
 
 const experiences = [
@@ -87,7 +81,7 @@ export default function App() {
               loading="lazy"
             />
             <div className="flex flex-col gap-2">
-              <h1 className="text-heading-18-medium font-medium text-primary">
+              <h1 className="text-body-18-medium font-medium text-primary">
                 👋🏿 Oi, eu sou o Maycon
               </h1>
               <p className="text-body-16-regular font-normal text-secondary">
@@ -120,10 +114,10 @@ export default function App() {
           </section>
 
           <section className="flex flex-col gap-4">
-            <h2 className="text-heading-18-medium font-medium text-primary">
+            <h2 className="text-body-18-medium font-medium text-primary">
               Projetos
             </h2>
-            <ul className=" gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="flex flex-col gap-12">
               {projects.map((project) => (
                 <li key={project.title} className="min-w-0">
                   <CaseCard {...project} />
@@ -133,7 +127,7 @@ export default function App() {
           </section>
 
           <section className="flex flex-col gap-4">
-            <h2 className="text-heading-18-medium font-medium text-primary">
+            <h2 className="text-body-18-medium font-medium text-primary">
               Experiências
             </h2>
             <ul className="flex flex-col gap-3">
@@ -156,7 +150,7 @@ export default function App() {
         </main>
 
         <footer className="mt-12 border-t border-border pt-6">
-          <h2 className="text-heading-18-medium font-medium text-primaruy">
+          <h2 className="text-body-18-medium font-medium text-primary">
             Contato
           </h2>
           <ul className="mt-4 flex flex-wrap items-center gap-4 text-body-16-medium font-medium">
