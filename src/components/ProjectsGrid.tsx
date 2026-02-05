@@ -3,11 +3,13 @@ import { projects } from '../data/projects'
 
 function ProjectsGrid() {
   return (
-    <>
-      <h2 className="text-[15px] font-medium text-secondary mb-4">Projects</h2>
-      <ul className="grid grid-cols-1 gap-4">
+    <section className="flex flex-col gap-4">
+      <h2 className="text-body-18-medium font-medium text-primary">
+        Projetos
+      </h2>
+      <ul className="flex flex-col gap-12">
         {projects.map((project) => (
-          <li key={project.slug} className="flex-1 min-w-0">
+          <li key={project.slug} className="min-w-0">
             <CaseCard
               href={`/projects/${project.slug}`}
               imageSrc={project.thumbnail}
@@ -19,7 +21,7 @@ function ProjectsGrid() {
           </li>
         ))}
       </ul>
-    </>
+    </section>
   )
 }
 

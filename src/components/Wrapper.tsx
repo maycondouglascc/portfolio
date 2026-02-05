@@ -10,7 +10,7 @@ function Wrapper({ children, wide = false }: WrapperProps) {
 
   return (
     <div
-      className={`relative flex flex-col justify-between bg-white p-10 pt-16 ${maxWidth} rounded-2xl shadow-sm animate-fade-in motion-reduce:animate-none`}
+      className={`relative mx-auto w-full ${maxWidth} rounded-2xl bg-white px-1 pb-10 pt-10 shadow-sm sm:px-10 sm:pt-16 animate-fade-in motion-reduce:animate-none`}
     >
       {children}
     </div>
