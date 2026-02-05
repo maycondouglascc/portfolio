@@ -7,18 +7,10 @@ import Footer from '../components/Footer'
 function Home() {
   return (
     <Wrapper>
-      <main>
-        <section className="flex flex-col mb-12">
-          <Intro />
-        </section>
-
-        <section className="flex flex-col mb-12">
-          <ProjectsGrid />
-        </section>
-
-        <section className="flex flex-col mb-12">
-          <ExperienceList />
-        </section>
+      <main id="main-content" className="flex flex-col gap-12">
+        <Intro />
+        <ProjectsGrid />
+        <ExperienceList />
       </main>
       <Footer />
     </Wrapper>

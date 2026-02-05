@@ -1,31 +1,46 @@
 function Intro() {
   return (
-    <div className="intro">
-      <h1 className="text-[15px] font-medium mb-4">MD - Product Designer</h1>
-      <p className="text-sm text-secondary">
-        Atuo como <em>designer</em> há 8 anos e tenho experiência em projetos de
-        criação e manutenção de websites, aplicativos, SaaS e design systems.
-        Minha experiência inclui projetos para multinacionais, via{" "}
-        <a
-          href="http://dtidigital.com.br"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline"
-        >
-          <em>dti digital</em>
-        </a>{" "}
-        &{" "}
-        <a
-          href="http://base.digital/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline"
-        >
-          <em>BASE</em>
-        </a>
-        , e trabalhos autônomos para diferentes startups.
-      </p>
-    </div>
+    <section className="flex flex-col gap-6">
+      <img
+        className="rounded object-cover"
+        src="/files/profile-pic.webp"
+        alt="Maycon's profile picture"
+        width={80}
+        height={80}
+        fetchPriority="high"
+      />
+      <div className="flex flex-col gap-2">
+        <h1 className="text-body-18-medium font-medium text-primary">
+          &#x1F44B;&#x1F3FF; Oi, eu sou o Maycon
+        </h1>
+        <p className="text-body-16-regular font-normal text-secondary">
+          Atuo como designer h&aacute; 8 anos e tenho
+          experi&ecirc;ncia em projetos de cria&ccedil;&atilde;o e manuten&ccedil;&atilde;o de websites,
+          aplicativos, SaaS e design systems
+        </p>
+        <p className="text-body-16-regular font-normal text-secondary">
+          Minha experi&ecirc;ncia inclui projetos para multinacionais, via{" "}
+          <a
+            href="http://dtidigital.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium"
+          >
+            dti digital
+          </a>{" "}
+          &amp;{" "}
+          <a
+            href="http://base.digital/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium"
+          >
+            BASE
+          </a>
+          , e trabalhos aut&ocirc;nomos para diferentes startups
+        </p>
+      </div>
+    </section>
   )
 }
 

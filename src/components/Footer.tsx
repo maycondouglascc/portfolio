@@ -2,28 +2,28 @@ import { CopyEmailLink } from './CopyEmailLink'
 
 function Footer() {
   return (
-    <footer className="relative flex flex-col border-t border-border pt-6">
-      <h2 className="text-[15px] font-medium text-secondary mb-4">Contato</h2>
-      <ul className="flex gap-4">
+    <footer className="mt-12 border-t border-border pt-6">
+      <h2 className="text-body-18-medium font-medium text-primary">
+        Contato
+      </h2>
+      <ul className="mt-4 flex flex-wrap items-center gap-4 text-body-16-medium font-medium">
         <li>
-          <a 
-            href="https://linkedin.com/in/maycondouglascc" 
-            target="_blank" 
+          <a
+            href="https://linkedin.com/in/maycondouglascc"
+            target="_blank"
             rel="noopener noreferrer"
-            className="text-sm"
           >
             Linkedin
           </a>
         </li>
         <li>
-          <CopyEmailLink email="hellomaycondouglas@gmail.com" label="Email" />
+          <CopyEmailLink email="hellomaycondouglas@gmail.com" />
         </li>
         <li>
-          <a 
-            href="https://literal.club/wzk000" 
-            target="_blank" 
+          <a
+            href="https://literal.club/wzk000"
+            target="_blank"
             rel="noopener noreferrer"
-            className="text-sm"
           >
             Literal
           </a>

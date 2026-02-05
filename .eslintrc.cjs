@@ -1,8 +1,10 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
+  parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
@@ -17,7 +19,7 @@ module.exports = {
       version: '18.3',
     },
   },
-  plugins: ['react-refresh'],
+  plugins: ['@typescript-eslint', 'react-refresh'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
