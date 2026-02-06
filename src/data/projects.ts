@@ -1,3 +1,5 @@
+import danone from '../assets/lottie/danoneNorthAmerica.json' 
+
 export interface Project {
   slug: string
   title: string
@@ -5,6 +7,7 @@ export interface Project {
   thumbnail: string
   href?: string
   thumbnailHeight?: number
+  hoverLottie?: object
 }
 
 export const projects: Project[] = [
@@ -12,7 +15,8 @@ export const projects: Project[] = [
     slug: 'danone-north-america',
     title: 'Danone North America',
     description: 'Product design and UX refresh for a global food portfolio.',
-    thumbnail: '/files/case-thumbnails/project-thumbnail-1.png',
+    thumbnail: '/files/case-thumbnails/test.json',
+    hoverLottie: danone,
   },
   {
     slug: 'metlife',

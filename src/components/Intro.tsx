@@ -14,12 +14,12 @@ function Intro() {
           &#x1F44F;&#x1F3FD; Oi, eu sou o Maycon
         </h1>
         <p className="text-body-16-regular font-normal text-secondary">
-          Atuo como designer h&aacute; 8 anos e tenho
-          experi&ecirc;ncia em projetos de cria&ccedil;&atilde;o e manuten&ccedil;&atilde;o de websites,
+          Atuo como designer há 8 anos e tenho
+          experiência em projetos de criação e manutenção de websites,
           aplicativos, SaaS e design systems
         </p>
         <p className="text-body-16-regular font-normal text-secondary">
-          Minha experi&ecirc;ncia inclui projetos para multinacionais, via{" "}
+          Minha experiência inclui projetos para multinacionais, via{" "}
           <a
             href="http://dtidigital.com.br"
             target="_blank"
@@ -28,7 +28,7 @@ function Intro() {
           >
             dti digital
           </a>{" "}
-          &amp;{" "}
+          &{" "}
           <a
             href="http://base.digital/"
             target="_blank"
@@ -37,7 +37,7 @@ function Intro() {
           >
             BASE
           </a>
-          , e trabalhos aut&ocirc;nomos para diferentes startups
+          , e trabalhos autônomos para diferentes startups
         </p>
       </div>
     </section>

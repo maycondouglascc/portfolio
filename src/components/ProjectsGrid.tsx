@@ -7,7 +7,7 @@ function ProjectsGrid() {
       <h2 className="text-body-18-medium font-medium text-primary">
         Projetos
       </h2>
-      <ul className="flex flex-col gap-12">
+      <ul className="flex flex-col gap-2">
         {projects.map((project) => (
           <li key={project.slug} className="min-w-0">
             <CaseCard
@@ -17,6 +17,7 @@ function ProjectsGrid() {
               title={project.title}
               description={project.description}
               thumbnailHeight={project.thumbnailHeight}
+              hoverLottie={project.hoverLottie}
             />
           </li>
         ))}
