@@ -7,6 +7,7 @@ const config = {
         primary: "#111",
         secondary: "#555",
         background: "#fdfdf8",
+        card: "#e4e4e7",
         border: "#f2f2f2",
         link: "#222",
         "link-hover": "#111",
