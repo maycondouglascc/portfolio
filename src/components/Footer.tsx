@@ -17,7 +17,7 @@ function Footer() {
           </a>
         </li>
         <li>
-          <CopyEmailLink email="hellomaycondouglas@gmail.com" />
+          <CopyEmailLink email="hi@maycondouglas.work" />
         </li>
         <li>
           <a
