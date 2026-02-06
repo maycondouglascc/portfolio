@@ -3,7 +3,7 @@ import { experience } from '../data/experience'
 function ExperienceList() {
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-body-18-medium font-medium text-primary">
+      <h2 className="text-body-15-medium font-medium text-primary">
         Experi&ecirc;ncias
       </h2>
       <ul className="flex flex-col gap-3">

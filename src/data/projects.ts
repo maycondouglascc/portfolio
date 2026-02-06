@@ -4,7 +4,6 @@ export interface Project {
   slug: string
   title: string
   description: string
-  thumbnail: string
   href?: string
   thumbnailHeight?: number
   hoverLottie?: object
@@ -15,19 +14,20 @@ export const projects: Project[] = [
     slug: 'danone-north-america',
     title: 'Danone North America',
     description: 'Product design and UX refresh for a global food portfolio.',
-    thumbnail: '/files/case-thumbnails/test.json',
     hoverLottie: danone,
   },
   {
-    slug: 'metlife',
-    title: 'Metlife',
+    slug: 'gskpromx',
+    title: 'GSK Pro México',
     description: 'Design system updates for scalable insurance experiences.',
-    thumbnail: '/files/case-thumbnails/project-thumbnail-2.png',
+    hoverLottie: danone,
+
   },
   {
     slug: 'vendd-web',
     title: 'Vendd Web',
     description: 'Web app redesign focused on onboarding and conversions.',
-    thumbnail: '/files/case-thumbnails/project-thumbnail-3.png',
+    hoverLottie: danone,
+
   },
 ]

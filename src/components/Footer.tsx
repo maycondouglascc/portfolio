@@ -3,10 +3,10 @@ import { CopyEmailLink } from './CopyEmailLink'
 function Footer() {
   return (
     <footer className="mt-12 border-t border-border pt-6">
-      <h2 className="text-body-18-medium font-medium text-primary">
+      <h2 className="text-body-15-medium font-medium text-primary">
         Contato
       </h2>
-      <ul className="mt-4 flex flex-wrap items-center gap-4 text-body-16-medium font-medium">
+      <ul className="mt-4 flex flex-wrap items-center gap-4 text-body-15-medium font-medium">
         <li>
           <a
             href="https://linkedin.com/in/maycondouglascc"

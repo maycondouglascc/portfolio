@@ -6,7 +6,7 @@ type CaseCardProps = {
   title: string
   description: string
   href: string
-  imageSrc: string
+  imageSrc?: string
   imageAlt: string
   thumbnailHeight?: number
   hoverLottie?: object
@@ -104,7 +104,7 @@ export function CaseCard({
   const content = (
     <>
       <div className="p-4 rounded-md bg-stone-50 hover:bg-stone-200 transition-all duration-50 ease-in">
-        <span className=" text-body-16-medium font-medium text-primary">
+        <span className=" text-body-15-medium font-medium text-primary">
           {title}
         </span>
         <span className="mt-1 block text-body-14-regular font-normal text-secondary break-words">
