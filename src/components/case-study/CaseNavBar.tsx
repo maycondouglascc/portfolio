@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ExternalLink } from 'react-feather'
+import { CornerUpLeft, ExternalLink } from 'react-feather'
 import Button from '../Button'
 
 type CaseNavBarProps = {
@@ -18,7 +18,7 @@ function CaseNavBar({ externalHref }: CaseNavBarProps) {
         variant="icon"
         aria-label="Back to home"
       >
-        <ArrowLeft size={16} strokeWidth={1.5} aria-hidden="true" />
+        <CornerUpLeft size={16} strokeWidth={1.5} aria-hidden="true" />
       </Button>
 
       {externalHref && (

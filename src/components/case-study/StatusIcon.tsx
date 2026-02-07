@@ -1,4 +1,4 @@
-import { Check, Info, X } from 'react-feather'
+import { Check, Info, AlertTriangle } from 'react-feather'
 
 export type StatusIconVariant = 'positive' | 'negative' | 'neutral'
 
@@ -8,9 +8,9 @@ type StatusIconProps = {
 }
 
 const bgMap: Record<StatusIconVariant, string> = {
-  positive: 'bg-[#7ccf00]',
-  negative: 'bg-[#fb2c36]',
-  neutral: 'bg-[#e7e5e4]',
+  positive: 'bg-lime-500',
+  negative: 'bg-red-500',
+  neutral: 'bg-gray-500',
 }
 
 const labelMap: Record<StatusIconVariant, string> = {
@@ -39,15 +39,15 @@ function StatusIcon({ variant, className }: StatusIconProps) {
       {variant === 'positive' && (
         <Check
           size={16}
-          strokeWidth={1.5}
+          strokeWidth={2}
           className={iconClassName}
           aria-hidden="true"
         />
       )}
       {variant === 'negative' && (
-        <X
+        <AlertTriangle
           size={16}
-          strokeWidth={1.5}
+          strokeWidth={2}
           className={iconClassName}
           aria-hidden="true"
         />
@@ -55,7 +55,7 @@ function StatusIcon({ variant, className }: StatusIconProps) {
       {variant === 'neutral' && (
         <Info
           size={16}
-          strokeWidth={1.5}
+          strokeWidth={2}
           className={iconClassName}
           aria-hidden="true"
         />

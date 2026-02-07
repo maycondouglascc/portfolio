@@ -1,15 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { ChevronUp } from 'react-feather'
 import Wrapper from '../components/Wrapper'
 import { projects, type CaseStudySection } from '../data/projects'
 import { getCaseStudy } from '../data/case-studies'
-
 import CaseNavBar from '../components/case-study/CaseNavBar'
 import CaseImage from '../components/case-study/CaseImage'
 import ImageStack from '../components/case-study/ImageStack'
 import ImageGrid from '../components/case-study/ImageGrid'
 import MetricsRow from '../components/case-study/MetricsRow'
 import { CaseCard } from '../components/CaseCard'
+import Button from '../components/Button'
 
 // ── Section renderer ──────────────────────────────────────────────
 
@@ -150,6 +151,18 @@ function CaseStudy() {
   const { slug } = useParams<{ slug: string }>()
   const project = projects.find((p) => p.slug === slug)
   const caseStudy = slug ? getCaseStudy(slug) : undefined
+  const introRef = useRef<HTMLElement | null>(null)
+
+  if (typeof window === 'undefined') return
+  const handleScrollTop = () => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    })
+  }
 
   useEffect(() => {
     const title = caseStudy?.title ?? project?.title ?? slug
@@ -158,6 +171,8 @@ function CaseStudy() {
       document.title = 'Maycon Douglas - Product Designer'
     }
   }, [caseStudy?.title, project?.title, slug])
+
+
 
   // ── No case study data yet — show placeholder ──
   if (!caseStudy) {
@@ -183,8 +198,12 @@ function CaseStudy() {
       <CaseNavBar externalHref={caseStudy.externalHref} />
 
       <main id="main-content" lang="en">
+      
         {/* ── Header ── */}
-        <header className="max-w-[600px] mx-auto space-y-2 mb-10">
+        <header
+          ref={introRef}
+          className="max-w-[600px] mx-auto space-y-2 mb-10"
+        >
           <h1 className="text-subheading-24-medium font-semibold text-primary">
             {caseStudy.title}
           </h1>
@@ -211,6 +230,15 @@ function CaseStudy() {
         <div className="flex-1 min-w-0 space-y-16 max-w-[600px] mx-auto">
           {caseStudy.sections.map((section, i) => renderSection(section, i))}
         </div>
+        <Button
+        onClick={handleScrollTop}
+        variant="icon"
+        className=
+          "mt-4"
+        aria-label="Scroll to the top"
+      >
+        <ChevronUp size={16} strokeWidth={1.5} aria-hidden="true" />
+      </Button>
 
         {/* ── Divider ── */}
         <hr className="max-w-[600px] mx-auto mt-16 mb-0 border-0 border-t border-stone-200" />
@@ -237,6 +265,7 @@ function CaseStudy() {
           </ul>
         </section>
       </main>
+    
     </Wrapper>
   )
 }
