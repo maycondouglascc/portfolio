@@ -58,7 +58,7 @@ export default function App() {
       <a href="#main-content" className="skip-to-content">
         Pular para o conteúdo
       </a>
-      <div className="px-8 py-8 sm:px-10 sm:py-10">
+      <div className="px-1 py-1 sm:px-10 sm:py-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
