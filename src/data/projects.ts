@@ -61,17 +61,16 @@ export const projects: Project[] = [
   {
     slug: 'danone-north-america',
     title: 'Danone North America',
-    description: 'Product design and UX refresh for a global food portfolio.',
+    description: 'Revitalizing the Danone NorAm digital presence by renewing its design language and migrating their institutional portal to the Adobe Experience Manager platform.',
     hoverLottie: danone,
   },
   {
     slug: 'gskpromx',
     title: 'GSK Pro México',
-    description: 'Design system updates for scalable insurance experiences.',
+    description: "Redesigning GSK México's portal with a scalable template system and personalized content architecture tailored to medical specialties",
   },
   {
     slug: 'vendd-web',
     title: 'Vendd Web',
-    description: 'Web app redesign focused on onboarding and conversions.',
-  },
+    description: "Establishing Vendd's product design foundation as solo designer, building and scaling a unified design system across web and mobile platforms"},
 ]
