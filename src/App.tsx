@@ -38,13 +38,13 @@ function NotFound() {
           P&aacute;gina n&atilde;o encontrada
         </h1>
         <p className="text-body-15-regular text-secondary">
-          O conte&uacute;do que voc&ecirc; procura n&atilde;o existe ou foi movido.
+          O conteúdo;do que você; procura não;o existe ou foi movido.
         </p>
         <Link
           to="/"
           className="mt-4 inline-flex items-center gap-2 rounded-md bg-stone-100 px-4 py-2 text-body-15-medium font-medium text-primary no-underline transition-colors duration-200 hover:bg-stone-200 hover:no-underline"
         >
-          &larr; Voltar para o in&iacute;cio
+          &larr; Voltar para o início
         </Link>
       </main>
     </Wrapper>

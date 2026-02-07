@@ -22,7 +22,7 @@ export const experience: Experience[] = [
   },
   {
     company: 'Ôpa!',
-    role: 'Diretor de Arte',
+    role: 'Art Director',
     period: '2018-20',
   },
 ]

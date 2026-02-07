@@ -14,7 +14,7 @@ function Intro() {
       />
       <div className="flex flex-col gap-2">
         <h1 className="text-body-15-medium font-medium text-primary">
-          &#128075;&#x1F3FD; Oi, eu sou o Maycon
+          &#128075;&#x1F3FD; Oi, I'm Maycon
         </h1>
 
       <p className="text-body-15-medium font-normal text-secondary">
