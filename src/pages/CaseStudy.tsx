@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Wrapper from '../components/Wrapper'
-import SectionTree from '../components/SectionTree'
 import { projects, type CaseStudySection } from '../data/projects'
 import { getCaseStudy } from '../data/case-studies'
 
@@ -25,11 +24,11 @@ function renderSection(section: CaseStudySection, index: number) {
           className={sectionId ? 'scroll-mt-24' : undefined}
         >
           {section.title && (
-            <h2 className="text-body-15-medium font-semibold text-[#0c0a09] mb-2">
+            <h2 className="text-body-15-medium font-semibold text-primary mb-2">
               {section.title}
             </h2>
           )}
-          <div className="text-body-15-regular font-medium text-[#57534d] space-y-4 [&_p]:leading-[24px]">
+          <div className="text-body-15-regular font-medium text-secondary space-y-4 [&_p]:leading-[24px]">
             {section.body}
           </div>
         </section>
@@ -45,7 +44,7 @@ function renderSection(section: CaseStudySection, index: number) {
             .join(' ')}
         >
           {section.label && (
-            <p className="text-body-15-medium font-semibold text-[#0c0a09]">
+            <p className="text-body-15-medium font-semibold text-primary">
               {section.label}
             </p>
           )}
@@ -104,10 +103,10 @@ function renderSection(section: CaseStudySection, index: number) {
             .filter(Boolean)
             .join(' ')}
         >
-          <h2 className="text-body-15-medium font-semibold text-[#0c0a09]">
+          <h2 className="text-body-15-medium font-semibold text-primary">
             {section.title}
           </h2>
-          <p className="text-body-15-regular font-medium text-[#57534d] leading-[24px]">
+          <p className="text-body-15-regular font-medium text-secondary leading-[24px]">
             {section.intro}
           </p>
           <MetricsRow items={section.items} layout="vertical" />
@@ -123,11 +122,11 @@ function renderSection(section: CaseStudySection, index: number) {
             .filter(Boolean)
             .join(' ')}
         >
-          <h2 className="text-body-18-medium font-semibold text-[#0c0a09]">
+          <h2 className="text-body-18-medium font-semibold text-primary">
             {section.title}
           </h2>
           <div className="space-y-2">
-            <p className="text-body-15-regular font-medium text-[#57534d] leading-[24px]">
+            <p className="text-body-15-regular font-medium text-secondary leading-[24px]">
               {section.intro}
             </p>
             <MetricsRow
@@ -182,25 +181,25 @@ function CaseStudy() {
     <Wrapper>
       <CaseNavBar externalHref={caseStudy.externalHref} />
 
-      <main id="main-content">
+      <main id="main-content" lang="en">
         {/* ── Header ── */}
-        <header className="max-w-[468px] mx-auto space-y-2 mb-10">
-          <h1 className="text-subheading-24-medium font-semibold text-[#0c0a09]">
+        <header className="max-w-[600px] mx-auto space-y-2 mb-10">
+          <h1 className="text-subheading-24-medium font-semibold text-primary">
             {caseStudy.title}
           </h1>
-          <p className="text-body-16-regular font-medium text-[#57534d] leading-[24px]">
+          <p className="text-body-15-regular text-secondary leading-[24px]">
             {caseStudy.description}
           </p>
-          <div className="text-body-15-regular font-medium text-[#57534d] leading-[24px]">
+          <div className="text-body-15-regular font-medium text-secondary">
             <p>
-              <span className="font-semibold text-[#0c0a09]">My role</span>
+              <span className="font-semibold text-primary">My role</span>
               <br />
               {caseStudy.role}
             </p>
           </div>
-          <div className="text-body-15-regular font-medium text-[#57534d] leading-[24px]">
+          <div className="text-body-15-regular text-secondary">
             <p>
-              <span className="font-semibold text-[#0c0a09]">Core Goal</span>
+              <span className="font-semibold text-primary">Core Goal</span>
               <br />
               {caseStudy.goal}
             </p>
@@ -208,14 +207,8 @@ function CaseStudy() {
         </header>
 
         {/* ── Content ── */}
-        <div className="flex flex-col gap-10 md:flex-row">
-          <aside className="hidden md:block md:w-48 md:shrink-0 sticky top-8 self-start">
-            <SectionTree items={caseStudy.sectionTree} />
-          </aside>
-
-          <div className="flex-1 min-w-0 space-y-10 max-w-[468px] mx-auto md:mx-0 md:max-w-none">
-            {caseStudy.sections.map((section, i) => renderSection(section, i))}
-          </div>
+        <div className="flex-1 min-w-0 space-y-16 max-w-[600px] mx-auto">
+          {caseStudy.sections.map((section, i) => renderSection(section, i))}
         </div>
       </main>
     </Wrapper>

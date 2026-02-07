@@ -11,6 +11,12 @@ const bgMap: Record<StatusIconVariant, string> = {
   neutral: 'bg-[#e7e5e4]',
 }
 
+const labelMap: Record<StatusIconVariant, string> = {
+  positive: 'Positive',
+  negative: 'Negative',
+  neutral: 'Neutral',
+}
+
 function StatusIcon({ variant, className }: StatusIconProps) {
   const bg = bgMap[variant]
 
@@ -23,7 +29,8 @@ function StatusIcon({ variant, className }: StatusIconProps) {
       ]
         .filter(Boolean)
         .join(' ')}
-      aria-hidden="true"
+      role="img"
+      aria-label={labelMap[variant]}
     >
       {variant === 'positive' ? (
         <svg
@@ -53,7 +60,7 @@ function StatusIcon({ variant, className }: StatusIconProps) {
         >
           <path
             d="M8 5V8.5"
-            stroke={variant === 'negative' ? 'white' : '#0c0a09'}
+            stroke={variant === 'negative' ? 'white' : 'currentColor'}
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -62,7 +69,7 @@ function StatusIcon({ variant, className }: StatusIconProps) {
             cx="8"
             cy="11"
             r="0.75"
-            fill={variant === 'negative' ? 'white' : '#0c0a09'}
+            fill={variant === 'negative' ? 'white' : 'currentColor'}
           />
         </svg>
       )}

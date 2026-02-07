@@ -9,20 +9,6 @@ const danoneStudy: CaseStudyData = {
   role: 'Product Designer',
   goal: 'Modernize interface and migrate to a dynamic CMS',
 
-  sectionTree: [
-    { id: 'overview', label: 'Overview' },
-    {
-      id: 'approach',
-      label: 'Approach',
-      children: [
-        { id: 'the-problem', label: 'The Problem' },
-        { id: 'design-process', label: 'Design Process' },
-        { id: 'deliverables', label: 'Key Deliverables' },
-      ],
-    },
-    { id: 'outcomes', label: 'Outcomes' },
-  ],
-
   sections: [
     // ── Overview: Metrics ──
     {
@@ -78,7 +64,7 @@ const danoneStudy: CaseStudyData = {
           <p>
             By implementing a responsive library of over 15+ components and
             restructuring 10+ core pages, the solution delivered a +150%
-            increase in site traffic year-over-year*
+            increase in site traffic year-over-year*.
           </p>
         </>
       ),
@@ -131,7 +117,7 @@ const danoneStudy: CaseStudyData = {
             ensure the final architecture met both business and user
             expectations.
           </p>
-          <ul className="list-disc pl-5 space-y-1">
+          <ul className="list-disc pl-5 space-y-2">
             <li>
               <strong>Discovery &amp; Research:</strong>{' '}
               Analyzed surveys and stakeholder expectations, identifying key
@@ -179,23 +165,21 @@ const danoneStudy: CaseStudyData = {
       id: 'deliverables',
       title: 'Key Deliverables & Rationale',
       body: (
-        <>
-          <div className="space-y-2">
-            <p className="text-body-15-medium font-semibold text-[#0c0a09]">
-              Scalable Component Library
+        <div className="space-y-2">
+          <p className="text-body-15-regular text-primary">
+            Scalable Component Library
+          </p>
+          <div>
+            <p className="text-primary">
+              Developed a library of 20+ responsive components.
             </p>
-            <div>
-              <p className="text-[#0c0a09]">
-                Developed a library of 20+ responsive components.
-              </p>
-              <p>
-                To empower the Danone team to manage content quickly and
-                efficiently without developer intervention, ensuring brand
-                consistency across all new pages and campaigns.
-              </p>
-            </div>
+            <p>
+              To empower the Danone team to manage content quickly and
+              efficiently without developer intervention, ensuring brand
+              consistency across all new pages and campaigns.
+            </p>
           </div>
-        </>
+        </div>
       ),
     },
 
@@ -228,13 +212,13 @@ const danoneStudy: CaseStudyData = {
       title: 'SEO & Accessibility Framework',
       body: (
         <>
-          <p className="text-[#0c0a09]">
+          <p className="text-primary">
             Established a guide for SEO-oriented writing and accessible content.
           </p>
           <p>
             Redesigning the visual layer was insufficient; the underlying
-            structure needed to be &ldquo;best in class&rdquo; for search
-            engines to drive organic growth.
+            structure needed to be &ldquo;best in class&rdquo; for search engines
+            to drive organic growth.
           </p>
         </>
       ),
@@ -312,9 +296,9 @@ const danoneStudy: CaseStudyData = {
         <p>
           This project reinforced the importance of technical feasibility in
           Senior Design leadership. Success wasn&rsquo;t just about the
-          &ldquo;attractive design,&rdquo; but about building a system that the
-          client could actually maintain and grow independently within the AEM
-          ecosystem.
+          &ldquo;attractive design&rdquo;&mdash;but about building a system that
+          the client could actually maintain and grow independently within the
+          AEM ecosystem.
         </p>
       ),
     },

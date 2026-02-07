@@ -29,6 +29,8 @@ function CaseImage({
       <img
         src={src}
         alt={alt}
+        width={632}
+        height={442}
         loading={priority ? 'eager' : 'lazy'}
         decoding={priority ? 'sync' : 'async'}
         className="absolute inset-0 size-full object-cover"

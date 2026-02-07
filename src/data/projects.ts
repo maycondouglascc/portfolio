@@ -1,6 +1,5 @@
 import { type ReactNode } from 'react'
 import danone from '../assets/lottie/danoneNorthAmerica.json'
-import type { SectionTreeItem } from '../components/SectionTree'
 import type { StatusIconVariant } from '../components/case-study/StatusIcon'
 
 // ── Card item used by metrics / problems / results ──
@@ -48,7 +47,6 @@ export type CaseStudyData = {
   goal: string
   externalHref?: string
   sections: CaseStudySection[]
-  sectionTree: SectionTreeItem[]
 }
 
 // ── Project card (home page) ──
@@ -56,8 +54,6 @@ export interface Project {
   slug: string
   title: string
   description: string
-  href?: string
-  thumbnailHeight?: number
   hoverLottie?: object
 }
 
@@ -72,12 +68,10 @@ export const projects: Project[] = [
     slug: 'gskpromx',
     title: 'GSK Pro México',
     description: 'Design system updates for scalable insurance experiences.',
-    hoverLottie: danone,
   },
   {
     slug: 'vendd-web',
     title: 'Vendd Web',
     description: 'Web app redesign focused on onboarding and conversions.',
-    hoverLottie: danone,
   },
 ]

@@ -15,7 +15,6 @@ function ProjectsGrid() {
               imageAlt={project.title}
               title={project.title}
               description={project.description}
-              thumbnailHeight={project.thumbnailHeight}
               hoverLottie={project.hoverLottie}
             />
           </li>
