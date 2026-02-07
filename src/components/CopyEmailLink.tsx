@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import Button from "./Button"
 
 type CopyEmailLinkProps = {
   email: string
@@ -34,14 +35,13 @@ export function CopyEmailLink({ email, label = "Email" }: CopyEmailLinkProps) {
 
   return (
     <span className="relative inline-flex items-center">
-      <button
-        type="button"
+      <Button
         onClick={handleCopy}
-        className="text-body-15-medium font-medium text-link underline-offset-2 hover:text-link-hover hover:underline focus-visible:rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
         aria-label={`Copiar ${email}`}
+        variant="link"
       >
         {label}
-      </button>
+      </Button>
       <span
         role="status"
         aria-live="polite"

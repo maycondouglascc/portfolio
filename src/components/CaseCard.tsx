@@ -76,7 +76,7 @@ export function CaseCard({
         isHovered ? 'opacity-100' : 'opacity-0'
       }`}
       style={{
-        transform: `translate(${smoothPos.x + 10}px, ${smoothPos.y - 190}px)`,
+        transform: `translate(${smoothPos.x - 600}px, ${smoothPos.y - 230}px)`,
         willChange: 'transform',
       }}
     >

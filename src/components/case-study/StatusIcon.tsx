@@ -1,3 +1,5 @@
+import { Check, Info, AlertTriangle } from 'react-feather'
+
 export type StatusIconVariant = 'positive' | 'negative' | 'neutral'
 
 type StatusIconProps = {
@@ -6,9 +8,9 @@ type StatusIconProps = {
 }
 
 const bgMap: Record<StatusIconVariant, string> = {
-  positive: 'bg-[#7ccf00]',
-  negative: 'bg-[#fb2c36]',
-  neutral: 'bg-[#e7e5e4]',
+  positive: 'bg-lime-500',
+  negative: 'bg-red-500',
+  neutral: 'bg-gray-500',
 }
 
 const labelMap: Record<StatusIconVariant, string> = {
@@ -19,6 +21,8 @@ const labelMap: Record<StatusIconVariant, string> = {
 
 function StatusIcon({ variant, className }: StatusIconProps) {
   const bg = bgMap[variant]
+  const iconClassName =
+    variant === 'neutral' ? 'text-primary' : 'text-white'
 
   return (
     <span
@@ -32,46 +36,29 @@ function StatusIcon({ variant, className }: StatusIconProps) {
       role="img"
       aria-label={labelMap[variant]}
     >
-      {variant === 'positive' ? (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {variant === 'positive' && (
+        <Check
+          size={16}
+          strokeWidth={2}
+          className={iconClassName}
           aria-hidden="true"
-        >
-          <path
-            d="M11.5 5.5L6.8125 10.5L4.5 8.0625"
-            stroke="white"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ) : (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        />
+      )}
+      {variant === 'negative' && (
+        <AlertTriangle
+          size={16}
+          strokeWidth={2}
+          className={iconClassName}
           aria-hidden="true"
-        >
-          <path
-            d="M8 5V8.5"
-            stroke={variant === 'negative' ? 'white' : 'currentColor'}
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle
-            cx="8"
-            cy="11"
-            r="0.75"
-            fill={variant === 'negative' ? 'white' : 'currentColor'}
-          />
-        </svg>
+        />
+      )}
+      {variant === 'neutral' && (
+        <Info
+          size={16}
+          strokeWidth={2}
+          className={iconClassName}
+          aria-hidden="true"
+        />
       )}
     </span>
   )
