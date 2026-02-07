@@ -1,99 +1,214 @@
 import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Wrapper from '../components/Wrapper'
-import SectionTree, { SectionTreeItem } from '../components/SectionTree'
-import { projects } from '../data/projects'
+import { projects, type CaseStudySection } from '../data/projects'
+import { getCaseStudy } from '../data/case-studies'
 
-const sectionTree: SectionTreeItem[] = [
-  {
-    id: 'overview',
-    label: 'Overview',
-  },
-  {
-    id: 'approach',
-    label: 'Approach',
-    children: [
-      { id: 'research', label: 'Research' },
-      { id: 'design', label: 'Design' },
-      { id: 'build', label: 'Build' },
-    ],
-  },
-  {
-    id: 'outcomes',
-    label: 'Outcomes',
-  },
-]
+import CaseNavBar from '../components/case-study/CaseNavBar'
+import CaseImage from '../components/case-study/CaseImage'
+import ImageStack from '../components/case-study/ImageStack'
+import ImageGrid from '../components/case-study/ImageGrid'
+import MetricsRow from '../components/case-study/MetricsRow'
+
+// ── Section renderer ──────────────────────────────────────────────
+
+function renderSection(section: CaseStudySection, index: number) {
+  const sectionId = section.id
+
+  switch (section.type) {
+    case 'text':
+      return (
+        <section
+          key={`text-${index}`}
+          id={sectionId}
+          className={sectionId ? 'scroll-mt-24' : undefined}
+        >
+          {section.title && (
+            <h2 className="text-body-15-medium font-semibold text-primary mb-2">
+              {section.title}
+            </h2>
+          )}
+          <div className="text-body-15-regular font-medium text-secondary space-y-4 [&_p]:leading-[24px]">
+            {section.body}
+          </div>
+        </section>
+      )
+
+    case 'metrics':
+      return (
+        <section
+          key={`metrics-${index}`}
+          id={sectionId}
+          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-2']
+            .filter(Boolean)
+            .join(' ')}
+        >
+          {section.label && (
+            <p className="text-body-15-medium font-semibold text-primary">
+              {section.label}
+            </p>
+          )}
+          <MetricsRow
+            items={section.items}
+            layout={section.layout}
+            disclaimer={section.disclaimer}
+          />
+        </section>
+      )
+
+    case 'image':
+      return (
+        <div
+          key={`image-${index}`}
+          id={sectionId}
+          className={sectionId ? 'scroll-mt-24' : undefined}
+        >
+          <CaseImage
+            src={section.src}
+            alt={section.alt}
+            priority={section.priority}
+            rounded={section.rounded}
+          />
+        </div>
+      )
+
+    case 'imageStack':
+      return (
+        <div
+          key={`stack-${index}`}
+          id={sectionId}
+          className={sectionId ? 'scroll-mt-24' : undefined}
+        >
+          <ImageStack images={section.images} />
+        </div>
+      )
+
+    case 'imageGrid':
+      return (
+        <div
+          key={`grid-${index}`}
+          id={sectionId}
+          className={sectionId ? 'scroll-mt-24' : undefined}
+        >
+          <ImageGrid images={section.images} />
+        </div>
+      )
+
+    case 'problems':
+      return (
+        <section
+          key={`problems-${index}`}
+          id={sectionId}
+          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-2']
+            .filter(Boolean)
+            .join(' ')}
+        >
+          <h2 className="text-body-15-medium font-semibold text-primary">
+            {section.title}
+          </h2>
+          <p className="text-body-15-regular font-medium text-secondary leading-[24px]">
+            {section.intro}
+          </p>
+          <MetricsRow items={section.items} layout="vertical" />
+        </section>
+      )
+
+    case 'results':
+      return (
+        <section
+          key={`results-${index}`}
+          id={sectionId}
+          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-6']
+            .filter(Boolean)
+            .join(' ')}
+        >
+          <h2 className="text-body-18-medium font-semibold text-primary">
+            {section.title}
+          </h2>
+          <div className="space-y-2">
+            <p className="text-body-15-regular font-medium text-secondary leading-[24px]">
+              {section.intro}
+            </p>
+            <MetricsRow
+              items={section.items}
+              layout="vertical"
+              disclaimer={section.disclaimer}
+            />
+          </div>
+        </section>
+      )
+
+    default:
+      return null
+  }
+}
+
+// ── Page ──────────────────────────────────────────────────────────
 
 function CaseStudy() {
   const { slug } = useParams<{ slug: string }>()
   const project = projects.find((p) => p.slug === slug)
+  const caseStudy = slug ? getCaseStudy(slug) : undefined
 
   useEffect(() => {
-    const title = project?.title ?? slug
+    const title = caseStudy?.title ?? project?.title ?? slug
     document.title = `${title} - Maycon Douglas`
     return () => {
       document.title = 'Maycon Douglas - Product Designer'
     }
-  }, [project?.title, slug])
+  }, [caseStudy?.title, project?.title, slug])
+
+  // ── No case study data yet — show placeholder ──
+  if (!caseStudy) {
+    return (
+      <Wrapper>
+        <nav aria-label="Breadcrumb" className="mb-4">
+          <Link to="/" className="inline-block text-sm">
+            &larr; Voltar para o in&iacute;cio
+          </Link>
+        </nav>
+        <main id="main-content">
+          <h1 className="text-subheading-24-medium font-semibold mb-4">
+            {project?.title ?? slug}
+          </h1>
+          <p className="text-secondary">Content coming soon&hellip;</p>
+        </main>
+      </Wrapper>
+    )
+  }
 
   return (
-    <Wrapper wide>
-      <nav aria-label="Breadcrumb" className="mb-4">
-        <Link to="/" className="inline-block text-sm">
-          &larr; Voltar para o in&iacute;cio
-        </Link>
-      </nav>
-      <main id="main-content">
-        <h1 className="text-2xl font-medium mb-8">
-          {project?.title ?? slug}
-        </h1>
-        <div className="flex flex-col gap-10 md:flex-row">
-          <aside className="md:w-56 md:shrink-0">
-            <SectionTree items={sectionTree} />
-          </aside>
-          <div className="flex-1 min-w-0 space-y-12">
-            <section id="overview" className="scroll-mt-24">
-              <h2 className="text-lg font-medium mb-3">Overview</h2>
-              <p className="text-secondary">
-                Content coming soon&hellip;
-              </p>
-            </section>
+    <Wrapper>
+      <CaseNavBar externalHref={caseStudy.externalHref} />
 
-            <section id="approach" className="scroll-mt-24">
-              <h2 className="text-lg font-medium mb-3">Approach</h2>
-              <p className="text-secondary">
-                Content coming soon&hellip;
-              </p>
-            </section>
-
-            <section id="research" className="scroll-mt-24">
-              <h3 className="text-base font-medium mb-2">Research</h3>
-              <p className="text-secondary">
-                Content coming soon&hellip;
-              </p>
-            </section>
-
-            <section id="design" className="scroll-mt-24">
-              <h3 className="text-base font-medium mb-2">Design</h3>
-              <p className="text-secondary">
-                Content coming soon&hellip;
-              </p>
-            </section>
-
-            <section id="build" className="scroll-mt-24">
-              <h3 className="text-base font-medium mb-2">Build</h3>
-              <p className="text-secondary">
-                Content coming soon&hellip;
-              </p>
-            </section>
-
-            <section id="outcomes" className="scroll-mt-24">
-              <h2 className="text-lg font-medium mb-3">Outcomes</h2>
-              <p className="text-secondary">
-                Content coming soon&hellip;
-              </p>
-            </section>
+      <main id="main-content" lang="en">
+        {/* ── Header ── */}
+        <header className="max-w-[600px] mx-auto space-y-2 mb-10">
+          <h1 className="text-subheading-24-medium font-semibold text-primary">
+            {caseStudy.title}
+          </h1>
+          <p className="text-body-15-regular text-secondary leading-[24px]">
+            {caseStudy.description}
+          </p>
+          <div className="text-body-15-regular font-medium text-secondary">
+            <p>
+              <span className="font-semibold text-primary">My role</span>
+              <br />
+              {caseStudy.role}
+            </p>
           </div>
+          <div className="text-body-15-regular text-secondary">
+            <p>
+              <span className="font-semibold text-primary">Core Goal</span>
+              <br />
+              {caseStudy.goal}
+            </p>
+          </div>
+        </header>
+
+        {/* ── Content ── */}
+        <div className="flex-1 min-w-0 space-y-16 max-w-[600px] mx-auto">
+          {caseStudy.sections.map((section, i) => renderSection(section, i))}
         </div>
       </main>
     </Wrapper>

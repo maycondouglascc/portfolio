@@ -23,7 +23,7 @@ function Intro() {
         <p className="text-body-15-medium font-normal text-secondary">
           Minha experiência inclui projetos para multinacionais, via{" "}
           <a
-            href="http://dtidigital.com.br"
+            href="https://dtidigital.com.br"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium"
@@ -32,7 +32,7 @@ function Intro() {
           </a>{" "}
           &{" "}
           <a
-            href="http://base.digital/"
+            href="https://base.digital/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium"
