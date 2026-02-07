@@ -9,6 +9,7 @@ import CaseImage from '../components/case-study/CaseImage'
 import ImageStack from '../components/case-study/ImageStack'
 import ImageGrid from '../components/case-study/ImageGrid'
 import MetricsRow from '../components/case-study/MetricsRow'
+import { CaseCard } from '../components/CaseCard'
 
 // ── Section renderer ──────────────────────────────────────────────
 
@@ -210,6 +211,31 @@ function CaseStudy() {
         <div className="flex-1 min-w-0 space-y-16 max-w-[600px] mx-auto">
           {caseStudy.sections.map((section, i) => renderSection(section, i))}
         </div>
+
+        {/* ── Divider ── */}
+        <hr className="max-w-[600px] mx-auto mt-16 mb-0 border-0 border-t border-stone-200" />
+
+        {/* ── See other projects ── */}
+        <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
+          <h2 className="text-body-15-medium font-medium text-primary">
+            See other projects
+          </h2>
+          <ul className="flex flex-col gap-2">
+            {projects
+              .filter((project) => project.slug !== slug)
+              .map((project) => (
+                <li key={project.slug} className="min-w-0">
+                  <CaseCard
+                    href={`/projects/${project.slug}`}
+                    imageAlt={project.title}
+                    title={project.title}
+                    description={project.description}
+                    hoverLottie={project.hoverLottie}
+                  />
+                </li>
+              ))}
+          </ul>
+        </section>
       </main>
     </Wrapper>
   )
