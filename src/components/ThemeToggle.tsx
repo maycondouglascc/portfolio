@@ -1,19 +1,21 @@
 import { Sun, Moon, Monitor } from "react-feather"
 import { useTheme } from "../context/ThemeContext"
-
-const options = [
-  { value: "light" as const, icon: Sun, label: "Tema claro" },
-  { value: "dark" as const, icon: Moon, label: "Tema escuro" },
-  { value: "system" as const, icon: Monitor, label: "Tema do sistema" },
-]
+import { useLanguage } from "../context/LanguageContext"
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  const { t } = useLanguage()
+
+  const options = [
+    { value: "light" as const, icon: Sun, label: t("theme.light") },
+    { value: "dark" as const, icon: Moon, label: t("theme.dark") },
+    { value: "system" as const, icon: Monitor, label: t("theme.system") },
+  ]
 
   return (
     <div
       role="radiogroup"
-      aria-label="Seletor de tema"
+      aria-label={t("theme.selectorLabel")}
       className="inline-flex items-center gap-0.5 rounded-full border border-zinc-200 bg-zinc-200/50 p-1 dark:border-zinc-800 dark:bg-zinc-800/50"
     >
       {options.map(({ value, icon: Icon, label }) => {

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ChevronUp } from 'react-feather'
 import Wrapper from '../components/Wrapper'
-import { projects, type CaseStudySection } from '../data/projects'
+import { getProjects, type CaseStudySection } from '../data/projects'
 import { getCaseStudy } from '../data/case-studies'
 import CaseNavBar from '../components/case-study/CaseNavBar'
 import CaseImage from '../components/case-study/CaseImage'
@@ -11,6 +11,7 @@ import ImageGrid from '../components/case-study/ImageGrid'
 import MetricsRow from '../components/case-study/MetricsRow'
 import { CaseCard } from '../components/CaseCard'
 import Button from '../components/Button'
+import { useLanguage } from '../context/LanguageContext'
 
 // ── Section renderer ──────────────────────────────────────────────
 
@@ -149,12 +150,14 @@ function renderSection(section: CaseStudySection, index: number) {
 
 function CaseStudy() {
   const { slug } = useParams<{ slug: string }>()
+  const { language, t } = useLanguage()
+  const projects = getProjects(language)
   const project = projects.find((p) => p.slug === slug)
   const caseStudy = slug ? getCaseStudy(slug) : undefined
   const introRef = useRef<HTMLElement | null>(null)
 
-  if (typeof window === 'undefined') return
   const handleScrollTop = () => {
+    if (typeof window === 'undefined') return
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches
@@ -166,11 +169,11 @@ function CaseStudy() {
 
   useEffect(() => {
     const title = caseStudy?.title ?? project?.title ?? slug
-    document.title = `${title} - Maycon Douglas`
+    document.title = `${title} - ${t('meta.caseTitleSuffix')}`
     return () => {
-      document.title = 'Maycon Douglas - Product Designer'
+      document.title = t('meta.defaultTitle')
     }
-  }, [caseStudy?.title, project?.title, slug])
+  }, [caseStudy?.title, project?.title, slug, t])
 
 
 
@@ -180,14 +183,14 @@ function CaseStudy() {
       <Wrapper>
         <nav aria-label="Breadcrumb" className="mb-4">
           <Link to="/" className="inline-block text-sm">
-            &larr; Voltar para o in&iacute;cio
+            {`← ${t('app.backToHome')}`}
           </Link>
         </nav>
         <main id="main-content">
           <h1 className="text-subheading-24-medium font-semibold mb-4">
             {project?.title ?? slug}
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">Content coming soon&hellip;</p>
+          <p className="text-zinc-600 dark:text-zinc-400">{t('caseStudy.contentComingSoon')}</p>
         </main>
       </Wrapper>
     )
@@ -197,7 +200,7 @@ function CaseStudy() {
     <Wrapper>
       <CaseNavBar externalHref={caseStudy.externalHref} />
 
-      <main id="main-content" lang="en">
+      <main id="main-content" lang={language}>
       
         {/* ── Header ── */}
         <header
@@ -212,14 +215,14 @@ function CaseStudy() {
           </p>
           <div className="text-body-15-regular font-medium text-zinc-600 dark:text-zinc-400">
             <p>
-              <span className="font-semibold text-zinc-900 dark:text-zinc-100">My role</span>
+              <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.myRole')}</span>
               <br />
               {caseStudy.role}
             </p>
           </div>
           <div className="text-body-15-regular text-zinc-600 dark:text-zinc-400">
             <p>
-              <span className="font-semibold text-zinc-900 dark:text-zinc-100">Core Goal</span>
+              <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.coreGoal')}</span>
               <br />
               {caseStudy.goal}
             </p>
@@ -235,7 +238,7 @@ function CaseStudy() {
         variant="icon"
         className=
           "mt-4"
-        aria-label="Scroll to the top"
+        aria-label={t('caseStudy.scrollTop')}
       >
         <ChevronUp size={16} strokeWidth={1.5} aria-hidden="true" />
       </Button>
@@ -246,7 +249,7 @@ function CaseStudy() {
         {/* ── See other projects ── */}
         <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
           <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
-            See other projects
+            {t('caseStudy.seeOtherProjects')}
           </h2>
           <ul className="flex flex-col gap-2">
             {projects

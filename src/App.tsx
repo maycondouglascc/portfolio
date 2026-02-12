@@ -4,6 +4,8 @@ import Home from "./pages/Home"
 import Wrapper from "./components/Wrapper"
 import { ThemeProvider } from "./context/ThemeContext"
 import ThemeToggle from "./components/ThemeToggle"
+import LanguageSelector from "./components/LanguageSelector"
+import { LanguageProvider, useLanguage } from "./context/LanguageContext"
 
 const CaseStudy = lazy(() => import("./pages/CaseStudy"))
 
@@ -33,52 +35,67 @@ function LoadingFallback() {
 }
 
 function NotFound() {
+  const { t } = useLanguage()
+
   return (
     <Wrapper>
       <main id="main-content" className="flex flex-col items-center gap-4 py-20 text-center">
         <h1 className="text-subheading-24-medium font-semibold text-zinc-900 dark:text-zinc-100">
-          P&aacute;gina n&atilde;o encontrada
+          {t("app.notFoundTitle")}
         </h1>
         <p className="text-body-15-regular text-zinc-600 dark:text-zinc-400">
-          O conteúdo;do que você; procura não;o existe ou foi movido.
+          {t("app.notFoundDescription")}
         </p>
         <Link
           to="/"
           className="mt-4 inline-flex items-center gap-2 rounded-md bg-zinc-200 px-4 py-2 text-body-15-medium font-medium text-zinc-900 no-underline transition-colors duration-200 hover:bg-zinc-300 hover:no-underline dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
         >
-          &larr; Voltar para o início
+          {`← ${t("app.backToHome")}`}
         </Link>
       </main>
     </Wrapper>
   )
 }
 
+function AppContent() {
+  const { t } = useLanguage()
+
+  return (
+    <>
+      <ScrollToTop />
+      <a href="#main-content" className="skip-to-content">
+        {t("app.skipToContent")}
+      </a>
+      <div className="fixed right-3 top-3 z-40 flex items-center gap-2 sm:right-5 sm:top-5">
+        <LanguageSelector />
+        <ThemeToggle />
+      </div>
+      <div className="px-1 py-1 sm:px-10 sm:py-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/projects/:slug"
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <CaseStudy />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </>
+  )
+}
+
 export default function App() {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <a href="#main-content" className="skip-to-content">
-          Pular para o conteúdo
-        </a>
-        <div className="fixed right-3 top-3 z-40 sm:right-5 sm:top-5">
-          <ThemeToggle />
-        </div>
-        <div className="px-1 py-1 sm:px-10 sm:py-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/projects/:slug"
-              element={
-                <Suspense fallback={<LoadingFallback />}>
-                  <CaseStudy />
-                </Suspense>
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider>
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </ThemeProvider>
+    </LanguageProvider>
   )
 }
