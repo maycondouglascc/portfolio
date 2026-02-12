@@ -9,11 +9,11 @@ type ButtonProps<C extends ElementType> = {
 } & ComponentPropsWithoutRef<C>
 
 const baseClass =
-  'inline-flex items-center justify-center gap-2 font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 touch-manipulation disabled:pointer-events-none disabled:opacity-50'
+  'inline-flex items-center justify-center gap-2 font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 focus-visible:outline-offset-2 dark:focus-visible:outline-zinc-100 touch-manipulation disabled:pointer-events-none disabled:opacity-50'
 
 const variantClasses: Record<ButtonVariant, string> = {
-  link: 'text-body-15-medium font-medium text-link underline-offset-2 hover:text-link-hover hover:underline',
-  icon: "relative rounded-2xl bg-[#f5f5f4] p-2 text-primary hover:bg-[#e7e5e4] before:absolute before:inset-[-6px] before:content-[''] sm:before:inset-0",
+  link: 'text-body-15-medium font-medium text-zinc-900 underline-offset-2 hover:text-zinc-700 hover:underline dark:text-zinc-100 dark:hover:text-zinc-200',
+  icon: "relative rounded-2xl bg-zinc-200 p-2 text-zinc-900 hover:bg-zinc-300 before:absolute before:inset-[-6px] before:content-[''] sm:before:inset-0 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700",
 }
 
 const combineClasses = (...classes: Array<string | undefined>) =>

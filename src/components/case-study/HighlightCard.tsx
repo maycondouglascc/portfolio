@@ -8,13 +8,13 @@ export type HighlightCardProps = {
 
 function HighlightCard({ variant, title, description }: HighlightCardProps) {
   return (
-    <div className="flex flex-col gap-2 items-start rounded bg-stone-50 border p-4 min-w-[110px] h-full">
+    <div className="flex h-full min-w-[110px] flex-col items-start gap-2 rounded border border-zinc-200 bg-zinc-200/40 p-4 dark:border-zinc-800 dark:bg-zinc-800/40">
       <StatusIcon variant={variant} />
       <div className="flex flex-col gap-1 w-full">
-        <p className="text-body-15-medium font-semibold text-primary tabular-nums">
+        <p className="text-body-15-medium font-semibold text-zinc-900 tabular-nums dark:text-zinc-100">
           {title}
         </p>
-        <p className="text-body-15-regular font-regular text-secondary">
+        <p className="text-body-15-regular font-regular text-zinc-600 dark:text-zinc-400">
           {description}
         </p>
       </div>

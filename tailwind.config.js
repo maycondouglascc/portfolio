@@ -1,17 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
-      colors: {
-        primary: "#111",
-        secondary: "#555",
-        background: "#fdfdf8",
-        card: "#e4e4e7",
-        border: "#f2f2f2",
-        link: "#222",
-        "link-hover": "#111",
-      },
       boxShadow: {
         xs: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
         sm: "0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10)",

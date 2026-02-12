@@ -31,7 +31,7 @@ function MetricsRow({
         ))}
       </div>
       {disclaimer && (
-        <p className="text-caption-12-regular font-medium text-secondary">
+        <p className="text-caption-12-regular font-medium text-zinc-600 dark:text-zinc-400">
           {disclaimer}
         </p>
       )}

@@ -45,7 +45,7 @@ export function CopyEmailLink({ email, label = "Email" }: CopyEmailLinkProps) {
       <span
         role="status"
         aria-live="polite"
-        className={`pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-caption-14-regular font-normal text-primary shadow-md transition-opacity duration-200 ${
+        className={`pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-zinc-200 bg-white px-2 py-1 text-caption-14-regular font-normal text-zinc-900 shadow-md transition-opacity duration-200 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:shadow-none ${
           copied ? "opacity-100" : "opacity-0"
         } motion-reduce:transition-none`}
       >
