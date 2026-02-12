@@ -166,11 +166,11 @@ const danoneStudy: CaseStudyData = {
       title: 'Key Deliverables & Rationale',
       body: (
         <div className="space-y-2">
-          <p className="text-body-15-regular text-primary">
+          <p className="text-body-15-regular text-zinc-900 dark:text-zinc-100">
             Scalable Component Library
           </p>
           <div>
-            <p className="text-primary">
+            <p className="text-zinc-900 dark:text-zinc-100">
               Developed a library of 20+ responsive components.
             </p>
             <p>
@@ -212,7 +212,7 @@ const danoneStudy: CaseStudyData = {
       title: 'SEO & Accessibility Framework',
       body: (
         <>
-          <p className="text-primary">
+          <p className="text-zinc-900 dark:text-zinc-100">
             Established a guide for SEO-oriented writing and accessible content.
           </p>
           <p>

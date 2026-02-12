@@ -8,7 +8,7 @@ function ProjectsGrid() {
 
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-body-15-medium font-medium text-primary">
+      <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
         Projetos
       </h2>
       <ul className="flex flex-col gap-2">
@@ -26,7 +26,7 @@ function ProjectsGrid() {
       </ul>
       {caseStudySoon.length > 0 && (
         <>
-          <h2 className="text-body-15-medium font-medium text-secondary">
+          <h2 className="text-body-15-medium font-medium text-zinc-600 dark:text-zinc-400">
             Case study soon
           </h2>
           <ul className="flex flex-col gap-2">

@@ -22,7 +22,7 @@ const labelMap: Record<StatusIconVariant, string> = {
 function StatusIcon({ variant, className }: StatusIconProps) {
   const bg = bgMap[variant]
   const iconClassName =
-    variant === 'neutral' ? 'text-primary' : 'text-white'
+    variant === 'neutral' ? 'text-zinc-900 dark:text-zinc-100' : 'text-white'
 
   return (
     <span

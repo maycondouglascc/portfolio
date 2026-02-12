@@ -19,7 +19,7 @@ export function LocalTime() {
   }, [])
 
   return (
-    <span className="text-body-14-regular font-normal text-secondary tabular-nums">
+    <span className="text-body-14-regular font-normal text-zinc-600 tabular-nums dark:text-zinc-400">
       {time}
     </span>
   )

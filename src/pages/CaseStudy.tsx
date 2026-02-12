@@ -26,11 +26,11 @@ function renderSection(section: CaseStudySection, index: number) {
           className={sectionId ? 'scroll-mt-24' : undefined}
         >
           {section.title && (
-            <h2 className="text-body-15-medium font-semibold text-primary mb-2">
+            <h2 className="mb-2 text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
               {section.title}
             </h2>
           )}
-          <div className="text-body-15-regular font-medium text-secondary space-y-4 [&_p]:leading-[24px]">
+          <div className="space-y-4 text-body-15-regular font-medium text-zinc-600 dark:text-zinc-400 [&_p]:leading-[24px]">
             {section.body}
           </div>
         </section>
@@ -46,7 +46,7 @@ function renderSection(section: CaseStudySection, index: number) {
             .join(' ')}
         >
           {section.label && (
-            <p className="text-body-15-medium font-semibold text-primary">
+            <p className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
               {section.label}
             </p>
           )}
@@ -105,10 +105,10 @@ function renderSection(section: CaseStudySection, index: number) {
             .filter(Boolean)
             .join(' ')}
         >
-          <h2 className="text-body-15-medium font-semibold text-primary">
+          <h2 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
             {section.title}
           </h2>
-          <p className="text-body-15-regular font-medium text-secondary leading-[24px]">
+          <p className="text-body-15-regular font-medium leading-[24px] text-zinc-600 dark:text-zinc-400">
             {section.intro}
           </p>
           <MetricsRow items={section.items} layout="vertical" />
@@ -124,11 +124,11 @@ function renderSection(section: CaseStudySection, index: number) {
             .filter(Boolean)
             .join(' ')}
         >
-          <h2 className="text-body-18-medium font-semibold text-primary">
+          <h2 className="text-body-18-medium font-semibold text-zinc-900 dark:text-zinc-100">
             {section.title}
           </h2>
           <div className="space-y-2">
-            <p className="text-body-15-regular font-medium text-secondary leading-[24px]">
+            <p className="text-body-15-regular font-medium leading-[24px] text-zinc-600 dark:text-zinc-400">
               {section.intro}
             </p>
             <MetricsRow
@@ -187,7 +187,7 @@ function CaseStudy() {
           <h1 className="text-subheading-24-medium font-semibold mb-4">
             {project?.title ?? slug}
           </h1>
-          <p className="text-secondary">Content coming soon&hellip;</p>
+          <p className="text-zinc-600 dark:text-zinc-400">Content coming soon&hellip;</p>
         </main>
       </Wrapper>
     )
@@ -204,22 +204,22 @@ function CaseStudy() {
           ref={introRef}
           className="max-w-[600px] mx-auto space-y-2 mb-10"
         >
-          <h1 className="text-subheading-24-medium font-semibold text-primary">
+          <h1 className="text-subheading-24-medium font-semibold text-zinc-900 dark:text-zinc-100">
             {caseStudy.title}
           </h1>
-          <p className="text-body-15-regular text-secondary leading-[24px]">
+          <p className="text-body-15-regular leading-[24px] text-zinc-600 dark:text-zinc-400">
             {caseStudy.description}
           </p>
-          <div className="text-body-15-regular font-medium text-secondary">
+          <div className="text-body-15-regular font-medium text-zinc-600 dark:text-zinc-400">
             <p>
-              <span className="font-semibold text-primary">My role</span>
+              <span className="font-semibold text-zinc-900 dark:text-zinc-100">My role</span>
               <br />
               {caseStudy.role}
             </p>
           </div>
-          <div className="text-body-15-regular text-secondary">
+          <div className="text-body-15-regular text-zinc-600 dark:text-zinc-400">
             <p>
-              <span className="font-semibold text-primary">Core Goal</span>
+              <span className="font-semibold text-zinc-900 dark:text-zinc-100">Core Goal</span>
               <br />
               {caseStudy.goal}
             </p>
@@ -241,11 +241,11 @@ function CaseStudy() {
       </Button>
 
         {/* ── Divider ── */}
-        <hr className="max-w-[600px] mx-auto mt-16 mb-0 border-0 border-t border-stone-200" />
+        <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
 
         {/* ── See other projects ── */}
         <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
-          <h2 className="text-body-15-medium font-medium text-primary">
+          <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
             See other projects
           </h2>
           <ul className="flex flex-col gap-2">
