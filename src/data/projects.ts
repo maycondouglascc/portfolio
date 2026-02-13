@@ -1,5 +1,4 @@
 import { type ReactNode } from 'react'
-import danone from '../assets/lottie/danoneNorthAmerica.json'
 import type { StatusIconVariant } from '../components/case-study/StatusIcon'
 import type { Language } from '../context/LanguageContext'
 
@@ -55,7 +54,7 @@ export interface Project {
   slug: string
   title: string
   description: string
-  hoverLottie?: object
+  hoverLottie?: string
 }
 
 type LocalizedText = Record<Language, string>
@@ -64,7 +63,7 @@ type LocalizedProject = {
   slug: string
   title: LocalizedText
   description: LocalizedText
-  hoverLottie?: object
+  hoverLottie?: string
 }
 
 const projectsCatalog: LocalizedProject[] = [
@@ -78,7 +77,7 @@ const projectsCatalog: LocalizedProject[] = [
       en: 'Revitalizing the Danone NorAm digital presence by renewing its design language and migrating their institutional portal to the Adobe Experience Manager platform.',
       pt: 'Revitalizacao da presenca digital da Danone NorAm com renovacao da linguagem visual e migracao do portal institucional para a plataforma Adobe Experience Manager.',
     },
-    hoverLottie: danone,
+    hoverLottie: 'danoneNorthAmerica',
   },
   {
     slug: 'gskpromx',

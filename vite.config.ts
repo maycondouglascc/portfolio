@@ -11,9 +11,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          router: ['react-router-dom'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react-router-dom')) return 'router'
+          if (id.includes('node_modules/lottie-react') || id.includes('node_modules/lottie-web')) {
+            return 'lottie'
+          }
+          if (id.includes('node_modules/@microsoft/clarity')) return 'clarity'
+          return undefined
         },
       },
     },
