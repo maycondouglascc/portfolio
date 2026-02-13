@@ -1,13 +1,30 @@
 import { useState, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import Lottie from 'lottie-react'
+
+type LottieComponentType = (props: {
+  animationData: object
+  loop?: boolean
+  autoplay?: boolean
+  className?: string
+}) => JSX.Element
+
+async function loadAnimationData(key: string): Promise<object | null> {
+  switch (key) {
+    case 'danoneNorthAmerica': {
+      const module = await import('../assets/lottie/danoneNorthAmerica.json')
+      return module.default as object
+    }
+    default:
+      return null
+  }
+}
 
 type CaseCardProps = {
   title: string
   description: string
   href: string
   imageAlt: string
-  hoverLottie?: object
+  hoverLottie?: string
 }
 
 export function CaseCard({
@@ -17,71 +34,65 @@ export function CaseCard({
   hoverLottie,
 }: CaseCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const [smoothPos, setSmoothPos] = useState({ x: 0, y: 0 })
-  const mousePosRef = useRef({ x: 0, y: 0 })
-  const animationFrameRef = useRef<number>()
+  const [pointerPos, setPointerPos] = useState({ x: 0, y: 0 })
+  const [LottieComponent, setLottieComponent] = useState<LottieComponentType | null>(null)
+  const [animationData, setAnimationData] = useState<object | null>(null)
+  const isLoadingLottieRef = useRef(false)
 
   const isInternal = href.startsWith('/')
   const linkClass =
     'group block no-underline hover:no-underline focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 focus-visible:outline-offset-2 dark:focus-visible:outline-zinc-100'
 
-  const startAnimation = useCallback(() => {
-    const animate = () => {
-      setSmoothPos((prev) => {
-        const dx = mousePosRef.current.x - prev.x
-        const dy = mousePosRef.current.y - prev.y
-
-        if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) return prev
-
-        return {
-          x: prev.x + dx * 0.15,
-          y: prev.y + dy * 0.15,
-        }
-      })
-      animationFrameRef.current = requestAnimationFrame(animate)
-    }
-    animationFrameRef.current = requestAnimationFrame(animate)
-  }, [])
-
-  const stopAnimation = useCallback(() => {
-    if (animationFrameRef.current) {
-      cancelAnimationFrame(animationFrameRef.current)
-      animationFrameRef.current = undefined
-    }
-  }, [])
-
   const handleMouseMove = (e: React.MouseEvent) => {
-    mousePosRef.current = { x: e.clientX, y: e.clientY }
+    setPointerPos({ x: e.clientX, y: e.clientY })
   }
 
+  const loadLottieAssets = useCallback(async (lottieKey: string) => {
+    if (isLoadingLottieRef.current || (LottieComponent && animationData)) return
+    isLoadingLottieRef.current = true
+
+    try {
+      const [{ default: LoadedLottie }, loadedAnimationData] = await Promise.all([
+        import('lottie-react'),
+        loadAnimationData(lottieKey),
+      ])
+
+      if (!loadedAnimationData) return
+      setLottieComponent(() => LoadedLottie as LottieComponentType)
+      setAnimationData(loadedAnimationData)
+    } finally {
+      isLoadingLottieRef.current = false
+    }
+  }, [LottieComponent, animationData])
+
   const handleMouseEnter = (e: React.MouseEvent) => {
-    mousePosRef.current = { x: e.clientX, y: e.clientY }
-    setSmoothPos({ x: e.clientX, y: e.clientY })
+    setPointerPos({ x: e.clientX, y: e.clientY })
     setIsHovered(true)
-    startAnimation()
+    if (hoverLottie) {
+      void loadLottieAssets(hoverLottie)
+    }
   }
 
   const handleMouseLeave = () => {
     setIsHovered(false)
-    stopAnimation()
   }
 
   const mouseHandlers = hoverLottie
     ? { onMouseMove: handleMouseMove, onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave }
     : {}
 
-  const floatingLottie = hoverLottie && (
+  const floatingLottie = hoverLottie && LottieComponent && animationData && (
     <div
       className={`rounded-md overflow-hidden pointer-events-none fixed left-0 top-0 z-50 transition-opacity duration-300 ease-out motion-reduce:transition-none ${
         isHovered ? 'opacity-100' : 'opacity-0'
       }`}
       style={{
-        transform: `translate(${smoothPos.x - 600}px, ${smoothPos.y - 230}px)`,
+        transform: `translate(${pointerPos.x + 24}px, ${pointerPos.y - 200}px)`,
         willChange: 'transform',
       }}
     >
-      <Lottie
-        animationData={hoverLottie}
+      <LottieComponent
+        animationData={animationData}
         loop
         autoplay
         className="w-64"
