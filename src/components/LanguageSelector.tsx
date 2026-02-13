@@ -5,15 +5,16 @@ const options: { value: Language; shortLabelKey: "language.english" | "language.
   { value: "pt", shortLabelKey: "language.portuguese", longLabelKey: "language.portugueseLong" },
 ]
 
-export default function LanguageSelector() {
+interface LanguageSelectorProps {
+  /** When true, omit outer wrapper (border/padding) for use inside SettingsBar */
+  embedded?: boolean
+}
+
+export default function LanguageSelector({ embedded }: LanguageSelectorProps) {
   const { language, setLanguage, t } = useLanguage()
 
-  return (
-    <div
-      role="radiogroup"
-      aria-label={t("language.selectorLabel")}
-      className="inline-flex items-center gap-0.5 rounded-full border border-zinc-200 bg-zinc-200/50 p-1 dark:border-zinc-800 dark:bg-zinc-800/50"
-    >
+  const content = (
+    <>
       {options.map(({ value, shortLabelKey, longLabelKey }) => {
         const isActive = language === value
         const shortLabel = t(shortLabelKey)
@@ -27,9 +28,9 @@ export default function LanguageSelector() {
             aria-label={longLabel}
             title={longLabel}
             onClick={() => setLanguage(value)}
-            className={`min-h-6 min-w-6 rounded-full px-2 py-1 text-caption-12-regular font-medium transition-colors duration-200 ${
+            className={`h-8 w-8 rounded-md text-caption-12-regular font-medium transition-colors duration-200 ${
               isActive
-                ? "bg-white text-zinc-900 shadow-xs dark:bg-zinc-900 dark:text-zinc-100"
+                ? "bg-white text-zinc-900 shadow-xs dark:bg-zinc-800 dark:text-zinc-100"
                 : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
             }`}
           >
@@ -37,6 +38,27 @@ export default function LanguageSelector() {
           </button>
         )
       })}
+    </>
+  )
+
+  if (embedded) {
+    return (
+      <div
+        role="radiogroup"
+        aria-label={t("language.selectorLabel")}
+        className="inline-flex items-center gap-0.5"
+      >
+        {content}
+      </div>
+    )
+  }
+
+  return (
+    <div
+      role="radiogroup"
+      aria-label={t("language.selectorLabel")}
+    >
+      {content}
     </div>
   )
 }
