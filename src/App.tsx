@@ -1,7 +1,5 @@
-import { lazy, Suspense, useEffect } from "react"
+import { lazy, Suspense, useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
-import { DialRoot } from "dialkit"
-import "dialkit/styles.css"
 import Home from "./pages/Home"
 import Wrapper from "./components/Wrapper"
 import { PageTransition } from "./components/PageTransition"
@@ -94,13 +92,24 @@ function AppContent() {
   )
 }
 
+function DevDialKit() {
+  const [DialRoot, setDialRoot] = useState<typeof import("dialkit").DialRoot | null>(null)
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+    import("dialkit").then((m) => setDialRoot(() => m.DialRoot))
+    import("dialkit/styles.css")
+  }, [])
+  if (!import.meta.env.DEV || !DialRoot) return null
+  return <DialRoot position="top-right" />
+}
+
 export default function App() {
   return (
     <LanguageProvider>
       <ThemeProvider>
         <BrowserRouter>
           <AppContent />
-          <DialRoot position="top-right" />
+          <DevDialKit />
         </BrowserRouter>
       </ThemeProvider>
     </LanguageProvider>
