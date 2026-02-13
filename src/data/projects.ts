@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react'
 import danone from '../assets/lottie/danoneNorthAmerica.json'
 import type { StatusIconVariant } from '../components/case-study/StatusIcon'
+import type { Language } from '../context/LanguageContext'
 
 // ── Card item used by metrics / problems / results ──
 export type HighlightCardData = {
@@ -57,20 +58,57 @@ export interface Project {
   hoverLottie?: object
 }
 
-export const projects: Project[] = [
+type LocalizedText = Record<Language, string>
+
+type LocalizedProject = {
+  slug: string
+  title: LocalizedText
+  description: LocalizedText
+  hoverLottie?: object
+}
+
+const projectsCatalog: LocalizedProject[] = [
   {
     slug: 'danone-north-america',
-    title: 'Danone North America',
-    description: 'Revitalizing the Danone NorAm digital presence by renewing its design language and migrating their institutional portal to the Adobe Experience Manager platform.',
+    title: {
+      en: 'Danone North America',
+      pt: 'Danone America do Norte',
+    },
+    description: {
+      en: 'Revitalizing the Danone NorAm digital presence by renewing its design language and migrating their institutional portal to the Adobe Experience Manager platform.',
+      pt: 'Revitalizacao da presenca digital da Danone NorAm com renovacao da linguagem visual e migracao do portal institucional para a plataforma Adobe Experience Manager.',
+    },
     hoverLottie: danone,
   },
   {
     slug: 'gskpromx',
-    title: 'GSK Pro México',
-    description: "Redesigning GSK México's portal with a scalable template system and personalized content architecture tailored to medical specialties",
+    title: {
+      en: 'GSK Pro Mexico',
+      pt: 'GSK Pro Mexico',
+    },
+    description: {
+      en: "Redesigning GSK Mexico's portal with a scalable template system and personalized content architecture tailored to medical specialties",
+      pt: 'Redesign do portal da GSK Mexico com um sistema de templates escalavel e arquitetura de conteudo personalizada para especialidades medicas.',
+    },
   },
   {
     slug: 'vendd-web',
-    title: 'Vendd Web',
-    description: "Establishing Vendd's product design foundation as solo designer, building and scaling a unified design system across web and mobile platforms"},
+    title: {
+      en: 'Vendd Web',
+      pt: 'Vendd Web',
+    },
+    description: {
+      en: "Establishing Vendd's product design foundation as solo designer, building and scaling a unified design system across web and mobile platforms",
+      pt: 'Estruturacao da base de design de produto da Vendd como designer solo, criando e escalando um design system unificado para web e mobile.',
+    },
+  },
 ]
+
+export function getProjects(language: Language): Project[] {
+  return projectsCatalog.map((project) => ({
+    slug: project.slug,
+    title: project.title[language],
+    description: project.description[language],
+    hoverLottie: project.hoverLottie,
+  }))
+}

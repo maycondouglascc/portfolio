@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import Button from "./Button"
+import { useLanguage } from "../context/LanguageContext"
 
 type CopyEmailLinkProps = {
   email: string
@@ -9,6 +10,7 @@ type CopyEmailLinkProps = {
 export function CopyEmailLink({ email, label = "Email" }: CopyEmailLinkProps) {
   const [copied, setCopied] = useState(false)
   const timeoutRef = useRef<number | null>(null)
+  const { t } = useLanguage()
 
   useEffect(() => {
     return () => {
@@ -29,7 +31,7 @@ export function CopyEmailLink({ email, label = "Email" }: CopyEmailLinkProps) {
         setCopied(false)
       }, 1000)
     } catch (error) {
-      console.error("Erro ao copiar:", error)
+      console.error("Failed to copy email:", error)
     }
   }
 
@@ -37,7 +39,7 @@ export function CopyEmailLink({ email, label = "Email" }: CopyEmailLinkProps) {
     <span className="relative inline-flex items-center">
       <Button
         onClick={handleCopy}
-        aria-label={`Copiar ${email}`}
+        aria-label={t("copyEmail.copyAria", { email })}
         variant="link"
       >
         {label}
@@ -49,7 +51,7 @@ export function CopyEmailLink({ email, label = "Email" }: CopyEmailLinkProps) {
           copied ? "opacity-100" : "opacity-0"
         } motion-reduce:transition-none`}
       >
-        Email copiado!
+        {t("copyEmail.copied")}
       </span>
     </span>
   )
