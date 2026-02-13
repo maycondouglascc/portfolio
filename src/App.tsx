@@ -1,14 +1,16 @@
 import { lazy, Suspense, useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
-import Home from "./pages/Home"
 import Wrapper from "./components/Wrapper"
-import { PageTransition } from "./components/PageTransition"
 import { ThemeProvider } from "./context/ThemeContext"
 import ThemeToggle from "./components/ThemeToggle"
 import LanguageSelector from "./components/LanguageSelector"
 import { LanguageProvider, useLanguage } from "./context/LanguageContext"
 
+const Home = lazy(() => import("./pages/Home"))
 const CaseStudy = lazy(() => import("./pages/CaseStudy"))
+const PageTransition = lazy(() =>
+  import("./components/PageTransition").then((m) => ({ default: m.PageTransition }))
+)
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -61,6 +63,27 @@ function NotFound() {
 function AppContent() {
   const { t } = useLanguage()
   const location = useLocation()
+  const routeElements = (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <Home />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/projects/:slug"
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <CaseStudy />
+          </Suspense>
+        }
+      />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  )
 
   return (
     <>
@@ -73,20 +96,9 @@ function AppContent() {
         <ThemeToggle />
       </div>
       <div className="px-1 py-1 sm:px-10 sm:py-10">
-        <PageTransition routeLocation={location}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/projects/:slug"
-              element={
-                <Suspense fallback={<LoadingFallback />}>
-                  <CaseStudy />
-                </Suspense>
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </PageTransition>
+        <Suspense fallback={routeElements}>
+          <PageTransition routeLocation={location}>{routeElements}</PageTransition>
+        </Suspense>
       </div>
     </>
   )
