@@ -1,7 +1,10 @@
 import { lazy, Suspense, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
+import { DialRoot } from "dialkit"
+import "dialkit/styles.css"
 import Home from "./pages/Home"
 import Wrapper from "./components/Wrapper"
+import { PageTransition } from "./components/PageTransition"
 import { ThemeProvider } from "./context/ThemeContext"
 import ThemeToggle from "./components/ThemeToggle"
 import LanguageSelector from "./components/LanguageSelector"
@@ -59,6 +62,7 @@ function NotFound() {
 
 function AppContent() {
   const { t } = useLanguage()
+  const location = useLocation()
 
   return (
     <>
@@ -71,18 +75,20 @@ function AppContent() {
         <ThemeToggle />
       </div>
       <div className="px-1 py-1 sm:px-10 sm:py-10">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/projects/:slug"
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <CaseStudy />
-              </Suspense>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <PageTransition routeLocation={location}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/projects/:slug"
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <CaseStudy />
+                </Suspense>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </PageTransition>
       </div>
     </>
   )
@@ -94,6 +100,7 @@ export default function App() {
       <ThemeProvider>
         <BrowserRouter>
           <AppContent />
+          <DialRoot position="top-right" />
         </BrowserRouter>
       </ThemeProvider>
     </LanguageProvider>

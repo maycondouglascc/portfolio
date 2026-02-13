@@ -3,16 +3,25 @@ import Intro from '../components/Intro'
 import ProjectsGrid from '../components/ProjectsGrid'
 import ExperienceList from '../components/ExperienceList'
 import Footer from '../components/Footer'
+import { TransitionChild } from '../components/PageTransition'
 
 function Home() {
   return (
     <Wrapper>
       <main id="main-content" className="flex flex-col gap-12">
-        <Intro />
-        <ProjectsGrid />
-        <ExperienceList />
+        <TransitionChild index={0}>
+          <Intro />
+        </TransitionChild>
+        <TransitionChild index={1}>
+          <ProjectsGrid />
+        </TransitionChild>
+        <TransitionChild index={2}>
+          <ExperienceList />
+        </TransitionChild>
       </main>
-      <Footer />
+      <TransitionChild index={3}>
+        <Footer />
+      </TransitionChild>
     </Wrapper>
   )
 }

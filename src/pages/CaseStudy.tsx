@@ -11,6 +11,7 @@ import ImageGrid from '../components/case-study/ImageGrid'
 import MetricsRow from '../components/case-study/MetricsRow'
 import { CaseCard } from '../components/CaseCard'
 import Button from '../components/Button'
+import { TransitionChild } from '../components/PageTransition'
 import { useLanguage } from '../context/LanguageContext'
 
 // ── Section renderer ──────────────────────────────────────────────
@@ -181,92 +182,107 @@ function CaseStudy() {
   if (!caseStudy) {
     return (
       <Wrapper>
-        <nav aria-label="Breadcrumb" className="mb-4">
-          <Link to="/" className="inline-block text-sm">
-            {`← ${t('app.backToHome')}`}
-          </Link>
-        </nav>
-        <main id="main-content">
-          <h1 className="text-subheading-24-medium font-semibold mb-4">
-            {project?.title ?? slug}
-          </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">{t('caseStudy.contentComingSoon')}</p>
-        </main>
+        <TransitionChild index={0}>
+          <nav aria-label="Breadcrumb" className="mb-4">
+            <Link to="/" className="inline-block text-sm">
+              {`← ${t('app.backToHome')}`}
+            </Link>
+          </nav>
+        </TransitionChild>
+        <TransitionChild index={1}>
+          <main id="main-content">
+            <h1 className="text-subheading-24-medium font-semibold mb-4">
+              {project?.title ?? slug}
+            </h1>
+            <p className="text-zinc-600 dark:text-zinc-400">{t('caseStudy.contentComingSoon')}</p>
+          </main>
+        </TransitionChild>
       </Wrapper>
     )
   }
 
   return (
     <Wrapper>
-      <CaseNavBar externalHref={caseStudy.externalHref} />
+      <TransitionChild index={0}>
+        <CaseNavBar externalHref={caseStudy.externalHref} />
+      </TransitionChild>
 
       <main id="main-content" lang={language}>
       
         {/* ── Header ── */}
-        <header
-          ref={introRef}
-          className="max-w-[600px] mx-auto space-y-2 mb-10"
-        >
-          <h1 className="text-subheading-24-medium font-semibold text-zinc-900 dark:text-zinc-100">
-            {caseStudy.title}
-          </h1>
-          <p className="text-body-15-regular leading-[24px] text-zinc-600 dark:text-zinc-400">
-            {caseStudy.description}
-          </p>
-          <div className="text-body-15-regular font-medium text-zinc-600 dark:text-zinc-400">
-            <p>
-              <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.myRole')}</span>
-              <br />
-              {caseStudy.role}
+        <TransitionChild index={1}>
+          <header
+            ref={introRef}
+            className="max-w-[600px] mx-auto space-y-2 mb-10"
+          >
+            <h1 className="text-subheading-24-medium font-semibold text-zinc-900 dark:text-zinc-100">
+              {caseStudy.title}
+            </h1>
+            <p className="text-body-15-regular leading-[24px] text-zinc-600 dark:text-zinc-400">
+              {caseStudy.description}
             </p>
-          </div>
-          <div className="text-body-15-regular text-zinc-600 dark:text-zinc-400">
-            <p>
-              <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.coreGoal')}</span>
-              <br />
-              {caseStudy.goal}
-            </p>
-          </div>
-        </header>
+            <div className="text-body-15-regular font-medium text-zinc-600 dark:text-zinc-400">
+              <p>
+                <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.myRole')}</span>
+                <br />
+                {caseStudy.role}
+              </p>
+            </div>
+            <div className="text-body-15-regular text-zinc-600 dark:text-zinc-400">
+              <p>
+                <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.coreGoal')}</span>
+                <br />
+                {caseStudy.goal}
+              </p>
+            </div>
+          </header>
+        </TransitionChild>
 
         {/* ── Content ── */}
-        <div className="flex-1 min-w-0 space-y-16 max-w-[600px] mx-auto">
-          {caseStudy.sections.map((section, i) => renderSection(section, i))}
-        </div>
-        <Button
-        onClick={handleScrollTop}
-        variant="icon"
-        className=
-          "mt-4"
-        aria-label={t('caseStudy.scrollTop')}
-      >
-        <ChevronUp size={16} strokeWidth={1.5} aria-hidden="true" />
-      </Button>
+        <TransitionChild index={2}>
+          <div className="flex-1 min-w-0 space-y-16 max-w-[600px] mx-auto">
+            {caseStudy.sections.map((section, i) => renderSection(section, i))}
+          </div>
+        </TransitionChild>
+        <TransitionChild index={3}>
+          <Button
+            onClick={handleScrollTop}
+            variant="icon"
+            className="mt-4"
+            aria-label={t('caseStudy.scrollTop')}
+          >
+            <ChevronUp size={16} strokeWidth={1.5} aria-hidden="true" />
+          </Button>
+        </TransitionChild>
 
         {/* ── Divider ── */}
-        <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
+        <TransitionChild index={4}>
+          <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
+        </TransitionChild>
 
         {/* ── See other projects ── */}
-        <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
-          <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
-            {t('caseStudy.seeOtherProjects')}
-          </h2>
-          <ul className="flex flex-col gap-2">
-            {projects
-              .filter((project) => project.slug !== slug)
-              .map((project) => (
-                <li key={project.slug} className="min-w-0">
-                  <CaseCard
-                    href={`/projects/${project.slug}`}
-                    imageAlt={project.title}
-                    title={project.title}
-                    description={project.description}
-                    hoverLottie={project.hoverLottie}
-                  />
-                </li>
-              ))}
-          </ul>
-        </section>
+        <TransitionChild index={5}>
+          <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
+            <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
+              {t('caseStudy.seeOtherProjects')}
+            </h2>
+            <ul className="flex flex-col gap-2">
+              {projects
+                .filter((project) => project.slug !== slug)
+                .map((project) => (
+                  <li key={project.slug} className="min-w-0">
+                    <CaseCard
+                      href={`/projects/${project.slug}`}
+                      imageAlt={project.title}
+                      title={project.title}
+                      description={project.description}
+                      hoverLottie={project.hoverLottie}
+                    />
+                  </li>
+                ))}
+            </ul>
+          </section>
+        </TransitionChild>
       </main>
     
     </Wrapper>
