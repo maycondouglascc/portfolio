@@ -2,8 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
 import Wrapper from "./components/Wrapper"
 import { ThemeProvider } from "./context/ThemeContext"
-import ThemeToggle from "./components/ThemeToggle"
-import LanguageSelector from "./components/LanguageSelector"
+import SettingsBar from "./components/SettingsBar"
 import { LanguageProvider, useLanguage } from "./context/LanguageContext"
 
 const Home = lazy(() => import("./pages/Home"))
@@ -91,9 +90,8 @@ function AppContent() {
       <a href="#main-content" className="skip-to-content">
         {t("app.skipToContent")}
       </a>
-      <div className="fixed right-3 top-3 z-40 flex items-center gap-2 sm:right-5 sm:top-5">
-        <LanguageSelector />
-        <ThemeToggle />
+      <div className="fixed right-3 top-3 z-40 sm:right-5 sm:top-5">
+        <SettingsBar />
       </div>
       <div className="px-1 py-1 sm:px-10 sm:py-10">
         <Suspense fallback={routeElements}>

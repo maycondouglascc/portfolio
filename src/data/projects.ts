@@ -46,6 +46,7 @@ export type CaseStudyData = {
   role: string
   goal: string
   externalHref?: string
+  hideOtherProjects?: boolean
   sections: CaseStudySection[]
 }
 

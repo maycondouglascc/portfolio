@@ -22,7 +22,7 @@ async function loadAnimationData(key: string): Promise<object | null> {
 type CaseCardProps = {
   title: string
   description: string
-  href: string
+  href?: string
   imageAlt: string
   hoverLottie?: string
 }
@@ -39,7 +39,7 @@ export function CaseCard({
   const [animationData, setAnimationData] = useState<object | null>(null)
   const isLoadingLottieRef = useRef(false)
 
-  const isInternal = href.startsWith('/')
+  const isInternal = href?.startsWith('/') ?? false
   const linkClass =
     'group block no-underline hover:no-underline focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 focus-visible:outline-offset-2 dark:focus-visible:outline-zinc-100'
 
@@ -110,6 +110,17 @@ export function CaseCard({
       </span>
     </div>
   )
+
+  if (!href) {
+    return (
+      <>
+        <div className="group block">
+          {content}
+        </div>
+        {floatingLottie}
+      </>
+    )
+  }
 
   if (isInternal) {
     return (

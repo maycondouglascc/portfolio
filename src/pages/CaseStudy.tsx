@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { ChevronUp } from 'react-feather'
 import Wrapper from '../components/Wrapper'
 import { getProjects, type CaseStudySection } from '../data/projects'
-import { getCaseStudy } from '../data/case-studies'
+import { caseStudySlugs, getCaseStudy } from '../data/case-studies'
 import CaseNavBar from '../components/case-study/CaseNavBar'
 import CaseImage from '../components/case-study/CaseImage'
 import ImageStack from '../components/case-study/ImageStack'
@@ -154,7 +154,7 @@ function CaseStudy() {
   const { language, t } = useLanguage()
   const projects = getProjects(language)
   const project = projects.find((p) => p.slug === slug)
-  const caseStudy = slug ? getCaseStudy(slug) : undefined
+  const caseStudy = slug ? getCaseStudy(slug, language) : undefined
   const introRef = useRef<HTMLElement | null>(null)
 
   const handleScrollTop = () => {
@@ -255,34 +255,38 @@ function CaseStudy() {
           </Button>
         </TransitionChild>
 
-        {/* ── Divider ── */}
-        <TransitionChild index={4}>
-          <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
-        </TransitionChild>
+        {!caseStudy.hideOtherProjects && (
+          <>
+            {/* ── Divider ── */}
+            <TransitionChild index={4}>
+              <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
+            </TransitionChild>
 
-        {/* ── See other projects ── */}
-        <TransitionChild index={5}>
-          <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
-            <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
-              {t('caseStudy.seeOtherProjects')}
-            </h2>
-            <ul className="flex flex-col gap-2">
-              {projects
-                .filter((project) => project.slug !== slug)
-                .map((project) => (
-                  <li key={project.slug} className="min-w-0">
-                    <CaseCard
-                      href={`/projects/${project.slug}`}
-                      imageAlt={project.title}
-                      title={project.title}
-                      description={project.description}
-                      hoverLottie={project.hoverLottie}
-                    />
-                  </li>
-                ))}
-            </ul>
-          </section>
-        </TransitionChild>
+            {/* ── See other projects ── */}
+            <TransitionChild index={5}>
+              <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
+                <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
+                  {t('caseStudy.seeOtherProjects')}
+                </h2>
+                <ul className="flex flex-col gap-2">
+                  {projects
+                    .filter((project) => project.slug !== slug)
+                    .map((project) => (
+                      <li key={project.slug} className="min-w-0">
+                        <CaseCard
+                          href={caseStudySlugs.has(project.slug) ? `/projects/${project.slug}` : undefined}
+                          imageAlt={project.title}
+                          title={project.title}
+                          description={project.description}
+                          hoverLottie={project.hoverLottie}
+                        />
+                      </li>
+                    ))}
+                </ul>
+              </section>
+            </TransitionChild>
+          </>
+        )}
       </main>
     
     </Wrapper>

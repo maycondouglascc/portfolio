@@ -36,7 +36,6 @@ function ProjectsGrid() {
             {caseStudySoon.map((project) => (
               <li key={project.slug} className="min-w-0">
                 <CaseCard
-                  href={`/projects/${project.slug}`}
                   imageAlt={project.title}
                   title={project.title}
                   description={project.description}
