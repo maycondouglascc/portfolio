@@ -16,7 +16,6 @@
 
 import { motion, AnimatePresence } from "motion/react"
 import type { Location } from "react-router-dom"
-import { useDialKit } from "dialkit"
 import {
   ReactNode,
   ReactElement,
@@ -24,12 +23,14 @@ import {
   useContext,
   isValidElement,
   cloneElement,
+  lazy,
+  Suspense,
 } from "react"
 
 /* ─────────────────────────────────────────────────────────
  * TIMING (ms after stage trigger)
  * ───────────────────────────────────────────────────────── */
-const DEFAULT_TIMING = {
+export const DEFAULT_TIMING = {
   exitDuration: 0.2,      // seconds for exit fade
   enterDelay: 0.1,        // delay before enter starts
   enterDuration: 0.4,     // seconds for container enter
@@ -41,7 +42,7 @@ const DEFAULT_TIMING = {
 /* ─────────────────────────────────────────────────────────
  * EXIT CONFIG - fade out old content
  * ───────────────────────────────────────────────────────── */
-const EXIT = {
+export const EXIT = {
   targetOpacity: 0,       // fade to invisible
   ease: "easeInOut" as const,
 }
@@ -49,7 +50,7 @@ const EXIT = {
 /* ─────────────────────────────────────────────────────────
  * ENTER CONFIG - container slides up
  * ───────────────────────────────────────────────────────── */
-const CONTAINER = {
+export const CONTAINER = {
   initialY: 24,           // px to slide up from
   initialOpacity: 0,      // start invisible
   finalY: 0,              // resting position
@@ -60,7 +61,7 @@ const CONTAINER = {
 /* ─────────────────────────────────────────────────────────
  * CHILD CONFIG - staggered children slide up
  * ───────────────────────────────────────────────────────── */
-const CHILD = {
+export const CHILD = {
   initialY: 20,           // px to slide up from
   initialOpacity: 0,      // start invisible
   finalY: 0,              // resting position
@@ -69,6 +70,33 @@ const CHILD = {
 }
 
 type Easing = "linear" | "easeIn" | "easeOut" | "easeInOut"
+
+/** Params shape used by both DEFAULT_PARAMS (prod) and useDialKit (dev). */
+export interface TransitionParams {
+  timing: {
+    exitDuration: number
+    enterDelay: number
+    enterDuration: number
+    childDelay: number
+    childStagger: number
+    childDuration: number
+  }
+  offsets: { containerY: number; childY: number }
+  opacity: { exitTarget: number; containerStart: number; childStart: number }
+  easing: { exit: Easing; enter: Easing; child: Easing }
+}
+
+/** Production defaults – DialKit is dev-only; prod never loads it. */
+export const DEFAULT_PARAMS: TransitionParams = {
+  timing: { ...DEFAULT_TIMING },
+  offsets: { containerY: CONTAINER.initialY, childY: CHILD.initialY },
+  opacity: {
+    exitTarget: EXIT.targetOpacity,
+    containerStart: CONTAINER.initialOpacity,
+    childStart: CHILD.initialOpacity,
+  },
+  easing: { exit: EXIT.ease, enter: CONTAINER.ease, child: CHILD.ease },
+}
 
 interface TransitionChildConfig {
   enterDelay: number
@@ -82,54 +110,21 @@ interface TransitionChildConfig {
 
 const TransitionChildContext = createContext<TransitionChildConfig | null>(null)
 
-/* ─────────────────────────────────────────────────────────
- * PageTransition - wraps route content with animated transitions
- * ───────────────────────────────────────────────────────── */
 interface PageTransitionProps {
   children: ReactNode
   routeLocation: Location
 }
 
-export function PageTransition({ children, routeLocation }: PageTransitionProps) {
+interface PageTransitionInnerProps extends PageTransitionProps {
+  params: TransitionParams
+}
 
-  // DialKit controls for tuning all timing values
-  const params = useDialKit("Page Transition", {
-    timing: {
-      exitDuration: [DEFAULT_TIMING.exitDuration, 0.05, 0.8],
-      enterDelay: [DEFAULT_TIMING.enterDelay, 0, 0.8],
-      enterDuration: [DEFAULT_TIMING.enterDuration, 0.1, 1.6],
-      childDelay: [DEFAULT_TIMING.childDelay, 0, 1],
-      childStagger: [DEFAULT_TIMING.childStagger, 0, 0.5],
-      childDuration: [DEFAULT_TIMING.childDuration, 0.05, 1.2],
-    },
-    offsets: {
-      containerY: [CONTAINER.initialY, 0, 100],
-      childY: [CHILD.initialY, 0, 80],
-    },
-    opacity: {
-      exitTarget: [EXIT.targetOpacity, 0, 1],
-      containerStart: [CONTAINER.initialOpacity, 0, 1],
-      childStart: [CHILD.initialOpacity, 0, 1],
-    },
-    easing: {
-      exit: {
-        type: "select" as const,
-        options: ["linear", "easeIn", "easeOut", "easeInOut"],
-        default: EXIT.ease,
-      },
-      enter: {
-        type: "select" as const,
-        options: ["linear", "easeIn", "easeOut", "easeInOut"],
-        default: CONTAINER.ease,
-      },
-      child: {
-        type: "select" as const,
-        options: ["linear", "easeIn", "easeOut", "easeInOut"],
-        default: CHILD.ease,
-      },
-    },
-  })
-
+/** Inner transition UI – used with DEFAULT_PARAMS in prod, useDialKit in dev. */
+export function PageTransitionInner({
+  children,
+  routeLocation,
+  params,
+}: PageTransitionInnerProps) {
   const frozenChildren = isValidElement(children)
     ? cloneElement(children as ReactElement<{ location?: Location }>, {
         location: routeLocation,
@@ -184,6 +179,31 @@ export function PageTransition({ children, routeLocation }: PageTransitionProps)
         </TransitionChildContext.Provider>
       </motion.div>
     </AnimatePresence>
+  )
+}
+
+const PageTransitionWithDialKit = lazy(
+  () =>
+    import("./PageTransitionDev").then((m) => ({
+      default: m.PageTransitionWithDialKit,
+    }))
+)
+
+/** Public component: prod uses DEFAULT_PARAMS, dev lazy-loads DialKit version. */
+export function PageTransition({ children, routeLocation }: PageTransitionProps) {
+  if (!import.meta.env.DEV) {
+    return (
+      <PageTransitionInner
+        children={children}
+        routeLocation={routeLocation}
+        params={DEFAULT_PARAMS}
+      />
+    )
+  }
+  return (
+    <Suspense fallback={null}>
+      <PageTransitionWithDialKit children={children} routeLocation={routeLocation} />
+    </Suspense>
   )
 }
 
