@@ -9,7 +9,7 @@ Reference document for developers and AI assistants. Describes the project struc
 **Purpose:** Personal portfolio for Maycon Douglas (Product Designer).
 
 **Core features:**
-- Project showcase with cards linking to case studies
+- Project showcase with case-study cards and non-clickable "coming soon" cards
 - Case study pages with structured sections (text, metrics, images, problems, results)
 - Experience timeline with role history
 - Contact section with copy-to-clipboard email
@@ -68,7 +68,7 @@ src/
     Wrapper.tsx        # Max-width layout container
     Intro.tsx          # Hero/bio section
     ProjectsGrid.tsx    # Project cards grid
-    CaseCard.tsx       # Project card (optional Lottie hover)
+    CaseCard.tsx       # Project card (optional Lottie hover, optional link)
     ExperienceList.tsx # Experience timeline
     Footer.tsx         # Contact section
     Button.tsx         # Button variants
@@ -101,8 +101,8 @@ src/
     projects.ts        # getProjects(), CaseStudySection types
     experience.ts      # getExperience()
     case-studies/
-      index.ts         # getCaseStudy(), caseStudySlugs
-      danone.tsx       # Case study content
+      index.ts         # getCaseStudy(slug, language), caseStudySlugs
+      danone.tsx       # Localized case study content factory
 
   locales/
     en.ts              # English strings
@@ -143,7 +143,8 @@ public/
 
 **Case studies** (`src/data/case-studies/`):
 - Add entry in `index.ts`: `caseStudies[slug] = studyModule`
-- Each study exports `CaseStudyData`: `title`, `description`, `role`, `goal`, `sections[]`, optional `externalHref`
+- Each study exports a language-aware factory `(language) => CaseStudyData`
+- `CaseStudyData`: `title`, `description`, `role`, `goal`, `sections[]`, optional `externalHref`, optional `hideOtherProjects`
 - `caseStudySlugs` set used for validation
 
 **CaseStudySection** (discriminated union):

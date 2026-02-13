@@ -1,9 +1,11 @@
 import profilePic from '../assets/profilepic.webp'
-import resumePdf from '../assets/resume/maycondouglasresume.pdf'
+import resumePdfEn from '../assets/resume/maycondouglasresume.pdf'
+import resumePdfPt from '../assets/resume/curriculomaycondouglas.pdf'
 import { useLanguage } from '../context/LanguageContext'
 
 function Intro() {
   const { language, t } = useLanguage()
+  const resumePdf = language === 'pt' ? resumePdfPt : resumePdfEn
 
   return (
     <section className="flex flex-col gap-6 border-b border-zinc-200 pb-6 dark:border-zinc-800">
