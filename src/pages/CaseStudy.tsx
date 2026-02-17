@@ -110,7 +110,7 @@ function renderSection(section: CaseStudySection, index: number) {
           <h2 className="mb-3 text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
             {section.title}
           </h2>
-          <p className="text-body-15-regular font-normal leading-[24px] text-zinc-600 dark:text-zinc-400">
+          <p className="pb-4 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
             {section.intro}
           </p>
           <MetricsRow items={section.items} layout="vertical" />
@@ -130,7 +130,7 @@ function renderSection(section: CaseStudySection, index: number) {
             {section.title}
           </h2>
           <div className="space-y-2">
-            <p className="text-body-15-regular font-normal leading-[24px] text-zinc-600 dark:text-zinc-400">
+            <p className="mb-3 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
               {section.intro}
             </p>
             <MetricsRow
@@ -264,7 +264,10 @@ function CaseStudy() {
                 </h2>
                 <ul className="flex flex-col gap-2">
                   {projects
-                    .filter((project) => project.slug !== slug)
+                    .filter(
+                      (project) =>
+                        project.slug !== slug && caseStudySlugs.has(project.slug)
+                    )
                     .map((project) => (
                       <li key={project.slug} className="min-w-0">
                         <CaseCard

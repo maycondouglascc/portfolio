@@ -15,7 +15,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
     goal: isPt
       ? 'Redesenhar a experiência digital do GSK Pro Mexico por meio de arquitetura de informação estratégica, melhor descoberta de conteúdo e jornadas personalizadas para profissionais de saúde'
       : "Redesigning GSK Pro Mexico's digital experience through strategic information architecture, enhanced content discoverability, and personalized user journeys to better serve healthcare professionals in their clinical practice",
-    hideOtherProjects: true,
+    hideOtherProjects: false,
     sections: [
       {
         type: 'metrics',
@@ -209,7 +209,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
                 : 'Restructured Sitemap & Information Architecture'}
             </h3>
             <div>
-              <p className="text-zinc-900 dark:text-zinc-100">
+              <p>
                 {isPt
                   ? 'Evolução de organização centrada no produto para centrada na doença, com templates de página padronizados em todas as áreas terapêuticas.'
                   : 'Evolved from product-centric to disease-centric organization with standardized page templates across therapeutic areas.'}
@@ -237,7 +237,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
             <div className="space-y-2">
               <h3>{isPt ? 'Hub Centralizado de Recursos' : 'Centralized Resources Hub'}</h3>
               <div>
-                <p className="text-zinc-900 dark:text-zinc-100">
+                <p>
                   {isPt
                     ? 'Consolidamos conteúdo educacional disperso, guias práticos, artigos científicos e materiais de educação para pacientes em uma única biblioteca de fácil acesso, organizada por área terapêutica e tipo de conteúdo.'
                     : 'Consolidated scattered educational content, practical guides, scientific articles, and patient education materials into a single, easily accessible library organized by therapeutic area and content type.'}
@@ -256,7 +256,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
                   : 'Template System & Design Standards'}
               </h3>
               <div>
-                <p className="text-zinc-900 dark:text-zinc-100">
+                <p>
                   {isPt
                     ? 'Desenvolvemos 10+ templates de página escaláveis com componentes consistentes e hierarquia de informação.'
                     : 'Developed 10+ scalable page templates with consistent components and information hierarchy.'}
