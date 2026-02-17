@@ -10,30 +10,35 @@ type CaseImageProps = {
 function CaseImage({
   src,
   alt,
-  aspectRatio = '632 / 442',
+  aspectRatio,
   rounded = true,
   priority = false,
   className,
 }: CaseImageProps) {
+  const useNaturalRatio = aspectRatio == null
+
   return (
     <div
       className={[
-        'relative w-full overflow-hidden',
+        'w-full overflow-hidden',
+        useNaturalRatio ? '' : 'relative',
         rounded ? 'rounded-lg' : '',
         className,
       ]
         .filter(Boolean)
         .join(' ')}
-      style={{ aspectRatio }}
+      style={useNaturalRatio ? undefined : { aspectRatio }}
     >
       <img
         src={src}
         alt={alt}
-        width={632}
-        height={442}
         loading={priority ? 'eager' : 'lazy'}
         decoding={priority ? 'sync' : 'async'}
-        className="absolute inset-0 size-full object-cover"
+        className={
+          useNaturalRatio
+            ? 'block w-full h-auto'
+            : 'absolute inset-0 size-full object-cover'
+        }
       />
     </div>
   )

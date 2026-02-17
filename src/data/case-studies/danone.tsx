@@ -15,7 +15,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
     goal: isPt
       ? 'Modernizar a interface e migrar para um CMS dinâmico'
       : 'Modernize interface and migrate to a dynamic CMS',
-    hideOtherProjects: true,
+    hideOtherProjects: false,
     sections: [
       {
         type: 'metrics',
@@ -177,11 +177,9 @@ const danoneStudy = (language: Language): CaseStudyData => {
         title: isPt ? 'Entregáveis-chave e Racional' : 'Key Deliverables & Rationale',
         body: (
           <div className="space-y-2">
-            <p className="text-body-15-regular text-zinc-900 dark:text-zinc-100">
-              {isPt ? 'Biblioteca de Componentes Escalável' : 'Scalable Component Library'}
-            </p>
+            <h3>{isPt ? 'Biblioteca de Componentes Escalável' : 'Scalable Component Library'}</h3>
             <div>
-              <p className="text-zinc-900 dark:text-zinc-100">
+              <p>
                 {isPt
                   ? 'Desenvolvimento de biblioteca com mais de 20 componentes responsivos.'
                   : 'Developed a library of 20+ responsive components.'}
@@ -229,7 +227,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
         title: isPt ? 'Framework de SEO e Acessibilidade' : 'SEO & Accessibility Framework',
         body: (
           <>
-            <p className="text-zinc-900 dark:text-zinc-100">
+            <p>
               {isPt
                 ? 'Criação de um guia para escrita orientada a SEO e conteúdo acessível. Redesenho exclusivo da camada visual seria insuficiente; a estrutura base precisava ser de alto nível para que mecanismos de busca impulsionassem o crescimento orgânico.'
                 : 'Developed a guide for SEO-oriented writing and accessible content. Redesigning the visual layer was insufficient; the underlying structure needed to be best in class for search engines to drive organic growth'}
