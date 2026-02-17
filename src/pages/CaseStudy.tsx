@@ -28,11 +28,11 @@ function renderSection(section: CaseStudySection, index: number) {
           className={sectionId ? 'scroll-mt-24' : undefined}
         >
           {section.title && (
-            <h2 className="mb-2 text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
+            <h2 className="mb-3 text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
               {section.title}
             </h2>
           )}
-          <div className="space-y-4 text-body-15-regular font-medium text-zinc-600 dark:text-zinc-400 [&_p]:leading-[24px]">
+          <div className="space-y-4 text-body-15-regular font-normal text-zinc-700 dark:text-zinc-400 [&_p]:leading-[24px] [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:first:mt-0 [&_h3]:text-body-15-medium [&_h3]:font-semibold [&_h3]:text-zinc-900 [&_h3]:dark:text-zinc-100">
             {section.body}
           </div>
         </section>
@@ -48,9 +48,9 @@ function renderSection(section: CaseStudySection, index: number) {
             .join(' ')}
         >
           {section.label && (
-            <p className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
+            <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
               {section.label}
-            </p>
+            </h2>
           )}
           <MetricsRow
             items={section.items}
@@ -107,10 +107,10 @@ function renderSection(section: CaseStudySection, index: number) {
             .filter(Boolean)
             .join(' ')}
         >
-          <h2 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
+          <h2 className="mb-3 text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
             {section.title}
           </h2>
-          <p className="text-body-15-regular font-medium leading-[24px] text-zinc-600 dark:text-zinc-400">
+          <p className="text-body-15-regular font-normal leading-[24px] text-zinc-600 dark:text-zinc-400">
             {section.intro}
           </p>
           <MetricsRow items={section.items} layout="vertical" />
@@ -126,11 +126,11 @@ function renderSection(section: CaseStudySection, index: number) {
             .filter(Boolean)
             .join(' ')}
         >
-          <h2 className="text-body-18-medium font-semibold text-zinc-900 dark:text-zinc-100">
+          <h2 className="mb-3 text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
             {section.title}
           </h2>
           <div className="space-y-2">
-            <p className="text-body-15-regular font-medium leading-[24px] text-zinc-600 dark:text-zinc-400">
+            <p className="text-body-15-regular font-normal leading-[24px] text-zinc-600 dark:text-zinc-400">
               {section.intro}
             </p>
             <MetricsRow
@@ -221,19 +221,13 @@ function CaseStudy() {
             <p className="text-body-15-regular leading-[24px] text-zinc-600 dark:text-zinc-400">
               {caseStudy.description}
             </p>
-            <div className="text-body-15-regular font-medium text-zinc-600 dark:text-zinc-400">
-              <p>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.myRole')}</span>
-                <br />
-                {caseStudy.role}
-              </p>
+            <div>
+              <h3 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.myRole')}</h3>
+              <p className="mt-1 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">{caseStudy.role}</p>
             </div>
-            <div className="text-body-15-regular text-zinc-600 dark:text-zinc-400">
-              <p>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.coreGoal')}</span>
-                <br />
-                {caseStudy.goal}
-              </p>
+            <div>
+              <h3 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">{t('caseStudy.coreGoal')}</h3>
+              <p className="mt-1 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">{caseStudy.goal}</p>
             </div>
           </header>
         </TransitionChild>
@@ -265,7 +259,7 @@ function CaseStudy() {
             {/* ── See other projects ── */}
             <TransitionChild index={5}>
               <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
-                <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
+                <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
                   {t('caseStudy.seeOtherProjects')}
                 </h2>
                 <ul className="flex flex-col gap-2">

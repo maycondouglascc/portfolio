@@ -203,11 +203,11 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
         title: isPt ? 'Entregáveis-chave e Racional' : 'Key Deliverables & Rationale',
         body: (
           <div className="space-y-2">
-            <p className="text-body-15-regular text-zinc-900 dark:text-zinc-100">
+            <h3>
               {isPt
                 ? 'Sitemap Reestruturado e Arquitetura de Informação'
                 : 'Restructured Sitemap & Information Architecture'}
-            </p>
+            </h3>
             <div>
               <p className="text-zinc-900 dark:text-zinc-100">
                 {isPt
@@ -235,9 +235,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
         body: (
           <div className="space-y-8">
             <div className="space-y-2">
-              <p className="text-body-15-regular text-zinc-900 dark:text-zinc-100">
-                {isPt ? 'Hub Centralizado de Recursos' : 'Centralized Resources Hub'}
-              </p>
+              <h3>{isPt ? 'Hub Centralizado de Recursos' : 'Centralized Resources Hub'}</h3>
               <div>
                 <p className="text-zinc-900 dark:text-zinc-100">
                   {isPt
@@ -252,11 +250,11 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
               </div>
             </div>
             <div className="space-y-2">
-              <p className="text-body-15-regular text-zinc-900 dark:text-zinc-100">
+              <h3>
                 {isPt
                   ? 'Sistema de Templates e Padrões de Design'
                   : 'Template System & Design Standards'}
-              </p>
+              </h3>
               <div>
                 <p className="text-zinc-900 dark:text-zinc-100">
                   {isPt

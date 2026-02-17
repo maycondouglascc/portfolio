@@ -177,9 +177,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
         title: isPt ? 'Entregáveis-chave e Racional' : 'Key Deliverables & Rationale',
         body: (
           <div className="space-y-2">
-            <p className="text-body-15-regular text-zinc-900 dark:text-zinc-100">
-              {isPt ? 'Biblioteca de Componentes Escalável' : 'Scalable Component Library'}
-            </p>
+            <h3>{isPt ? 'Biblioteca de Componentes Escalável' : 'Scalable Component Library'}</h3>
             <div>
               <p className="text-zinc-900 dark:text-zinc-100">
                 {isPt
