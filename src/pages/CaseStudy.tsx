@@ -275,7 +275,6 @@ function CaseStudy() {
                           imageAlt={project.title}
                           title={project.title}
                           description={project.description}
-                          hoverLottie={project.hoverLottie}
                         />
                       </li>
                     ))}
