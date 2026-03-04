@@ -16,7 +16,6 @@ export default defineConfig({
           if (id.includes('node_modules/lottie-react') || id.includes('node_modules/lottie-web')) {
             return 'lottie'
           }
-          if (id.includes('node_modules/@microsoft/clarity')) return 'clarity'
           return undefined
         },
       },

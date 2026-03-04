@@ -61,7 +61,7 @@ App (src/App.tsx)
 ```
 src/
   App.tsx              # Root: providers, routing, layout
-  main.tsx             # Entry point, Clarity init
+  main.tsx             # Entry point
   index.css            # Global styles, font-face, base styles
 
   components/          # Reusable UI components
@@ -208,7 +208,7 @@ public/
 ## 7. Build and Scripts
 
 **Vite config** (`vite.config.ts`):
-- Manual chunks: `router`, `lottie`, `clarity`
+- Manual chunks: `router`, `lottie`
 - Gzip and Brotli compression plugins
 
 **Scripts:**
@@ -221,5 +221,4 @@ public/
 
 ## 8. Environment
 
-- `.env`: `VITE_CLARITY_PROJECT_ID` for Microsoft Clarity
-- Clarity initialized in `main.tsx`
+- Clarity: script tag in `index.html` (project ID `vgvl92p4uo`)
