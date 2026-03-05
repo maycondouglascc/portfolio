@@ -1,0 +1,105 @@
+# Maycon Douglas — Full Portfolio Content
+
+> Product Designer with 8 years of experience in websites, applications, SaaS, and design systems. Based in Brazil. Bilingual in English and Portuguese.
+
+Maycon Douglas is a senior product designer who has worked with multinational companies through dti digital and Wunderman Thompson, as well as with startups. His work spans institutional portals, healthcare portals, B2C product design, and design systems.
+
+---
+
+## About
+
+Maycon Douglas is a product designer focused on creating digital experiences that balance business goals with user needs. He has experience leading design for large-scale institutional portals, healthcare platforms, and SaaS products across Latin America and North America. He is proficient in Figma, design systems, information architecture, and cross-functional collaboration with development and product teams.
+
+---
+
+## Professional Experience
+
+- **dti digital** — Product Designer (Current)
+- **Wunderman Thompson** — Product Designer (2022–23)
+- **BASE** — UI Designer (2020–22)
+- **Ôpa!** — Art Director (2018–20)
+
+---
+
+## Case Studies
+
+### Danone North America — Portal Redesign & AEM Migration
+
+**Role:** Product Designer
+**Goal:** Modernize the interface and migrate to a dynamic CMS (Adobe Experience Manager)
+
+**Summary:**
+Revitalized the Danone North America digital presence by migrating their institutional portal to the Adobe Experience Manager platform. This project moved beyond a simple redesign, focusing on a strategic overhaul of the information architecture, SEO performance, and content scalability. By implementing a responsive library of over 20+ components and restructuring 10+ core pages, the solution delivered a +150% increase in site traffic year-over-year.
+
+**The Problem:**
+The Danone NorAm portal serves as a critical vitrine for investors, partners, and North American consumers. The legacy system presented significant hurdles:
+
+- **Rigid CMS:** Content updates were slow and technically demanding, hindering marketing agility.
+- **Brand Dilution:** A need to align with the global Danone digital ecosystem while preserving the regional authenticity and B-Corp identity of the North American branch.
+- **Poor Discoverability:** The lack of an SEO-oriented structure limited the portal's reach and impact as a communication tool.
+
+**Design Process:**
+The project followed a structured Discovery and Curadoria process:
+
+- **Discovery & Research:** Analyzed surveys and stakeholder expectations, identifying key themes such as recruitment, product portfolio, and ESG.
+- **Proto-Persona Development:** Based on the collected data, distinct personas were created to guide the content narrative and user journeys.
+- **Information Architecture:** Developed wireframes and site maps to improve navigation and the flow of institutional information.
+
+**Key Deliverables:**
+
+- **Scalable Component Library:** Developed a library of 20+ responsive components, empowering the Danone team to manage content quickly and efficiently without developer intervention, ensuring brand consistency across all new pages and campaigns.
+- **SEO & Accessibility Framework:** Developed a guide for SEO-oriented writing and accessible content. Redesigning the visual layer was insufficient; the underlying structure needed to be best in class for search engines to drive organic growth.
+
+**Results:**
+
+- **Traffic Growth:** A 150%+ increase in accesses compared to the previous year, directly attributed to the new SEO structure and improved UI.
+- **Operational Efficiency:** The transition to AEM and the creation of the component library drastically reduced the time-to-market for new content updates.
+
+**Personal Takeaway:**
+This project reinforced the importance of technical feasibility in Senior Design leadership. Success was not just about attractive design, but about building a system that the client could actually maintain and grow independently within the AEM ecosystem.
+
+---
+
+### GSK Pro Mexico — Healthcare Portal Revamp
+
+**Role:** Product Designer
+**Goal:** Redesigning GSK Pro Mexico's digital experience through strategic information architecture, enhanced content discoverability, and personalized user journeys to better serve healthcare professionals in their clinical practice.
+
+**Summary:**
+The project evolved beyond visual redesign, focusing on a strategic transformation from product-centric to disease-centric content organization, addressing critical pain points including poor navigation (62% of HCPs reported difficulties), non-functional search features, and barriers to access. By implementing a restructured information architecture with standardized templates, centralized resources hub, and enhanced therapeutic area organization, the solution established a foundation for improved HCP engagement and clinical decision-making support.
+
+**Metrics:**
+- 10+ scalable page templates for consistent experience
+- 7 personalized journeys for the portal
+
+**The Problem:**
+The portal serves as a critical digital touchpoint for healthcare professionals seeking evidence-based information. The existing platform presented significant barriers:
+
+- **Complex access flow:** Login-required content prevented HCPs from perceiving immediate value, with registration processes taking up to 48 hours to complete. This resulted in 46.2% bounce rate on login pages.
+- **Poor navigation and inconsistency:** Lack of standardized structure across therapeutic areas and product pages created cognitive overload. The main menu failed to represent the full content portfolio, with 300+ pages receiving fewer than 10 visits in 6 months.
+- **Product-centric instead of treatment-centric:** Content organization focused on individual products rather than clinical conditions, misaligning with HCPs' mental models who "think first in the patient, and then in the brands."
+
+**Design Process:**
+The project followed a Triple Diamond methodology:
+
+- **Discovery & Research:** Conducted multi-method research including heuristic evaluation against Nielsen's 10 usability principles, content audit of 120 web pages across 12 products, and competitive analysis of GSK portals, plus external benchmarks.
+- **User journey mapping:** Mapped three distinct HCP proto-personas. Identified critical friction points including barriers to early access, lack of clinical depth, and absence of personalization.
+- **SWOT analysis & strategic synthesis:** Cross-analyzed weaknesses and opportunities to generate actionable recommendations. Key insights revealed that 55% of users are General Practitioners who need disease-based navigation rather than product-specific information.
+- **Information architecture redesign:** Developed comprehensive sitemap restructuring content into clear sections. Defined scope and ultimate objective for each major area to ensure strategic alignment.
+
+**Key Deliverables:**
+
+- **Restructured Sitemap & Information Architecture:** Evolved from product-centric to disease-centric organization with standardized page templates across therapeutic areas. Aligns with HCPs' mental models who prioritize patient conditions over brand names. Creates logical hierarchy that reduces cognitive load and enables faster information discovery for 55% of users who are General Practitioners treating diverse conditions.
+- **Centralized Resources Hub:** Consolidated scattered educational content, practical guides, scientific articles, and patient education materials into a single, easily accessible library organized by therapeutic area and content type. Positions GSK as a trusted knowledge partner beyond product promotion, supporting the shift from "repository to destination."
+- **Template System & Design Standards:** Developed 10+ scalable page templates with consistent components and information hierarchy. Eliminates visual inconsistencies that were creating confusion and disorientation. Ensures brand consistency while enabling efficient content updates across 700+ indexed pages.
+
+**Personal Takeaway:**
+This project reinforced the critical importance of comprehensive discovery before solutions. The temptation to jump directly into redesigning screens would have missed the deeper strategic shift needed from product-centric to treatment-centric thinking. The most valuable insight came from recognizing that 55% of users are General Practitioners who need to navigate by disease conditions across multiple therapeutic areas, not specialists looking for specific product information. This single finding fundamentally reshaped the information architecture approach. Content strategy and information architecture are as critical as visual design in healthcare portals.
+
+---
+
+## Contact
+
+- Email: hi@maycondouglas.work
+- LinkedIn: https://linkedin.com/in/maycondouglascc
+- Website: https://maycondouglas.work

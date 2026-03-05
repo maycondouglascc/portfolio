@@ -1,0 +1,27 @@
+# Maycon Douglas
+
+> Product Designer with 8 years of experience in websites, applications, SaaS, and design systems. Based in Brazil. Bilingual in English and Portuguese.
+
+Maycon Douglas is a senior product designer who has worked with multinational companies through dti digital and Wunderman Thompson, as well as with startups. His work spans institutional portals, healthcare portals, B2C product design, and design systems.
+
+## Site Contents
+
+- [Home](https://maycondouglas.work/): Introduction, project grid, and work history.
+- [Danone North America Case Study](https://maycondouglas.work/projects/danone-north-america): Redesign and AEM migration of the Danone North America institutional portal. Resulted in 150%+ increase in site traffic year-over-year.
+- [GSK Pro Mexico Case Study](https://maycondouglas.work/projects/gskpromx): Redesign of GSK Mexico's healthcare professional portal, including a shift from product-centric to disease-centric information architecture and 10+ scalable page templates.
+
+## Professional Experience
+
+- **dti digital** — Product Designer (Current)
+- **Wunderman Thompson** — Product Designer (2022–23)
+- **BASE** — UI Designer (2020–22)
+- **Ôpa!** — Art Director (2018–20)
+
+## Contact
+
+- Email: hi@maycondouglas.work
+- LinkedIn: https://linkedin.com/in/maycondouglascc
+
+## Optional
+
+- [Full content version](https://maycondouglas.work/llms-full.txt)
