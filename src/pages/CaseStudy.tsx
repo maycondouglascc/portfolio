@@ -272,7 +272,8 @@ function CaseStudy() {
                       <li key={project.slug} className="min-w-0">
                         <CaseCard
                           href={caseStudySlugs.has(project.slug) ? `/projects/${project.slug}` : undefined}
-                          imageAlt={project.title}
+                          thumbnail={project.thumbnail}
+                          thumbnailAlt={project.title}
                           title={project.title}
                           description={project.description}
                         />

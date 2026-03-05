@@ -102,16 +102,6 @@ function AppContent() {
   )
 }
 
-function DevDialKit() {
-  const [DialRoot, setDialRoot] = useState<typeof import("dialkit").DialRoot | null>(null)
-  useEffect(() => {
-    if (!import.meta.env.DEV) return
-    import("dialkit").then((m) => setDialRoot(() => m.DialRoot))
-    import("dialkit/styles.css")
-  }, [])
-  if (!import.meta.env.DEV || !DialRoot) return null
-  return <DialRoot position="top-right" />
-}
 
 export default function App() {
   return (
@@ -119,7 +109,6 @@ export default function App() {
       <ThemeProvider>
         <BrowserRouter>
           <AppContent />
-          <DevDialKit />
         </BrowserRouter>
       </ThemeProvider>
     </LanguageProvider>

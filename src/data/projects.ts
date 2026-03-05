@@ -55,6 +55,7 @@ export interface Project {
   slug: string
   title: string
   description: string
+  thumbnail: string
   hoverLottie?: string
 }
 
@@ -64,6 +65,7 @@ type LocalizedProject = {
   slug: string
   title: LocalizedText
   description: LocalizedText
+  thumbnail: string
   hoverLottie?: string
 }
 
@@ -78,6 +80,7 @@ const projectsCatalog: LocalizedProject[] = [
       en: 'Revitalizing the Danone NorAm digital presence by renewing its design language and migrating their institutional portal to the Adobe Experience Manager platform.',
       pt: 'Revitalizacao da presenca digital da Danone NorAm com renovacao da linguagem visual e migracao do portal institucional para a plataforma Adobe Experience Manager.',
     },
+    thumbnail: '/files/case-thumbnails/project-thumbnail-1.png',
     hoverLottie: 'danoneNorthAmerica',
   },
   {
@@ -90,6 +93,7 @@ const projectsCatalog: LocalizedProject[] = [
       en: "Redesigning GSK Mexico's portal with a scalable template system and personalized content architecture tailored to medical specialties",
       pt: 'Redesign do portal da GSK Mexico com um sistema de templates escalavel e arquitetura de conteudo personalizada para especialidades medicas.',
     },
+    thumbnail: '/files/case-thumbnails/project-thumbnail-2.png',
   },
   {
     slug: 'vendd-web',
@@ -101,6 +105,7 @@ const projectsCatalog: LocalizedProject[] = [
       en: "Establishing Vendd's product design foundation as solo designer, building and scaling a unified design system across web and mobile platforms",
       pt: 'Estruturacao da base de design de produto da Vendd como designer solo, criando e escalando um design system unificado para web e mobile.',
     },
+    thumbnail: '/files/case-thumbnails/project-thumbnail-3.png',
   },
 ]
 
@@ -109,6 +114,7 @@ export function getProjects(language: Language): Project[] {
     slug: project.slug,
     title: project.title[language],
     description: project.description[language],
+    thumbnail: project.thumbnail,
     hoverLottie: project.hoverLottie,
   }))
 }

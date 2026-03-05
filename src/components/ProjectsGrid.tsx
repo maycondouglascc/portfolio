@@ -19,7 +19,8 @@ function ProjectsGrid() {
           <li key={project.slug} className="min-w-0">
             <CaseCard
               href={`/projects/${project.slug}`}
-              imageAlt={project.title}
+              thumbnail={project.thumbnail}
+              thumbnailAlt={project.title}
               title={project.title}
               description={project.description}
             />
@@ -35,7 +36,8 @@ function ProjectsGrid() {
             {caseStudySoon.map((project) => (
               <li key={project.slug} className="min-w-0">
                 <CaseCard
-                  imageAlt={project.title}
+                  thumbnail={project.thumbnail}
+                  thumbnailAlt={project.title}
                   title={project.title}
                   description={project.description}
                 />
