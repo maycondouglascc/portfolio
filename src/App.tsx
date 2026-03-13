@@ -24,8 +24,8 @@ function ScrollToTop() {
 function LoadingFallback() {
   return (
     <Wrapper>
-      <div className="animate-pulse space-y-6 motion-reduce:animate-none">
-        <div className="h-8 w-48 rounded bg-zinc-200/60 dark:bg-zinc-800/60" />
+      <div className="mx-auto animate-pulse space-y-6 motion-reduce:animate-none">
+        <div className="rounded bg-zinc-200/60 dark:bg-zinc-800/60" />
         <div className="space-y-3">
           <div className="h-4 w-full rounded bg-zinc-200/60 dark:bg-zinc-800/60" />
           <div className="h-4 w-3/4 rounded bg-zinc-200/60 dark:bg-zinc-800/60" />
@@ -41,7 +41,7 @@ function NotFound() {
 
   return (
     <Wrapper>
-      <main id="main-content" className="flex flex-col items-center gap-4 py-20 text-center">
+      <main id="main-content" className="max-w-[720px] mx-auto flex flex-col items-center gap-4 py-20 text-center">
         <h1 className="text-subheading-24-medium font-semibold text-zinc-900 dark:text-zinc-100">
           {t("app.notFoundTitle")}
         </h1>
@@ -93,7 +93,7 @@ function AppContent() {
       <div className="fixed right-3 top-3 z-40 sm:right-5 sm:top-5">
         <SettingsBar />
       </div>
-      <div className="px-1 py-1 sm:px-10 sm:py-10">
+      <div className="px-1 py-1 sm:px-2 sm:py-2">
         <Suspense fallback={routeElements}>
           <PageTransition routeLocation={location}>{routeElements}</PageTransition>
         </Suspense>
