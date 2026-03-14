@@ -1,0 +1,49 @@
+fragment ProjectsParts on Projects {
+  __typename
+  title_en
+  title_pt
+  description_en
+  description_pt
+  slug
+  thumbnail
+  hoverLottie
+  hasCaseStudy
+  sortOrder
+  draft
+}
+
+fragment ExperienceParts on Experience {
+  __typename
+  company
+  role_en
+  role_pt
+  period_en
+  period_pt
+  sortOrder
+}
+
+fragment CaseStudiesParts on CaseStudies {
+  __typename
+  title
+  description
+  role
+  goal
+  slug
+  externalHref
+  hideOtherProjects
+  draft
+  body
+}
+
+fragment PagesParts on Pages {
+  __typename
+  greeting_en
+  greeting_pt
+  bio_en
+  bio_pt
+  resumeLabel_en
+  resumeLabel_pt
+  profilePic
+  resumePdf_en
+  resumePdf_pt
+}
