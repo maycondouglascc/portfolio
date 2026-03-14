@@ -8,20 +8,22 @@ import { TransitionChild } from '../components/PageTransition'
 function Home() {
   return (
     <Wrapper>
-      <main id="main-content" className="flex flex-col gap-12">
-        <TransitionChild index={0}>
-          <Intro />
+      <div className="max-w-[720px] mx-auto">
+        <main id="main-content" className="flex flex-col gap-12">
+          <TransitionChild index={0}>
+            <Intro />
+          </TransitionChild>
+          <TransitionChild index={1}>
+            <ProjectsGrid />
+          </TransitionChild>
+          <TransitionChild index={2}>
+            <ExperienceList />
+          </TransitionChild>
+        </main>
+        <TransitionChild index={3}>
+          <Footer />
         </TransitionChild>
-        <TransitionChild index={1}>
-          <ProjectsGrid />
-        </TransitionChild>
-        <TransitionChild index={2}>
-          <ExperienceList />
-        </TransitionChild>
-      </main>
-      <TransitionChild index={3}>
-        <Footer />
-      </TransitionChild>
+      </div>
     </Wrapper>
   )
 }

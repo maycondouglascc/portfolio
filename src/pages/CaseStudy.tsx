@@ -16,8 +16,16 @@ import { useLanguage } from '../context/LanguageContext'
 
 // ── Section renderer ──────────────────────────────────────────────
 
+/** Returns true for section types that contain images and should use the wider max-width. */
+function isImageSection(type: CaseStudySection['type']): boolean {
+  return type === 'image' || type === 'imageStack' || type === 'imageGrid'
+}
+
 function renderSection(section: CaseStudySection, index: number) {
   const sectionId = section.id
+  const maxW = isImageSection(section.type)
+    ? 'max-w-[1200px] mx-auto'
+    : 'max-w-[720px] mx-auto'
 
   switch (section.type) {
     case 'text':
@@ -25,7 +33,9 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`text-${index}`}
           id={sectionId}
-          className={sectionId ? 'scroll-mt-24' : undefined}
+          className={[sectionId ? 'scroll-mt-24' : '', maxW]
+            .filter(Boolean)
+            .join(' ')}
         >
           {section.title && (
             <h2 className="mb-3 text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
@@ -43,7 +53,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`metrics-${index}`}
           id={sectionId}
-          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-2']
+          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-2', maxW]
             .filter(Boolean)
             .join(' ')}
         >
@@ -65,7 +75,9 @@ function renderSection(section: CaseStudySection, index: number) {
         <div
           key={`image-${index}`}
           id={sectionId}
-          className={sectionId ? 'scroll-mt-24' : undefined}
+          className={[sectionId ? 'scroll-mt-24' : '', maxW]
+            .filter(Boolean)
+            .join(' ')}
         >
           <CaseImage
             src={section.src}
@@ -81,7 +93,9 @@ function renderSection(section: CaseStudySection, index: number) {
         <div
           key={`stack-${index}`}
           id={sectionId}
-          className={sectionId ? 'scroll-mt-24' : undefined}
+          className={[sectionId ? 'scroll-mt-24' : '', maxW]
+            .filter(Boolean)
+            .join(' ')}
         >
           <ImageStack images={section.images} />
         </div>
@@ -92,7 +106,9 @@ function renderSection(section: CaseStudySection, index: number) {
         <div
           key={`grid-${index}`}
           id={sectionId}
-          className={sectionId ? 'scroll-mt-24' : undefined}
+          className={[sectionId ? 'scroll-mt-24' : '', maxW]
+            .filter(Boolean)
+            .join(' ')}
         >
           <ImageGrid images={section.images} />
         </div>
@@ -103,7 +119,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`problems-${index}`}
           id={sectionId}
-          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-2']
+          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-2', maxW]
             .filter(Boolean)
             .join(' ')}
         >
@@ -122,7 +138,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`results-${index}`}
           id={sectionId}
-          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-6']
+          className={[sectionId ? 'scroll-mt-24' : '', 'space-y-6', maxW]
             .filter(Boolean)
             .join(' ')}
         >
@@ -204,7 +220,9 @@ function CaseStudy() {
   return (
     <Wrapper>
       <TransitionChild index={0}>
-        <CaseNavBar externalHref={caseStudy.externalHref} />
+        <div className="max-w-[720px] mx-auto">
+          <CaseNavBar externalHref={caseStudy.externalHref} />
+        </div>
       </TransitionChild>
 
       <main id="main-content" lang={language}>
@@ -213,7 +231,7 @@ function CaseStudy() {
         <TransitionChild index={1}>
           <header
             ref={introRef}
-            className="max-w-[600px] mx-auto space-y-2 mb-10"
+            className="max-w-[720px] mx-auto space-y-2 mb-10"
           >
             <h1 className="text-subheading-24-medium font-semibold text-zinc-900 dark:text-zinc-100">
               {caseStudy.title}
@@ -234,31 +252,33 @@ function CaseStudy() {
 
         {/* ── Content ── */}
         <TransitionChild index={2}>
-          <div className="flex-1 min-w-0 space-y-16 max-w-[600px] mx-auto">
+          <div className="flex-1 min-w-0 space-y-16">
             {caseStudy.sections.map((section, i) => renderSection(section, i))}
           </div>
         </TransitionChild>
         <TransitionChild index={3}>
-          <Button
-            onClick={handleScrollTop}
-            variant="icon"
-            className="mt-4"
-            aria-label={t('caseStudy.scrollTop')}
-          >
-            <ChevronUp size={16} strokeWidth={1.5} aria-hidden="true" />
-          </Button>
+          <div className="max-w-[720px] mx-auto">
+            <Button
+              onClick={handleScrollTop}
+              variant="icon"
+              className="mt-4"
+              aria-label={t('caseStudy.scrollTop')}
+            >
+              <ChevronUp size={16} strokeWidth={1.5} aria-hidden="true" />
+            </Button>
+          </div>
         </TransitionChild>
 
         {!caseStudy.hideOtherProjects && (
           <>
             {/* ── Divider ── */}
             <TransitionChild index={4}>
-              <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
+              <hr className="mx-auto mb-0 mt-16 max-w-[720px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
             </TransitionChild>
 
             {/* ── See other projects ── */}
             <TransitionChild index={5}>
-              <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
+              <section className="flex flex-col gap-4 max-w-[720px] mx-auto mt-16">
                 <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
                   {t('caseStudy.seeOtherProjects')}
                 </h2>
