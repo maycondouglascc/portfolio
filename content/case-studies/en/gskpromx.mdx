@@ -16,14 +16,15 @@ draft: false
   disclaimer="*For confidentiality reasons, I have omitted the actual values for these metrics."
   items={[
     { variant: "positive", title: "10+", description: "Scalable page templates for consistent experience" },
-    { variant: "positive", title: "7", description: "Personalized journeys for the portal" },
+    { variant: "positive", title: "7", description: "Personalized journeys for the portal" }
   ]}
 />
 
 <CaseImage
+  id="hero"
   src="/files/case-studies/gskpromx/hero.png"
   alt="GSK Pro Mexico portal main interface with therapeutic area navigation"
-  priority
+  priority={true}
   rounded={false}
 />
 
@@ -34,8 +35,11 @@ The project evolved beyond visual redesign, focusing on a strategic transformati
 By implementing a restructured information architecture with standardized templates, centralized resources hub, and enhanced therapeutic area organization, the solution established a foundation for improved HCP engagement and clinical decision-making support.
 
 <CaseImage
+  id="research"
   src="/files/case-studies/gskpromx/research.png"
   alt="GSK Pro Mexico portal content audit analysis"
+  priority={false}
+  rounded={true}
 />
 
 <Problems
@@ -43,24 +47,9 @@ By implementing a restructured information architecture with standardized templa
   title="The problem"
   intro="The portal serves as a critical digital touchpoint for healthcare professionals seeking evidence-based information. However, the existing platform presented significant barriers to effective engagement."
   items={[
-    {
-      variant: "negative",
-      title: "Complex access flow",
-      description:
-        "Login-required content prevented HCPs from perceiving immediate value, with registration processes taking up to 48 hours to complete. This resulted in 46.2% bounce rate on login pages.",
-    },
-    {
-      variant: "negative",
-      title: "Poor navigation and inconsistency",
-      description:
-        "Lack of standardized structure across therapeutic areas and product pages created cognitive overload. The main menu failed to represent the full content portfolio, with 300+ pages receiving fewer than 10 visits in 6 months.",
-    },
-    {
-      variant: "negative",
-      title: "Product-centric instead of treatment-centric",
-      description:
-        "Content organization focused on individual products rather than clinical conditions, misaligning with HCPs' mental models who \"think first in the patient, and then in the brands\".",
-    },
+    { variant: "negative", title: "Complex access flow", description: "Login-required content prevented HCPs from perceiving immediate value, with registration processes taking up to 48 hours to complete. This resulted in 46.2% bounce rate on login pages." },
+    { variant: "negative", title: "Poor navigation and inconsistency", description: "Lack of standardized structure across therapeutic areas and product pages created cognitive overload. The main menu failed to represent the full content portfolio, with 300+ pages receiving fewer than 10 visits in 6 months." },
+    { variant: "negative", title: "Product-centric instead of treatment-centric", description: "Content organization focused on individual products rather than clinical conditions, misaligning with HCPs' mental models who 'think first in the patient, and then in the brands'." }
   ]}
 />
 
@@ -76,18 +65,9 @@ The project followed a Triple Diamond methodology to ensure comprehensive discov
 <ImageStack
   id="approach"
   images={[
-    {
-      src: "/files/case-studies/gskpromx/process-1.png",
-      alt: "GSK Pro Mexico content audit: homepage alignment analysis by product",
-    },
-    {
-      src: "/files/case-studies/gskpromx/process-2.png",
-      alt: "User research: interview sessions with healthcare professionals",
-    },
-    {
-      src: "/files/case-studies/gskpromx/process-3.png",
-      alt: "Horizons value proposition: from selling product to solving patient problems",
-    },
+    { src: "/files/case-studies/gskpromx/process-1.png", alt: "GSK Pro Mexico content audit: homepage alignment analysis by product" },
+    { src: "/files/case-studies/gskpromx/process-2.png", alt: "User research: interview sessions with healthcare professionals" },
+    { src: "/files/case-studies/gskpromx/process-3.png", alt: "Horizons value proposition: from selling product to solving patient problems" }
   ]}
 />
 
@@ -100,8 +80,11 @@ Evolved from product-centric to disease-centric organization with standardized p
 Aligns with HCPs' mental models who prioritize patient conditions over brand names. Creates logical hierarchy that reduces cognitive load and enables faster information discovery for 55% of users who are General Practitioners treating diverse conditions.
 
 <CaseImage
+  id="sitemap"
   src="/files/case-studies/gskpromx/sitemap.png"
   alt="GSK Pro Mexico restructured sitemap with disease-centric therapeutic area hierarchy"
+  priority={false}
+  rounded={true}
 />
 
 ### Centralized Resources Hub
@@ -117,8 +100,11 @@ Developed 10+ scalable page templates with consistent components and information
 Eliminates visual inconsistencies that were creating confusion and disorientation. Ensures brand consistency while enabling efficient content updates across 700+ indexed pages.
 
 <CaseImage
+  id="templates"
   src="/files/case-studies/gskpromx/templates.png"
   alt="GSK Pro Mexico template system: standardized page examples by therapeutic area"
+  priority={false}
+  rounded={true}
 />
 
 ## Personal Takeaway

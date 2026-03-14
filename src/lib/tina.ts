@@ -224,7 +224,8 @@ function normalizeCaseStudyBody(body: unknown) {
 
   try {
     return parseMDX(body, caseStudyBodyField, (src) => src)
-  } catch {
+  } catch (e) {
+    console.error("parseMDX error:", e)
     return body
   }
 }
