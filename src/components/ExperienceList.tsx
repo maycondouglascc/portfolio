@@ -1,14 +1,17 @@
-import { getExperience } from '../data/experience'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from "../context/LanguageContext"
+import type { Experience } from "../lib/tina"
 
-function ExperienceList() {
-  const { language, t } = useLanguage()
-  const experience = getExperience(language)
+type ExperienceListProps = {
+  experience: Experience[]
+}
+
+function ExperienceList({ experience }: ExperienceListProps) {
+  const { t } = useLanguage()
 
   return (
     <section className="flex flex-col gap-4">
       <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
-        {t('home.experiences')}
+        {t("home.experiences")}
       </h2>
       <ul className="flex flex-col gap-3">
         {experience.map((item) => (

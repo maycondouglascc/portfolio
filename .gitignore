@@ -1,5 +1,7 @@
 node_modules
 dist
+.tina
+tina/__generated__
 .cursor
 .env
 .env.local
