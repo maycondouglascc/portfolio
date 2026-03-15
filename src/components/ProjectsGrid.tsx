@@ -14,7 +14,7 @@ function ProjectsGrid() {
       <h2 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
         {t('home.projects')}
       </h2>
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col gap-12 mb-8">
         {withCaseStudy.map((project) => (
           <li key={project.slug} className="min-w-0">
             <CaseCard
@@ -32,7 +32,7 @@ function ProjectsGrid() {
           <h2 className="text-body-15-medium font-medium text-zinc-600 dark:text-zinc-400">
             {t('home.caseStudySoon')}
           </h2>
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-12">
             {caseStudySoon.map((project) => (
               <li key={project.slug} className="min-w-0">
                 <CaseCard
