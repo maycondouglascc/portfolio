@@ -269,7 +269,7 @@ function CaseStudy() {
 
         {/* ── Content ── */}
         <TransitionChild index={3}>
-          <div className="flex-1 min-w-0 space-y-16">
+          <div className={`flex-1 min-w-0 ${viewMode === 'visual' ? 'space-y-4' : 'space-y-16'}`}>
             <AnimatePresence mode="popLayout" initial={false}>
               {filterSectionsByMode(caseStudy.sections, viewMode).map(
                 (section) => {
