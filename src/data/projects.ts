@@ -3,8 +3,8 @@ import type { StatusIconVariant } from '../components/case-study/StatusIcon'
 import type { Language } from '../context/LanguageContext'
 
 // ── View modes ──
-export type ViewMode = 'visual' | 'overview' | 'detailed'
-export const VIEW_MODES: ViewMode[] = ['visual', 'overview', 'detailed']
+export type ViewMode = 'visual' | 'overview'
+export const VIEW_MODES: ViewMode[] = ['visual', 'overview']
 
 // ── Card item used by metrics / problems / results ──
 export type HighlightCardData = {

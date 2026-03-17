@@ -257,22 +257,6 @@ function CaseStudy() {
             <p className="text-body-15-regular leading-[24px] text-zinc-600 dark:text-zinc-400">
               {caseStudy.description}
             </p>
-            <div>
-              <h3 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
-                {t("caseStudy.myRole")}
-              </h3>
-              <p className="mt-1 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
-                {caseStudy.role}
-              </p>
-            </div>
-            <div>
-              <h3 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
-                {t("caseStudy.coreGoal")}
-              </h3>
-              <p className="mt-1 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
-                {caseStudy.goal}
-              </p>
-            </div>
           </header>
         </TransitionChild>
 
@@ -291,6 +275,46 @@ function CaseStudy() {
                 (section) => {
                   const originalIndex = caseStudy.sections.indexOf(section);
                   const key = section.id ?? `${section.type}-${originalIndex}`;
+
+                  const rendered =
+                    section.type === "metrics" && section.id === "overview" ? (
+                      <section
+                        id="overview"
+                        className="max-w-[600px] mx-auto space-y-6 scroll-mt-24"
+                      >
+                        <div className="space-y-4">
+                          <div>
+                            <h3 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
+                              {t("caseStudy.myRole")}
+                            </h3>
+                            <p className="mt-1 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
+                              {caseStudy.role}
+                            </p>
+                          </div>
+                          <div>
+                            <h3 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
+                              {t("caseStudy.coreGoal")}
+                            </h3>
+                            <p className="mt-1 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
+                              {caseStudy.goal}
+                            </p>
+                          </div>
+                        </div>
+                        {section.label && (
+                          <h3 className="text-body-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
+                            {section.label}
+                          </h3>
+                        )}
+                        <MetricsRow
+                          items={section.items}
+                          layout={section.layout}
+                          disclaimer={section.disclaimer}
+                        />
+                      </section>
+                    ) : (
+                      renderSection(section, originalIndex)
+                    );
+
                   return (
                     <motion.div
                       key={key}
@@ -299,7 +323,7 @@ function CaseStudy() {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      {renderSection(section, originalIndex)}
+                      {rendered}
                     </motion.div>
                   );
                 },
