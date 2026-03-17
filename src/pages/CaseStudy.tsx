@@ -26,18 +26,20 @@ function isImageSection(type: CaseStudySection["type"]): boolean {
   return type === "image" || type === "imageStack" || type === "imageGrid";
 }
 
-function renderSection(section: CaseStudySection, index: number, viewMode: string) {
+function renderSection(section: CaseStudySection, index: number, viewMode: string, nextSectionType?: string) {
   const sectionId = section.id;
   const maxW = isImageSection(section.type)
     ? "max-w-[1200px] mx-auto"
     : "max-w-[600px] mx-auto";
 
-  // In visual mode, use tight spacing (space-y-4) for image sections,
-  // and normal spacing (space-y-16) for text sections
-  const marginBottom =
-    viewMode === 'visual' && isImageSection(section.type)
-      ? 'mb-4'
-      : 'mb-16';
+  // In visual mode, use spacing based on section type and what follows
+  let marginBottom: string;
+  if (viewMode === 'visual' && isImageSection(section.type)) {
+    // If image is followed by text, use more space (mb-8); otherwise match ImageStack gap (mb-4)
+    marginBottom = nextSectionType && !isImageSection(nextSectionType as CaseStudySection["type"]) ? 'mb-8' : 'mb-4';
+  } else {
+    marginBottom = 'mb-16';
+  }
 
   switch (section.type) {
     case "text":
@@ -278,10 +280,13 @@ function CaseStudy() {
         <TransitionChild index={3}>
           <div className="flex-1 min-w-0">
             <AnimatePresence mode="popLayout" initial={false}>
-              {filterSectionsByMode(caseStudy.sections, viewMode).map(
-                (section) => {
+              {(() => {
+                const filteredSections = filterSectionsByMode(caseStudy.sections, viewMode);
+                return filteredSections.map((section, filteredIndex) => {
                   const originalIndex = caseStudy.sections.indexOf(section);
                   const key = section.id ?? `${section.type}-${originalIndex}`;
+                  const nextSection = filteredSections[filteredIndex + 1];
+                  const nextSectionType = nextSection?.type;
 
                   const rendered =
                     section.type === "metrics" && section.id === "overview" ? (
@@ -319,7 +324,7 @@ function CaseStudy() {
                         />
                       </section>
                     ) : (
-                      renderSection(section, originalIndex, viewMode)
+                      renderSection(section, originalIndex, viewMode, nextSectionType)
                     );
 
                   return (
@@ -333,8 +338,8 @@ function CaseStudy() {
                       {rendered}
                     </motion.div>
                   );
-                },
-              )}
+                });
+              })()}
             </AnimatePresence>
           </div>
         </TransitionChild>
