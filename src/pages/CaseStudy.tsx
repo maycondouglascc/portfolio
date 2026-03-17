@@ -26,11 +26,18 @@ function isImageSection(type: CaseStudySection["type"]): boolean {
   return type === "image" || type === "imageStack" || type === "imageGrid";
 }
 
-function renderSection(section: CaseStudySection, index: number) {
+function renderSection(section: CaseStudySection, index: number, viewMode: string) {
   const sectionId = section.id;
   const maxW = isImageSection(section.type)
     ? "max-w-[1200px] mx-auto"
     : "max-w-[600px] mx-auto";
+
+  // In visual mode, use tight spacing (space-y-4) for image sections,
+  // and normal spacing (space-y-16) for text sections
+  const marginBottom =
+    viewMode === 'visual' && isImageSection(section.type)
+      ? 'mb-4'
+      : 'mb-16';
 
   switch (section.type) {
     case "text":
@@ -38,7 +45,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`text-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -58,7 +65,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`metrics-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", "space-y-2", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", "space-y-2", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -80,7 +87,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <div
           key={`image-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -98,7 +105,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <div
           key={`stack-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -111,7 +118,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <div
           key={`grid-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -124,7 +131,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`problems-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", "space-y-2", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", "space-y-2", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -143,7 +150,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`results-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", "space-y-6", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", "space-y-6", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -168,7 +175,7 @@ function renderSection(section: CaseStudySection, index: number) {
         <section
           key={`process-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", maxW]
+          className={[sectionId ? "scroll-mt-24" : "", maxW, marginBottom]
             .filter(Boolean)
             .join(" ")}
         >
@@ -269,7 +276,7 @@ function CaseStudy() {
 
         {/* ── Content ── */}
         <TransitionChild index={3}>
-          <div className={`flex-1 min-w-0 ${viewMode === 'visual' ? 'space-y-4' : 'space-y-16'}`}>
+          <div className="flex-1 min-w-0">
             <AnimatePresence mode="popLayout" initial={false}>
               {filterSectionsByMode(caseStudy.sections, viewMode).map(
                 (section) => {
@@ -280,7 +287,7 @@ function CaseStudy() {
                     section.type === "metrics" && section.id === "overview" ? (
                       <section
                         id="overview"
-                        className="max-w-[600px] mx-auto space-y-6 scroll-mt-24"
+                        className="max-w-[600px] mx-auto space-y-6 scroll-mt-24 mb-16"
                       >
                         <div className="space-y-4">
                           <div>
@@ -312,7 +319,7 @@ function CaseStudy() {
                         />
                       </section>
                     ) : (
-                      renderSection(section, originalIndex)
+                      renderSection(section, originalIndex, viewMode)
                     );
 
                   return (
