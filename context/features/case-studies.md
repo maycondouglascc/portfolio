@@ -56,6 +56,7 @@ interface CaseStudyData {
 | `"metrics"` | `MetricsRow` | `items`, `layout?`, `disclaimer?` |
 | `"problems"` | `MetricsRow` variant | `title`, `intro`, `items` |
 | `"results"` | `MetricsRow` variant | `title`, `intro`, `items`, `disclaimer?` |
+| `"process"` | `ProcessSteps` | `steps: ProcessStep[]`, `title?`, `id?` |
 
 ### `MetricItem`
 
@@ -190,6 +191,12 @@ Place images in `src/assets/` or `public/`. For case study images:
 - Use `HighlightCard variant="positive"` for results
 - 3–5 items is ideal
 - Be specific and concrete
+
+### Process sections
+- Use for ordered workflows, design phases, or step-by-step decisions
+- `label`: one short action phrase (5–8 words)
+- `description`: 1–2 sentences explaining the step
+- 3–7 steps is the practical range; beyond that consider splitting into multiple sections
 
 ---
 

@@ -1,14 +1,14 @@
-import StatusIcon, { type StatusIconVariant } from './StatusIcon'
+import StatusIcon, { type StatusIconVariant } from "./StatusIcon";
 
 export type HighlightCardProps = {
-  variant: StatusIconVariant
-  title: string
-  description: string
-}
+  variant: StatusIconVariant;
+  title: string;
+  description: string;
+};
 
 function HighlightCard({ variant, title, description }: HighlightCardProps) {
   return (
-    <div className="flex h-full min-w-[110px] flex-col items-start gap-2 rounded border border-zinc-200 bg-zinc-200/40 p-4 dark:border-zinc-800 dark:bg-zinc-800/40">
+    <div className="flex h-full min-w-[110px] flex-col items-start gap-2 rounded-md border border-zinc-100 bg-zinc-50 p-4 dark:border-zinc-800/40 dark:bg-zinc-800/10">
       <StatusIcon variant={variant} />
       <div className="flex flex-col gap-1 w-full">
         <p className="text-body-15-medium font-semibold text-zinc-900 tabular-nums dark:text-zinc-100">
@@ -19,7 +19,7 @@ function HighlightCard({ variant, title, description }: HighlightCardProps) {
         </p>
       </div>
     </div>
-  )
+  );
 }
 
-export default HighlightCard
+export default HighlightCard;

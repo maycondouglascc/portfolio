@@ -38,6 +38,17 @@ export type CaseStudySection =
       items: HighlightCardData[]
       disclaimer?: string
     }
+  | {
+      type: 'process'
+      id?: string
+      title?: string
+      steps: ProcessStep[]
+    }
+
+export type ProcessStep = {
+  label: string
+  description: string
+}
 
 // ── Full case study data object ──
 export type CaseStudyData = {
@@ -94,6 +105,18 @@ const projectsCatalog: LocalizedProject[] = [
       pt: 'Redesign do portal da GSK Mexico com um sistema de templates escalavel e arquitetura de conteudo personalizada para especialidades medicas.',
     },
     thumbnail: '/files/case-thumbnails/project-thumbnail-2.png',
+  },
+  {
+    slug: 'thrivent-fp',
+    title: {
+      en: 'Thrivent FP',
+      pt: 'Thrivent FP',
+    },
+    description: {
+      en: 'Building a design system foundation from scratch for a financial portal serving investment professionals, shipped in 4 weeks.',
+      pt: 'Construção da fundação do design system do zero para um portal financeiro voltado para profissionais de investimento, entregue em 4 semanas.',
+    },
+    thumbnail: '/files/case-thumbnails/project-thumbnail-4.png',
   },
   {
     slug: 'vendd-web',

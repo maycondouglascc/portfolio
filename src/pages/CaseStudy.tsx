@@ -9,6 +9,7 @@ import CaseImage from '../components/case-study/CaseImage'
 import ImageStack from '../components/case-study/ImageStack'
 import ImageGrid from '../components/case-study/ImageGrid'
 import MetricsRow from '../components/case-study/MetricsRow'
+import ProcessSteps from '../components/case-study/ProcessSteps'
 import { CaseCard } from '../components/CaseCard'
 import Button from '../components/Button'
 import { TransitionChild } from '../components/PageTransition'
@@ -155,6 +156,19 @@ function renderSection(section: CaseStudySection, index: number) {
               disclaimer={section.disclaimer}
             />
           </div>
+        </section>
+      )
+
+    case 'process':
+      return (
+        <section
+          key={`process-${index}`}
+          id={sectionId}
+          className={[sectionId ? 'scroll-mt-24' : '', maxW]
+            .filter(Boolean)
+            .join(' ')}
+        >
+          <ProcessSteps title={section.title} steps={section.steps} />
         </section>
       )
 

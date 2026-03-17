@@ -1,42 +1,46 @@
-import { Check, Info, AlertTriangle } from 'react-feather'
+import { Check, Info, AlertTriangle } from "react-feather";
 
-export type StatusIconVariant = 'positive' | 'negative' | 'neutral'
+export type StatusIconVariant = "positive" | "negative" | "neutral";
 
 type StatusIconProps = {
-  variant: StatusIconVariant
-  className?: string
-}
+  variant: StatusIconVariant;
+  className?: string;
+};
 
 const bgMap: Record<StatusIconVariant, string> = {
-  positive: 'bg-lime-500',
-  negative: 'bg-red-500',
-  neutral: 'bg-gray-500',
-}
+  positive: "bg-lime-500/20",
+  negative: "bg-red-500/20",
+  neutral: "bg-gray-500/20",
+};
 
 const labelMap: Record<StatusIconVariant, string> = {
-  positive: 'Positive',
-  negative: 'Negative',
-  neutral: 'Neutral',
-}
+  positive: "Positive",
+  negative: "Negative",
+  neutral: "Neutral",
+};
 
 function StatusIcon({ variant, className }: StatusIconProps) {
-  const bg = bgMap[variant]
-  const iconClassName =
-    variant === 'neutral' ? 'text-zinc-900 dark:text-zinc-100' : 'text-white'
+  const bg = bgMap[variant];
+  const iconMap: Record<StatusIconVariant, string> = {
+    positive: "text-lime-600",
+    negative: "text-red-600",
+    neutral: "text-gray-600",
+  };
+  const iconClassName = iconMap[variant];
 
   return (
     <span
       className={[
-        'inline-flex shrink-0 items-center justify-center rounded-xl size-6',
+        "inline-flex shrink-0 items-center justify-center rounded-full size-10",
         bg,
         className,
       ]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
       role="img"
       aria-label={labelMap[variant]}
     >
-      {variant === 'positive' && (
+      {variant === "positive" && (
         <Check
           size={16}
           strokeWidth={2}
@@ -44,7 +48,7 @@ function StatusIcon({ variant, className }: StatusIconProps) {
           aria-hidden="true"
         />
       )}
-      {variant === 'negative' && (
+      {variant === "negative" && (
         <AlertTriangle
           size={16}
           strokeWidth={2}
@@ -52,7 +56,7 @@ function StatusIcon({ variant, className }: StatusIconProps) {
           aria-hidden="true"
         />
       )}
-      {variant === 'neutral' && (
+      {variant === "neutral" && (
         <Info
           size={16}
           strokeWidth={2}
@@ -61,7 +65,7 @@ function StatusIcon({ variant, className }: StatusIconProps) {
         />
       )}
     </span>
-  )
+  );
 }
 
-export default StatusIcon
+export default StatusIcon;
