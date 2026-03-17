@@ -53,7 +53,7 @@ export default function ViewModeSelector() {
                     role="radio"
                     aria-checked={isActive}
                     onClick={() => setViewMode(mode)}
-                    className={`rounded-md px-3 h-8 text-caption-12-regular font-medium transition-colors duration-200 ${
+                    className={`flex-1 rounded-md px-2.5 h-8 text-caption-12-regular font-medium transition-colors duration-200 whitespace-nowrap ${
                       isActive
                         ? "bg-white text-zinc-900 shadow-xs dark:bg-zinc-800 dark:text-zinc-100"
                         : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"

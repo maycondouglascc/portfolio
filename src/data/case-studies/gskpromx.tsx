@@ -21,7 +21,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
     sections: [
       {
         type: "image",
-        src: `${IMG_BASE}/hero.png`,
+        src: `${IMG_BASE}/shot 0.png`,
         alt: isPt
           ? "Interface principal do portal GSK Pro Mexico com navegação por área terapêutica"
           : "GSK Pro Mexico portal main interface with therapeutic area navigation",
@@ -88,8 +88,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: "image",
-        visibility: ["overview"],
-        src: `${IMG_BASE}/research.png`,
+        src: `${IMG_BASE}/shot 1.png`,
         alt: isPt
           ? "Análise de auditoria de conteúdo do portal GSK Pro Mexico"
           : "GSK Pro Mexico portal content audit analysis",
@@ -187,23 +186,22 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: "imageStack",
-        visibility: ["overview"],
         id: "approach",
         images: [
           {
-            src: `${IMG_BASE}/process-1.png`,
+            src: `${IMG_BASE}/shot 2.png`,
             alt: isPt
               ? "Auditoria de conteúdo do GSK Pro Mexico: análise de alinhamento da homepage por produto"
               : "GSK Pro Mexico content audit: homepage alignment analysis by product",
           },
           {
-            src: `${IMG_BASE}/process-2.png`,
+            src: `${IMG_BASE}/shot 3.png`,
             alt: isPt
               ? "Pesquisa com usuários: sessões de entrevista com profissionais de saúde"
               : "User research: interview sessions with healthcare professionals",
           },
           {
-            src: `${IMG_BASE}/process-3.png`,
+            src: `${IMG_BASE}/shot 4.png`,
             alt: isPt
               ? "Proposta de valor do Horizons: da venda de produto à solução de problemas do paciente"
               : "Horizons value proposition: from selling product to solving patient problems",
@@ -241,8 +239,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: "image",
-        visibility: ["overview"],
-        src: `${IMG_BASE}/sitemap.png`,
+        src: `${IMG_BASE}/shot 5.png`,
         alt: isPt
           ? "Sitemap reestruturado do GSK Pro Mexico com hierarquia centrada em áreas terapêuticas"
           : "GSK Pro Mexico restructured sitemap with disease-centric therapeutic area hierarchy",
@@ -295,8 +292,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: "image",
-        visibility: ["overview"],
-        src: `${IMG_BASE}/templates.png`,
+        src: `${IMG_BASE}/shot 6.png`,
         alt: isPt
           ? "Sistema de templates do GSK Pro Mexico: exemplos de páginas padronizadas por área terapêutica"
           : "GSK Pro Mexico template system: standardized page examples by therapeutic area",
