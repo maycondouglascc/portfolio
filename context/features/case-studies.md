@@ -198,6 +198,19 @@ Place images in `src/assets/` or `public/`. For case study images:
 - `description`: 1–2 sentences explaining the step
 - 3–7 steps is the practical range; beyond that consider splitting into multiple sections
 
+### Spacing & Layout in Visual Mode
+
+In **visual mode**, section spacing is intelligent and context-aware:
+
+| Context | Spacing | Rationale |
+|---------|---------|-----------|
+| Image → Image | 16px (mb-4) | Matches `ImageStack` internal gap; maintains visual rhythm |
+| Image → Text | 32px (mb-8) | Breathing room before prose sections (role, goal, results) |
+| Text → Any | 64px (mb-16) | Comfortable spacing for readability |
+| Other modes | 64px (mb-16) | Consistent spacing across all section types |
+
+This ensures that visual mode transitions like "shot 0 → my role" and "last image → results" feel properly balanced — tight between images, spacious around text.
+
 ---
 
 ## CaseNavBar
