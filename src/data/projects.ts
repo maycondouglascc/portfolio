@@ -2,6 +2,10 @@ import { type ReactNode } from 'react'
 import type { StatusIconVariant } from '../components/case-study/StatusIcon'
 import type { Language } from '../context/LanguageContext'
 
+// ── View modes ──
+export type ViewMode = 'visual' | 'overview' | 'detailed'
+export const VIEW_MODES: ViewMode[] = ['visual', 'overview', 'detailed']
+
 // ── Card item used by metrics / problems / results ──
 export type HighlightCardData = {
   variant: StatusIconVariant
@@ -11,10 +15,11 @@ export type HighlightCardData = {
 
 // ── Discriminated union for every section type in a case study ──
 export type CaseStudySection =
-  | { type: 'text'; id?: string; title?: string; body: ReactNode }
+  | { type: 'text'; id?: string; visibility?: ViewMode[]; title?: string; body: ReactNode }
   | {
       type: 'metrics'
       id?: string
+      visibility?: ViewMode[]
       label?: string
       items: HighlightCardData[]
       layout?: 'horizontal' | 'vertical'
@@ -23,16 +28,18 @@ export type CaseStudySection =
   | {
       type: 'problems'
       id?: string
+      visibility?: ViewMode[]
       title: string
       intro: string
       items: HighlightCardData[]
     }
-  | { type: 'image'; id?: string; src: string; alt: string; priority?: boolean; rounded?: boolean }
-  | { type: 'imageStack'; id?: string; images: { src: string; alt: string }[] }
-  | { type: 'imageGrid'; id?: string; images: { src: string; alt: string }[] }
+  | { type: 'image'; id?: string; visibility?: ViewMode[]; src: string; alt: string; priority?: boolean; rounded?: boolean }
+  | { type: 'imageStack'; id?: string; visibility?: ViewMode[]; images: { src: string; alt: string }[] }
+  | { type: 'imageGrid'; id?: string; visibility?: ViewMode[]; images: { src: string; alt: string }[] }
   | {
       type: 'results'
       id?: string
+      visibility?: ViewMode[]
       title: string
       intro: string
       items: HighlightCardData[]
@@ -41,6 +48,7 @@ export type CaseStudySection =
   | {
       type: 'process'
       id?: string
+      visibility?: ViewMode[]
       title?: string
       steps: ProcessStep[]
     }

@@ -44,6 +44,15 @@ export const en = {
     scrollTop: "Scroll to the top",
     seeOtherProjects: "See other projects",
   },
+  viewMode: {
+    selectorLabel: "View mode",
+    visual: "Visual",
+    overview: "Overview",
+    detailed: "Detailed",
+    visualDescription: "Outcomes and visuals only — best for a quick look",
+    overviewDescription: "Full case study — role, process, and results",
+    detailedDescription: "Everything, including deeper rationale and decisions",
+  },
   meta: {
     defaultTitle: "Maycon Douglas - Product Designer",
     caseTitleSuffix: "Maycon Douglas",

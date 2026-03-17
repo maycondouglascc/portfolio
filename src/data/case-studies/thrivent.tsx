@@ -77,6 +77,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'problems',
+        visibility: ['overview', 'detailed'],
         id: 'the-challenge',
         title: isPt ? 'O Desafio' : 'The Challenge',
         intro: isPt
@@ -108,6 +109,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'process',
+        visibility: ['overview', 'detailed'],
         id: 'the-process',
         title: isPt ? 'O Processo' : 'The Process',
         steps: [
@@ -151,6 +153,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'catalogue',
         title: isPt ? 'Catálogo' : 'Catalogue',
         body: (
@@ -193,6 +196,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'inventory',
         title: isPt ? 'Inventário' : 'Inventory',
         body: (
@@ -235,6 +239,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'image',
+        visibility: ['overview', 'detailed'],
         id: 'inventory-visual',
         src: `${IMG_BASE}/inventory-mosaic.png`,
         alt: isPt
@@ -243,6 +248,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'tokens',
         title: isPt ? 'Padronização: tokens primitivos' : 'Standardization: primitive tokens',
         body: (
@@ -294,6 +300,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'components-base',
         title: isPt ? 'Padronização: componentes base' : 'Standardization: base components',
         body: (
@@ -313,6 +320,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'poc',
         title: 'PoC',
         body: (
@@ -359,6 +367,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'consolidation',
         title: isPt ? 'Consolidação e documentação' : 'Consolidation & documentation',
         body: (
@@ -378,6 +387,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'handoff',
         title: 'Handoff',
         body: (
@@ -450,6 +460,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         title: isPt ? 'Aprendizados' : 'Personal Takeaway',
         body: (
           <>

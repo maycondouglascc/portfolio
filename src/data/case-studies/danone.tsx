@@ -77,6 +77,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'image',
+        visibility: ['overview', 'detailed'],
         src: `${IMG_BASE}/purpose-banner.png`,
         alt: isPt
           ? 'Seção Our Purpose da Danone com fundo rosa e declaração de missão'
@@ -84,6 +85,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'problems',
+        visibility: ['overview', 'detailed'],
         id: 'the-problem',
         title: isPt ? 'O problema' : 'The problem',
         intro: isPt
@@ -115,6 +117,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'design-process',
         title: isPt ? 'Processo de Design' : 'Design Process',
         body: (
@@ -149,6 +152,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'imageStack',
+        visibility: ['overview', 'detailed'],
         id: 'approach',
         images: [
           {
@@ -173,6 +177,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'deliverables',
         title: isPt ? 'Entregáveis-chave e Racional' : 'Key Deliverables & Rationale',
         body: (
@@ -224,6 +229,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         title: isPt ? 'Framework de SEO e Acessibilidade' : 'SEO & Accessibility Framework',
         body: (
           <>
@@ -295,6 +301,7 @@ const danoneStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         title: isPt ? 'Aprendizado Pessoal' : 'Personal Takeaway',
         body: (
           <p>

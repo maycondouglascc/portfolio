@@ -83,6 +83,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'image',
+        visibility: ['overview', 'detailed'],
         src: `${IMG_BASE}/research.png`,
         alt: isPt
           ? 'Análise de auditoria de conteúdo do portal GSK Pro Mexico'
@@ -90,6 +91,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'problems',
+        visibility: ['overview', 'detailed'],
         id: 'the-problem',
         title: isPt ? 'O problema' : 'The problem',
         intro: isPt
@@ -123,6 +125,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'design-process',
         title: isPt ? 'Processo de Design' : 'Design Process',
         body: (
@@ -175,6 +178,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'imageStack',
+        visibility: ['overview', 'detailed'],
         id: 'approach',
         images: [
           {
@@ -199,6 +203,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'deliverables',
         title: isPt ? 'Entregáveis-chave e Racional' : 'Key Deliverables & Rationale',
         body: (
@@ -225,6 +230,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'image',
+        visibility: ['overview', 'detailed'],
         src: `${IMG_BASE}/sitemap.png`,
         alt: isPt
           ? 'Sitemap reestruturado do GSK Pro Mexico com hierarquia centrada em áreas terapêuticas'
@@ -232,6 +238,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         body: (
           <div className="space-y-8">
             <div className="space-y-2">
@@ -273,6 +280,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'image',
+        visibility: ['overview', 'detailed'],
         src: `${IMG_BASE}/templates.png`,
         alt: isPt
           ? 'Sistema de templates do GSK Pro Mexico: exemplos de páginas padronizadas por área terapêutica'
@@ -280,6 +288,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: 'text',
+        visibility: ['overview', 'detailed'],
         id: 'outcomes',
         title: isPt ? 'Aprendizado Pessoal' : 'Personal Takeaway',
         body: (
