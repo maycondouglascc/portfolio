@@ -19,6 +19,14 @@ const thriventStudy = (language: Language): CaseStudyData => {
       : "Build the design system foundation for the portal, ensuring the generated artifacts would be used from day one and scalable to the other Thrivent interfaces and brands in the future.",
     sections: [
       {
+        type: "image",
+        src: `${IMG_BASE}/hero.png`,
+        alt: isPt
+          ? "Visão geral da fundação do design system do Thrivent FP"
+          : "Overview of the Thrivent FP design system foundation",
+        priority: true,
+      },
+      {
         type: "metrics",
         id: "overview",
         layout: "horizontal",
@@ -42,14 +50,6 @@ const thriventStudy = (language: Language): CaseStudyData => {
         disclaimer: isPt
           ? "*Por confidencialidade, os valores reais foram omitidos."
           : "*For confidentiality reasons, actual values have been omitted.",
-      },
-      {
-        type: "image",
-        src: `${IMG_BASE}/hero.png`,
-        alt: isPt
-          ? "Visão geral da fundação do design system do Thrivent FP"
-          : "Overview of the Thrivent FP design system foundation",
-        priority: true,
       },
       {
         type: "text",

@@ -20,6 +20,14 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
     hideOtherProjects: false,
     sections: [
       {
+        type: "image",
+        src: `${IMG_BASE}/hero.png`,
+        alt: isPt
+          ? "Interface principal do portal GSK Pro Mexico com navegação por área terapêutica"
+          : "GSK Pro Mexico portal main interface with therapeutic area navigation",
+        priority: true,
+      },
+      {
         type: "metrics",
         id: "overview",
         label: isPt ? "Métricas" : "Metrics",
@@ -43,14 +51,6 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
         disclaimer: isPt
           ? "*Por confidencialidade, os valores reais foram omitidos."
           : "*For confidentiality reasons, I have omitted the actual values for these metrics.",
-      },
-      {
-        type: "image",
-        src: `${IMG_BASE}/hero.png`,
-        alt: isPt
-          ? "Interface principal do portal GSK Pro Mexico com navegação por área terapêutica"
-          : "GSK Pro Mexico portal main interface with therapeutic area navigation",
-        priority: true,
       },
       {
         type: "text",
