@@ -360,16 +360,16 @@ function CaseStudy() {
           <>
             {/* ── Divider ── */}
             <TransitionChild index={5}>
-              <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
+              <hr className="mx-auto mb-0 mt-16 max-w-[1200px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
             </TransitionChild>
 
             {/* ── See other projects ── */}
             <TransitionChild index={6}>
-              <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
+              <section className="flex flex-col gap-4 max-w-[1200px] mx-auto mt-16">
                 <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
                   {t("caseStudy.seeOtherProjects")}
                 </h2>
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-row gap-2">
                   {projects
                     .filter(
                       (project) =>
@@ -377,7 +377,7 @@ function CaseStudy() {
                         caseStudySlugs.has(project.slug),
                     )
                     .map((project) => (
-                      <li key={project.slug} className="min-w-0">
+                      <li key={project.slug} className="min-w-0 flex-1">
                         <CaseCard
                           href={
                             caseStudySlugs.has(project.slug)

@@ -30,11 +30,11 @@ export function CaseCard({
           className="block w-full h-auto"
         />
       </div>
-      <div className="flex flex-col gap-1 p-4">
+      <div className="flex flex-col flex-1 gap-1 p-4">
         <span className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
           {title}
         </span>
-        <span className="break-words text-body-14-regular font-normal text-zinc-600 dark:text-zinc-400">
+        <span className="flex-1 break-words text-body-14-regular font-normal text-zinc-600 dark:text-zinc-400">
           {description}
         </span>
       </div>
