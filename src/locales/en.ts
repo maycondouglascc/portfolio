@@ -2,7 +2,8 @@ export const en = {
   app: {
     skipToContent: "Skip to content",
     notFoundTitle: "Page not found",
-    notFoundDescription: "The content you are looking for does not exist or has been moved.",
+    notFoundDescription:
+      "The content you are looking for does not exist or has been moved.",
     backToHome: "Back to home",
   },
   language: {
@@ -47,11 +48,11 @@ export const en = {
   viewMode: {
     selectorLabel: "View mode",
     visual: "Visual",
-    overview: "Overview",
+    overview: "Complete",
     detailed: "Detailed",
-    visualDescription: "Outcomes and visuals only — best for a quick look",
-    overviewDescription: "Full case study — role, process, and results",
-    detailedDescription: "Everything, including deeper rationale and decisions",
+    visualDescription: "Context, visuals, and key outcomes.",
+    overviewDescription: "The full case study including process and learnings",
+    detailedDescription: "Deep dive with design decisions and rationale",
   },
   meta: {
     defaultTitle: "Maycon Douglas - Product Designer",
@@ -60,4 +61,4 @@ export const en = {
   localTime: {
     prefix: "Local time",
   },
-} as const
+} as const;

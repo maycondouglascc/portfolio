@@ -2,7 +2,8 @@ export const pt = {
   app: {
     skipToContent: "Pular para o conteudo",
     notFoundTitle: "Pagina nao encontrada",
-    notFoundDescription: "O conteudo que voce procura nao existe ou foi movido.",
+    notFoundDescription:
+      "O conteudo que voce procura nao existe ou foi movido.",
     backToHome: "Voltar para o inicio",
   },
   language: {
@@ -47,11 +48,12 @@ export const pt = {
   viewMode: {
     selectorLabel: "Modo de visualizacao",
     visual: "Visual",
-    overview: "Resumo",
+    overview: "Completo",
     detailed: "Detalhado",
-    visualDescription: "Resultados e visuais — ideal para uma leitura rapida",
-    overviewDescription: "Case study completo — papel, processo e resultados",
-    detailedDescription: "Tudo, incluindo racional aprofundado e decisoes de design",
+    visualDescription: "Contexto, visuais e resultados principais.",
+    overviewDescription: "O case study completo com processo e aprendizados",
+    detailedDescription:
+      "Uma analise profunda com decisoes e racional de design",
   },
   meta: {
     defaultTitle: "Maycon Douglas - Product Designer",
@@ -60,4 +62,4 @@ export const pt = {
   localTime: {
     prefix: "Hora local",
   },
-} as const
+} as const;
