@@ -26,7 +26,12 @@ function isImageSection(type: CaseStudySection["type"]): boolean {
   return type === "image" || type === "imageStack" || type === "imageGrid";
 }
 
-function renderSection(section: CaseStudySection, index: number, viewMode: string, nextSectionType?: string) {
+function renderSection(
+  section: CaseStudySection,
+  index: number,
+  viewMode: string,
+  nextSectionType?: string,
+) {
   const sectionId = section.id;
   const maxW = isImageSection(section.type)
     ? "max-w-[1200px] mx-auto"
@@ -34,11 +39,15 @@ function renderSection(section: CaseStudySection, index: number, viewMode: strin
 
   // In visual mode, use spacing based on section type and what follows
   let marginBottom: string;
-  if (viewMode === 'visual' && isImageSection(section.type)) {
+  if (viewMode === "visual" && isImageSection(section.type)) {
     // If image is followed by text, use more space (mb-8); otherwise match ImageStack gap (mb-4)
-    marginBottom = nextSectionType && !isImageSection(nextSectionType as CaseStudySection["type"]) ? 'mb-8' : 'mb-4';
+    marginBottom =
+      nextSectionType &&
+      !isImageSection(nextSectionType as CaseStudySection["type"])
+        ? "mb-8"
+        : "mb-4";
   } else {
-    marginBottom = 'mb-16';
+    marginBottom = "mb-16";
   }
 
   switch (section.type) {
@@ -67,7 +76,12 @@ function renderSection(section: CaseStudySection, index: number, viewMode: strin
         <section
           key={`metrics-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", "space-y-2", maxW, marginBottom]
+          className={[
+            sectionId ? "scroll-mt-24" : "",
+            "space-y-2",
+            maxW,
+            marginBottom,
+          ]
             .filter(Boolean)
             .join(" ")}
         >
@@ -133,7 +147,12 @@ function renderSection(section: CaseStudySection, index: number, viewMode: strin
         <section
           key={`problems-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", "space-y-2", maxW, marginBottom]
+          className={[
+            sectionId ? "scroll-mt-24" : "",
+            "space-y-2",
+            maxW,
+            marginBottom,
+          ]
             .filter(Boolean)
             .join(" ")}
         >
@@ -152,15 +171,20 @@ function renderSection(section: CaseStudySection, index: number, viewMode: strin
         <section
           key={`results-${index}`}
           id={sectionId}
-          className={[sectionId ? "scroll-mt-24" : "", "space-y-6", maxW, marginBottom]
+          className={[
+            sectionId ? "scroll-mt-24" : "",
+            "space-y-3",
+            maxW,
+            marginBottom,
+          ]
             .filter(Boolean)
             .join(" ")}
         >
-          <h2 className="mb-3 text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
+          <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
             {section.title}
           </h2>
-          <div className="space-y-2">
-            <p className="mb-3 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
+          <div>
+            <p className="mb-6 text-body-15-regular font-normal text-zinc-600 dark:text-zinc-400">
               {section.intro}
             </p>
             <MetricsRow
@@ -281,7 +305,10 @@ function CaseStudy() {
           <div className="flex-1 min-w-0">
             <AnimatePresence mode="popLayout" initial={false}>
               {(() => {
-                const filteredSections = filterSectionsByMode(caseStudy.sections, viewMode);
+                const filteredSections = filterSectionsByMode(
+                  caseStudy.sections,
+                  viewMode,
+                );
                 return filteredSections.map((section, filteredIndex) => {
                   const originalIndex = caseStudy.sections.indexOf(section);
                   const key = section.id ?? `${section.type}-${originalIndex}`;
@@ -324,7 +351,12 @@ function CaseStudy() {
                         />
                       </section>
                     ) : (
-                      renderSection(section, originalIndex, viewMode, nextSectionType)
+                      renderSection(
+                        section,
+                        originalIndex,
+                        viewMode,
+                        nextSectionType,
+                      )
                     );
 
                   return (
@@ -360,16 +392,16 @@ function CaseStudy() {
           <>
             {/* ── Divider ── */}
             <TransitionChild index={5}>
-              <hr className="mx-auto mb-0 mt-16 max-w-[600px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
+              <hr className="mx-auto mb-0 mt-16 max-w-[1200px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
             </TransitionChild>
 
             {/* ── See other projects ── */}
             <TransitionChild index={6}>
-              <section className="flex flex-col gap-4 max-w-[600px] mx-auto mt-16">
-                <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
+              <section className="flex flex-col gap-4 max-w-[1200px] mx-auto mt-16">
+                <h2 className="text-subheading-15-medium font-semibold text-zinc-900 dark:text-zinc-100">
                   {t("caseStudy.seeOtherProjects")}
                 </h2>
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-row gap-2">
                   {projects
                     .filter(
                       (project) =>
@@ -377,7 +409,7 @@ function CaseStudy() {
                         caseStudySlugs.has(project.slug),
                     )
                     .map((project) => (
-                      <li key={project.slug} className="min-w-0">
+                      <li key={project.slug} className="min-w-0 flex-1">
                         <CaseCard
                           href={
                             caseStudySlugs.has(project.slug)

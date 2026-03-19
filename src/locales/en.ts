@@ -2,7 +2,8 @@ export const en = {
   app: {
     skipToContent: "Skip to content",
     notFoundTitle: "Page not found",
-    notFoundDescription: "The content you are looking for does not exist or has been moved.",
+    notFoundDescription:
+      "The content you are looking for does not exist or has been moved.",
     backToHome: "Back to home",
   },
   language: {
@@ -42,7 +43,7 @@ export const en = {
     myRole: "My role",
     coreGoal: "Core goal",
     scrollTop: "Scroll to the top",
-    seeOtherProjects: "See other projects",
+    seeOtherProjects: "Access other projects",
   },
   viewMode: {
     selectorLabel: "View mode",
@@ -60,4 +61,4 @@ export const en = {
   localTime: {
     prefix: "Local time",
   },
-} as const
+} as const;

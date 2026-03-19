@@ -1,5 +1,6 @@
 import type { CaseStudyData } from "../projects";
 import type { Language } from "../../context/LanguageContext";
+import { p } from "motion/react-client";
 
 const IMG_BASE = "/files/case-studies/danone";
 
@@ -292,7 +293,30 @@ const danoneStudy = (language: Language): CaseStudyData => {
         type: "text",
         visibility: ["overview"],
         title: isPt ? "Aprendizados" : "Learnings",
-        body: <p>[PREENCHER]</p>,
+        body: isPt ? (
+          <p>
+            Este projeto reforçou a importância de equilibrar ambição criativa
+            com viabilidade técnica. O maior desafio não foi apenas criar uma
+            interface visualmente atraente, mas desenhar um sistema que o
+            cliente pudesse gerenciar de forma autônoma dentro das limitações do
+            AEM. Isso exigiu uma abordagem de centrada em componentes
+            reutilizáveis, documentação clara e validação constante com
+            stakeholders técnicos, garantindo que cada decisão de design fosse
+            não apenas desejável, mas também implementável e sustentável a longo
+            prazo.
+          </p>
+        ) : (
+          <p>
+            This project reinforced the importance of balancing creative
+            ambition with technical feasibility. The primary challenge was not
+            just creating a visually appealing interface, but designing a system
+            that the client could manage autonomously within the constraints of
+            AEM. This required a strategy centered on reusable components, clear
+            documentation, and constant validation with technical stakeholders,
+            ensuring that every design decision was not only desirable but also
+            implementable and sustainable in the long term.
+          </p>
+        ),
       },
     ],
   };
