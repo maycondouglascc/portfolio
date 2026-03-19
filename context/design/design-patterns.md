@@ -33,6 +33,8 @@ Use Tailwind spacing (multiples of 4px). Prefer semantic gaps:
 - Between cards: `gap-4` or `gap-6`
 - Component internal padding: `p-4`, `p-6`
 
+**Note:** Case study pages use context-aware spacing in visual mode. See `context/features/case-studies.md` for how image-to-text and image-to-image transitions are handled differently to optimize visual rhythm.
+
 ---
 
 ## Typography

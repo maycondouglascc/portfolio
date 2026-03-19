@@ -22,6 +22,7 @@ context/
     i18n.md             ← Translation system, how to add keys, LocalizedText pattern
     theming.md          ← Dark/light/system theme, ThemeContext, DOM side effects
     case-studies.md     ← Case study data model, how to add a case study
+    view-modes.md       ← View mode system, visibility tagging, writing guide per mode
     animations.md       ← Motion library, page transitions, DialKit, performance rules
     analytics.md        ← GA4 and Clarity setup
   project/
@@ -40,7 +41,7 @@ context/
 Read: `context/design/components.md` + `context/design/design-patterns.md` + `context/developer/conventions.md`
 
 ### "Add a new case study"
-Read: `context/features/case-studies.md`
+Read: `context/features/case-studies.md` + `context/features/view-modes.md`
 
 ### "Update a translation / add a new string"
 Read: `context/features/i18n.md`

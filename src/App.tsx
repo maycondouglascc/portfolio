@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
 import Wrapper from "./components/Wrapper"
 import { ThemeProvider } from "./context/ThemeContext"
+import { ViewModeProvider } from "./context/ViewModeContext"
 import SettingsBar from "./components/SettingsBar"
 import { LanguageProvider, useLanguage } from "./context/LanguageContext"
 
@@ -107,9 +108,11 @@ export default function App() {
   return (
     <LanguageProvider>
       <ThemeProvider>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
+        <ViewModeProvider>
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
+        </ViewModeProvider>
       </ThemeProvider>
     </LanguageProvider>
   )

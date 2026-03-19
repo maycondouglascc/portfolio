@@ -1,6 +1,6 @@
 # Case Studies
 
-How the case study system works — data model, routing, section types, and how to add a new case study.
+How the case study system works - data model, routing, section types, and how to add a new case study.
 
 ---
 
@@ -45,7 +45,7 @@ interface CaseStudyData {
 }
 ```
 
-### `CaseStudySection` — Discriminated Union
+### `CaseStudySection` - Discriminated Union
 
 | `type` | Component | Key Props |
 |--------|-----------|-----------|
@@ -56,6 +56,7 @@ interface CaseStudyData {
 | `"metrics"` | `MetricsRow` | `items`, `layout?`, `disclaimer?` |
 | `"problems"` | `MetricsRow` variant | `title`, `intro`, `items` |
 | `"results"` | `MetricsRow` variant | `title`, `intro`, `items`, `disclaimer?` |
+| `"process"` | `ProcessSteps` | `steps: ProcessStep[]`, `title?`, `id?` |
 
 ### `MetricItem`
 
@@ -71,58 +72,59 @@ interface MetricItem {
 
 ## Existing Case Studies
 
-| Slug | File | Status |
-|------|------|--------|
-| `danone-north-america` | `src/data/case-studies/danone.tsx` | Live |
-| `gskpromx` | `src/data/case-studies/gskpromx.tsx` | Live |
+| Slug | File | Status | Template-compliant? |
+|------|------|--------|---------------------|
+| `danone-north-america` | `src/data/case-studies/danone.tsx` | Live | Yes |
+| `gskpromx` | `src/data/case-studies/gskpromx.tsx` | Live | No (legacy structure) |
+| `thrivent-fp` | `src/data/case-studies/thrivent.tsx` | Live | No (legacy structure) |
 
 ---
 
 ## How to Add a New Case Study
 
-### Step 1 — Create the content file
+### Template-compliant vs legacy structure
+
+**Template-compliant studies** (new standard) follow this pattern:
+- Header `description` IS the TL;DR (no standalone TL;DR text section)
+- No `metrics` section at top - KPIs go in `results`
+- Section order: Hero → Contexto → Context image → Role → Challenges → Process → Process images → imageGrid → Results → Aprendizados
+
+**Legacy studies** (GSK, Thrivent) use the older pattern with top metrics + TL;DR section. They still work fine - no need to migrate.
+
+### Step 1 - Create the content file
 
 `src/data/case-studies/your-slug.tsx`
 
 ```tsx
-import { Language } from "../../context/LanguageContext"
-import { CaseStudyData } from "./index"
+import type { CaseStudyData } from "../projects"
+import type { Language } from "../../context/LanguageContext"
 
-export function getYourSlug(language: Language): CaseStudyData {
-  const isEn = language === "en"
+const IMG_BASE = "/files/case-studies/your-slug"
+
+const yourSlugStudy = (language: Language): CaseStudyData => {
+  const isPt = language === "pt"
 
   return {
-    title: isEn ? "Project Title" : "Título do Projeto",
-    description: isEn ? "Short description" : "Descrição curta",
-    role: isEn ? "Product Designer" : "Product Designer",
-    goal: isEn ? "The goal was to..." : "O objetivo era...",
-    externalHref: "https://example.com",   // optional
+    title: "Project Title",
+    description: isPt ? "3-sentence TL;DR in PT" : "3-sentence TL;DR in EN",
+    role: "UI Designer",
+    goal: isPt ? "1-sentence goal" : "1-sentence goal",
     sections: [
-      {
-        type: "text",
-        title: isEn ? "Background" : "Contexto",
-        body: isEn ? "Long paragraph..." : "Parágrafo longo...",
-      },
-      {
-        type: "image",
-        src: "/path/to/image.webp",
-        alt: isEn ? "Screenshot of X" : "Captura de tela de X",
-        priority: true,   // hero image — load eagerly
-      },
-      {
-        type: "metrics",
-        items: [
-          { label: isEn ? "Users" : "Usuários", value: "12k+" },
-          { label: isEn ? "Sessions" : "Sessões", value: "40k" },
-        ],
-      },
-      // ... more sections
+      { type: "image", src: `${IMG_BASE}/hero.png`, alt: "...", priority: true },
+      { type: "text", visibility: ["overview"], title: "Contexto", body: (<>...</>) },
+      { type: "problems", visibility: ["overview"], title: "Desafios", intro: "...", items: [...] },
+      { type: "process", visibility: ["overview"], title: "Processo", steps: [...] },
+      { type: "imageGrid", images: [...] },
+      { type: "results", title: "Resultados", intro: "...", items: [...] },
+      { type: "text", visibility: ["overview"], title: "Aprendizados", body: (<p>...</p>) },
     ],
   }
 }
+
+export default yourSlugStudy
 ```
 
-### Step 2 — Register in the index
+### Step 2 - Register in the index
 
 `src/data/case-studies/index.ts`
 
@@ -142,7 +144,7 @@ const caseStudies: Record<string, (language: Language) => CaseStudyData> = {
 }
 ```
 
-### Step 3 — Add to projects list
+### Step 3 - Add to projects list
 
 `src/data/projects.ts`
 
@@ -158,7 +160,7 @@ Add an entry to `projectsCatalog`:
 }
 ```
 
-### Step 4 — Add images
+### Step 4 - Add images
 
 Place images in `src/assets/` or `public/`. For case study images:
 - Format: WebP preferred (smaller, modern)
@@ -170,7 +172,7 @@ Place images in `src/assets/` or `public/`. For case study images:
 ## Section Writing Guidelines
 
 ### Text sections
-- Keep paragraphs focused — one idea per section
+- Keep paragraphs focused - one idea per section
 - Use `title` for section headings (H2 level)
 - Use `id` on text sections for anchor linking
 
@@ -190,6 +192,25 @@ Place images in `src/assets/` or `public/`. For case study images:
 - Use `HighlightCard variant="positive"` for results
 - 3–5 items is ideal
 - Be specific and concrete
+
+### Process sections
+- Use for ordered workflows, design phases, or step-by-step decisions
+- `label`: one short action phrase (5–8 words)
+- `description`: 1–2 sentences explaining the step
+- 3–7 steps is the practical range; beyond that consider splitting into multiple sections
+
+### Spacing & Layout in Visual Mode
+
+In **visual mode**, section spacing is intelligent and context-aware:
+
+| Context | Spacing | Rationale |
+|---------|---------|-----------|
+| Image → Image | 16px (mb-4) | Matches `ImageStack` internal gap; maintains visual rhythm |
+| Image → Text | 32px (mb-8) | Breathing room before prose sections (role, goal, results) |
+| Text → Any | 64px (mb-16) | Comfortable spacing for readability |
+| Other modes | 64px (mb-16) | Consistent spacing across all section types |
+
+This ensures that visual mode transitions like "shot 0 → my role" and "last image → results" feel properly balanced - tight between images, spacious around text.
 
 ---
 
