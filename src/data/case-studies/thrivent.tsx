@@ -9,11 +9,11 @@ const thriventStudy = (language: Language): CaseStudyData => {
   return {
     title: "Thrivent Design System Foundation",
     description: isPt
-      ? "Criei a fundação do design system para o portal financeiro da Thrivent, um canal com mais de uma década de crescimento sem diretrizes de design. O desafio: produzir artefatos usáveis desde o dia 1, escaláveis para as demais marcas do ecossistema. 300+ páginas catalogadas, tokens primitivos normalizados e componentes base documentados, tudo em 4 semanas, como único designer."
-      : "I built the design system foundation for Thrivent's financial portal, a channel that had grown for over a decade without design guidelines. The challenge: produce day-1-ready artifacts, scalable to the broader ecosystem. 300+ pages catalogued, primitive tokens normalized, and base components documented, all in 4 weeks as the sole designer.",
+      ? "Criei a fundação do design system para o portal financeiro da Thrivent, um canal com mais de uma década de crescimento sem diretrizes de design. O desafio era produzir artefatos com valor imediato e escaláveis para as demais marcas do ecossistema. Foram mais de 300 páginas catalogadas, design tokens definidos e componentes base construídos e documentados."
+      : "I built the design system foundation for Thrivent's financial portal, a channel that had grown for over a decade without design guidelines. The challenge was to produce artifacts with imediate value to the team, and scalable to the broader ecosystem. Over 300 pages catalogued, design tokens defined, and base components documented.",
     role: "Product Designer",
     goal: isPt
-      ? "Criar a fundação do design system para o portal Thrivent FP, garantindo que os artefatos fossem utilizáveis desde o dia 1 e escaláveis para as demais marcas do ecossistema"
+      ? "Criar a fundação do design system para o portal Thrivent FP, garantindo que os artefatos fossem gerassem valor desde o dia 1 e que fossem escaláveis para as demais marcas do ecossistema"
       : "Build the Thrivent FP design system foundation, ensuring artifacts were usable from day one and scalable across the broader Thrivent ecosystem",
     sections: [
       // ---1. Hero image (all modes) ────────────────────────────
@@ -47,15 +47,6 @@ const thriventStudy = (language: Language): CaseStudyData => {
         ),
       },
 
-      // ---3. Context image (all modes) ──────────────────────────
-      {
-        type: "image",
-        src: `${IMG_BASE}/shot 1.png`,
-        alt: isPt
-          ? "Estado anterior do portal Thrivent FP mostrando inconsistências visuais entre páginas"
-          : "Previous state of the Thrivent FP portal showing visual inconsistencies across pages",
-      },
-
       // ---4. Meu papel e contribuição (overview) ──────────────
       {
         type: "text",
@@ -76,13 +67,13 @@ const thriventStudy = (language: Language): CaseStudyData => {
               </li>
               <li>
                 {isPt
-                  ? "Automatizei o catálogo de páginas usando um script Python + Playwright gerado com IA (Gemini), reduzindo uma etapa estimada em 7 dias para 1 hora. 300+ páginas catalogadas com screenshots configuráveis."
-                  : "Automated the page catalogue using a Python + Playwright script generated with AI (Gemini), reducing a task estimated at 7 days to 1 hour. 300+ pages catalogued with configurable screenshots."}
+                  ? "Automatizei o catálogo de páginas, reduzindo uma etapa estimada em 7 dias para 1 hora. Mais de 300 páginas foram catalogadas nessa etapa."
+                  : "Automated the page catalogue, reducing a task estimated at 7 days to 1 hour. Over 300 pages have been cataloged during this stage."}
               </li>
               <li>
                 {isPt
-                  ? "Criei toda a camada de design tokens, dos primitivos (cores, tipografia, espaçamentos) aos semânticos (atribuindo significado de uso a cada token). Adotei a convenção de nomenclatura do Tailwind CSS para eliminar carga cognitiva."
-                  : "Built the complete design token layer, from primitives (colors, typography, spacing) to semantic tokens (assigning usage meaning to each value). Adopted Tailwind CSS naming conventions to eliminate cognitive load."}
+                  ? "Criei toda a camada de design tokens, dos primitivos (cores, tipografia, espaçamentos) aos semânticos (atribuindo significado de uso a cada token). Após alinhamento com o time de desenvolvimento, adotei a convenção de nomenclatura do Tailwind CSS para diminuir a curva de aprendizado do sistema da equipe.."
+                  : "Built the complete design token layer, from primitives (colors, typography, spacing) to semantic tokens (assigning usage meaning to each value). After collaborating with the development team, I adopted Tailwind CSS naming conventions to ease the learning curve of the team."}
               </li>
               <li>
                 {isPt
@@ -91,14 +82,14 @@ const thriventStudy = (language: Language): CaseStudyData => {
               </li>
               <li>
                 {isPt
-                  ? "Prototipei em código (React) e construí Storybook documentado usando Cursor, Figma Make, Antigravity e Claude Code, testando navegação por teclado, responsividade, filtros e interações em ambiente real."
-                  : "Prototyped in code (React) and built a documented Storybook using Cursor, Figma Make, Antigravity, and Claude Code, testing keyboard navigation, responsiveness, filters, and interactions in a real environment."}
+                  ? "Prototipei em código e construí Storybook documentado usando Figma Make e Claude Code, testando navegação por teclado, responsividade, filtros e interações em ambiente real."
+                  : "Prototyped in code and built a documented Storybook using Figma Make, and Claude Code, testing keyboard navigation, responsiveness, filters, and interactions in a real environment."}
               </li>
             </ul>
             <p>
               {isPt
-                ? "Ferramentas: Figma, Cursor, Claude Code, Figma Make, Antigravity, Gemini | Time: 1 designer + validação com design lead + colaboração com desenvolvedores | Prazo: 4 semanas"
-                : "Tools: Figma, Cursor, Claude Code, Figma Make, Antigravity, Gemini | Team: 1 designer + design lead check-ins + developer collaboration | Timeline: 4 weeks"}
+                ? "Ferramentas: Figma, Claude Code, e Figma Make. | Prazo: 4 semanas"
+                : "Tools: Figma, Claude Code, and Figma Make. | Timeline: 4 weeks"}
             </p>
           </>
         ),
@@ -125,22 +116,21 @@ const thriventStudy = (language: Language): CaseStudyData => {
           {
             variant: "negative",
             title: isPt
-              ? "Prazo de 4 semanas, único designer"
-              : "4-week deadline, sole designer",
-            description: isPt
-              ? "Todo o trabalho (catálogo, inventário, tokens, componentes, PoC em código, documentação e handoff) precisava ser concluído em 4 semanas, por uma pessoa. Isso exigia decisões agressivas de priorização e automação de tarefas repetitivas."
-              : "All work (catalogue, inventory, tokens, components, code PoC, documentation, and handoff) needed to be completed in 4 weeks by a single person. This required aggressive prioritization and automation of repetitive tasks.",
-          },
-          {
-            variant: "negative",
-            title: isPt
               ? "Artefatos precisavam funcionar desde o dia 1"
               : "Artifacts needed to work from day one",
             description: isPt
-              ? "Não era uma fundação teórica. Os componentes criados precisavam entrar em uso imediato e ser escaláveis para as demais interfaces e marcas da Thrivent no futuro. Cada decisão carregava o peso de se tornar precedente para todo o ecossistema."
-              : "This was not a theoretical foundation. The components created needed to go into immediate use and be scalable to other Thrivent interfaces and brands in the future. Every decision carried the weight of becoming precedent for the entire ecosystem.",
+              ? "Os componentes criados precisavam entrar em uso imediato e ser escaláveis para as demais interfaces e marcas da Thrivent no futuro."
+              : "The components created needed to go into immediate use and be scalable to other Thrivent interfaces and brands in the future.",
           },
         ],
+      },
+      // ---3. Context image (all modes) ──────────────────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 1.png`,
+        alt: isPt
+          ? "Estado anterior do portal Thrivent FP mostrando inconsistências visuais entre páginas"
+          : "Previous state of the Thrivent FP portal showing visual inconsistencies across pages",
       },
 
       // ---6. Processo (overview) ───────────────────────────────
@@ -162,8 +152,8 @@ const thriventStudy = (language: Language): CaseStudyData => {
               ? "Catalogar páginas do portal"
               : "Catalogue portal pages",
             description: isPt
-              ? "Catalogar 300+ páginas manualmente levaria dias. Decidi automatizar: usei o Gemini para gerar um script Python + Playwright que faz web crawl do portal, captura URLs e gera screenshots com parâmetros configuráveis. Uma etapa estimada em 7 dias foi concluída em 1 hora."
-              : "Manually cataloguing 300+ pages would have taken days. I chose to automate: used Gemini to generate a Python + Playwright script that crawls the portal, captures URLs, and generates screenshots with configurable parameters. A task estimated at 7 days was completed in 1 hour.",
+              ? "Catalogar mais de 300 páginas manualmente levaria dias. Decidi automatizar: Usei Python para criar um bot que faz web crawl do portal, captura URLs e gera screenshots com parâmetros configuráveis. Uma etapa estimada em 7 dias foi concluída em 1 hora."
+              : "Manually cataloguing over 300 pages would have taken days. I chose to automate: Using Python, I created a bot that crawls the portal, captures URLs, and generates screenshots with configurable parameters. A task estimated at 7 days was completed in 1 hour.",
           },
           {
             label: isPt
@@ -271,8 +261,8 @@ const thriventStudy = (language: Language): CaseStudyData => {
         type: "results",
         title: isPt ? "Resultados" : "Results",
         intro: isPt
-          ? "Em 4 semanas, como único designer, entreguei a fundação completa do design system, pronta para uso imediato."
-          : "In 4 weeks, as the sole designer, I delivered the complete design system foundation, ready for immediate use.",
+          ? "Em 4 semanas entreguei a fundação completa do design system, pronta para uso imediato."
+          : "In 4 weeks I delivered the complete design system foundation, ready for immediate use.",
         items: [
           {
             variant: "positive",
@@ -289,8 +279,8 @@ const thriventStudy = (language: Language): CaseStudyData => {
               ? "Design tokens completos (primitivos + semânticos)"
               : "Complete design tokens (primitive + semantic)",
             description: isPt
-              ? "Cores, tipografia e espaçamentos consolidados com nomenclatura Tailwind CSS, com camada semântica atribuindo significado de uso. Prontos para extensão às demais marcas do ecossistema Thrivent."
-              : "Colors, typography, and spacing consolidated using Tailwind CSS naming, with a semantic layer assigning usage meaning. Ready for extension to other Thrivent brands.",
+              ? "Cores, tipografia e espaçamentos consolidados, com camada semântica atribuindo significado de uso. Prontos para extensão às demais marcas do ecossistema Thrivent."
+              : "Colors, typography, and spacing consolidated, with a semantic layer assigning usage meaning. Ready for extension to other Thrivent brands.",
           },
           {
             variant: "positive",
@@ -305,8 +295,8 @@ const thriventStudy = (language: Language): CaseStudyData => {
             variant: "positive",
             title: isPt ? "PoC funcional em código" : "Functional code PoC",
             description: isPt
-              ? "Protótipos em React testando o fluxo completo de análise de fundo, com navegação por teclado, responsividade e interações reais validadas em ambiente funcional."
-              : "React prototypes testing the complete fund analysis flow, with keyboard navigation, responsiveness, and real interactions validated in a functional environment.",
+              ? "Protótipos feitos diretamento no código testando o fluxo completo de análise de fundo, com navegação por teclado, responsividade e interações reais validadas em ambiente funcional."
+              : "Code prototypes testing the complete fund analysis flow, with keyboard navigation, responsiveness, and real interactions validated in a functional environment.",
           },
         ],
         disclaimer: isPt
