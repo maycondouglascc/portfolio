@@ -7,493 +7,324 @@ const thriventStudy = (language: Language): CaseStudyData => {
   const isPt = language === "pt";
 
   return {
-    title: isPt
-      ? "Thrivent FP — Fundação do Design System"
-      : "Thrivent FP — Design System Foundation",
+    title: "Thrivent Design System Foundation",
     description: isPt
-      ? "Um portal financeiro com mais de uma década de crescimento orgânico, sem diretrizes de design, sem sistema, sem linguagem compartilhada entre designers e desenvolvedores."
-      : "A financial portal with over a decade of organic growth, with no design guidelines, no system, and no shared language between designers and developers.",
+      ? "Criei a fundação do design system para o portal financeiro da Thrivent, um canal com mais de uma década de crescimento sem diretrizes de design. O desafio: produzir artefatos usáveis desde o dia 1, escaláveis para as demais marcas do ecossistema. 300+ páginas catalogadas, tokens primitivos normalizados e componentes base documentados, tudo em 4 semanas, como único designer."
+      : "I built the design system foundation for Thrivent's financial portal, a channel that had grown for over a decade without design guidelines. The challenge: produce day-1-ready artifacts, scalable to the broader ecosystem. 300+ pages catalogued, primitive tokens normalized, and base components documented, all in 4 weeks as the sole designer.",
     role: "Product Designer",
     goal: isPt
-      ? "Criar a fundação do design system para o portal, garantindo que os artefatos gerados fossem utilizados desde o dia 1 e escaláveis para as demais interfaces e marcas da Thrivent no futuro."
-      : "Build the design system foundation for the portal, ensuring the generated artifacts would be used from day one and scalable to the other Thrivent interfaces and brands in the future.",
+      ? "Criar a fundação do design system para o portal Thrivent FP, garantindo que os artefatos fossem utilizáveis desde o dia 1 e escaláveis para as demais marcas do ecossistema"
+      : "Build the Thrivent FP design system foundation, ensuring artifacts were usable from day one and scalable across the broader Thrivent ecosystem",
     sections: [
+      // ---1. Hero image (all modes) ────────────────────────────
       {
         type: "image",
-        src: `${IMG_BASE}/hero.png`,
+        src: `${IMG_BASE}/shot 0.png`,
         alt: isPt
-          ? "Visão geral da fundação do design system do Thrivent FP"
-          : "Overview of the Thrivent FP design system foundation",
+          ? "Portal Thrivent FP redesenhado mostrando página de detalhes de fundo de investimento com navegação reestruturada e componentes do novo design system"
+          : "Redesigned Thrivent FP portal showing fund detail page with restructured navigation and new design system components",
         priority: true,
       },
-      {
-        type: "metrics",
-        id: "overview",
-        layout: "horizontal",
-        items: [
-          {
-            variant: "positive",
-            title: "300+",
-            description: isPt ? "Páginas catalogadas" : "Pages catalogued",
-          },
-          {
-            variant: "positive",
-            title: isPt ? "4 semanas" : "4 weeks",
-            description: isPt ? "Prazo do projeto" : "Project timeline",
-          },
-          {
-            variant: "positive",
-            title: isPt ? "6 etapas" : "6 steps",
-            description: isPt ? "Processo estruturado" : "Structured process",
-          },
-        ],
-        disclaimer: isPt
-          ? "*Por confidencialidade, os valores reais foram omitidos."
-          : "*For confidentiality reasons, actual values have been omitted.",
-      },
+
+      // ---2. Contexto (overview) ───────────────────────────────
       {
         type: "text",
-        title: "TL;DR",
+        visibility: ["overview"],
+        title: isPt ? "Contexto" : "Context",
         body: (
           <>
             <p>
               {isPt
-                ? "Um portal financeiro com mais de uma década de crescimento orgânico, sem diretrizes de design, sem sistema, sem linguagem compartilhada entre designers e desenvolvedores. Esse era o estado do Thrivent FP quando assumi o desafio de criar a fundação do seu design system."
-                : "A financial portal with over a decade of organic growth, with no design guidelines, no system, and no shared language between designers and developers. That was the state of Thrivent FP when I took on the challenge of building its design system foundation."}
+                ? "A Thrivent é uma organização financeira com mais de 120 anos de história, em processo de modernização dos seus canais digitais. O projeto focou no Thrivent FP, portal do braço Thrivent Asset Management voltado a profissionais do mercado financeiro, um canal crítico com anos de dívida técnica e de design acumuladas."
+                : "Thrivent is a financial organization with over 120 years of history, in the process of modernizing its digital channels. The project focused on Thrivent FP, the portal for the Thrivent Asset Management arm aimed at financial market professionals, a critical channel with years of accumulated technical and design debt."}
             </p>
             <p>
               {isPt
-                ? "A Thrivent é uma organização financeira com mais de 120 anos de história, em um processo de modernização dos seus canais digitais para aumentar o reconhecimento de marca nos EUA. O projeto envolveu o canal de Fundos, do braço Thrivent Asset Management. O Thrivent FP é um portal voltado para profissionais do mercado financeiro, um canal crítico com anos de dívida técnica acumulados."
-                : "Thrivent is a financial organization with over 120 years of history, in the process of modernizing its digital channels to increase brand recognition in the US. The project involved the Funds channel of the Thrivent Asset Management arm. Thrivent FP is a portal aimed at financial market professionals — a critical channel with years of accumulated technical debt."}
-            </p>
-            <p>
-              {isPt
-                ? "Não havia uma pauta imediata no roadmap, mas havia uma janela de oportunidade: criar uma base sólida que alavancaria todas as melhorias futuras. Essa foi a razão pela qual o projeto foi iniciado."
-                : "There was no immediate roadmap item, but there was a window of opportunity: to build a solid foundation that would leverage all future improvements. That was the reason the project was started."}
+                ? "Durante as duas semanas de onboarding no projeto, naveguei as interfaces dos diferentes portais da Thrivent e conduzi uma análise de competidores do mercado financeiro. O diagnóstico foi claro: divergências entre páginas, componentes sem padronização, e decisões de design sendo tomadas repetidamente sem referência. Não havia pauta imediata no roadmap, mas identifiquei a janela de oportunidade e tomei a iniciativa. Estruturei um planejamento completo (motivações, etapas, entregáveis e prazos), apresentei formalmente ao time, e recebi aprovação para executar."
+                : "During the two-week onboarding, I navigated the interfaces across Thrivent's different portals and conducted a competitive analysis of the financial market. The diagnosis was clear: inconsistencies across pages, components without standardization, and design decisions being made repeatedly without any reference. There was no immediate roadmap item, but I identified the window of opportunity and took initiative. I structured a full plan (motivations, stages, deliverables, and timelines), presented it formally to the team, and received approval to execute."}
             </p>
           </>
         ),
       },
+
+      // ---3. Context image (all modes) ──────────────────────────
       {
-        type: "problems",
-        visibility: ["overview"],
-        id: "the-challenge",
-        title: isPt ? "O Desafio" : "The Challenge",
-        intro: isPt
-          ? "O Thrivent FP é um portal voltado para profissionais do mercado financeiro com anos de dívida técnica acumulados — sem diretrizes de design, sem sistema, sem linguagem compartilhada."
-          : "Thrivent FP is a portal aimed at financial market professionals with years of accumulated technical debt — no design guidelines, no system, no shared language.",
-        items: [
-          {
-            variant: "negative",
-            title: isPt ? "Sem linguagem compartilhada" : "No shared language",
-            description: isPt
-              ? "Designers e desenvolvedores tomavam as mesmas decisões repetidamente, sem nenhuma referência comum."
-              : "Designers and developers made the same decisions repeatedly without any shared reference.",
-          },
-          {
-            variant: "negative",
-            title: isPt
-              ? "Anos de drift acumulado"
-              : "Years of accumulated drift",
-            description: isPt
-              ? "Card: 6 tipos, 23 variações de estrutura. Hero Banner: múltiplas variações estruturais e de estilo. Botões e Links: 5 tipos de botões, múltiplas variações."
-              : "Cards: 6 types, 23 structural variations. Hero Banner: multiple structural and style variations. Buttons and links: 5 button types, multiple variations.",
-          },
-          {
-            variant: "negative",
-            title: isPt ? "Janela de oportunidade" : "Window of opportunity",
-            description: isPt
-              ? "Não havia uma pauta imediata no roadmap, mas havia espaço para criar uma base sólida que alavancaria todas as melhorias futuras — em 4 semanas."
-              : "There was no immediate roadmap item, but there was space to build a solid foundation that would leverage all future improvements — in 4 weeks.",
-          },
-        ],
+        type: "image",
+        src: `${IMG_BASE}/shot 1.png`,
+        alt: isPt
+          ? "Estado anterior do portal Thrivent FP mostrando inconsistências visuais entre páginas"
+          : "Previous state of the Thrivent FP portal showing visual inconsistencies across pages",
       },
-      {
-        type: "process",
-        visibility: ["overview"],
-        id: "the-process",
-        title: isPt ? "O Processo" : "The Process",
-        steps: [
-          {
-            label: isPt ? "Catálogo" : "Catalogue",
-            description: isPt
-              ? "Web crawl automatizado com Python e Playwright: mais de 300 páginas catalogadas em 1 hora. Estimativa manual: 7 dias."
-              : "Automated web crawl with Python and Playwright: 300+ pages catalogued in 1 hour. Manual estimate: 7 days.",
-          },
-          {
-            label: isPt ? "Inventário" : "Inventory",
-            description: isPt
-              ? "Análise dos padrões de design existentes e mapeamento das inconsistências — aquelas que precisariam ser corrigidas nas etapas seguintes."
-              : "Analysis of existing design patterns and mapping of inconsistencies — those that would need to be addressed in the following stages.",
-          },
-          {
-            label: isPt ? "Priorização" : "Prioritization",
-            description: isPt
-              ? "Análise de competidores para definir por onde começar. Decisão: fluxo de análise de um fundo, por atravessar as páginas-chave do portal — home, listagem de fundos e detalhe do ativo."
-              : "Competitor analysis to decide where to start. Decision: fund analysis flow, for crossing the key pages of the portal — home, fund listing, and asset detail.",
-          },
-          {
-            label: isPt
-              ? "Padronização de componentes"
-              : "Component standardization",
-            description: isPt
-              ? "Tokens primitivos com convenção Tailwind + criação dos componentes base priorizando o fluxo definido. PoC em código para validar comportamento real."
-              : "Primitive tokens with Tailwind convention + base component creation prioritizing the defined flow. Code PoC to validate real behavior.",
-          },
-          {
-            label: isPt
-              ? "Consolidação e documentação"
-              : "Consolidation & documentation",
-            description: isPt
-              ? "Documentação estruturada de quando e como cada componente deve ser usado, para dois públicos: designers e desenvolvedores."
-              : "Structured documentation of when and how each component should be used, for two audiences: designers and developers.",
-          },
-          {
-            label: "Handoff",
-            description: isPt
-              ? "Camada adicional de documentação em formato AI-friendly: arquivos Markdown reescritos de forma verbosa, sem dependência de contexto visual."
-              : "Additional documentation layer in AI-friendly format: Markdown files rewritten verbosely, without relying on visual context.",
-          },
-        ],
-      },
+
+      // ---4. Meu papel e contribuição (overview) ──────────────
       {
         type: "text",
         visibility: ["overview"],
-        id: "catalogue",
-        title: isPt ? "Catálogo" : "Catalogue",
+        title: isPt ? "Meu papel e contribuição" : "My role and contribution",
         body: (
           <>
             <p>
               {isPt
-                ? "Catalogar páginas é uma etapa conhecidamente maçante e suscetível a erros — o volume de artefatos é alto e o trabalho é repetitivo. Investir tempo demais aqui significava menos tempo para etapas mais estratégicas."
-                : "Cataloguing pages is a famously tedious and error-prone step — the volume of artifacts is high and the work is repetitive. Spending too much time here meant less time for more strategic stages."}
-            </p>
-            <p>
-              {isPt
-                ? "Decidi automatizar. Criei um script em Python e Playwright que faz o web crawl do portal, captura as URLs e gera screenshots de cada página com parâmetros configuráveis (largura, altura, recorte de viewport). Disponibilizei a solução como open-source."
-                : "I decided to automate. I wrote a Python and Playwright script that crawls the portal, captures URLs, and generates screenshots of each page with configurable parameters (width, height, viewport crop). The solution was released as open source."}
-            </p>
-            <p>
-              {isPt ? "O fluxo ficou assim:" : "The flow worked like this:"}
-            </p>
-            <ol className="list-decimal pl-5 space-y-1">
-              <li>
-                {isPt
-                  ? "O script rastreia o portal e captura todas as URLs"
-                  : "The script crawls the portal and captures all URLs"}
-              </li>
-              <li>
-                {isPt
-                  ? "Eu reviso a lista manualmente para eliminar duplicatas e páginas irrelevantes para o projeto"
-                  : "I manually review the list to remove duplicates and pages irrelevant to the project"}
-              </li>
-              <li>
-                {isPt
-                  ? "O script gera os screenshots da lista final"
-                  : "The script generates screenshots from the final list"}
-              </li>
-            </ol>
-            <p>
-              {isPt
-                ? "Resultado: mais de 300 páginas catalogadas. Uma etapa estimada em 7 dias foi concluída em 1 hora."
-                : "Result: more than 300 pages catalogued. A task estimated at 7 days was completed in 1 hour."}
-            </p>
-          </>
-        ),
-      },
-      {
-        type: "text",
-        visibility: ["overview"],
-        id: "inventory",
-        title: isPt ? "Inventário" : "Inventory",
-        body: (
-          <>
-            <p>
-              {isPt
-                ? "Com o catálogo em mãos, o próximo passo foi analisar os padrões de design existentes e mapear as inconsistências — aquelas que precisariam ser corrigidas nas etapas seguintes."
-                : "With the catalogue in hand, the next step was to analyze the existing design patterns and map the inconsistencies — those that would need to be addressed in the following stages."}
-            </p>
-            <p>
-              {isPt
-                ? "O resultado foi o esperado para portais que cresceram sem diretrizes: decisões sendo tomadas múltiplas vezes, sem referência, gerando variações desnecessárias."
-                : "The result was expected for portals that grew without guidelines: decisions being made multiple times over, without any reference, generating unnecessary variation."}
-            </p>
-            <p>
-              {isPt ? "Alguns exemplos encontrados:" : "Some examples found:"}
+                ? "Atuei como único designer no projeto, com validações periódicas com a design lead. Também colaborei com desenvolvedores para garantir viabilidade técnica e qualidade dos entregáveis de código. O prazo foi de 4 semanas."
+                : "I worked as the sole designer on the project, with periodic check-ins with the design lead. I also collaborated with developers to ensure technical feasibility and quality of code deliverables. The timeline was 4 weeks."}
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
                 {isPt
-                  ? "Card: 6 tipos, 23 variações de estrutura"
-                  : "Card: 6 types, 23 structural variations"}
+                  ? "Identifiquei a oportunidade e estruturei o planejamento do projeto, definindo motivações, etapas, entregáveis e prazos. Apresentei formalmente ao time e recebi aprovação para executar."
+                  : "Identified the opportunity and structured the project plan, defining motivations, stages, deliverables, and timelines. Presented it formally to the team and received approval to execute."}
               </li>
               <li>
                 {isPt
-                  ? "Hero Banner: múltiplas variações estruturais e de estilo"
-                  : "Hero Banner: multiple structural and style variations"}
+                  ? "Automatizei o catálogo de páginas usando um script Python + Playwright gerado com IA (Gemini), reduzindo uma etapa estimada em 7 dias para 1 hora. 300+ páginas catalogadas com screenshots configuráveis."
+                  : "Automated the page catalogue using a Python + Playwright script generated with AI (Gemini), reducing a task estimated at 7 days to 1 hour. 300+ pages catalogued with configurable screenshots."}
               </li>
               <li>
                 {isPt
-                  ? "Botões e Links: 5 tipos de botões, múltiplas variações"
-                  : "Buttons and Links: 5 button types, multiple variations"}
+                  ? "Criei toda a camada de design tokens, dos primitivos (cores, tipografia, espaçamentos) aos semânticos (atribuindo significado de uso a cada token). Adotei a convenção de nomenclatura do Tailwind CSS para eliminar carga cognitiva."
+                  : "Built the complete design token layer, from primitives (colors, typography, spacing) to semantic tokens (assigning usage meaning to each value). Adopted Tailwind CSS naming conventions to eliminate cognitive load."}
+              </li>
+              <li>
+                {isPt
+                  ? "Criei componentes base documentados priorizando o fluxo de análise de fundo (home, listagem, detalhe do ativo), o caminho mais crítico identificado na análise de competidores."
+                  : "Created documented base components prioritizing the fund analysis flow (home, listing, asset detail), the most critical path identified in the competitive analysis."}
+              </li>
+              <li>
+                {isPt
+                  ? "Prototipei em código (React) e construí Storybook documentado usando Cursor, Figma Make, Antigravity e Claude Code, testando navegação por teclado, responsividade, filtros e interações em ambiente real."
+                  : "Prototyped in code (React) and built a documented Storybook using Cursor, Figma Make, Antigravity, and Claude Code, testing keyboard navigation, responsiveness, filters, and interactions in a real environment."}
               </li>
             </ul>
             <p>
               {isPt
-                ? "Vale deixar claro o objetivo aqui: não se trata de engessar o processo ou limitar a criatividade. Trata-se de criar consistência nos elementos base da interface e estabelecer uma linguagem compartilhada. Designers e desenvolvedores não deveriam precisar decidir qual cor de botão usar toda vez que desenhassem algo semelhante."
-                : "It is worth being clear about the objective here: this is not about rigidifying the process or limiting creativity. It is about creating consistency in the foundational interface elements and establishing a shared language. Designers and developers should not need to decide which button color to use every time they designed something similar."}
+                ? "Ferramentas: Figma, Cursor, Claude Code, Figma Make, Antigravity, Gemini | Time: 1 designer + validação com design lead + colaboração com desenvolvedores | Prazo: 4 semanas"
+                : "Tools: Figma, Cursor, Claude Code, Figma Make, Antigravity, Gemini | Team: 1 designer + design lead check-ins + developer collaboration | Timeline: 4 weeks"}
             </p>
           </>
         ),
+      },
+
+      // ---5. Desafios (overview) ───────────────────────────────
+      {
+        type: "problems",
+        visibility: ["overview"],
+        title: isPt ? "Desafios" : "Challenges",
+        intro: isPt
+          ? "O Thrivent FP era um portal construído ao longo de mais de uma década sem diretrizes de design, sem sistema e sem linguagem compartilhada entre designers e desenvolvedores."
+          : "Thrivent FP was a portal built over more than a decade without design guidelines, without a system, and without a shared language between designers and developers.",
+        items: [
+          {
+            variant: "negative",
+            title: isPt
+              ? "Portal sem padronização visual"
+              : "Portal without visual standardization",
+            description: isPt
+              ? "Anos de crescimento orgânico geraram variações desnecessárias em toda a interface: 6 tipos de card com 23 variações estruturais, múltiplas variações de hero banner, 5 tipos de botão. Designers e desenvolvedores tomavam as mesmas decisões repetidamente, sem referência."
+              : "Years of organic growth created unnecessary variations throughout the interface: 6 card types with 23 structural variations, multiple hero banner variations, and 5 button types. Designers and developers made the same decisions repeatedly, without any reference.",
+          },
+          {
+            variant: "negative",
+            title: isPt
+              ? "Prazo de 4 semanas, único designer"
+              : "4-week deadline, sole designer",
+            description: isPt
+              ? "Todo o trabalho (catálogo, inventário, tokens, componentes, PoC em código, documentação e handoff) precisava ser concluído em 4 semanas, por uma pessoa. Isso exigia decisões agressivas de priorização e automação de tarefas repetitivas."
+              : "All work (catalogue, inventory, tokens, components, code PoC, documentation, and handoff) needed to be completed in 4 weeks by a single person. This required aggressive prioritization and automation of repetitive tasks.",
+          },
+          {
+            variant: "negative",
+            title: isPt
+              ? "Artefatos precisavam funcionar desde o dia 1"
+              : "Artifacts needed to work from day one",
+            description: isPt
+              ? "Não era uma fundação teórica. Os componentes criados precisavam entrar em uso imediato e ser escaláveis para as demais interfaces e marcas da Thrivent no futuro. Cada decisão carregava o peso de se tornar precedente para todo o ecossistema."
+              : "This was not a theoretical foundation. The components created needed to go into immediate use and be scalable to other Thrivent interfaces and brands in the future. Every decision carried the weight of becoming precedent for the entire ecosystem.",
+          },
+        ],
+      },
+
+      // ---6. Processo (overview) ───────────────────────────────
+      {
+        type: "process",
+        visibility: ["overview"],
+        title: isPt ? "Processo" : "Process",
+        steps: [
+          {
+            label: isPt
+              ? "Planejar e apresentar a proposta"
+              : "Plan and present the proposal",
+            description: isPt
+              ? "Após identificar a oportunidade durante o onboarding, estruturei um planejamento com motivações, etapas, entregáveis esperados e prazos para cada fase. Apresentei formalmente ao time e recebi aprovação para iniciar a execução."
+              : "After identifying the opportunity during onboarding, I structured a plan with motivations, stages, expected deliverables, and timelines for each phase. I presented it formally to the team and received approval to begin execution.",
+          },
+          {
+            label: isPt
+              ? "Catalogar páginas do portal"
+              : "Catalogue portal pages",
+            description: isPt
+              ? "Catalogar 300+ páginas manualmente levaria dias. Decidi automatizar: usei o Gemini para gerar um script Python + Playwright que faz web crawl do portal, captura URLs e gera screenshots com parâmetros configuráveis. Uma etapa estimada em 7 dias foi concluída em 1 hora."
+              : "Manually cataloguing 300+ pages would have taken days. I chose to automate: used Gemini to generate a Python + Playwright script that crawls the portal, captures URLs, and generates screenshots with configurable parameters. A task estimated at 7 days was completed in 1 hour.",
+          },
+          {
+            label: isPt
+              ? "Inventariar padrões e inconsistências"
+              : "Inventory patterns and inconsistencies",
+            description: isPt
+              ? "Com o catálogo em mãos, analisei os padrões de design existentes e mapeei as inconsistências. O resultado confirmou o diagnóstico do onboarding: cards com 6 tipos e 23 variações estruturais, hero banners com múltiplas variações, 5 tipos de botões."
+              : "With the catalogue in hand, I analyzed the existing design patterns and mapped the inconsistencies. The result confirmed the onboarding diagnosis: cards with 6 types and 23 structural variations, hero banners with multiple variations, and 5 button types.",
+          },
+          {
+            label: isPt
+              ? "Priorizar com base em análise de competidores"
+              : "Prioritize based on competitive analysis",
+            description: isPt
+              ? "A análise conduzida durante o onboarding mostrou um padrão claro: todos os portais financeiros analisados conduziam o usuário para a página de detalhes do ativo como fluxo central. Priorizei o fluxo de análise de um fundo (home, listagem de fundos, detalhe do ativo) por ser o mais crítico."
+              : "The analysis conducted during onboarding revealed a clear pattern: every financial portal studied guided users toward the asset detail page as the core flow. I prioritized the fund analysis flow (home, fund listing, asset detail) as the most critical path.",
+          },
+          {
+            label: isPt ? "Criar os design tokens" : "Create design tokens",
+            description: isPt
+              ? "Construí toda a camada de tokens do sistema: primitivos (cores, tipografia, espaçamentos) e semânticos (atribuindo significado de uso a cada valor). Adotei a convenção do Tailwind CSS como referência para nomenclatura, normalizando nomes proprietários. 'thrivent-navy-deep-blue' virou 'blue-900'."
+              : "Built the complete token layer: primitive tokens (colors, typography, spacing) and semantic tokens (assigning usage meaning to each value). I adopted Tailwind CSS naming conventions as a reference, normalizing proprietary names. 'thrivent-navy-deep-blue' became 'blue-900'.",
+          },
+
+          {
+            label: isPt ? "Prototipar em código" : "Prototype in code",
+            description: isPt
+              ? "Parti dos mockups para implementação direta em React. Um protótipo no Figma testa estética; um protótipo em código testa comportamento. Implementei as telas dos fluxos priorizados e testei navegação por teclado, responsividade, filtros e interações na tabela de ativos."
+              : "I went from mockups to direct implementation in React. A Figma prototype tests aesthetics; a code prototype tests behavior. I implemented the prioritized flow screens and tested keyboard navigation, responsiveness, fund page filters, and asset table interactions.",
+          },
+          {
+            label: isPt
+              ? "Consolidar, documentar e entregar"
+              : "Consolidate, document, and deliver",
+            description: isPt
+              ? "Documentei quando e como cada componente deve ser usado, para dois públicos: designers e desenvolvedores. Além da documentação visual, criei uma camada em formato AI-friendly: arquivos Markdown verbosos e autocontidos, sem dependência de contexto visual. Usei Claude Code para construir o Storybook final com componentes agnósticos a framework."
+              : "Documented when and how each component should be used, for two audiences: designers and developers. Beyond the visual documentation, I created an AI-friendly layer: verbose, self-contained Markdown files with no reliance on visual context. I used Claude Code to build the final Storybook with framework-agnostic components.",
+          },
+        ],
+      },
+
+      // ---7. Process artifacts - Image 1 (all modes) ────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 2.png`,
+        alt: isPt
+          ? "Processo Thrivent: output do script de catálogo com URLs e screenshots gerados automaticamente"
+          : "Thrivent process: catalogue script output with automatically generated URLs and screenshots",
+      },
+
+      // ---8. Process artifacts - Image 2 (all modes) ────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 3.png`,
+        alt: isPt
+          ? "Processo Thrivent: inventário de componentes mostrando variações de cards, botões e hero banners"
+          : "Thrivent process: component inventory showing card, button, and hero banner variations",
+      },
+
+      // ---9. Process artifacts - Image 3 (all modes) ────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 4.png`,
+        alt: isPt
+          ? "Processo Thrivent: tokens primitivos e semânticos com paleta de cores normalizada e tipografia"
+          : "Thrivent process: primitive and semantic tokens with normalized color palette and typography",
+      },
+
+      // ---10. Final UI - Image 1 (all modes) ──────────────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 5.png`,
+        alt: isPt
+          ? "Componentes base do design system Thrivent: card, botão e elementos de formulário documentados"
+          : "Thrivent design system base components: documented card, button, and form elements",
+      },
+
+      // ---11. Final UI - Image 2 (all modes) ──────────────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 6.png`,
+        alt: isPt
+          ? "PoC em código do Thrivent FP: protótipo React mostrando fluxo de análise de fundo com filtros e tabela de ativos"
+          : "Thrivent FP code PoC: React prototype showing fund analysis flow with filters and asset table",
+      },
+
+      // ---12. Final UI - Image 3 (all modes) ──────────────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 7.png`,
+        alt: isPt
+          ? "Documentação do design system Thrivent: Markdown file"
+          : "Thrivent design system documentation: Markdown file",
       },
       {
         type: "image",
-        visibility: ["overview"],
-        id: "inventory-visual",
-        src: `${IMG_BASE}/inventory-mosaic.png`,
+        src: `${IMG_BASE}/shot 8.png`,
         alt: isPt
-          ? "Mosaico de telas do portal Thrivent FP mostrando variações de cards, blocos de conteúdo e perfis, usado no inventário de inconsistências"
-          : "Mosaic of Thrivent FP portal screens showing variations in cards, content blocks, and profiles, used in the inconsistency inventory",
+          ? "Documentação do design system Thrivent: Storybook com componentes documentados e handoff AI-friendly"
+          : "Thrivent design system documentation: Storybook with documented components and AI-friendly handoff",
       },
-      {
-        type: "text",
-        visibility: ["overview"],
-        id: "tokens",
-        title: isPt
-          ? "Padronização: tokens primitivos"
-          : "Standardization: primitive tokens",
-        body: (
-          <>
-            <p>
-              {isPt
-                ? "O primeiro passo foi sintetizar os tokens primitivos da interface: cores, tipografia e espaçamentos. Essa camada é a base de tudo — e precisava ser construída já pensando no futuro, onde o sistema seria integrado nas demais marcas da Thrivent."
-                : "The first step was to synthesize the primitive interface tokens: colors, typography, and spacing. This layer is the foundation of everything — and it needed to be built with the future in mind, where the system would be integrated across the other Thrivent brands."}
-            </p>
-            <p>
-              {isPt
-                ? 'Uma decisão importante foi normalizar a nomenclatura das cores. O brand book da Thrivent usa nomes proprietários para cada cor, o que traz carga cognitiva desnecessária para o time. Adotei a convenção de nomenclatura do Tailwind CSS — um padrão amplamente reconhecido no mercado — como referência. Nomes como "thrivent-navy-deep-blue" se tornaram "blue-900". Removi cores que eram muito próximas e redundantes, mantendo apenas o que o brandbook existente permitia.'
-                : 'An important decision was to normalize the color naming. The Thrivent brand book uses proprietary names for each color, which creates unnecessary cognitive load for the team. I adopted the Tailwind CSS naming convention — a widely recognized industry standard — as a reference. Names like "thrivent-navy-deep-blue" became "blue-900". I removed colors that were too close and redundant, keeping only what the existing brand book allowed.'}
-            </p>
-            <p>
-              {isPt
-                ? "Essa etapa resultou no guia de estilos consolidado, atrelado aos tokens primitivos."
-                : "This stage resulted in the consolidated style guide, tied to the primitive tokens."}
-            </p>
-          </>
-        ),
-      },
-      {
-        type: "imageGrid",
-        images: [
-          {
-            src: `${IMG_BASE}/tokens-colors.png`,
-            alt: isPt
-              ? 'Paleta de cores "Primitive Tokens" com rampas e famílias (white, blue, red, stone, honey, orange, purple, green)'
-              : "Primitive Tokens color palette with ramps and families (white, blue, red, stone, honey, orange, purple, green)",
-          },
-          {
-            src: `${IMG_BASE}/tokens-background.png`,
-            alt: isPt
-              ? "Tabela de background tokens com exemplos de superfície (primary, inverse, secondary, info-subtle) e seus nomes de token"
-              : "Background tokens table with surface examples (primary, inverse, secondary, info-subtle) and their token names",
-          },
-          {
-            src: `${IMG_BASE}/tokens-typography.png`,
-            alt: isPt
-              ? "Spec de tipografia para headings com exemplos (xl, lg, md) e valores de size, line height e letter spacing"
-              : "Typography spec for headings with examples (xl, lg, md) and values for size, line height, and letter spacing",
-          },
-          {
-            src: `${IMG_BASE}/components-card.png`,
-            alt: isPt
-              ? "Variações do componente card"
-              : "Card component variations",
-          },
-        ],
-      },
-      {
-        type: "text",
-        visibility: ["overview"],
-        id: "components-base",
-        title: isPt
-          ? "Padronização: componentes base"
-          : "Standardization: base components",
-        body: (
-          <>
-            <p>
-              {isPt
-                ? "Com os tokens definidos, parti para a criação dos componentes base, priorizando aqueles que compõem o fluxo de análise de fundo definido anteriormente. A lógica era direta: construir primeiro o que seria usado primeiro."
-                : "With the tokens defined, I moved on to creating the base components, prioritizing those that make up the fund analysis flow defined earlier. The logic was straightforward: build first what would be used first."}
-            </p>
-            <p>
-              {isPt
-                ? "Aqui normalizamos design e comportamento de componentes como card, botão, elementos de formulário e tabela — os blocos fundamentais do portal."
-                : "Here we normalized the design and behavior of components such as card, button, form elements, and table — the fundamental building blocks of the portal."}
-            </p>
-          </>
-        ),
-      },
-      {
-        type: "text",
-        visibility: ["overview"],
-        id: "poc",
-        title: "PoC",
-        body: (
-          <>
-            <p>
-              {isPt
-                ? "Com os componentes prontos, era hora de testá-los em contexto real."
-                : "With the components ready, it was time to test them in real context."}
-            </p>
-            <p>
-              {isPt
-                ? "Parti dos mockups criados no Figma para a implementação direta em código — uma decisão consciente de não confiar apenas em simulações. Um protótipo no Figma testa estética. Um protótipo em código testa comportamento."
-                : "I went from the mockups created in Figma directly to implementation in code — a conscious decision not to rely solely on simulations. A Figma prototype tests aesthetics. A code prototype tests behavior."}
-            </p>
-            <p>
-              {isPt
-                ? "Implementei as telas dos fluxos priorizados em ambiente real e testei: navegação por teclado, responsividade, funcionamento dos filtros da página de fundos e interações na tabela de ativos."
-                : "I implemented the screens for the prioritized flows in a real environment and tested: keyboard navigation, responsiveness, the behavior of the funds page filters, and interactions in the asset table."}
-            </p>
-            <p>
-              {isPt
-                ? "A IA foi usada para acelerar a prototipagem em alta fidelidade, especialmente nas interações mais complexas. O loop foi iterativo: design → implementação → teste → correção."
-                : "AI was used to accelerate high-fidelity prototyping, especially for the more complex interactions. The loop was iterative: design → implementation → test → fix."}
-            </p>
-          </>
-        ),
-      },
-      {
-        type: "imageGrid",
-        images: [
-          {
-            src: `${IMG_BASE}/poc-sections.png`,
-            alt: isPt
-              ? "Coleção de seções com variações de layout, imagens e CTAs, usada para comparar padrões de páginas"
-              : "Collection of sections with layout variations, images, and CTAs, used to compare page patterns",
-          },
-          {
-            src: `${IMG_BASE}/poc-funds-table.png`,
-            alt: isPt
-              ? 'Tela "Mutual Funds" com filtros no topo e tabela de fundos listando retornos por período, datas e expense ratio'
-              : '"Mutual Funds" screen with filters at the top and a fund table listing returns by period, dates, and expense ratio',
-          },
-        ],
-      },
-      {
-        type: "text",
-        visibility: ["overview"],
-        id: "consolidation",
-        title: isPt
-          ? "Consolidação e documentação"
-          : "Consolidation & documentation",
-        body: (
-          <>
-            <p>
-              {isPt
-                ? "Depois de prototipar os fluxos, o próximo passo foi consolidar o que funcionou e documentar as decisões de forma estruturada: quando e como cada componente deve ser usado, quais são as exceções, e quais são os comportamentos esperados em diferentes contextos."
-                : "After prototyping the flows, the next step was to consolidate what worked and document the decisions in a structured way: when and how each component should be used, what the exceptions are, and what behaviors are expected in different contexts."}
-            </p>
-            <p>
-              {isPt
-                ? "A documentação foi escrita para dois públicos: designers e desenvolvedores. O objetivo era criar uma linguagem compartilhada que reduzisse a necessidade de conversas repetitivas sobre decisões já tomadas."
-                : "The documentation was written for two audiences: designers and developers. The goal was to create a shared language that would reduce the need for repetitive conversations about decisions already made."}
-            </p>
-          </>
-        ),
-      },
-      {
-        type: "text",
-        visibility: ["overview"],
-        id: "handoff",
-        title: "Handoff",
-        body: (
-          <>
-            <p>
-              {isPt
-                ? "O handoff foi onde o investimento em documentação se pagou de forma mais clara."
-                : "The handoff was where the investment in documentation paid off most clearly."}
-            </p>
-            <p>
-              {isPt
-                ? "Além da documentação tradicional — com apelo visual, pensada para leitura humana — criei uma camada adicional de documentação em formato AI-friendly: arquivos Markdown reescritos de forma mais verbosa, sem dependência de contexto visual para serem compreendidos. A lógica por trás disso é direta: LLMs performam melhor com texto denso e autocontido. Uma documentação que depende de prints ou contexto implícito não é útil para um coding agent."
-                : "Beyond the traditional documentation — visually appealing, designed for human reading — I created an additional layer in AI-friendly format: Markdown files rewritten in a more verbose way, without depending on visual context to be understood. The logic behind this is straightforward: LLMs perform better with dense, self-contained text. Documentation that relies on screenshots or implicit context is not useful for a coding agent."}
-            </p>
-            <p>
-              {isPt
-                ? "A partir dessas documentações, os componentes foram construídos com tecnologias agnósticas a framework, prontos para serem integrados ao desenvolvimento."
-                : "From this documentation, the components were built using framework-agnostic technologies, ready to be integrated into development."}
-            </p>
-          </>
-        ),
-      },
-      {
-        type: "imageGrid",
-        images: [
-          {
-            src: `${IMG_BASE}/handoff-spacing.png`,
-            alt: isPt
-              ? "Diagrama de espaçamento do Card com medidas de padding e gaps entre título, subtítulo, descrição e links"
-              : "Card spacing diagram with padding measurements and gaps between title, subtitle, description, and links",
-          },
-          {
-            src: `${IMG_BASE}/handoff-anatomy.png`,
-            alt: isPt
-              ? 'Card com anatomia numerada e painel "Card title" listando propriedades de texto: família, peso, tamanho, line height e spacing'
-              : 'Card with numbered anatomy and "Card title" panel listing text properties: family, weight, size, line height, and spacing',
-          },
-        ],
-      },
+
+      // ---13. Resultados (all modes) ────────────────────────────
       {
         type: "results",
-        id: "outcomes",
         title: isPt ? "Resultados" : "Results",
         intro: isPt
-          ? "Uma fundação funcional entregue em 4 semanas — utilizável desde o primeiro dia."
-          : "A functional foundation delivered in 4 weeks — usable from day one.",
+          ? "Em 4 semanas, como único designer, entreguei a fundação completa do design system, pronta para uso imediato."
+          : "In 4 weeks, as the sole designer, I delivered the complete design system foundation, ready for immediate use.",
         items: [
           {
             variant: "positive",
-            title: isPt ? "Entregue em 4 semanas" : "Delivered in 4 weeks",
+            title: isPt
+              ? "300+ páginas catalogadas em 1 hora"
+              : "300+ pages catalogued in 1 hour",
             description: isPt
-              ? "Fundação utilizável desde o dia 1. Componentes entraram no backlog de engenharia ainda dentro da janela do projeto."
-              : "Foundation usable from day 1. Components entered the engineering backlog within the project window.",
-          },
-          {
-            variant: "positive",
-            title: isPt ? "Tarefa de 7 dias → 1 hora" : "7-day task → 1 hour",
-            description: isPt
-              ? "A automação do catálogo liberou tempo estratégico. O que seria uma semana de trabalho manual virou menos de 60 minutos."
-              : "Catalogue automation freed strategic time. What would have been a week of manual work became less than 60 minutes.",
+              ? "Automação com Python + Playwright transformou a etapa mais demorada do processo em uma tarefa de minutos, liberando tempo para decisões estratégicas."
+              : "Python + Playwright automation transformed the most time-consuming stage into a matter of minutes, freeing time for strategic decisions.",
           },
           {
             variant: "positive",
             title: isPt
-              ? "Documentação que agentes usam"
-              : "Documentation agents can use",
+              ? "Design tokens completos (primitivos + semânticos)"
+              : "Complete design tokens (primitive + semantic)",
             description: isPt
-              ? "Componentes construídos a partir dos docs de handoff em formato AI-friendly — sem tradução extra, sem fricção de interpretação."
-              : "Components built from AI-friendly handoff docs — no extra translation, no interpretation friction.",
+              ? "Cores, tipografia e espaçamentos consolidados com nomenclatura Tailwind CSS, com camada semântica atribuindo significado de uso. Prontos para extensão às demais marcas do ecossistema Thrivent."
+              : "Colors, typography, and spacing consolidated using Tailwind CSS naming, with a semantic layer assigning usage meaning. Ready for extension to other Thrivent brands.",
+          },
+          {
+            variant: "positive",
+            title: isPt
+              ? "Componentes base documentados com dupla camada"
+              : "Base components documented with dual layer",
+            description: isPt
+              ? "Documentação visual para designers e desenvolvedores, mais documentação AI-friendly em Markdown para coding agents. Um desenvolvedor do time descreveu o código como 'fácil de ler, organizado e documentado'."
+              : "Visual documentation for designers and developers, plus AI-friendly Markdown documentation for coding agents. A team developer described the code as 'easy to read, organized, and documented.'",
+          },
+          {
+            variant: "positive",
+            title: isPt ? "PoC funcional em código" : "Functional code PoC",
+            description: isPt
+              ? "Protótipos em React testando o fluxo completo de análise de fundo, com navegação por teclado, responsividade e interações reais validadas em ambiente funcional."
+              : "React prototypes testing the complete fund analysis flow, with keyboard navigation, responsiveness, and real interactions validated in a functional environment.",
           },
         ],
+        disclaimer: isPt
+          ? "*Dados de adoção em produção não disponíveis. O design system foi entregue como fundação, antes da janela de implementação no roadmap."
+          : "*Production adoption data not available. The design system was delivered as a foundation, before the implementation window in the roadmap.",
       },
+
+      // ---14. Aprendizados (overview) ──────────────────────────
       {
         type: "text",
         visibility: ["overview"],
-        title: isPt ? "Aprendizados" : "Personal Takeaway",
+        title: isPt ? "Aprendizados" : "Learnings",
         body: (
-          <>
-            <p>
-              {isPt
-                ? "Projetos de fundação de design system ensinam uma coisa de forma muito clara: micro decisões se acumulam. Cada escolha de nomenclatura, cada token, cada variante de componente — individualmente parecem detalhes, mas em conjunto formam a consistência (ou a falta dela) de todo o sistema."
-                : "Design system foundation projects teach one thing very clearly: micro decisions accumulate. Each naming choice, each token, each component variant — individually they seem like details, but together they form the consistency (or lack thereof) of the entire system."}
-            </p>
-            <p>
-              {isPt
-                ? "O uso de IA ao longo do processo confirmou um princípio que vale para qualquer ferramenta: a qualidade do output depende diretamente da qualidade do input. Charles Babbage chamou isso de GIGO — garbage in, garbage out. Em termos práticos, isso significa que quanto mais claro você é sobre por que está pedindo algo para a IA, mais controle você tem sobre o resultado. A IA acelerou o processo; as decisões continuaram sendo minhas."
-                : "Using AI throughout the process confirmed a principle that applies to any tool: the quality of output depends directly on the quality of input. Charles Babbage called this GIGO — garbage in, garbage out. In practical terms, this means the clearer you are about why you are asking AI for something, the more control you have over the result. AI accelerated the process; the decisions remained mine."}
-            </p>
-          </>
+          <p>
+            {isPt
+              ? "Antes desse projeto, eu esperava que oportunidades de impacto viessem pelo roadmap. No onboarding da Thrivent, percebi que a dor do design system era real, a janela de calendário existia, e ninguém ia pautar isso a curto prazo. Decidi estruturar a proposta, apresentar formalmente e executar. O resultado validou algo que agora é parte do meu processo: quando identifico uma dor sistêmica com janela de execução, não espero que alguém transforme isso em tarefa."
+              : "Before this project, I expected high-impact opportunities to come through the roadmap. During the Thrivent onboarding, I realized the design system pain was real, the calendar window existed, and nobody was going to put it on the agenda anytime soon. I chose to structure the proposal, present it formally, and execute. The result validated something that is now part of my process: when I identify a systemic pain with an execution window, I do not wait for someone else to turn it into a task."}
+          </p>
         ),
       },
     ],

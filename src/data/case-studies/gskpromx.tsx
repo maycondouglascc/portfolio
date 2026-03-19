@@ -7,319 +7,321 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
   const isPt = language === "pt";
 
   return {
-    title: isPt
-      ? "GSK Pro Mexico - Revamp do Portal"
-      : "GSK Pro Mexico - Portal Revamp",
+    title: "Redesign: GSK Pro México",
     description: isPt
-      ? "Redesign do portal da GSK Mexico com um sistema de templates escalável e arquitetura de conteúdo personalizada para especialidades médicas."
-      : "Redesigning GSK Mexico's portal with a scalable template system and personalized content architecture tailored to medical specialties.",
+      ? "Redesenhei a experiência do GSK Pro México, transformando um portal com baixa adesão entre profissionais de saúde em uma plataforma com jornadas personalizadas por especialidade. A mudança central: migrar a arquitetura de conteúdo de organizada por produto para organizada por condição clínica, alinhando o portal ao modelo mental dos usuários."
+      : "I redesigned the GSK Pro México experience, transforming a low-engagement healthcare portal into a platform with personalized journeys by specialty. The core shift: migrating the content architecture from product-based to clinical condition-based, aligning the portal with how healthcare professionals actually think.",
     role: "Product Designer",
     goal: isPt
-      ? "Redesenhar a experiência digital do GSK Pro Mexico por meio de arquitetura de informação estratégica, melhor descoberta de conteúdo e jornadas personalizadas para profissionais de saúde"
-      : "Redesigning GSK Pro Mexico's digital experience through strategic information architecture, enhanced content discoverability, and personalized user journeys to better serve healthcare professionals in their clinical practice",
+      ? "Transformar o portal GSK Pro México em uma plataforma centrada em condição clínica, com jornadas personalizadas e conteúdo relevante para cada especialidade médica"
+      : "Transform the GSK Pro México portal into a clinical condition-centered platform with personalized journeys and relevant content for each medical specialty",
     hideOtherProjects: false,
     sections: [
+      // ---1. Hero image (all modes) ────────────────────────────
       {
         type: "image",
         src: `${IMG_BASE}/shot 0.png`,
         alt: isPt
-          ? "Interface principal do portal GSK Pro Mexico com navegação por área terapêutica"
-          : "GSK Pro Mexico portal main interface with therapeutic area navigation",
+          ? "Portal GSK Pro México redesenhado mostrando navegação por condição clínica com conteúdo personalizado por especialidade médica"
+          : "Redesigned GSK Pro México portal showing clinical condition-based navigation with content personalized by medical specialty",
         priority: true,
       },
-      {
-        type: "metrics",
-        id: "overview",
-        label: isPt ? "Métricas" : "Metrics",
-        layout: "horizontal",
-        items: [
-          {
-            variant: "positive",
-            title: "10+",
-            description: isPt
-              ? "Templates de página escaláveis para experiência consistente"
-              : "Scalable page templates for consistent experience",
-          },
-          {
-            variant: "positive",
-            title: "7",
-            description: isPt
-              ? "Jornadas personalizadas para o portal"
-              : "Personalized journeys for the portal",
-          },
-        ],
-        disclaimer: isPt
-          ? "*Por confidencialidade, os valores reais foram omitidos."
-          : "*For confidentiality reasons, I have omitted the actual values for these metrics.",
-      },
+
+      // ---2. Contexto (overview) ───────────────────────────────
       {
         type: "text",
-        title: "TL;DR",
+        visibility: ["overview"],
+        title: isPt ? "Contexto" : "Context",
         body: (
           <>
             <p>
-              {isPt ? (
-                <>
-                  O projeto evoluiu além do redesign visual, com foco em uma
-                  transformação estratégica de organização de conteúdo{" "}
-                  <strong>centrada no produto para centrada na doença</strong>,
-                  abordando pontos críticos como navegação precária (62% dos
-                  HCPs relataram dificuldades), funcionalidades de busca não
-                  operacionais e barreiras de acesso.
-                </>
-              ) : (
-                <>
-                  The project evolved beyond visual redesign, focusing on a
-                  strategic transformation from{" "}
-                  <strong>product-centric to disease-centric</strong> content
-                  organization, addressing critical pain points including poor
-                  navigation (62% of HCPs reported difficulties), non-functional
-                  search features, and barriers to access.
-                </>
-              )}
+              {isPt
+                ? "A GSK é uma das maiores empresas globais do setor farmacêutico, com presença em mais de 100 países. Por meio do GSK Pro, seu ecossistema digital para profissionais de saúde (HCPs), a empresa mantém relacionamento com a comunidade médica através de conteúdos especializados, atualizações científicas e materiais de suporte clínico."
+                : "GSK is one of the world's largest pharmaceutical companies, with a presence in more than 100 countries. Through GSK Pro, its digital ecosystem for healthcare professionals, the company maintains its relationship with the medical community through specialized content, scientific updates, and clinical support materials."}
             </p>
             <p>
               {isPt
-                ? "Ao implementar uma arquitetura de informação reestruturada com templates padronizados, um hub centralizado de recursos e organização aprimorada por área terapêutica, a solução estabeleceu uma base para melhor engajamento de HCPs e suporte à tomada de decisão clínica."
-                : "By implementing a restructured information architecture with standardized templates, centralized resources hub, and enhanced therapeutic area organization, the solution established a foundation for improved HCP engagement and clinical decision-making support."}
+                ? "No México, o portal já era um ponto de contato importante, mas enfrentava baixa adesão, navegação complexa, links quebrados e informação desatualizada. O cenário era mensurável: 46,2% de taxa de rejeição nas páginas de login, 300+ páginas com menos de 10 visitas em 6 meses, e 62% dos profissionais relatando dificuldade para encontrar o que precisavam. Antes de investir em um redesign completo, a prioridade era realizar um discovery estruturado que desse visibilidade às dores reais do produto."
+                : "In Mexico, the portal was already an important touchpoint, but it struggled with low engagement, complex navigation, broken links, and outdated information. The situation was measurable: a 46.2% bounce rate on login pages, 300+ pages with fewer than 10 visits in 6 months, and 62% of professionals reporting difficulty finding what they needed. Before investing in a full redesign, the priority was to run a structured discovery that would surface the product's real pain points."}
             </p>
           </>
         ),
       },
+
+      // ---3. Context image (all modes) ──────────────────────────
       {
         type: "image",
         src: `${IMG_BASE}/shot 1.png`,
         alt: isPt
-          ? "Análise de auditoria de conteúdo do portal GSK Pro Mexico"
-          : "GSK Pro Mexico portal content audit analysis",
+          ? "Estado anterior do portal GSK Pro México mostrando problemas de navegação e organização de conteúdo"
+          : "Previous state of the GSK Pro México portal showing navigation and content organization issues",
       },
-      {
-        type: "problems",
-        visibility: ["overview"],
-        id: "the-problem",
-        title: isPt ? "O problema" : "The problem",
-        intro: isPt
-          ? "O portal é um ponto de contato digital crítico para profissionais de saúde que buscam informações baseadas em evidências. No entanto, a plataforma existente apresentava barreiras significativas ao engajamento eficaz."
-          : "The portal serves as a critical digital touchpoint for healthcare professionals seeking evidence-based information. However, the existing platform presented significant barriers to effective engagement.",
-        items: [
-          {
-            variant: "negative",
-            title: isPt ? "Fluxo de acesso complexo" : "Complex access flow",
-            description: isPt
-              ? "Conteúdo restrito por login impedia que HCPs percebessem valor imediato, com processos de registro que chegavam a 48 horas. Isso resultou em uma taxa de rejeição de 46,2% nas páginas de login."
-              : "Login-required content prevented HCPs from perceiving immediate value, with registration processes taking up to 48 hours to complete. This resulted in 46.2% bounce rate on login pages.",
-          },
-          {
-            variant: "negative",
-            title: isPt
-              ? "Navegação precária e inconsistente"
-              : "Poor navigation and inconsistency",
-            description: isPt
-              ? "A ausência de estrutura padronizada entre áreas terapêuticas e páginas de produto gerava sobrecarga cognitiva. O menu principal não representava o portfólio completo de conteúdo, com 300+ páginas recebendo menos de 10 visitas em 6 meses."
-              : "Lack of standardized structure across therapeutic areas and product pages created cognitive overload. The main menu failed to represent the full content portfolio, with 300+ pages receiving fewer than 10 visits in 6 months.",
-          },
-          {
-            variant: "negative",
-            title: isPt
-              ? "Centrado no produto em vez de no tratamento"
-              : "Product-centric instead of treatment-centric",
-            description: isPt
-              ? 'A organização do conteúdo focava em produtos individuais em vez de condições clínicas, desalinhada com o modelo mental dos HCPs que "pensam primeiro no paciente e depois nas marcas".'
-              : 'Content organization focused on individual products rather than clinical conditions, misaligning with HCPs\' mental models who "think first in the patient, and then in the brands".',
-          },
-        ],
-      },
+
+      // ---4. Meu papel e contribuição (overview) ──────────────
       {
         type: "text",
         visibility: ["overview"],
-        id: "design-process",
-        title: isPt ? "Processo de Design" : "Design Process",
+        title: isPt ? "Meu papel e contribuição" : "My role and contribution",
         body: (
           <>
             <p>
               {isPt
-                ? "O projeto seguiu uma metodologia Triple Diamond para garantir uma descoberta abrangente e uma implementação estratégica:"
-                : "The project followed a Triple Diamond methodology to ensure comprehensive discovery and strategic implementation:"}
+                ? "Atuei como Product Designer em um time horizontal de 5 designers com níveis iguais de atuação e responsabilidade. O projeto durou mais de 30 semanas, desde o discovery até o handoff."
+                : "I worked as a Product Designer on a horizontal team of 5 designers with equal ownership and responsibility. The project ran for over 30 weeks, from discovery through handoff."}
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>
-                  {isPt ? "Discovery e Pesquisa:" : "Discovery & Research:"}
-                </strong>{" "}
                 {isPt
-                  ? "Realizamos pesquisa multimétodo, incluindo avaliação heurística com base nos 10 princípios de usabilidade de Nielsen, auditoria de 120 páginas web em 12 produtos e análise competitiva de portais GSK, além de benchmarks externos."
-                  : "Conducted multi-method research including heuristic evaluation against Nielsen's 10 usability principles, content audit of 120 web pages across 12 products, and competitive analysis of GSK portals, plus external benchmarks."}
+                  ? "Criei o framework de conteúdo para páginas de produto, traduzindo necessidades dos profissionais de saúde em estruturas padronizadas que reduziram sobrecarga cognitiva e garantiram consistência entre áreas terapêuticas."
+                  : "Built the content framework for product pages, translating healthcare professionals' needs into standardized structures that reduced cognitive load and ensured consistency across therapeutic areas."}
               </li>
               <li>
-                <strong>
-                  {isPt
-                    ? "Mapeamento de jornada do usuário:"
-                    : "User journey mapping:"}
-                </strong>{" "}
                 {isPt
-                  ? "Mapeamos três proto-personas distintas de HCPs. Identificamos pontos de atrito críticos, incluindo barreiras ao acesso inicial, falta de profundidade clínica e ausência de personalização."
-                  : "Mapped three distinct HCP proto-personas. Identified critical friction points including barriers to early access, lack of clinical depth, and absence of personalization."}
+                  ? "Desenvolvi agentes de IA para produção de conteúdo usando WPP Imagine, automatizando a extração e estruturação de informações a partir de bulas, estudos científicos e transcrições de palestras. Essa iniciativa partiu de mim para resolver a ausência de um health copywriter no time. A solução foi adotada por todo o time e usada para produzir todas as páginas do portal."
+                  : "Developed AI agents for content production using WPP Imagine, automating the extraction and structuring of information from package inserts, scientific studies, and lecture transcripts. This initiative came from me to address the absence of a health copywriter on the team. The solution was adopted by the entire team and used to produce all portal pages."}
               </li>
               <li>
-                <strong>
-                  {isPt
-                    ? "Análise SWOT e síntese estratégica:"
-                    : "SWOT analysis & strategic synthesis:"}
-                </strong>{" "}
                 {isPt
-                  ? "Cruzamos fraquezas e oportunidades para gerar recomendações acionáveis. Insights-chave revelaram que 55% dos usuários são Clínicos Gerais que precisam de navegação por doença, não por produto específico."
-                  : "Cross-analyzed weaknesses and opportunities to generate actionable recommendations. Key insights revealed that 55% of users are General Practitioners who need disease-based navigation rather than product-specific information."}
+                  ? "Conduzi 2 entrevistas com stakeholders da GSK e participei como ouvinte em outras 2 (de um total de 9), mapeando o processo de produção de conteúdo, desafios operacionais e a visão interna sobre o portal."
+                  : "Conducted 2 stakeholder interviews with GSK and sat in as a listener on 2 more (out of a total of 9), mapping the content production process, operational challenges, and internal perspective on the portal."}
               </li>
               <li>
-                <strong>
-                  {isPt
-                    ? "Redesign da arquitetura de informação:"
-                    : "Information architecture redesign:"}
-                </strong>{" "}
                 {isPt
-                  ? "Desenvolvemos um sitemap abrangente, reestruturando o conteúdo em seções claras. Definimos escopo e objetivo final para cada área principal, garantindo alinhamento estratégico."
-                  : "Developed comprehensive sitemap restructuring content into clear sections. Defined scope and ultimate objective for each major area to ensure strategic alignment."}
+                  ? "Realizei benchmark interno e externo para identificar padrões de portais de saúde e oportunidades de diferenciação."
+                  : "Ran internal and external benchmarking to identify patterns in healthcare portals and opportunities for differentiation."}
+              </li>
+              <li>
+                {isPt
+                  ? "Co-criei a arquitetura de informação e os templates escaláveis, contribuindo com o sitemap e as propostas de template que foram levadas para alta fidelidade e handoff."
+                  : "Co-created the information architecture and scalable templates, contributing to the sitemap and template proposals that were taken to high-fidelity and handoff."}
               </li>
             </ul>
+            <p>
+              {isPt
+                ? "Ferramentas: Figma, FigJam, WPP Imagine | Time: 5 designers (atuação horizontal) | Prazo: 30+ semanas"
+                : "Tools: Figma, FigJam, WPP Imagine | Team: 5 designers (horizontal ownership) | Timeline: 30+ weeks"}
+            </p>
           </>
         ),
       },
+
+      // ---7. Process artifacts - Image 1 (all modes) ────────────
       {
-        type: "imageStack",
-        id: "approach",
-        images: [
+        type: "image",
+        src: `${IMG_BASE}/shot 2.png`,
+        alt: isPt
+          ? "Artefatos do processo GSK: benchmark e diagnóstico de conteúdo"
+          : "GSK process artifacts: benchmarking and content diagnosis",
+      },
+
+      // ---8. Process artifacts - Image 2 (all modes) ────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 3.png`,
+        alt: isPt
+          ? "Artefatos do processo GSK: entrevistas com stakeholders e insights de arquitetura"
+          : "GSK process artifacts: stakeholder interviews and architecture insights",
+      },
+
+      // ---5. Desafios (overview) ───────────────────────────────
+      {
+        type: "problems",
+        visibility: ["overview"],
+        title: isPt ? "Desafios" : "Challenges",
+        intro: isPt
+          ? "O discovery revelou um portal onde conteúdo de alto valor clínico era desperdiçado por problemas estruturais de navegação e organização."
+          : "Discovery revealed a portal where high-value clinical content was being wasted due to structural problems in navigation and organization.",
+        items: [
           {
-            src: `${IMG_BASE}/shot 2.png`,
-            alt: isPt
-              ? "Auditoria de conteúdo do GSK Pro Mexico: análise de alinhamento da homepage por produto"
-              : "GSK Pro Mexico content audit: homepage alignment analysis by product",
+            variant: "negative",
+            title: isPt
+              ? "Navegação inconsistente e conteúdo invisível"
+              : "Inconsistent navigation and invisible content",
+            description: isPt
+              ? "Sem estrutura padronizada entre áreas terapêuticas, o portal gerava desorientação. O menu principal não representava o portfólio completo. Resultado concreto: 300+ páginas acumulavam menos de 10 visitas em 6 meses."
+              : "Without a standardized structure across therapeutic areas, the portal created disorientation. The main menu did not represent the full portfolio. The concrete result: 300+ pages accumulated fewer than 10 visits in 6 months.",
           },
           {
-            src: `${IMG_BASE}/shot 3.png`,
-            alt: isPt
-              ? "Pesquisa com usuários: sessões de entrevista com profissionais de saúde"
-              : "User research: interview sessions with healthcare professionals",
-          },
-          {
-            src: `${IMG_BASE}/shot 4.png`,
-            alt: isPt
-              ? "Proposta de valor do Horizons: da venda de produto à solução de problemas do paciente"
-              : "Horizons value proposition: from selling product to solving patient problems",
+            variant: "negative",
+            title: isPt
+              ? "Organização centrada no produto, não no paciente"
+              : "Product-centered organization, not patient-centered",
+            description: isPt
+              ? "O conteúdo era organizado por marca, não por condição clínica. 62% dos profissionais relataram dificuldade para encontrar o que precisavam, porque a estrutura do portal não correspondia ao seu modelo mental, que prioriza diagnóstico e tratamento."
+              : "Content was organized by brand, not by clinical condition. 62% of professionals reported difficulty finding what they needed, because the portal's structure did not match their mental model, which prioritizes diagnosis and treatment.",
           },
         ],
       },
+
+      // ---6. Processo (overview) ───────────────────────────────
       {
-        type: "text",
+        type: "process",
         visibility: ["overview"],
-        id: "deliverables",
-        title: isPt
-          ? "Entregáveis-chave e Racional"
-          : "Key Deliverables & Rationale",
-        body: (
-          <div className="space-y-2">
-            <h3>
-              {isPt
-                ? "Sitemap Reestruturado e Arquitetura de Informação"
-                : "Restructured Sitemap & Information Architecture"}
-            </h3>
-            <div>
-              <p>
-                {isPt
-                  ? "Evolução de organização centrada no produto para centrada na doença, com templates de página padronizados em todas as áreas terapêuticas."
-                  : "Evolved from product-centric to disease-centric organization with standardized page templates across therapeutic areas."}
-              </p>
-              <p>
-                {isPt
-                  ? "Alinha-se ao modelo mental dos HCPs, que priorizam condições do paciente em vez de nomes de marca. Cria hierarquia lógica que reduz a carga cognitiva e permite descoberta de informação mais rápida para 55% dos usuários que são Clínicos Gerais atendendo condições diversas."
-                  : "Aligns with HCPs' mental models who prioritize patient conditions over brand names. Creates logical hierarchy that reduces cognitive load and enables faster information discovery for 55% of users who are General Practitioners treating diverse conditions."}
-              </p>
-            </div>
-          </div>
-        ),
+        title: isPt ? "Processo" : "Process",
+        steps: [
+          {
+            label: isPt ? "Mapear o cenário" : "Map the landscape",
+            description: isPt
+              ? "Realizei benchmark interno (outros portais GSK Pro regionais) e externo (portais concorrentes de HCP) para identificar padrões, lacunas e oportunidades. Em paralelo, fiz um diagnóstico do conteúdo existente, catalogando o que havia, o que faltava e o que estava desatualizado."
+              : "Ran internal benchmarking (other regional GSK Pro portals) and external benchmarking (competitor HCP portals) to identify patterns, gaps, and opportunities. In parallel, conducted a content diagnosis, cataloguing what existed, what was missing, and what was outdated.",
+          },
+          {
+            label: isPt ? "Entrevistar stakeholders" : "Interview stakeholders",
+            description: isPt
+              ? "Conduzi 2 entrevistas e participei como ouvinte em outras 2, de um total de 9 sessões com stakeholders da GSK México. O objetivo era entender o processo de produção de conteúdo, os desafios operacionais e a visão interna sobre o portal. Esses insights alimentaram diretamente as decisões de arquitetura e framework."
+              : "Conducted 2 interviews and sat in as a listener on 2 more, out of a total of 9 sessions with GSK México stakeholders. The goal was to understand the content production process, operational challenges, and the internal perspective on the portal. These insights directly informed architecture and framework decisions.",
+          },
+          {
+            label: isPt
+              ? "Criar o framework de conteúdo"
+              : "Create the content framework",
+            description: isPt
+              ? "Desenhei o framework que padronizou a estrutura das páginas de produto, definindo quais blocos de conteúdo apareciam em cada tipo de página e em qual ordem. O framework se adaptava à maturidade do produto (Simples, Médio, Avançado), garantindo consistência sem rigidez."
+              : "Designed the framework that standardized product page structure, defining which content blocks appeared on each page type and in what order. The framework adapted to product maturity (Simple, Medium, Advanced), ensuring consistency without rigidity.",
+          },
+          {
+            label: isPt
+              ? "Reestruturar a arquitetura de informação"
+              : "Restructure the information architecture",
+            description: isPt
+              ? "Contribuí para a migração da organização de conteúdo de centrada em produto para centrada em condição clínica. Essa reestruturação incluiu novo sitemap, definição de jornadas por especialidade e consolidação de recursos dispersos em um hub centralizado."
+              : "Contributed to migrating content organization from product-centered to clinical condition-centered. This restructuring included a new sitemap, specialty-based journey definitions, and the consolidation of scattered resources into a centralized hub.",
+          },
+          {
+            label: isPt
+              ? "Automatizar produção com agentes de IA"
+              : "Automate production with AI agents",
+            description: isPt
+              ? "Criei agentes e orquestradores na WPP Imagine que processavam materiais científicos fornecidos pela GSK (bulas, estudos, transcrições de palestras), extraíam informações relevantes de acordo com o framework de conteúdo e produziam textos estruturados para cada seção do template. Essa solução eliminou a necessidade de um health copywriter dedicado e foi adotada por todo o time."
+              : "Built agents and orchestrators in WPP Imagine that processed scientific materials from GSK (package inserts, studies, lecture transcripts), extracted relevant information according to the content framework, and produced structured text for each template section. The solution eliminated the need for a dedicated health copywriter and was adopted by the entire team.",
+          },
+          {
+            label: isPt
+              ? "Prototipar, validar e entregar"
+              : "Prototype, validate, and deliver",
+            description: isPt
+              ? "Transformei as decisões do discovery em protótipos de alta fidelidade no Figma, validei com stakeholders e entreguei o handoff com documentação clara para os times de autoria."
+              : "Translated discovery decisions into high-fidelity prototypes in Figma, validated with stakeholders, and delivered handoff with clear documentation for the authoring teams.",
+          },
+        ],
       },
+
+      // ---9. Process artifacts - Image 3 (all modes) ────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 4.png`,
+        alt: isPt
+          ? "Artefatos do processo GSK: framework de conteúdo e sitemap reestruturado"
+          : "GSK process artifacts: content framework and restructured sitemap",
+      },
+
+      // ---10. Final UI - Image 1 (all modes) ──────────────────────
       {
         type: "image",
         src: `${IMG_BASE}/shot 5.png`,
         alt: isPt
-          ? "Sitemap reestruturado do GSK Pro Mexico com hierarquia centrada em áreas terapêuticas"
-          : "GSK Pro Mexico restructured sitemap with disease-centric therapeutic area hierarchy",
+          ? "Portal GSK Pro México redesenhado: página de condição clínica com jornada personalizada por especialidade"
+          : "Redesigned GSK Pro México portal: clinical condition page with specialty-personalized journey",
       },
-      {
-        type: "text",
-        visibility: ["overview"],
-        body: (
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <h3>
-                {isPt
-                  ? "Hub Centralizado de Recursos"
-                  : "Centralized Resources Hub"}
-              </h3>
-              <div>
-                <p>
-                  {isPt
-                    ? "Consolidamos conteúdo educacional disperso, guias práticos, artigos científicos e materiais de educação para pacientes em uma única biblioteca de fácil acesso, organizada por área terapêutica e tipo de conteúdo."
-                    : "Consolidated scattered educational content, practical guides, scientific articles, and patient education materials into a single, easily accessible library organized by therapeutic area and content type."}
-                </p>
-                <p>
-                  {isPt
-                    ? 'Atende à necessidade dos HCPs de acesso rápido a diversos formatos de conteúdo (vídeos, podcasts, cursos). Posiciona a GSK como parceira de conhecimento confiável além da promoção de produtos, apoiando a transição de "repositório para destino".'
-                    : 'Addresses HCPs\' need for quick access to diverse content formats (videos, podcasts, courses). Positions GSK as a trusted knowledge partner beyond product promotion, supporting the shift from "repository to destination".'}
-                </p>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <h3>
-                {isPt
-                  ? "Sistema de Templates e Padrões de Design"
-                  : "Template System & Design Standards"}
-              </h3>
-              <div>
-                <p>
-                  {isPt
-                    ? "Desenvolvemos 10+ templates de página escaláveis com componentes consistentes e hierarquia de informação."
-                    : "Developed 10+ scalable page templates with consistent components and information hierarchy."}
-                </p>
-                <p>
-                  {isPt
-                    ? "Elimina inconsistências visuais que geravam confusão e desorientação. Garante consistência de marca enquanto permite atualizações eficientes de conteúdo em 700+ páginas indexadas."
-                    : "Eliminates visual inconsistencies that were creating confusion and disorientation. Ensures brand consistency while enabling efficient content updates across 700+ indexed pages."}
-                </p>
-              </div>
-            </div>
-          </div>
-        ),
-      },
+
+      // ---11. Final UI - Image 2 (all modes) ──────────────────────
       {
         type: "image",
         src: `${IMG_BASE}/shot 6.png`,
         alt: isPt
-          ? "Sistema de templates do GSK Pro Mexico: exemplos de páginas padronizadas por área terapêutica"
-          : "GSK Pro Mexico template system: standardized page examples by therapeutic area",
+          ? "Portal GSK Pro México redesenhado: hub centralizado de recursos por área terapêutica"
+          : "Redesigned GSK Pro México portal: centralized resource hub by therapeutic area",
       },
+
+      // ---12. Final UI - Image 3 (all modes) ──────────────────────
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 7.png`,
+        alt: isPt
+          ? "Portal GSK Pro México redesenhado: templates escaláveis por maturidade de produto"
+          : "Redesigned GSK Pro México portal: scalable templates by product maturity",
+      },
+      {
+        type: "image",
+        src: `${IMG_BASE}/shot 8.png`,
+        alt: isPt
+          ? "Portal GSK Pro México redesenhado: homepage"
+          : "Redesigned GSK Pro México portal: homepage",
+      },
+
+      // ---13. Resultados (all modes) ────────────────────────────
+      {
+        type: "results",
+        title: isPt ? "Resultados" : "Results",
+        intro: isPt
+          ? "A reestruturação transformou o portal de um repositório desorganizado em uma plataforma orientada ao modelo mental dos profissionais de saúde."
+          : "The restructuring transformed the portal from a disorganized repository into a platform oriented around healthcare professionals' mental model.",
+        items: [
+          {
+            variant: "positive",
+            title: isPt
+              ? "Arquitetura centrada em condição clínica"
+              : "Clinical condition-centered architecture",
+            description: isPt
+              ? "Reorganizou todo o conteúdo do portal de uma lógica de marca para uma lógica de diagnóstico e tratamento, eliminando a fricção que fazia 62% dos profissionais não encontrarem o que precisavam."
+              : "Reorganized all portal content from brand logic to diagnosis-and-treatment logic, eliminating the friction that caused 62% of professionals to not find what they needed.",
+          },
+          {
+            variant: "positive",
+            title: isPt
+              ? "7 jornadas personalizadas por especialidade"
+              : "7 personalized journeys by specialty",
+            description: isPt
+              ? "Cada profissional passou a ser exposto ao conteúdo relevante para seu contexto clínico, reduzindo sobrecarga de informação e aumentando a percepção de valor do portal."
+              : "Each professional was now exposed to content relevant to their clinical context, reducing information overload and increasing the perceived value of the portal.",
+          },
+          {
+            variant: "positive",
+            title: isPt
+              ? "Hub centralizado de recursos"
+              : "Centralized resource hub",
+            description: isPt
+              ? "Consolidou conteúdo educacional disperso (vídeos, podcasts, artigos, guias) em uma biblioteca única organizada por área terapêutica e tipo de material, resolvendo o problema das 300+ páginas invisíveis."
+              : "Consolidated scattered educational content (videos, podcasts, articles, guides) into a single library organized by therapeutic area and material type, resolving the 300+ invisible pages problem.",
+          },
+          {
+            variant: "positive",
+            title: isPt
+              ? "10+ templates escaláveis por maturidade de produto"
+              : "10+ scalable templates by product maturity",
+            description: isPt
+              ? "Padronizaram a experiência entre áreas terapêuticas com três níveis de complexidade (Simples, Médio, Avançado), adaptando-se à quantidade de conteúdo disponível sem perder consistência."
+              : "Standardized the experience across therapeutic areas with three complexity levels (Simple, Medium, Advanced), adapting to available content volume without losing consistency.",
+          },
+        ],
+        disclaimer: isPt
+          ? "*Dados de pós-lançamento não disponíveis. Métricas apresentadas referem-se ao diagnóstico pré-projeto."
+          : "*Post-launch data not available. Metrics presented refer to pre-project diagnosis.",
+      },
+
+      // ---14. Aprendizados (overview) ──────────────────────────
       {
         type: "text",
         visibility: ["overview"],
-        id: "outcomes",
-        title: isPt ? "Aprendizado Pessoal" : "Personal Takeaway",
-        body: (
-          <>
-            <p>
-              {isPt
-                ? "Este projeto reforçou a importância crítica de uma descoberta abrangente antes das soluções. A tentação de redesenhar telas diretamente teria ignorado a mudança estratégica mais profunda necessária: de um pensamento centrado no produto para um centrado no tratamento."
-                : "This project reinforced the critical importance of comprehensive discovery before solutions. The temptation to jump directly into redesigning screens would have missed the deeper strategic shift needed from product-centric to treatment-centric thinking."}
-            </p>
-            <p>
-              {isPt
-                ? "O insight mais valioso veio ao reconhecer que 55% dos usuários são Clínicos Gerais que precisam navegar por condições de doença em múltiplas áreas terapêuticas, não especialistas buscando informações sobre produtos específicos. Essa única descoberta reformulou fundamentalmente nossa abordagem de arquitetura de informação."
-                : "The most valuable insight came from recognizing that 55% of users are General Practitioners who need to navigate by disease conditions across multiple therapeutic areas, not specialists looking for specific product information. This single finding fundamentally reshaped our information architecture approach."}
-            </p>
-            <p>
-              {isPt
-                ? "Este projeto demonstrou que estratégia de conteúdo e arquitetura de informação são tão críticas quanto o design visual em portais de saúde. As limitações funcionais impediam ativamente os HCPs de acessar o valioso conteúdo educacional da GSK, provando que até o melhor conteúdo é inútil se os usuários não conseguem encontrá-lo."
-                : "This project demonstrated that content strategy and information architecture are as critical as visual design in healthcare portals. The functional limitations were actively preventing HCPs from accessing GSK's valuable educational content proving that even the best content is worthless if users can't find it."}
-            </p>
-          </>
+        title: isPt ? "Aprendizados" : "Learnings",
+        body: isPt ? (
+          <p>
+            This project demonstrated that content strategy and information
+            architecture are as critical as visual design in healthcare portals.
+            Functional limitations prevented healthcare professionals from
+            accessing content that would add significant value to medical
+            practice, proving that even the best content is useless if users
+            cannot find it.
+          </p>
+        ) : (
+          <p>
+            This project demonstrated that content strategy and information
+            architecture are as critical as visual design in healthcare portals.
+            Functional limitations prevented healthcare professionals from
+            accessing content that would add significant value to medical
+            practice, proving that even the best content is useless if users
+            cannot find it.
+          </p>
         ),
       },
     ],
