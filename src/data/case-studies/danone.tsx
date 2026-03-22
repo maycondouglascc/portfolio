@@ -287,13 +287,6 @@ const danoneStudy = (language: Language): CaseStudyData => {
           : "*Actual values omitted for confidentiality.",
       },
 
-      // ---14. Aprendizados (overview) ──────────────────────────
-      {
-        type: "text",
-        visibility: ["overview"],
-        title: isPt ? "Aprendizados" : "Learnings",
-        body: <p>[PREENCHER]</p>,
-      },
     ],
   };
 };
