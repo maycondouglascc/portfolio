@@ -12,7 +12,7 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined)
 
 const STORAGE_KEY = "theme"
 const DARK_BG = "#09090b"
-const LIGHT_BG = "#fafafa"
+const LIGHT_BG = "#ffffff"
 
 function getSystemPreference(): "light" | "dark" {
   if (typeof window === "undefined") return "light"

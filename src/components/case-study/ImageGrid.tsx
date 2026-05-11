@@ -6,7 +6,7 @@ type ImageGridProps = {
 
 function ImageGrid({ images }: ImageGridProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 w-full">
+    <div className="grid grid-cols-1 gap-4 w-full">
       {images.map((image) => (
         <CaseImage key={image.src} src={image.src} alt={image.alt} />
       ))}

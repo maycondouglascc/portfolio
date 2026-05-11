@@ -250,6 +250,7 @@ const thriventStudy = (language: Language): CaseStudyData => {
       },
       {
         type: "image",
+        visibility: [],
         src: `${IMG_BASE}/shot 8.png`,
         alt: isPt
           ? "Documentação do design system Thrivent: Storybook com componentes documentados e handoff AI-friendly"

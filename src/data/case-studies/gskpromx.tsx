@@ -227,6 +227,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       // ---11. Final UI - Image 2 (all modes) ──────────────────────
       {
         type: "image",
+        visibility: [],
         src: `${IMG_BASE}/shot 6.png`,
         alt: isPt
           ? "Portal GSK Pro México redesenhado: hub centralizado de recursos por área terapêutica"
@@ -236,6 +237,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       // ---12. Final UI - Image 3 (all modes) ──────────────────────
       {
         type: "image",
+        visibility: [],
         src: `${IMG_BASE}/shot 7.png`,
         alt: isPt
           ? "Portal GSK Pro México redesenhado: templates escaláveis por maturidade de produto"
@@ -243,6 +245,7 @@ const gskpromxStudy = (language: Language): CaseStudyData => {
       },
       {
         type: "image",
+        visibility: [],
         src: `${IMG_BASE}/shot 8.png`,
         alt: isPt
           ? "Portal GSK Pro México redesenhado: homepage"
