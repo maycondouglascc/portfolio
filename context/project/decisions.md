@@ -158,7 +158,7 @@ Key decisions made during the project's development — what was chosen, what wa
 
 ## Propostas comerciais: Vercel Blob + serverless (não no SPA React)
 
-**Decision:** Propostas geradas pelo ProspectOS são HTML self-contained publicados no Vercel Blob (`propostas/{slug}.html`). A URL pública é `https://maycondouglas.work/proposta-{slug}`, servida por `api/proposta.js` via rewrite no `vercel.json` — fora do React Router.
+**Decision:** Propostas geradas pelo ProspectOS são HTML self-contained publicados no Vercel Blob **private** (`propostas/{slug}.html`). A URL pública é `https://maycondouglas.work/proposta-{slug}`, servida por `api/proposta.js` (SDK `get` autenticado) via rewrite no `vercel.json` — fora do React Router.
 
 **Rejected:** Commit de HTML em `public/` a cada lead; rota React que embute o conteúdo; proxy para localhost do CRM.
 

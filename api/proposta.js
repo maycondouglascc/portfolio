@@ -1,10 +1,24 @@
 /**
- * Serve propostas HTML públicas a partir do Vercel Blob.
+ * Serve propostas HTML a partir do Vercel Blob (store private).
  * Rewrite: /proposta-:slug → /api/proposta?slug=:slug
  *
- * Env: BLOB_READ_WRITE_TOKEN (mesmo store usado pelo ProspectOS ao publicar).
+ * O lead abre maycondouglas.work/proposta-{slug}; esta função autentica no Blob
+ * com BLOB_READ_WRITE_TOKEN e devolve o HTML.
  */
-import { list } from "@vercel/blob"
+import { get } from "@vercel/blob"
+
+async function streamParaTexto(stream) {
+  const reader = stream.getReader()
+  const decoder = new TextDecoder("utf-8")
+  let texto = ""
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+    texto += decoder.decode(value, { stream: true })
+  }
+  texto += decoder.decode()
+  return texto
+}
 
 export default async function handler(req, res) {
   if (req.method !== "GET" && req.method !== "HEAD") {
@@ -26,23 +40,23 @@ export default async function handler(req, res) {
 
   try {
     const pathname = `propostas/${slug}.html`
-    const { blobs } = await list({ prefix: pathname, limit: 10, token })
-    const blob = blobs.find((b) => b.pathname === pathname) || blobs[0]
-    if (!blob?.url) {
+    const resultado = await get(pathname, {
+      access: "private",
+      token,
+      useCache: false,
+    })
+
+    if (!resultado || resultado.statusCode !== 200 || !resultado.stream) {
       return res.status(404).send("Proposta não encontrada")
     }
 
-    const upstream = await fetch(blob.url)
-    if (!upstream.ok) {
-      return res.status(404).send("Proposta não encontrada")
-    }
-
-    const html = await upstream.text()
     res.setHeader("Content-Type", "text/html; charset=utf-8")
     res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=300")
     if (req.method === "HEAD") {
       return res.status(200).end()
     }
+
+    const html = await streamParaTexto(resultado.stream)
     return res.status(200).send(html)
   } catch (erro) {
     console.error("Erro ao servir proposta", slug, erro)
