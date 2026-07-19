@@ -153,3 +153,18 @@ Key decisions made during the project's development — what was chosen, what wa
 - Type-safe i18n paths are only possible with strict inference
 
 **Implication:** Never use `any`. Use `unknown` + type guards when type is genuinely uncertain.
+
+---
+
+## Propostas comerciais: Vercel Blob + serverless (não no SPA React)
+
+**Decision:** Propostas geradas pelo ProspectOS são HTML self-contained publicados no Vercel Blob (`propostas/{slug}.html`). A URL pública é `https://maycondouglas.work/proposta-{slug}`, servida por `api/proposta.js` via rewrite no `vercel.json` — fora do React Router.
+
+**Rejected:** Commit de HTML em `public/` a cada lead; rota React que embute o conteúdo; proxy para localhost do CRM.
+
+**Reason:**
+- O lead precisa abrir o link fora da rede local do ProspectOS
+- Publicação sob demanda sem redeploy do portfólio
+- OG tags e WhatsApp in-app browser funcionam com HTML real (não shell SPA)
+
+**Implication:** Configure `BLOB_READ_WRITE_TOKEN` no projeto Vercel do portfólio (e no `.env` do backend ProspectOS). URLs são públicas por design — quem tem o link lê a proposta.
