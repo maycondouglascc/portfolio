@@ -20,7 +20,7 @@ context/
     workflow.md         ← Dev workflow, PR checklist, deployment, debugging
   features/
     i18n.md             ← Translation system, how to add keys, LocalizedText pattern
-    theming.md          ← Dark/light/system theme, ThemeContext, DOM side effects
+    theming.md          ← System color scheme, palette presets, and DOM side effects
     case-studies.md     ← Case study data model, how to add a case study
     view-modes.md       ← View mode system, visibility tagging, writing guide per mode
     animations.md       ← Motion library, page transitions, DialKit, performance rules
@@ -69,7 +69,7 @@ Read: `context/project/scope.md` + `context/project/roadmap.md` — verify it fi
 2. **Dark mode:** Every color class must have a `dark:` counterpart.
 3. **Typography:** Use the custom Tailwind scale (`text-body-16-regular`, `text-heading-32-medium`, etc.) — never `text-base`, `text-lg`, etc.
 4. **Strings:** Never hardcode user-facing strings in JSX. Always use `t("key")` from `useLanguage()`.
-5. **Colors:** Zinc palette only. No hardcoded hex values. No colors from outside the Tailwind config.
+5. **Colors:** Use the Zinc utility scale and configured accent token. Zinc shades follow the selected live palette through CSS variables; do not hardcode hex values.
 6. **TypeScript:** Strict mode. No `any`. Explicit props interfaces.
 7. **Components:** Functional only. No class components. No `React.FC<>`.
 8. **Imports:** `"motion/react"`, not `"framer-motion"`.

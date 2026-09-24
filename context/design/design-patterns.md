@@ -73,23 +73,23 @@ Each size has both `-medium` and `-regular` weight variants. The same pattern ap
 
 ## Color System
 
-**Palette:** Zinc (neutral grayscale). All colors are from the Tailwind zinc scale.
+**Palette:** The Zinc utility scale is the neutral foundation. Its hue and saturation change with the selected palette; the accent token colors links and palette previews.
 
 | Role | Light | Dark |
 |------|-------|------|
-| Page background | `bg-white` / `bg-zinc-50` | `dark:bg-zinc-950` |
-| Surface | `bg-zinc-100` | `dark:bg-zinc-900` |
-| Border | `border-zinc-200` | `dark:border-zinc-800` |
-| Primary text | `text-zinc-900` | `dark:text-zinc-50` |
-| Secondary text | `text-zinc-500` | `dark:text-zinc-400` |
-| Muted text | `text-zinc-400` | `dark:text-zinc-600` |
+| Page background | bg-zinc-50 | dark:bg-zinc-950 |
+| Surface | bg-white | dark:bg-zinc-900 |
+| Border | border-zinc-200 | dark:border-zinc-800 |
+| Primary text | text-zinc-900 | dark:text-zinc-100 |
+| Secondary text | text-zinc-600 | dark:text-zinc-400 |
+| Link | text-accent | dark:text-accent |
 
-**Status colors** (for `HighlightCard` / `StatusIcon`):
-- Positive: `lime-*`
-- Negative: `red-*`
-- Neutral: `zinc-*`
+The current palette is stored as data-palette on the root element and in local storage. Its hue, saturation, and contrast values are defined in src/index.css; Tailwind maps them through tailwind.config.js. Light-mode link accents maintain at least 4.5:1 contrast on zinc-50 and white surfaces.
 
----
+**Status colors** (for HighlightCard / StatusIcon):
+- Positive: lime-*
+- Negative: red-*
+- Neutral: zinc-*
 
 ## Shadow System
 
@@ -118,7 +118,7 @@ See `context/features/animations.md` for full details. Quick reference:
 2. Every text color must have a `dark:` counterpart
 3. Every border color must have a `dark:` counterpart
 4. Use `dark:` variants for shadows when needed
-5. Theme toggle syncs `html.dark` class + `meta[name="theme-color"]` + `colorScheme` style
+5. `AppearanceProvider` follows the operating system preference and keeps `html.dark`, `colorScheme`, and `meta[name="theme-color"]` in sync
 
 ---
 
@@ -161,8 +161,8 @@ Most layout changes happen at `md:` and `lg:`. `sm:` is rarely used.
 - `variant="link"`: text-based, with underline or color on hover
 - `variant="icon"`: icon-only, square, `rounded-full` or `rounded-md`
 
-### Inputs / Selectors (ThemeToggle, LanguageSelector)
-- Rendered as radio button groups, visually styled as segmented controls
+### Inputs / Selectors (LanguageSelector)
+- Language selection is rendered as a radio button group, visually styled as a segmented control
 - Use `role="radiogroup"` + `role="radio"` for accessibility
 
 ### Images

@@ -13,11 +13,18 @@ export const en = {
     englishLong: "English",
     portugueseLong: "Portuguese",
   },
-  theme: {
-    selectorLabel: "Theme selector",
-    light: "Light theme",
-    dark: "Dark theme",
-    system: "System theme",
+  settings: {
+    label: "Appearance settings",
+  },
+  palette: {
+    generate: "Generate another color palette (currently {name})",
+    names: {
+      studio: "Studio",
+      tide: "Tide",
+      moss: "Moss",
+      clay: "Clay",
+      iris: "Iris",
+    },
   },
   intro: {
     greeting: "Hi, I'm Maycon",

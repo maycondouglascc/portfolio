@@ -58,11 +58,10 @@ const Button: React.FC<ButtonProps> = ({ variant, children }) => { ... }
 ### Hooks
 - Custom hooks must start with `use` and live in `src/context/` or inline in the consuming component
 - Use `useLanguage()` for all translatable strings
-- Use `useTheme()` for theme-dependent behavior
 - Never call hooks conditionally
 
 ### State Management
-Only React Context (no Redux, Zustand, etc.). Contexts are: `ThemeContext`, `LanguageContext`. New global state should extend one of these or add a new context provider in `App.tsx`.
+Only React Context (no Redux, Zustand, etc.). Contexts are: `LanguageContext` and `AppearanceContext`. `AppearanceProvider` applies the operating system color scheme and selected palette. Add new global state to an existing context or add a provider in `App.tsx`.
 
 ### Lazy Loading
 All page-level components must be `React.lazy`. Sub-components within a page do not need to be lazy.
@@ -78,10 +77,10 @@ const Home = lazy(() => import("./pages/Home"))
 | Thing | Convention | Example |
 |-------|------------|---------|
 | Components | PascalCase | `CaseCard`, `SettingsBar` |
-| Hooks | camelCase, `use` prefix | `useLanguage`, `useTheme` |
+| Hooks | camelCase, `use` prefix | `useLanguage`, `useColorPalette` |
 | Types/Interfaces | PascalCase | `CaseStudyData`, `Project` |
 | Constants | camelCase or UPPER_SNAKE | `caseStudySlugs`, `ANIMATION_DEFAULTS` |
-| Files (components) | PascalCase | `CaseCard.tsx`, `ThemeToggle.tsx` |
+| Files (components) | PascalCase | `CaseCard.tsx`, `LanguageSelector.tsx` |
 | Files (data/utils) | camelCase | `projects.ts`, `experience.ts` |
 | Localization keys | dot-notation camelCase | `"intro.greeting"`, `"home.projects"` |
 | CSS classes | Tailwind utilities only | No custom class names |

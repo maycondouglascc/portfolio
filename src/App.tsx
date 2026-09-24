@@ -1,7 +1,7 @@
-import { lazy, Suspense, useEffect, useState } from "react"
+import { lazy, Suspense, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
 import Wrapper from "./components/Wrapper"
-import { ThemeProvider } from "./context/ThemeContext"
+import { AppearanceProvider } from "./context/AppearanceContext"
 import { ViewModeProvider } from "./context/ViewModeContext"
 import SettingsBar from "./components/SettingsBar"
 import { LanguageProvider, useLanguage } from "./context/LanguageContext"
@@ -107,13 +107,13 @@ function AppContent() {
 export default function App() {
   return (
     <LanguageProvider>
-      <ThemeProvider>
+      <AppearanceProvider>
         <ViewModeProvider>
           <BrowserRouter>
             <AppContent />
           </BrowserRouter>
         </ViewModeProvider>
-      </ThemeProvider>
+      </AppearanceProvider>
     </LanguageProvider>
   )
 }

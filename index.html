@@ -25,12 +25,11 @@
 
     <script>
       (function() {
-        var t = localStorage.getItem('theme');
-        var d = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
-        if (d) document.documentElement.classList.add('dark');
-        document.documentElement.style.colorScheme = d ? 'dark' : 'light';
-        var m = document.querySelector('meta[name="theme-color"]');
-        if (m) m.setAttribute('content', d ? '#0e0e0e' : '#fdfdf8');
+        var root = document.documentElement;
+        var isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+        root.classList.toggle('dark', isDark);
+        root.dataset.palette = localStorage.getItem('color-palette') || 'studio';
+        root.style.colorScheme = isDark ? 'dark' : 'light';
       })();
     </script>
     <link
