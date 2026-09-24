@@ -26,7 +26,7 @@ Max-width container wrapping all page content. Applies padding, `animate-fade-in
 ```
 
 ### `SettingsBar` — `src/components/SettingsBar.tsx`
-Top bar with `LanguageSelector` + `ThemeToggle`. Fixed at top on desktop, inline on mobile.
+Top bar with language and color palette controls. The page follows the operating system color scheme automatically.
 
 ---
 
@@ -79,14 +79,6 @@ Polymorphic button. Defaults to `<button>`, can be rendered as `<a>` via `as` pr
 ```tsx
 <Button as="a" href="/projects/foo" variant="link">View project</Button>
 <Button variant="icon" aria-label="Close"><X /></Button>
-```
-
-### `ThemeToggle` — `src/components/ThemeToggle.tsx`
-Radio group for light / dark / system theme. Reads/writes `useTheme()`.
-
-**Props:**
-```ts
-{ embedded?: boolean }  // adjusts visual style for SettingsBar vs. standalone
 ```
 
 ### `LanguageSelector` — `src/components/LanguageSelector.tsx`
@@ -211,3 +203,8 @@ Responsive grid: 1 column on mobile, 2 columns on desktop.
 4. **Accessibility first** — every interactive element needs `aria-label` or visible label
 5. **Lazy loading** — pages are `React.lazy`; images use `loading="lazy"` and `decoding="async"`
 6. **dark: variants** — all color-affecting classes must have a `dark:` counterpart
+
+## ColorPaletteButton — src/components/ColorPaletteButton.tsx
+Generates a different curated palette on each click. Reads the current palette from ColorPaletteContext and persists the selection.
+
+The five options are Studio, Tide, Moss, Clay, and Iris. Each palette works in both light and dark mode.

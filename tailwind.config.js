@@ -1,9 +1,27 @@
 /** @type {import('tailwindcss').Config} */
+const zincShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
+const paletteAwareZinc = Object.fromEntries(
+  zincShades.map((shade) => [
+    shade,
+    "hsl(var(--palette-neutral-hue) var(--palette-neutral-saturation) var(--palette-zinc-" +
+      shade +
+      ") / <alpha-value>)",
+  ]),
+)
 const config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        zinc: paletteAwareZinc,
+        accent: {
+          DEFAULT:
+            "hsl(var(--palette-accent-hue) var(--palette-accent-saturation) var(--palette-accent-lightness) / <alpha-value>)",
+          hover:
+            "hsl(var(--palette-accent-hue) var(--palette-accent-saturation) var(--palette-accent-hover-lightness) / <alpha-value>)",
+        },
+      },
       boxShadow: {
         xs: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
         sm: "0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10)",

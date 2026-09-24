@@ -41,7 +41,7 @@ function Intro() {
         </>
       )}
       </p>
-        <a href={resumePdf} target="_blank" rel="noopener noreferrer" className="mt-4 text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">{t('intro.resume')}</a>
+        <a href={resumePdf} target="_blank" rel="noopener noreferrer" className="mt-4 text-body-15-medium font-medium text-accent dark:text-accent">{t('intro.resume')}</a>
       </div>
     </section>
   )

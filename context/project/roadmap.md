@@ -2,7 +2,7 @@
 
 Planned features, in-progress work, and future directions for the portfolio. Updated as work progresses.
 
-Last updated: March 2026
+Last updated: September 2026
 
 ---
 
@@ -66,9 +66,10 @@ Creating structured `/context` folder with comprehensive documentation for devel
 - [x] Language selector (EN/PT)
 - [x] Google Analytics integration (GA4)
 - [x] Microsoft Clarity session recording
-- [x] SettingsBar unifying language + theme controls
+- [x] SettingsBar unifying language + palette controls
 - [x] Page transition animations with stagger
-- [x] Dark/light/system theme toggle
+- [x] Automatic light/dark appearance based on system preference
+- [x] Live color palette generator with five curated palettes
 - [x] CaseCard with Lottie hover preview
 - [x] Brotli + gzip compression
 - [x] Code splitting (router, lottie, vendor chunks)

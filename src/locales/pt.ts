@@ -13,11 +13,18 @@ export const pt = {
     englishLong: "Ingles",
     portugueseLong: "Portugues",
   },
-  theme: {
-    selectorLabel: "Seletor de tema",
-    light: "Tema claro",
-    dark: "Tema escuro",
-    system: "Tema do sistema",
+  settings: {
+    label: "Configurações de aparência",
+  },
+  palette: {
+    generate: "Sortear outra paleta de cores (atual: {name})",
+    names: {
+      studio: "Estúdio",
+      tide: "Maré",
+      moss: "Bosque",
+      clay: "Argila",
+      iris: "Íris",
+    },
   },
   intro: {
     greeting: "Oi, eu sou Maycon",
