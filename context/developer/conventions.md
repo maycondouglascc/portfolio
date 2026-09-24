@@ -61,7 +61,7 @@ const Button: React.FC<ButtonProps> = ({ variant, children }) => { ... }
 - Never call hooks conditionally
 
 ### State Management
-Only React Context (no Redux, Zustand, etc.). Contexts are: `LanguageContext` and `ColorPaletteContext`. System color scheme is applied by `SystemThemeProvider`. Add new global state to an existing context or add a provider in `App.tsx`.
+Only React Context (no Redux, Zustand, etc.). Contexts are: `LanguageContext` and `AppearanceContext`. `AppearanceProvider` applies the operating system color scheme and selected palette. Add new global state to an existing context or add a provider in `App.tsx`.
 
 ### Lazy Loading
 All page-level components must be `React.lazy`. Sub-components within a page do not need to be lazy.

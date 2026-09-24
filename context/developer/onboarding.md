@@ -67,8 +67,8 @@ src/
     CaseStudy.tsx      # Dynamic case study renderer
 
   context/
-    SystemThemeProvider.tsx # follows the operating system color scheme
-    LanguageContext.tsx # useLanguage() + t() hook
+    AppearanceContext.tsx # palette state and operating system color scheme
+    LanguageContext.tsx   # useLanguage() + t() hook
 
   data/
     projects.ts        # getProjects(language)

@@ -205,6 +205,6 @@ Responsive grid: 1 column on mobile, 2 columns on desktop.
 6. **dark: variants** — all color-affecting classes must have a `dark:` counterpart
 
 ## ColorPaletteButton — src/components/ColorPaletteButton.tsx
-Generates a different curated palette on each click. Reads the current palette from ColorPaletteContext and persists the selection.
+Generates a different curated palette on each click. Reads the current palette from AppearanceContext and persists the selection.
 
 The five options are Studio, Tide, Moss, Clay, and Iris. Each palette works in both light and dark mode.

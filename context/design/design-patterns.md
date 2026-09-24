@@ -84,7 +84,7 @@ Each size has both `-medium` and `-regular` weight variants. The same pattern ap
 | Secondary text | text-zinc-600 | dark:text-zinc-400 |
 | Link | text-accent | dark:text-accent |
 
-The current palette is stored as data-palette on the root element and in local storage. Its hue, saturation, and contrast values are defined in src/index.css; Tailwind maps them through tailwind.config.js.
+The current palette is stored as data-palette on the root element and in local storage. Its hue, saturation, and contrast values are defined in src/index.css; Tailwind maps them through tailwind.config.js. Light-mode link accents maintain at least 4.5:1 contrast on zinc-50 and white surfaces.
 
 **Status colors** (for HighlightCard / StatusIcon):
 - Positive: lime-*
@@ -118,7 +118,7 @@ See `context/features/animations.md` for full details. Quick reference:
 2. Every text color must have a `dark:` counterpart
 3. Every border color must have a `dark:` counterpart
 4. Use `dark:` variants for shadows when needed
-5. `SystemThemeProvider` follows the operating system preference and keeps `html.dark`, `colorScheme`, and `meta[name="theme-color"]` in sync
+5. `AppearanceProvider` follows the operating system preference and keeps `html.dark`, `colorScheme`, and `meta[name="theme-color"]` in sync
 
 ---
 

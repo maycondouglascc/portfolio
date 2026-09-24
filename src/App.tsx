@@ -1,11 +1,10 @@
 import { lazy, Suspense, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
 import Wrapper from "./components/Wrapper"
-import { SystemThemeProvider } from "./context/SystemThemeProvider"
+import { AppearanceProvider } from "./context/AppearanceContext"
 import { ViewModeProvider } from "./context/ViewModeContext"
 import SettingsBar from "./components/SettingsBar"
 import { LanguageProvider, useLanguage } from "./context/LanguageContext"
-import { ColorPaletteProvider } from "./context/ColorPaletteContext"
 
 const Home = lazy(() => import("./pages/Home"))
 const CaseStudy = lazy(() => import("./pages/CaseStudy"))
@@ -108,15 +107,13 @@ function AppContent() {
 export default function App() {
   return (
     <LanguageProvider>
-      <SystemThemeProvider>
-        <ColorPaletteProvider>
-          <ViewModeProvider>
-            <BrowserRouter>
-              <AppContent />
-            </BrowserRouter>
-          </ViewModeProvider>
-        </ColorPaletteProvider>
-      </SystemThemeProvider>
+      <AppearanceProvider>
+        <ViewModeProvider>
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
+        </ViewModeProvider>
+      </AppearanceProvider>
     </LanguageProvider>
   )
 }

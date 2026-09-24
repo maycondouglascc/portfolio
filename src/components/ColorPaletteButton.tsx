@@ -1,5 +1,5 @@
 import { Droplet } from "react-feather"
-import { useColorPalette, type ColorPalette } from "../context/ColorPaletteContext"
+import { useColorPalette, type ColorPalette } from "../context/AppearanceContext"
 import { useLanguage } from "../context/LanguageContext"
 
 const paletteNameKeys: Record<

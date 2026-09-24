@@ -36,6 +36,37 @@
     );
   }
 
+  :root[data-palette="tide"] {
+    --palette-neutral-hue: 211;
+    --palette-neutral-saturation: 21%;
+    --palette-accent-hue: 199;
+    --palette-accent-saturation: 72%;
+    --palette-accent-lightness: 36%;
+  }
+
+  :root[data-palette="moss"] {
+    --palette-neutral-hue: 145;
+    --palette-neutral-saturation: 20%;
+    --palette-accent-hue: 148;
+    --palette-accent-saturation: 52%;
+    --palette-accent-lightness: 32%;
+  }
+
+  :root[data-palette="clay"] {
+    --palette-neutral-hue: 24;
+    --palette-neutral-saturation: 24%;
+    --palette-accent-hue: 17;
+    --palette-accent-saturation: 70%;
+  }
+
+  :root[data-palette="iris"] {
+    --palette-neutral-hue: 276;
+    --palette-neutral-saturation: 20%;
+    --palette-accent-hue: 275;
+    --palette-accent-saturation: 68%;
+  }
+
+  /* Dark tokens override per-palette light accents, so keep this block last. */
   :root.dark {
     --palette-accent-lightness: 72%;
     --palette-accent-hover-lightness: 82%;
@@ -55,34 +86,6 @@
       var(--palette-neutral-saturation)
       var(--palette-zinc-950)
     );
-  }
-
-  :root[data-palette="tide"] {
-    --palette-neutral-hue: 211;
-    --palette-neutral-saturation: 21%;
-    --palette-accent-hue: 199;
-    --palette-accent-saturation: 72%;
-  }
-
-  :root[data-palette="moss"] {
-    --palette-neutral-hue: 145;
-    --palette-neutral-saturation: 20%;
-    --palette-accent-hue: 148;
-    --palette-accent-saturation: 52%;
-  }
-
-  :root[data-palette="clay"] {
-    --palette-neutral-hue: 24;
-    --palette-neutral-saturation: 24%;
-    --palette-accent-hue: 17;
-    --palette-accent-saturation: 70%;
-  }
-
-  :root[data-palette="iris"] {
-    --palette-neutral-hue: 276;
-    --palette-neutral-saturation: 20%;
-    --palette-accent-hue: 275;
-    --palette-accent-saturation: 68%;
   }
 
   html {

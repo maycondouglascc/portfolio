@@ -1,6 +1,6 @@
 # Design Tokens
 
-All design tokens for the portfolio — typography scale, color palette, spacing, shadows, and animation values. Source of truth is `tailwind.config.js`.
+Design tokens live in `tailwind.config.js` (type, spacing, shadows, animation) and `src/index.css` (live palette colors).
 
 ---
 
@@ -60,7 +60,7 @@ Defined under `theme.extend.fontSize` in Tailwind config. Format: `[fontSize, { 
 
 ## Color Palette
 
-**Base palette:** Tailwind Zinc (all 11 shades: 50–950), mapped to live HSL tokens. The five curated presets are Studio, Tide, Moss, Clay, and Iris. Each sets a neutral hue, an accent hue, and separate contrast values for light and dark modes.
+**Base palette:** Tailwind Zinc (all 11 shades: 50–950), mapped to live HSL tokens. The five curated presets are Studio, Tide, Moss, Clay, and Iris. Each sets a neutral hue, an accent hue, and contrast values for light and dark modes. Light-mode accents meet at least 4.5:1 contrast on zinc-50 and white surfaces.
 
 The selected preset is stored in local storage under color-palette and applied as data-palette on the root element.
 

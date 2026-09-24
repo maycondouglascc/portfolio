@@ -4,12 +4,12 @@ const COLOR_PALETTES = ["studio", "tide", "moss", "clay", "iris"] as const
 
 export type ColorPalette = (typeof COLOR_PALETTES)[number]
 
-interface ColorPaletteContextValue {
+interface AppearanceContextValue {
   palette: ColorPalette
   randomizePalette: () => void
 }
 
-const ColorPaletteContext = createContext<ColorPaletteContextValue | undefined>(undefined)
+const AppearanceContext = createContext<AppearanceContextValue | undefined>(undefined)
 const STORAGE_KEY = "color-palette"
 
 function getStoredPalette(): ColorPalette {
@@ -27,7 +27,14 @@ function syncBrowserThemeColor() {
   if (pageColor) meta.setAttribute("content", pageColor)
 }
 
-export function ColorPaletteProvider({ children }: { children: React.ReactNode }) {
+function applySystemTheme(isDark: boolean) {
+  const root = document.documentElement
+  root.classList.toggle("dark", isDark)
+  root.style.colorScheme = isDark ? "dark" : "light"
+  syncBrowserThemeColor()
+}
+
+export function AppearanceProvider({ children }: { children: React.ReactNode }) {
   const [palette, setPalette] = useState<ColorPalette>(getStoredPalette)
 
   const randomizePalette = useCallback(() => {
@@ -41,22 +48,31 @@ export function ColorPaletteProvider({ children }: { children: React.ReactNode }
   }, [palette])
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    const handleChange = () => applySystemTheme(mediaQuery.matches)
+
+    handleChange()
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
+  }, [])
+
+  useEffect(() => {
     document.documentElement.dataset.palette = palette
     syncBrowserThemeColor()
   }, [palette])
 
   return (
-    <ColorPaletteContext.Provider value={{ palette, randomizePalette }}>
+    <AppearanceContext.Provider value={{ palette, randomizePalette }}>
       {children}
-    </ColorPaletteContext.Provider>
+    </AppearanceContext.Provider>
   )
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useColorPalette() {
-  const context = useContext(ColorPaletteContext)
+  const context = useContext(AppearanceContext)
   if (!context) {
-    throw new Error("useColorPalette must be used within a ColorPaletteProvider")
+    throw new Error("useColorPalette must be used within an AppearanceProvider")
   }
   return context
 }

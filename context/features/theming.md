@@ -4,7 +4,7 @@ The portfolio follows the operating system's light or dark color scheme automati
 
 ## System Color Scheme
 
-`SystemThemeProvider` listens to `window.matchMedia("(prefers-color-scheme: dark)")` and applies the result to the root element:
+`AppearanceProvider` listens to `window.matchMedia("(prefers-color-scheme: dark)")` and applies the result to the root element:
 
 - Adds or removes the `dark` class used by Tailwind's `dark:` variants.
 - Updates `color-scheme` so native browser controls match the page.
@@ -28,11 +28,11 @@ Every color class should have a `dark:` counterpart. This is enforced by code re
 
 ## Color Palette Switcher
 
-`ColorPaletteProvider` stores the selected preset in `localStorage` under `color-palette` and applies it as `data-palette` on the root element. `ColorPaletteButton` selects a different preset each time it is clicked: Studio, Tide, Moss, Clay, or Iris.
+`AppearanceProvider` stores the selected preset in `localStorage` under `color-palette` and applies it as `data-palette` on the root element. `ColorPaletteButton` selects a different preset each time it is clicked: Studio, Tide, Moss, Clay, or Iris.
 
 Each preset sets the neutral hue and accent hue, with separate contrast values for light and dark appearances. Tailwind's Zinc shades resolve to palette-aware CSS variables; the accent token colors links and palette details. The palette works independently from the operating system color scheme.
 
-The initial palette is applied in the `index.html` head script so it is present on first paint. The palette context updates the browser chrome color when the selection changes.
+The initial palette is applied in the `index.html` head script so it is present on first paint. The appearance provider updates the browser chrome color when either the palette or system color scheme changes.
 
 ## Tailwind Configuration
 
@@ -45,7 +45,7 @@ module.exports = {
 }
 ```
 
-The system theme provider toggles `dark` on `<html>` based on the current operating system preference.
+`AppearanceProvider` toggles `dark` on `<html>` based on the current operating system preference.
 
 ## Smooth Transitions
 
