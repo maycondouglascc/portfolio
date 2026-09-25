@@ -9,7 +9,7 @@ source: src/data/case-studies/vendd.tsx
 
 # Vendd — Design de produto e design system
 
-Estruturei a base de design da Vendd como designer solo, conectando direção visual, design system e fluxos de produto. O desafio era manter a coerência de um ecossistema em expansão, entre ferramentas de vendas e plataformas web e mobile. O trabalho abrangeu mais de 5 produtos e mais de 10 fluxos principais, com componentes reutilizáveis e suporte a temas claro e escuro.
+Estruturei a base de design da Vendd como designer solo, conectando direção visual, design system e fluxos de produto. O desafio era manter a coerência de um ecossistema em expansão para plataformas web e mobile.
 
 ![Vendd](/files/case-thumbnails/project-thumbnail-3.png)
 
@@ -21,42 +21,35 @@ A expansão para múltiplos produtos trouxe um desafio de design: organizar a na
 
 ## Meu papel e contribuição
 
-Atuei como único Product Designer, em colaboração com o líder técnico e o time de desenvolvimento. Minha responsabilidade conectava a direção visual às decisões de experiência e à documentação para implementação.
+Atuei como único Product Designer, em colaboração com o líder técnico e o time de desenvolvimento. Fui responsável pela direção visual, pelo design system e pelo desenho dos principais fluxos do produto.
 
 - Defini a linguagem visual e construí o design system, com tokens, componentes reutilizáveis e suporte a temas claro e escuro.
-- Desenhei fluxos de onboarding, CRM, cadastro de negócios e contatos, Link na Bio, Catálogo Virtual e Vendd Academy.
-- Revisei a arquitetura de navegação para organizar os produtos e o contexto de múltiplas empresas.
-- Documentei fluxos, estados de interação e recomendações para o handoff, com revisões de protótipos junto ao time técnico.
-- Adaptei os fluxos centrais do CRM para mobile, preservando a lógica de negócios, contatos e navegação.
+- Desenhei os fluxos de onboarding e de cadastro de negócios e contatos, além das funcionalidades de CRM, Link na Bio, Catálogo Virtual e Vendd Academy.
+- Redesenhei a arquitetura de navegação para organizar os produtos e a gestão de múltiplas empresas e contas.
 
 ## Desafios
 
-O trabalho precisava equilibrar a evolução de novas funcionalidades com decisões que sustentassem o conjunto da plataforma.
+Eu precisava desenhar novas funcionalidades em ritmo acelerado e manter a experiência compreensível à medida que a Vendd crescia.
 
-- Um ecossistema sem linguagem compartilhada — Sem uma base reutilizável, cada novo produto poderia introduzir variações de componentes, navegação e comportamento. O sistema precisava acompanhar a expansão para web e mobile.
-- Navegação entre produtos e empresas — Alternar entre ferramentas e administrar diferentes negócios exigia clareza sobre o contexto atual. A auditoria apontou problemas de hierarquia, agrupamento e microcopy na navegação.
-- Fluxos comerciais com caminhos fragmentados — Na Academy, jornadas diferentes para usuários autenticados e visitantes criavam um risco de descontinuidade na compra. No CRM, ações frequentes precisavam ser diretas, inclusive em telas menores.
+- Inconsistência entre produtos — Sem padrões comuns, o usuário teria de reaprender ações conhecidas ao trocar de ferramenta. O desafio era manter a navegação e as interações previsíveis, mesmo com a entrada de novos produtos e a expansão para mobile.
+- Dificuldade para se localizar na plataforma — A troca de produto e os menus de cada ferramenta tinham pouca distinção visual. Isso dificultava entender onde encontrar uma função. Para quem administrava mais de uma empresa, a navegação também precisava deixar claro em qual delas estava trabalhando.
 
 ## Processo
 
-1. Auditar a experiência e o contexto — Analisei navegação, hierarquia, microcopy e requisitos de acessibilidade. O benchmarking de ferramentas de Link na Bio e catálogo ajudou a orientar propostas conectadas ao contexto brasileiro, incluindo Pix e WhatsApp.
-2. Construir a fundação do sistema — Defini tokens, cores, tipografia e componentes reutilizáveis, com temas claro e escuro. Documentei padrões para que os novos fluxos partissem de uma linguagem comum em web e mobile.
-3. Reorganizar a navegação do ecossistema — Trabalhei a separação entre produtos e os menus contextuais, considerando a gestão de múltiplas empresas. A proposta de navegação incluiu breadcrumbs, busca global e atalhos para itens recentes e favoritos.
-4. Simplificar a edição no CRM — No drawer de detalhes do negócio, desenhei a edição de título e valor no próprio campo, com confirmação por Enter ou ao sair do campo. A decisão aproximou a ação da informação e evitou abrir outro formulário para uma alteração pontual.
-5. Conectar catálogo e jornada de compra — Desenhei a conexão entre Link na Bio e Catálogo Virtual. Na Academy, identifiquei o risco dos caminhos de autenticação separados e recomendei uma experiência unificada, preservando a seleção do usuário ao longo da jornada.
-6. Adaptar os fluxos para mobile — Adaptei a visão geral do negócio, produtos, conversas e criação e edição de negócios e contatos. O espelhamento preservou a lógica do CRM web, ajustando as interações ao uso por toque e ao espaço disponível.
+1. Alinhar prioridades com o time — Nos alinhamentos com o líder técnico, discutia as demandas, as restrições de implementação e o escopo de cada entrega. Como designer solo, precisava definir onde concentrar o trabalho de design entre as diferentes frentes do produto.
+2. Analisar a jornada antes de desenhar — Revisava os fluxos e a navegação para identificar dúvidas, interrupções e problemas de hierarquia. Consultava referências e concorrentes para comparar alternativas e avaliar o que fazia sentido para o público da Vendd.
+3. Desenhar com padrões compartilhados — Usava o design system como base para os protótipos e expandia a biblioteca conforme surgiam novas necessidades. A cada fluxo, considerava os estados de interação, a acessibilidade e as diferenças de uso entre web e mobile.
+4. Revisar as soluções com desenvolvimento — Apresentava os protótipos ao time técnico antes da implementação, explicando as decisões e discutindo dúvidas de comportamento e viabilidade. Incorporava os ajustes e registrava o que ainda precisava de definição.
+5. Documentar e manter o sistema — Documentava os fluxos, componentes e comportamentos para orientar a implementação. Mantinha os padrões atualizados conforme o produto evoluía, para que o time pudesse reutilizar as decisões nos próximos trabalhos.
 
 ## Resultados
 
-O trabalho estabeleceu uma fundação compartilhada para o ecossistema. Os resultados documentados descrevem o alcance e os entregáveis de design.
+A Vendd passou a ter uma direção de design comum entre seus produtos. O time ganhou referências para evoluir as funcionalidades, e as revisões dos fluxos trouxeram problemas de experiência para a discussão antes da implementação.
 
-- 5+ produtos contemplados — A base de design abrangeu CRM, Pages, VSL, Mobile e Academy, conectando as frentes do ecossistema por uma linguagem visual compartilhada.
-- Design system para 2 plataformas — Tokens, componentes e padrões documentados para web e mobile, com suporte a temas claro e escuro.
-- 10+ fluxos principais desenhados — O escopo incluiu onboarding, CRM, cadastro de negócios e contatos, catálogo, Academy e dashboard. A documentação conectou decisões de experiência ao handoff.
-- CRM adaptado para mobile — Os registros de execução confirmam a conclusão do espelhamento dos detalhes de negócio, criação e edição de negócios e contatos e nova navegação.
-
-Não há métricas verificadas de conversão, retenção ou adoção em produção nas fontes consultadas. Os números representam escopo de design; recomendações de UX não são apresentadas como impacto medido.
+- Coerência entre os produtos — Unifiquei a linguagem visual e os padrões de interação que orientavam as diferentes ferramentas. Isso deu ao time uma referência para manter a mesma experiência à medida que o portfólio da Vendd crescia.
+- Menos decisões refeitas a cada entrega — Com os padrões definidos no design system, o time passou a contar com soluções reutilizáveis para problemas recorrentes de interface. Novas funcionalidades podiam partir dessas decisões, sem redesenhar os mesmos elementos.
+- Riscos de compra identificados antes da implementação — Na revisão da Academy, identifiquei que a separação entre visitantes e usuários logados poderia interromper a compra. Propus unificar a jornada e preservar a seleção do usuário, dando ao time uma alternativa para tratar esse risco.
 
 ## Aprendizados
 
-Trabalhar como designer solo em um ecossistema em expansão me levou a conectar decisões de sistema a interações específicas. A mesma base precisava orientar a navegação entre produtos e a edição de um valor no CRM. O principal aprendizado foi tratar consistência como parte do trabalho cotidiano: documentar padrões, revisar os fluxos com desenvolvimento e distinguir o que já estava desenhado do que ainda dependia de validação.
+Ser o único designer me ensinou a assumir também a definição do problema e das prioridades. Para decidir onde investir tempo, precisei entender o negócio e discutir as escolhas com desenvolvimento. Levo essa postura para os próximos projetos: participar dessas conversas desde o início e construir padrões que permitam ao time continuar o trabalho com autonomia.

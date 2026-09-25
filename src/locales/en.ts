@@ -30,6 +30,16 @@ export const en = {
     greeting: "Hi, I'm Maycon",
     bio: "I've worked as a designer for 8 years and have experience in creating and maintaining websites, applications, SaaS, and design systems. My experience includes projects for multinational companies, via dti digital and BASE, and freelance work for different startups.",
     resume: "See my resume",
+    video: {
+      open: "Watch Maycon's video introduction",
+      close: "Close",
+      title: "Maycon's introduction",
+      playerLabel: "Maycon's introduction video",
+      transcript: "Hi, I'm Maycon, a product designer with eight years of experience. I work across websites, apps, SaaS, and design systems, helping teams turn complex problems into clearer experiences. I've contributed to projects for global companies and startups. Take a look around.",
+      imageAlt: "Maycon's profile picture",
+      unavailable: "The introduction video has not been added yet.",
+      unsupported: "Your browser cannot play this video.",
+    },
   },
   home: {
     projects: "Projects",

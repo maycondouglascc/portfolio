@@ -33,7 +33,10 @@ Top bar with language and color palette controls. The page follows the operating
 ## Core Feature Components
 
 ### `Intro` — `src/components/Intro.tsx`
-Hero section. Shows profile photo, name, bio, resume link. All text via `useLanguage()`. No props.
+Hero section. Shows an interactive profile photo, name, bio, and resume link. All text via `useLanguage()`. No props.
+
+### `ProfileIntroVideo` — `src/components/ProfileIntroVideo.tsx`
+The profile photo plays a muted video preview on hover or keyboard focus. Clicking opens a native dialog and starts the localized introduction with sound and playback controls. Expects `/public/files/profile-intro-pt.mp4` and `/public/files/profile-intro-en.mp4`; until an asset is added, the photo remains visible and the dialog explains that the video is unavailable.
 
 ### `ProjectsGrid` — `src/components/ProjectsGrid.tsx`
 Displays all projects from `getProjects(language)`. Splits into two groups: projects with case studies and projects without. Renders `CaseCard` for each.

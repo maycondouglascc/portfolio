@@ -9,7 +9,7 @@ source: src/data/case-studies/vendd.tsx
 
 # Vendd — Product Design & Design System
 
-As Vendd’s sole designer, I established its design foundation, connecting visual direction, a design system, and core product flows. The challenge was to maintain coherence across an expanding ecosystem of sales tools on web and mobile. The work covered 5+ products and 10+ core flows, with reusable components and light and dark theme support.
+As Vendd’s sole designer, I established its design foundation, connecting visual direction, a design system, and product flows. The challenge was to keep an expanding ecosystem consistent across web and mobile.
 
 ![Vendd](/files/case-thumbnails/project-thumbnail-3.png)
 
@@ -21,42 +21,35 @@ Expansion into multiple products introduced a design challenge: organize navigat
 
 ## My role and contribution
 
-I worked as the sole Product Designer, collaborating with the technical lead and development team. My role connected visual direction with experience decisions and implementation documentation.
+I worked as the sole Product Designer alongside the technical lead and development team. I was responsible for visual direction, the design system, and the main product flows.
 
 - Defined the visual language and built the design system, with tokens, reusable components, and light and dark theme support.
-- Designed onboarding, CRM, business and contact creation, Link na Bio, Virtual Catalog, and Vendd Academy flows.
-- Reviewed the navigation architecture to organize products and the context of multiple businesses.
-- Documented flows, interaction states, and handoff recommendations, reviewing prototypes with the technical team.
-- Adapted core CRM flows for mobile, preserving business, contact, and navigation logic.
+- Designed onboarding and business and contact creation flows, as well as CRM, Link na Bio, Virtual Catalog, and Vendd Academy features.
+- Redesigned the navigation architecture to organize products and support managing multiple businesses and accounts.
 
 ## Challenges
 
-The work had to balance new feature development with decisions that supported the platform as a whole.
+I needed to design new features at a fast pace while keeping the experience understandable as Vendd grew.
 
-- An ecosystem without a shared language — Without a reusable foundation, each new product could introduce variations in components, navigation, and behavior. The system had to support expansion across web and mobile.
-- Navigation across products and businesses — Switching tools and managing different businesses required a clear sense of context. The audit identified hierarchy, grouping, and microcopy issues in navigation.
-- Fragmented commercial flows — In Academy, separate journeys for signed-in users and visitors created a risk of purchase discontinuity. In CRM, frequent actions needed to remain direct, including on smaller screens.
+- Inconsistency across products — Without shared patterns, users would have to relearn familiar actions when switching tools. The challenge was to keep navigation and interactions predictable as new products and mobile experiences were added.
+- Difficulty finding your way around — The product switcher and each tool’s menus had little visual distinction, making it harder to know where to find a feature. For users managing more than one business, navigation also needed to make the active business clear.
 
 ## Process
 
-1. Audit the experience and context — I reviewed navigation, hierarchy, microcopy, and accessibility requirements. Benchmarking link-in-bio and catalog tools helped shape proposals for the Brazilian context, including Pix and WhatsApp.
-2. Build the system foundation — I defined tokens, colors, typography, and reusable components with light and dark themes. I documented patterns so new flows could share a common language across web and mobile.
-3. Reorganize ecosystem navigation — I worked on product separation and contextual menus, accounting for multiple-business management. The navigation proposal included breadcrumbs, global search, and shortcuts for recent and favorite items.
-4. Simplify editing in CRM — In the business details drawer, I designed inline title and value editing, confirmed with Enter or by leaving the field. This brought the action closer to the information and avoided opening another form for a small change.
-5. Connect the catalog and purchase journey — I designed the connection between Link na Bio and Virtual Catalog. In Academy, I identified the risk of separate authentication paths and recommended a unified experience that preserved the user’s selection throughout the journey.
-6. Adapt flows for mobile — I adapted business overview, products, conversations, and business and contact creation and editing. The adaptation preserved web CRM logic while adjusting interactions for touch and the available screen space.
+1. Align priorities with the team — In reviews with the technical lead, I discussed requests, implementation constraints, and the scope of each delivery. As the sole designer, I had to decide where to focus design work across the product.
+2. Review the journey before designing — I reviewed flows and navigation to identify unclear steps, interruptions, and hierarchy problems. I looked at references and competitors to compare options and assess what suited Vendd’s audience.
+3. Design with shared patterns — I used the design system as the foundation for prototypes and expanded the library as new needs emerged. For each flow, I considered interaction states, accessibility, and differences between web and mobile use.
+4. Review solutions with development — I presented prototypes to the technical team before implementation, explained my decisions, and discussed behavior and feasibility. I incorporated adjustments and recorded decisions that were still open.
+5. Document and maintain the system — I documented flows, components, and behavior to guide implementation. I kept patterns up to date as the product evolved so the team could reuse those decisions in later work.
 
 ## Results
 
-The work established a shared foundation for the ecosystem. The documented results describe design scope and deliverables.
+Vendd gained a shared design direction across its products. The team had patterns to build on as features evolved, and flow reviews brought experience problems into the discussion before implementation.
 
-- 5+ products covered — The design foundation covered CRM, Pages, VSL, Mobile, and Academy, connecting the ecosystem through a shared visual language.
-- A design system for 2 platforms — Documented tokens, components, and patterns for web and mobile, with light and dark theme support.
-- 10+ core flows designed — The scope included onboarding, CRM, business and contact creation, catalog, Academy, and dashboard. Documentation connected experience decisions with handoff.
-- CRM adapted for mobile — Execution records confirm completion of the design adaptation for business details, business and contact creation and editing, and new navigation.
-
-The reviewed sources contain no verified production conversion, retention, or adoption metrics. These numbers describe design scope; UX recommendations are not presented as measured impact.
+- Consistency across products — I unified the visual language and interaction patterns across the tools. This gave the team a reference for keeping the experience consistent as Vendd’s product range grew.
+- Fewer repeated design decisions — With patterns defined in the design system, the team had reusable solutions to recurring interface problems. New features could build on those decisions without redesigning the same elements.
+- Purchase risks identified before implementation — During the Academy review, I identified how separate paths for visitors and signed-in users could interrupt a purchase. I proposed a unified journey that preserved the user’s selection, giving the team a way to address that risk.
 
 ## Learnings
 
-Working as the sole designer in an expanding ecosystem led me to connect system decisions with specific interactions. The same foundation had to guide both navigation across products and editing a value in CRM. My main learning was to make consistency part of everyday work: document patterns, review flows with development, and distinguish completed design from decisions still awaiting validation.
+Being the sole designer taught me to take responsibility for defining problems and priorities too. To decide where to spend my time, I had to understand the business and discuss choices with development. In future projects, I want to be part of those conversations from the start and build patterns that let the team continue the work independently.

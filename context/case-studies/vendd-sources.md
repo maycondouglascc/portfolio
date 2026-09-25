@@ -14,8 +14,12 @@ Pesquisa via Notion MCP em 25/09/2026. Conteúdo público: `src/data/case-studie
 
 Mesma narrativa de Danone e Thrivent: resumo no cabeçalho, contexto, papel e contribuição, desafios, processo, resultados e aprendizados. Português e inglês; processo e narrativa no modo overview, capa e resultados nos dois modos.
 
-As fontes não fornecem métricas verificadas de conversão, retenção ou adoção. O case diferencia escopo de design de resultados de negócio e mantém essa limitação explícita. As afirmações sobre concorrentes foram resumidas como contexto de benchmarking, sem reproduzir comparações atuais não verificadas.
+As fontes não fornecem métricas verificadas de conversão, retenção ou adoção. A revisão editorial apresenta impactos qualitativos no trabalho do time e na coerência do design. Não atribui ganhos de conversão, retenção ou adoção às soluções. A proposta para a Academy permanece identificada como recomendação, sem alegar implementação ou redução de abandono. As afirmações sobre concorrentes foram resumidas como contexto de benchmarking, sem reproduzir comparações atuais não verificadas.
 
 ## Recursos visuais
 
 Usada a capa existente `public/files/case-thumbnails/project-thumbnail-3.png`. Não existem screenshots específicos de Vendd na pasta de cases. Não foram criadas telas fictícias ou referências a arquivos inexistentes. Evidências visuais de componentes, drawer e mobile podem ser adicionadas quando os exports reais estiverem disponíveis.
+
+## Revisão a partir dos comentários do autor
+
+Resumo reduzido ao texto solicitado; contribuição limitada aos três itens mantidos pelo autor, com autoria explícita do redesenho da navegação. Desafios explicam consequências para o usuário. Processo descreve a rotina de alinhamento, análise, prototipação, revisão técnica e manutenção do sistema. Resultados substituem contagens de entregáveis por efeitos qualitativos sustentados pelo case original. Removido o card de CRM mobile. Aprendizados tratam de responsabilidade sobre o problema, entendimento de negócio e autonomia do time. Notas sobre verificação das fontes ficam neste documento interno. Revisão aplicada em português e inglês.

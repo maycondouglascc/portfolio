@@ -8,8 +8,8 @@ const content = {
     "Vendd — Product Design & Design System"
   ],
   "description": [
-    "Estruturei a base de design da Vendd como designer solo, conectando direção visual, design system e fluxos de produto. O desafio era manter a coerência de um ecossistema em expansão, entre ferramentas de vendas e plataformas web e mobile. O trabalho abrangeu mais de 5 produtos e mais de 10 fluxos principais, com componentes reutilizáveis e suporte a temas claro e escuro.",
-    "As Vendd’s sole designer, I established its design foundation, connecting visual direction, a design system, and core product flows. The challenge was to maintain coherence across an expanding ecosystem of sales tools on web and mobile. The work covered 5+ products and 10+ core flows, with reusable components and light and dark theme support."
+    "Estruturei a base de design da Vendd como designer solo, conectando direção visual, design system e fluxos de produto. O desafio era manter a coerência de um ecossistema em expansão para plataformas web e mobile.",
+    "As Vendd’s sole designer, I established its design foundation, connecting visual direction, a design system, and product flows. The challenge was to keep an expanding ecosystem consistent across web and mobile."
   ],
   "role": [
     "Product Designer solo",
@@ -30,176 +30,138 @@ const content = {
     ]
   ],
   "contributionIntro": [
-    "Atuei como único Product Designer, em colaboração com o líder técnico e o time de desenvolvimento. Minha responsabilidade conectava a direção visual às decisões de experiência e à documentação para implementação.",
-    "I worked as the sole Product Designer, collaborating with the technical lead and development team. My role connected visual direction with experience decisions and implementation documentation."
+    "Atuei como único Product Designer, em colaboração com o líder técnico e o time de desenvolvimento. Fui responsável pela direção visual, pelo design system e pelo desenho dos principais fluxos do produto.",
+    "I worked as the sole Product Designer alongside the technical lead and development team. I was responsible for visual direction, the design system, and the main product flows."
   ],
   "contributions": [
     [
       "Defini a linguagem visual e construí o design system, com tokens, componentes reutilizáveis e suporte a temas claro e escuro.",
-      "Desenhei fluxos de onboarding, CRM, cadastro de negócios e contatos, Link na Bio, Catálogo Virtual e Vendd Academy.",
-      "Revisei a arquitetura de navegação para organizar os produtos e o contexto de múltiplas empresas.",
-      "Documentei fluxos, estados de interação e recomendações para o handoff, com revisões de protótipos junto ao time técnico.",
-      "Adaptei os fluxos centrais do CRM para mobile, preservando a lógica de negócios, contatos e navegação."
+      "Desenhei os fluxos de onboarding e de cadastro de negócios e contatos, além das funcionalidades de CRM, Link na Bio, Catálogo Virtual e Vendd Academy.",
+      "Redesenhei a arquitetura de navegação para organizar os produtos e a gestão de múltiplas empresas e contas."
     ],
     [
       "Defined the visual language and built the design system, with tokens, reusable components, and light and dark theme support.",
-      "Designed onboarding, CRM, business and contact creation, Link na Bio, Virtual Catalog, and Vendd Academy flows.",
-      "Reviewed the navigation architecture to organize products and the context of multiple businesses.",
-      "Documented flows, interaction states, and handoff recommendations, reviewing prototypes with the technical team.",
-      "Adapted core CRM flows for mobile, preserving business, contact, and navigation logic."
+      "Designed onboarding and business and contact creation flows, as well as CRM, Link na Bio, Virtual Catalog, and Vendd Academy features.",
+      "Redesigned the navigation architecture to organize products and support managing multiple businesses and accounts."
     ]
   ],
   "challengesIntro": [
-    "O trabalho precisava equilibrar a evolução de novas funcionalidades com decisões que sustentassem o conjunto da plataforma.",
-    "The work had to balance new feature development with decisions that supported the platform as a whole."
+    "Eu precisava desenhar novas funcionalidades em ritmo acelerado e manter a experiência compreensível à medida que a Vendd crescia.",
+    "I needed to design new features at a fast pace while keeping the experience understandable as Vendd grew."
   ],
   "challenges": [
     [
       [
-        "Um ecossistema sem linguagem compartilhada",
-        "Sem uma base reutilizável, cada novo produto poderia introduzir variações de componentes, navegação e comportamento. O sistema precisava acompanhar a expansão para web e mobile."
+        "Inconsistência entre produtos",
+        "Sem padrões comuns, o usuário teria de reaprender ações conhecidas ao trocar de ferramenta. O desafio era manter a navegação e as interações previsíveis, mesmo com a entrada de novos produtos e a expansão para mobile."
       ],
       [
-        "An ecosystem without a shared language",
-        "Without a reusable foundation, each new product could introduce variations in components, navigation, and behavior. The system had to support expansion across web and mobile."
+        "Inconsistency across products",
+        "Without shared patterns, users would have to relearn familiar actions when switching tools. The challenge was to keep navigation and interactions predictable as new products and mobile experiences were added."
       ]
     ],
     [
       [
-        "Navegação entre produtos e empresas",
-        "Alternar entre ferramentas e administrar diferentes negócios exigia clareza sobre o contexto atual. A auditoria apontou problemas de hierarquia, agrupamento e microcopy na navegação."
+        "Dificuldade para se localizar na plataforma",
+        "A troca de produto e os menus de cada ferramenta tinham pouca distinção visual. Isso dificultava entender onde encontrar uma função. Para quem administrava mais de uma empresa, a navegação também precisava deixar claro em qual delas estava trabalhando."
       ],
       [
-        "Navigation across products and businesses",
-        "Switching tools and managing different businesses required a clear sense of context. The audit identified hierarchy, grouping, and microcopy issues in navigation."
-      ]
-    ],
-    [
-      [
-        "Fluxos comerciais com caminhos fragmentados",
-        "Na Academy, jornadas diferentes para usuários autenticados e visitantes criavam um risco de descontinuidade na compra. No CRM, ações frequentes precisavam ser diretas, inclusive em telas menores."
-      ],
-      [
-        "Fragmented commercial flows",
-        "In Academy, separate journeys for signed-in users and visitors created a risk of purchase discontinuity. In CRM, frequent actions needed to remain direct, including on smaller screens."
+        "Difficulty finding your way around",
+        "The product switcher and each tool’s menus had little visual distinction, making it harder to know where to find a feature. For users managing more than one business, navigation also needed to make the active business clear."
       ]
     ]
   ],
   "process": [
     [
       [
-        "Auditar a experiência e o contexto",
-        "Analisei navegação, hierarquia, microcopy e requisitos de acessibilidade. O benchmarking de ferramentas de Link na Bio e catálogo ajudou a orientar propostas conectadas ao contexto brasileiro, incluindo Pix e WhatsApp."
+        "Alinhar prioridades com o time",
+        "Nos alinhamentos com o líder técnico, discutia as demandas, as restrições de implementação e o escopo de cada entrega. Como designer solo, precisava definir onde concentrar o trabalho de design entre as diferentes frentes do produto."
       ],
       [
-        "Audit the experience and context",
-        "I reviewed navigation, hierarchy, microcopy, and accessibility requirements. Benchmarking link-in-bio and catalog tools helped shape proposals for the Brazilian context, including Pix and WhatsApp."
+        "Align priorities with the team",
+        "In reviews with the technical lead, I discussed requests, implementation constraints, and the scope of each delivery. As the sole designer, I had to decide where to focus design work across the product."
       ]
     ],
     [
       [
-        "Construir a fundação do sistema",
-        "Defini tokens, cores, tipografia e componentes reutilizáveis, com temas claro e escuro. Documentei padrões para que os novos fluxos partissem de uma linguagem comum em web e mobile."
+        "Analisar a jornada antes de desenhar",
+        "Revisava os fluxos e a navegação para identificar dúvidas, interrupções e problemas de hierarquia. Consultava referências e concorrentes para comparar alternativas e avaliar o que fazia sentido para o público da Vendd."
       ],
       [
-        "Build the system foundation",
-        "I defined tokens, colors, typography, and reusable components with light and dark themes. I documented patterns so new flows could share a common language across web and mobile."
+        "Review the journey before designing",
+        "I reviewed flows and navigation to identify unclear steps, interruptions, and hierarchy problems. I looked at references and competitors to compare options and assess what suited Vendd’s audience."
       ]
     ],
     [
       [
-        "Reorganizar a navegação do ecossistema",
-        "Trabalhei a separação entre produtos e os menus contextuais, considerando a gestão de múltiplas empresas. A proposta de navegação incluiu breadcrumbs, busca global e atalhos para itens recentes e favoritos."
+        "Desenhar com padrões compartilhados",
+        "Usava o design system como base para os protótipos e expandia a biblioteca conforme surgiam novas necessidades. A cada fluxo, considerava os estados de interação, a acessibilidade e as diferenças de uso entre web e mobile."
       ],
       [
-        "Reorganize ecosystem navigation",
-        "I worked on product separation and contextual menus, accounting for multiple-business management. The navigation proposal included breadcrumbs, global search, and shortcuts for recent and favorite items."
+        "Design with shared patterns",
+        "I used the design system as the foundation for prototypes and expanded the library as new needs emerged. For each flow, I considered interaction states, accessibility, and differences between web and mobile use."
       ]
     ],
     [
       [
-        "Simplificar a edição no CRM",
-        "No drawer de detalhes do negócio, desenhei a edição de título e valor no próprio campo, com confirmação por Enter ou ao sair do campo. A decisão aproximou a ação da informação e evitou abrir outro formulário para uma alteração pontual."
+        "Revisar as soluções com desenvolvimento",
+        "Apresentava os protótipos ao time técnico antes da implementação, explicando as decisões e discutindo dúvidas de comportamento e viabilidade. Incorporava os ajustes e registrava o que ainda precisava de definição."
       ],
       [
-        "Simplify editing in CRM",
-        "In the business details drawer, I designed inline title and value editing, confirmed with Enter or by leaving the field. This brought the action closer to the information and avoided opening another form for a small change."
+        "Review solutions with development",
+        "I presented prototypes to the technical team before implementation, explained my decisions, and discussed behavior and feasibility. I incorporated adjustments and recorded decisions that were still open."
       ]
     ],
     [
       [
-        "Conectar catálogo e jornada de compra",
-        "Desenhei a conexão entre Link na Bio e Catálogo Virtual. Na Academy, identifiquei o risco dos caminhos de autenticação separados e recomendei uma experiência unificada, preservando a seleção do usuário ao longo da jornada."
+        "Documentar e manter o sistema",
+        "Documentava os fluxos, componentes e comportamentos para orientar a implementação. Mantinha os padrões atualizados conforme o produto evoluía, para que o time pudesse reutilizar as decisões nos próximos trabalhos."
       ],
       [
-        "Connect the catalog and purchase journey",
-        "I designed the connection between Link na Bio and Virtual Catalog. In Academy, I identified the risk of separate authentication paths and recommended a unified experience that preserved the user’s selection throughout the journey."
-      ]
-    ],
-    [
-      [
-        "Adaptar os fluxos para mobile",
-        "Adaptei a visão geral do negócio, produtos, conversas e criação e edição de negócios e contatos. O espelhamento preservou a lógica do CRM web, ajustando as interações ao uso por toque e ao espaço disponível."
-      ],
-      [
-        "Adapt flows for mobile",
-        "I adapted business overview, products, conversations, and business and contact creation and editing. The adaptation preserved web CRM logic while adjusting interactions for touch and the available screen space."
+        "Document and maintain the system",
+        "I documented flows, components, and behavior to guide implementation. I kept patterns up to date as the product evolved so the team could reuse those decisions in later work."
       ]
     ]
   ],
   "resultsIntro": [
-    "O trabalho estabeleceu uma fundação compartilhada para o ecossistema. Os resultados documentados descrevem o alcance e os entregáveis de design.",
-    "The work established a shared foundation for the ecosystem. The documented results describe design scope and deliverables."
+    "A Vendd passou a ter uma direção de design comum entre seus produtos. O time ganhou referências para evoluir as funcionalidades, e as revisões dos fluxos trouxeram problemas de experiência para a discussão antes da implementação.",
+    "Vendd gained a shared design direction across its products. The team had patterns to build on as features evolved, and flow reviews brought experience problems into the discussion before implementation."
   ],
   "results": [
     [
       [
-        "5+ produtos contemplados",
-        "A base de design abrangeu CRM, Pages, VSL, Mobile e Academy, conectando as frentes do ecossistema por uma linguagem visual compartilhada."
+        "Coerência entre os produtos",
+        "Unifiquei a linguagem visual e os padrões de interação que orientavam as diferentes ferramentas. Isso deu ao time uma referência para manter a mesma experiência à medida que o portfólio da Vendd crescia."
       ],
       [
-        "5+ products covered",
-        "The design foundation covered CRM, Pages, VSL, Mobile, and Academy, connecting the ecosystem through a shared visual language."
+        "Consistency across products",
+        "I unified the visual language and interaction patterns across the tools. This gave the team a reference for keeping the experience consistent as Vendd’s product range grew."
       ]
     ],
     [
       [
-        "Design system para 2 plataformas",
-        "Tokens, componentes e padrões documentados para web e mobile, com suporte a temas claro e escuro."
+        "Menos decisões refeitas a cada entrega",
+        "Com os padrões definidos no design system, o time passou a contar com soluções reutilizáveis para problemas recorrentes de interface. Novas funcionalidades podiam partir dessas decisões, sem redesenhar os mesmos elementos."
       ],
       [
-        "A design system for 2 platforms",
-        "Documented tokens, components, and patterns for web and mobile, with light and dark theme support."
+        "Fewer repeated design decisions",
+        "With patterns defined in the design system, the team had reusable solutions to recurring interface problems. New features could build on those decisions without redesigning the same elements."
       ]
     ],
     [
       [
-        "10+ fluxos principais desenhados",
-        "O escopo incluiu onboarding, CRM, cadastro de negócios e contatos, catálogo, Academy e dashboard. A documentação conectou decisões de experiência ao handoff."
+        "Riscos de compra identificados antes da implementação",
+        "Na revisão da Academy, identifiquei que a separação entre visitantes e usuários logados poderia interromper a compra. Propus unificar a jornada e preservar a seleção do usuário, dando ao time uma alternativa para tratar esse risco."
       ],
       [
-        "10+ core flows designed",
-        "The scope included onboarding, CRM, business and contact creation, catalog, Academy, and dashboard. Documentation connected experience decisions with handoff."
-      ]
-    ],
-    [
-      [
-        "CRM adaptado para mobile",
-        "Os registros de execução confirmam a conclusão do espelhamento dos detalhes de negócio, criação e edição de negócios e contatos e nova navegação."
-      ],
-      [
-        "CRM adapted for mobile",
-        "Execution records confirm completion of the design adaptation for business details, business and contact creation and editing, and new navigation."
+        "Purchase risks identified before implementation",
+        "During the Academy review, I identified how separate paths for visitors and signed-in users could interrupt a purchase. I proposed a unified journey that preserved the user’s selection, giving the team a way to address that risk."
       ]
     ]
   ],
-  "disclaimer": [
-    "Não há métricas verificadas de conversão, retenção ou adoção em produção nas fontes consultadas. Os números representam escopo de design; recomendações de UX não são apresentadas como impacto medido.",
-    "The reviewed sources contain no verified production conversion, retention, or adoption metrics. These numbers describe design scope; UX recommendations are not presented as measured impact."
-  ],
   "learnings": [
-    "Trabalhar como designer solo em um ecossistema em expansão me levou a conectar decisões de sistema a interações específicas. A mesma base precisava orientar a navegação entre produtos e a edição de um valor no CRM. O principal aprendizado foi tratar consistência como parte do trabalho cotidiano: documentar padrões, revisar os fluxos com desenvolvimento e distinguir o que já estava desenhado do que ainda dependia de validação.",
-    "Working as the sole designer in an expanding ecosystem led me to connect system decisions with specific interactions. The same foundation had to guide both navigation across products and editing a value in CRM. My main learning was to make consistency part of everyday work: document patterns, review flows with development, and distinguish completed design from decisions still awaiting validation."
+    "Ser o único designer me ensinou a assumir também a definição do problema e das prioridades. Para decidir onde investir tempo, precisei entender o negócio e discutir as escolhas com desenvolvimento. Levo essa postura para os próximos projetos: participar dessas conversas desde o início e construir padrões que permitam ao time continuar o trabalho com autonomia.",
+    "Being the sole designer taught me to take responsibility for defining problems and priorities too. To decide where to spend my time, I had to understand the business and discuss choices with development. In future projects, I want to be part of those conversations from the start and build patterns that let the team continue the work independently."
   ]
 };
 const labels = {
@@ -250,7 +212,7 @@ const venddStudy = (language: Language): CaseStudyData => {
       },
       { type: "problems", visibility: ["overview"], title: labels.challenges[i], intro: content.challengesIntro[i], items: content.challenges.map(item => ({ variant: "negative", title: item[i][0], description: item[i][1] })) },
       { type: "process", visibility: ["overview"], title: labels.process[i], steps: content.process.map(item => ({ label: item[i][0], description: item[i][1] })) },
-      { type: "results", title: labels.results[i], intro: content.resultsIntro[i], items: content.results.map(item => ({ variant: "positive", title: item[i][0], description: item[i][1] })), disclaimer: content.disclaimer[i] },
+      { type: "results", title: labels.results[i], intro: content.resultsIntro[i], items: content.results.map(item => ({ variant: "positive", title: item[i][0], description: item[i][1] })) },
       { type: "text", visibility: ["overview"], title: labels.learnings[i], body: <p>{content.learnings[i]}</p> },
     ],
   };

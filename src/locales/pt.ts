@@ -30,6 +30,16 @@ export const pt = {
     greeting: "Oi, eu sou Maycon",
     bio: "Trabalho como designer ha 8 anos e tenho experiencia em criar e manter websites, aplicacoes, SaaS e design systems. Minha experiencia inclui projetos para empresas multinacionais, via dti digital e BASE, e trabalhos freelancer para diferentes startups.",
     resume: "Ver meu curriculo",
+    video: {
+      open: "Assistir à apresentação em vídeo do Maycon",
+      close: "Fechar",
+      title: "Apresentação do Maycon",
+      playerLabel: "Vídeo de apresentação do Maycon",
+      transcript: "Oi, eu sou o Maycon, product designer há oito anos. Trabalho com sites, aplicativos, SaaS e design systems, ajudando times a transformar problemas complexos em experiências mais claras. Já participei de projetos para empresas globais e startups. Fica à vontade para conhecer meu trabalho.",
+      imageAlt: "Foto de perfil de Maycon",
+      unavailable: "O vídeo de apresentação ainda não foi adicionado.",
+      unsupported: "Seu navegador não consegue reproduzir este vídeo.",
+    },
   },
   home: {
     projects: "Projetos",

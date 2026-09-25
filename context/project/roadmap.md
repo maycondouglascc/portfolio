@@ -15,6 +15,9 @@ Creating structured `/context` folder with comprehensive documentation for devel
 
 ## Planned
 
+### AI-generated profile introduction
+- Export the Portuguese and English clips to `public/files/profile-intro-pt.mp4` and `public/files/profile-intro-en.mp4` to activate the player interaction.
+
 ### More Case Studies
 - Add additional case studies for projects currently shown as "coming soon"
 - Each case study should follow the existing pattern (see `context/features/case-studies.md`)
