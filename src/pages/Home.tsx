@@ -18,10 +18,10 @@ function Home() {
             <ProjectsGrid />
           </TransitionChild>
           <TransitionChild index={2}>
-            <ExperienceList />
+            <VisitorHeatmap />
           </TransitionChild>
           <TransitionChild index={3}>
-            <VisitorHeatmap />
+            <ExperienceList />
           </TransitionChild>
         </main>
         <TransitionChild index={4}>

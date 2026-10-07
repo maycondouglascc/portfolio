@@ -33,10 +33,7 @@ Top bar with language and color palette controls. The page follows the operating
 ## Core Feature Components
 
 ### `Intro` — `src/components/Intro.tsx`
-Hero section. Shows an interactive profile photo, name, bio, and resume link. All text via `useLanguage()`. No props.
-
-### `ProfileIntroVideo` — `src/components/ProfileIntroVideo.tsx`
-The profile photo plays a muted video preview on hover or keyboard focus. Clicking opens a native dialog and starts the localized introduction with sound and playback controls. Expects `/public/files/profile-intro-pt.mp4` and `/public/files/profile-intro-en.mp4`; until an asset is added, the photo remains visible and the dialog explains that the video is unavailable.
+Hero section. Shows profile photo, name, bio, and resume link. All text via `useLanguage()`. No props.
 
 ### `ProjectsGrid` — `src/components/ProjectsGrid.tsx`
 Displays all projects from `getProjects(language)`. Splits into two groups: projects with case studies and projects without. Renders `CaseCard` for each.
@@ -209,8 +206,3 @@ Responsive grid: 1 column on mobile, 2 columns on desktop.
 4. **Accessibility first** — every interactive element needs `aria-label` or visible label
 5. **Lazy loading** — pages are `React.lazy`; images use `loading="lazy"` and `decoding="async"`
 6. **dark: variants** — all color-affecting classes must have a `dark:` counterpart
-
-## ColorPaletteButton — src/components/ColorPaletteButton.tsx
-Generates a different curated palette on each click. Reads the current palette from AppearanceContext and persists the selection.
-
-The five options are Studio, Tide, Moss, Clay, and Iris. Each palette works in both light and dark mode.

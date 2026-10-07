@@ -1,7 +1,6 @@
 import profilePic from '../assets/profilepic.webp'
 import resumePdfEn from '../assets/resume/maycondouglasresume.pdf'
 import resumePdfPt from '../assets/resume/curriculomaycondouglas.pdf'
-import ProfileIntroVideo from './ProfileIntroVideo'
 import { useLanguage } from '../context/LanguageContext'
 
 function Intro() {
@@ -10,9 +9,13 @@ function Intro() {
 
   return (
     <section className="flex flex-col gap-6 border-b border-zinc-200 pb-6 dark:border-zinc-800">
-      <ProfileIntroVideo
-        poster={profilePic}
-        alt={t('intro.video.imageAlt')}
+      <img
+        className="rounded object-cover"
+        src={profilePic}
+        alt="Maycon's profile picture"
+        width={80}
+        height={80}
+        fetchPriority="high"
       />
       <div className="flex flex-col gap-2">
         <h1 className="text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">
@@ -38,7 +41,7 @@ function Intro() {
         </>
       )}
       </p>
-        <a href={resumePdf} target="_blank" rel="noopener noreferrer" className="mt-4 text-body-15-medium font-medium text-accent dark:text-accent">{t('intro.resume')}</a>
+        <a href={resumePdf} target="_blank" rel="noopener noreferrer" className="mt-4 text-body-15-medium font-medium text-zinc-900 dark:text-zinc-100">{t('intro.resume')}</a>
       </div>
     </section>
   )

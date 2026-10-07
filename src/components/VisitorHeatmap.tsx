@@ -95,13 +95,13 @@ export function VisitorHeatmap() {
       case 0:
         return "bg-zinc-100 hover:ring-1 hover:ring-zinc-400 dark:bg-zinc-800/80 dark:hover:ring-zinc-600"
       case 1:
-        return "bg-accent/25 hover:ring-1 hover:ring-accent"
+        return "bg-emerald-200 hover:ring-1 hover:ring-emerald-400 dark:bg-emerald-950 dark:hover:ring-emerald-700"
       case 2:
-        return "bg-accent/50 hover:ring-1 hover:ring-accent"
+        return "bg-emerald-300 hover:ring-1 hover:ring-emerald-500 dark:bg-emerald-800 dark:hover:ring-emerald-500"
       case 3:
-        return "bg-accent/75 hover:ring-1 hover:ring-accent"
+        return "bg-emerald-400 hover:ring-1 hover:ring-emerald-600 dark:bg-emerald-600 dark:hover:ring-emerald-400"
       case 4:
-        return "bg-accent hover:ring-1 hover:ring-accent"
+        return "bg-emerald-500 hover:ring-1 hover:ring-emerald-700 dark:bg-emerald-500 dark:hover:ring-emerald-300"
     }
   }
 
@@ -109,11 +109,11 @@ export function VisitorHeatmap() {
   const getCountrySegmentBg = (index: number) => {
     switch (index) {
       case 0:
-        return "bg-accent"
+        return "bg-emerald-500"
       case 1:
-        return "bg-accent/70"
+        return "bg-emerald-400"
       case 2:
-        return "bg-accent/45"
+        return "bg-emerald-300 dark:bg-emerald-400"
       case 3:
         return "bg-zinc-500 dark:bg-zinc-400"
       case 4:
@@ -347,10 +347,10 @@ export function VisitorHeatmap() {
               <div className="flex items-center gap-1.5">
                 <span>{t("visitorStats.less")}</span>
                 <span className="h-3 w-3 rounded-[2px] bg-zinc-100 dark:bg-zinc-800/80" />
-                <span className="h-3 w-3 rounded-[2px] bg-accent/25" />
-                <span className="h-3 w-3 rounded-[2px] bg-accent/50" />
-                <span className="h-3 w-3 rounded-[2px] bg-accent/75" />
-                <span className="h-3 w-3 rounded-[2px] bg-accent" />
+                <span className="h-3 w-3 rounded-[2px] bg-emerald-200 dark:bg-emerald-950" />
+                <span className="h-3 w-3 rounded-[2px] bg-emerald-300 dark:bg-emerald-800" />
+                <span className="h-3 w-3 rounded-[2px] bg-emerald-400 dark:bg-emerald-600" />
+                <span className="h-3 w-3 rounded-[2px] bg-emerald-500 dark:bg-emerald-500" />
                 <span>{t("visitorStats.more")}</span>
               </div>
             </div>
@@ -385,7 +385,7 @@ export function VisitorHeatmap() {
                     key={c.countryCode}
                     className={`flex items-center justify-between rounded-lg border px-3 py-2 text-body-14-regular transition-colors ${
                       isVisitorCountry
-                        ? "border-accent/40 bg-accent/5 dark:border-accent/30 dark:bg-accent/10"
+                        ? "border-emerald-500/40 bg-emerald-50/50 dark:border-emerald-500/30 dark:bg-emerald-950/20"
                         : "border-zinc-100 bg-zinc-50/50 dark:border-zinc-800/80 dark:bg-zinc-800/30"
                     }`}
                   >
@@ -395,7 +395,7 @@ export function VisitorHeatmap() {
                         {c.country}
                       </span>
                       {isVisitorCountry && (
-                        <span className="rounded bg-accent/15 px-1.5 py-0.5 text-caption-10-medium font-medium text-accent">
+                        <span className="rounded bg-emerald-500/15 px-1.5 py-0.5 text-caption-10-medium font-medium text-emerald-600 dark:text-emerald-400">
                           {t("visitorStats.tabCities") ? "•" : ""}
                         </span>
                       )}
@@ -413,7 +413,7 @@ export function VisitorHeatmap() {
               <button
                 type="button"
                 onClick={() => setShowAllCountries((prev) => !prev)}
-                className="self-start text-caption-12-regular font-medium text-accent hover:underline focus-visible:outline-none"
+                className="self-start text-caption-12-regular font-medium text-zinc-900 hover:underline focus-visible:outline-none dark:text-zinc-100"
               >
                 {showAllCountries
                   ? t("visitorStats.showLess")
@@ -437,7 +437,7 @@ export function VisitorHeatmap() {
                     key={`${city.city}-${city.countryCode}`}
                     className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-body-14-regular transition-colors ${
                       isVisitorCity
-                        ? "border-accent/40 bg-accent/10 font-medium text-zinc-900 dark:text-zinc-100"
+                        ? "border-emerald-500/40 bg-emerald-50/70 font-medium text-zinc-900 dark:border-emerald-500/30 dark:bg-emerald-950/30 dark:text-zinc-100"
                         : "border-zinc-100 bg-zinc-50/70 text-zinc-800 dark:border-zinc-800 dark:bg-zinc-800/40 dark:text-zinc-200"
                     }`}
                   >
@@ -455,7 +455,7 @@ export function VisitorHeatmap() {
               <button
                 type="button"
                 onClick={() => setShowAllCities((prev) => !prev)}
-                className="self-start text-caption-12-regular font-medium text-accent hover:underline focus-visible:outline-none"
+                className="self-start text-caption-12-regular font-medium text-zinc-900 hover:underline focus-visible:outline-none dark:text-zinc-100"
               >
                 {showAllCities
                   ? t("visitorStats.showLess")
