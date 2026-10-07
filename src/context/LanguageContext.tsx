@@ -4,8 +4,12 @@ import { pt } from "../locales/pt"
 
 export type Language = "en" | "pt"
 
-type LocaleShape = typeof en
-type TranslationKey = DotPath<LocaleShape>
+type DeepStringRecord<T> = {
+  [K in keyof T]: T[K] extends object ? DeepStringRecord<T[K]> : string
+}
+
+type LocaleShape = DeepStringRecord<typeof en>
+type TranslationKey = DotPath<typeof en>
 
 type DotPath<T> = T extends object
   ? {

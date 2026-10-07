@@ -77,3 +77,4 @@ Creating structured `/context` folder with comprehensive documentation for devel
 - [x] Brotli + gzip compression
 - [x] Code splitting (router, lottie, vendor chunks)
 - [x] Vercel deployment setup
+- [x] Visitor geolocation mapping and GitHub-style origin heatmap

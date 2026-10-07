@@ -58,6 +58,9 @@ Card for a single project. Optional Lottie hover preview (tracks pointer positio
 ### `ExperienceList` — `src/components/ExperienceList.tsx`
 Renders work experience timeline from `getExperience(language)`. No props.
 
+### `VisitorHeatmap` — `src/components/VisitorHeatmap.tsx`
+Displays a GitHub-style visitor origin heatmap and audience distribution at the bottom of the home page. Automatically detects the current visitor's location (city, country) via serverless headers or client fallback, shows a live pulse badge, and visualizes visit activity across 24 weeks with interactive Radix tooltips, intensity levels, and GitHub language bar-style breakdowns for top countries and cities.
+
 ### `Footer` — `src/components/Footer.tsx`
 Contact section. Contains `CopyEmailLink`, LinkedIn link, and Literal link.
 
