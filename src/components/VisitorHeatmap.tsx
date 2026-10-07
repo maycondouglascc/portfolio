@@ -115,15 +115,15 @@ export function VisitorHeatmap() {
   const getCellLevelClass = (level: DayActivity["level"]) => {
     switch (level) {
       case 0:
-        return "bg-zinc-300/50 hover:ring-1 hover:ring-zinc-600 dark:bg-zinc-700/50 dark:hover:ring-zinc-300"
+        return "bg-zinc-300/50 hover:ring-1 hover:ring-inset hover:ring-zinc-600 dark:bg-zinc-700/50 dark:hover:ring-zinc-300"
       case 1:
-        return "bg-lime-500/25 hover:ring-1 hover:ring-lime-500 dark:bg-lime-400/20 dark:hover:ring-lime-400"
+        return "bg-lime-500/25 hover:ring-1 hover:ring-inset hover:ring-lime-600 dark:bg-lime-400/20 dark:hover:ring-lime-400"
       case 2:
-        return "bg-lime-500/50 hover:ring-1 hover:ring-lime-500 dark:bg-lime-400/45 dark:hover:ring-lime-400"
+        return "bg-lime-500/50 hover:ring-1 hover:ring-inset hover:ring-lime-600 dark:bg-lime-400/45 dark:hover:ring-lime-400"
       case 3:
-        return "bg-lime-500/75 hover:ring-1 hover:ring-lime-600 dark:bg-lime-400/70 dark:hover:ring-lime-300"
+        return "bg-lime-500/75 hover:ring-1 hover:ring-inset hover:ring-lime-700 dark:bg-lime-400/70 dark:hover:ring-lime-300"
       case 4:
-        return "bg-lime-600 hover:ring-1 hover:ring-lime-700 dark:bg-lime-400 dark:hover:ring-lime-200"
+        return "bg-lime-600 hover:ring-1 hover:ring-inset hover:ring-lime-700 dark:bg-lime-400 dark:hover:ring-lime-200"
     }
   }
 
@@ -276,7 +276,7 @@ export function VisitorHeatmap() {
                   {/* Month header row */}
                   <div className="mb-2 flex items-center gap-1.5 sm:gap-2.5 text-caption-11-regular text-zinc-600 dark:text-zinc-400">
                     {/* Spacer matching day labels column on the left */}
-                    <div className="w-5 sm:w-6 shrink-0" aria-hidden="true" />
+                    <div className="w-7 sm:w-8 shrink-0" aria-hidden="true" />
 
                     {/* Months track matching the exact width of week columns */}
                     <div className="relative h-4 flex-1 overflow-hidden">
@@ -307,22 +307,22 @@ export function VisitorHeatmap() {
                   {/* Main Heatmap Grid */}
                   <div className="flex w-full items-stretch gap-1.5 sm:gap-2.5">
                     {/* Day of week labels on left (Mon, Wed, Fri) aligned 1:1 with rows 1, 3, 5 */}
-                    <div className="flex w-5 sm:w-6 shrink-0 flex-col gap-[2px] sm:gap-1 text-caption-10-regular text-zinc-600 select-none dark:text-zinc-400">
+                    <div className="flex w-7 sm:w-8 shrink-0 flex-col gap-[2px] sm:gap-1 text-caption-10-regular text-zinc-600 select-none dark:text-zinc-400">
                       <div className="flex-1" aria-hidden="true" />
                       <div className="flex flex-1 items-center justify-end">
-                        <span className="leading-none pr-0.5 sm:pr-1">
+                        <span className="leading-none pr-1 sm:pr-1.5">
                           {t("visitorStats.weekdays.mon")}
                         </span>
                       </div>
                       <div className="flex-1" aria-hidden="true" />
                       <div className="flex flex-1 items-center justify-end">
-                        <span className="leading-none pr-0.5 sm:pr-1">
+                        <span className="leading-none pr-1 sm:pr-1.5">
                           {t("visitorStats.weekdays.wed")}
                         </span>
                       </div>
                       <div className="flex-1" aria-hidden="true" />
                       <div className="flex flex-1 items-center justify-end">
-                        <span className="leading-none pr-0.5 sm:pr-1">
+                        <span className="leading-none pr-1 sm:pr-1.5">
                           {t("visitorStats.weekdays.fri")}
                         </span>
                       </div>
@@ -359,7 +359,7 @@ export function VisitorHeatmap() {
                                       count: String(day.count),
                                       date: formattedDate,
                                     })}
-                                    className={`relative aspect-square w-full rounded-[2px] transition-transform duration-75 hover:scale-125 hover:z-10 focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 sm:rounded-[3px] dark:focus-visible:outline-zinc-100 ${getCellLevelClass(
+                                    className={`relative aspect-square w-full rounded-[2px] transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 sm:rounded-[3px] dark:focus-visible:outline-zinc-100 ${getCellLevelClass(
                                       day.level
                                     )}`}
                                   />
