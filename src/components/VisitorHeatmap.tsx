@@ -98,11 +98,6 @@ export function VisitorHeatmap() {
         continue
       }
 
-      // If at the very end of the graph, skip to prevent overflow past right boundary
-      if (current.weekIndex >= totalWeeks - 1) {
-        continue
-      }
-
       filtered.push(current)
     }
 
@@ -285,18 +280,22 @@ export function VisitorHeatmap() {
 
                     {/* Months track matching the exact width of week columns */}
                     <div className="relative h-4 flex-1 overflow-hidden">
-                      {monthLabels.map(({ weekIndex, label }) => {
-                        const leftPercent =
-                          (weekIndex / (statsData.weeks.length || 24)) * 100
-                        const clampedPercent = Math.min(leftPercent, 88)
+                      {monthLabels.map(({ weekIndex, label }, idx) => {
+                        const totalWeeks = statsData.weeks.length || 24
+                        const isLast = idx === monthLabels.length - 1
+                        const isNearEnd = weekIndex >= totalWeeks - 2
 
                         return (
                           <span
                             key={`${weekIndex}-${label}`}
                             className="absolute capitalize select-none whitespace-nowrap"
-                            style={{
-                              left: `${clampedPercent}%`,
-                            }}
+                            style={
+                              isLast && isNearEnd
+                                ? { right: 0 }
+                                : {
+                                    left: `${(weekIndex / totalWeeks) * 100}%`,
+                                  }
+                            }
                           >
                             {label}
                           </span>
