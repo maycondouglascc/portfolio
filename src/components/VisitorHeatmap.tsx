@@ -58,9 +58,9 @@ export function VisitorHeatmap() {
     }
   }, [])
 
-  // Month labels mapping for week columns
+  // Month labels mapping for week columns, filtering out tight collisions
   const monthLabels = useMemo(() => {
-    const labels: { index: number; label: string }[] = []
+    const monthStarts: { weekIndex: number; label: string }[] = []
     let lastMonth = ""
 
     statsData.weeks.forEach((week, weekIndex) => {
@@ -74,12 +74,39 @@ export function VisitorHeatmap() {
       ).format(date)
 
       if (monthStr !== lastMonth) {
-        labels.push({ index: weekIndex, label: monthStr })
+        monthStarts.push({ weekIndex, label: monthStr })
         lastMonth = monthStr
       }
     })
 
-    return labels
+    // Filter out edge collisions (e.g. if a month has < 3 weeks at start or between labels)
+    const totalWeeks = statsData.weeks.length || 24
+    const filtered: { weekIndex: number; label: string }[] = []
+
+    for (let i = 0; i < monthStarts.length; i++) {
+      const current = monthStarts[i]
+      const next = monthStarts[i + 1]
+
+      // If the first month only has 1 or 2 weeks before the next month starts, skip it to prevent collision
+      if (i === 0 && next && next.weekIndex < 3) {
+        continue
+      }
+
+      // If too close to previously accepted label (< 3 weeks apart), skip it
+      const prev = filtered[filtered.length - 1]
+      if (prev && current.weekIndex - prev.weekIndex < 3) {
+        continue
+      }
+
+      // If at the very end of the graph, skip to prevent overflow past right boundary
+      if (current.weekIndex >= totalWeeks - 1) {
+        continue
+      }
+
+      filtered.push(current)
+    }
+
+    return filtered
   }, [statsData.weeks, language])
 
   const formatDate = (dateStr: string) => {
@@ -249,16 +276,22 @@ export function VisitorHeatmap() {
         {activeTab === "activity" && (
           <div className="pt-4">
             <TooltipProvider delayDuration={150}>
-              <div className="overflow-x-auto pb-2 scrollbar-none">
-                <div className="min-w-[430px]">
+              <div className="w-full overflow-x-auto pb-2 scrollbar-none">
+                <div className="w-full min-w-[340px]">
                   {/* Month header row */}
-                  <div className="mb-2 flex pl-7 text-caption-11-regular text-zinc-600 dark:text-zinc-400">
-                    <div className="relative h-4 w-full">
-                      {monthLabels.map(({ index, label }) => (
+                  <div className="mb-2 flex items-center gap-2 sm:gap-2.5 text-caption-11-regular text-zinc-600 dark:text-zinc-400">
+                    {/* Spacer matching day labels column on the left */}
+                    <div className="w-6 shrink-0" aria-hidden="true" />
+
+                    {/* Months track matching the exact width of week columns */}
+                    <div className="relative h-4 flex-1">
+                      {monthLabels.map(({ weekIndex, label }) => (
                         <span
-                          key={`${index}-${label}`}
-                          className="absolute capitalize"
-                          style={{ left: `${index * 17}px` }}
+                          key={`${weekIndex}-${label}`}
+                          className="absolute capitalize select-none whitespace-nowrap"
+                          style={{
+                            left: `${(weekIndex / (statsData.weeks.length || 24)) * 100}%`,
+                          }}
                         >
                           {label}
                         </span>
@@ -267,24 +300,34 @@ export function VisitorHeatmap() {
                   </div>
 
                   {/* Main Heatmap Grid */}
-                  <div className="flex gap-2">
-                    {/* Day of week labels on left (Mon, Wed, Fri) */}
-                    <div className="flex flex-col justify-between pt-0.5 text-caption-10-regular text-zinc-600 dark:text-zinc-400 h-[106px] w-5 select-none">
-                      <span className="leading-none">
-                        {t("visitorStats.weekdays.mon")}
-                      </span>
-                      <span className="leading-none">
-                        {t("visitorStats.weekdays.wed")}
-                      </span>
-                      <span className="leading-none">
-                        {t("visitorStats.weekdays.fri")}
-                      </span>
+                  <div className="flex w-full items-stretch gap-2 sm:gap-2.5">
+                    {/* Day of week labels on left (Mon, Wed, Fri) aligned 1:1 with rows 1, 3, 5 */}
+                    <div className="flex w-6 shrink-0 flex-col gap-[3px] sm:gap-1 text-caption-10-regular text-zinc-600 select-none dark:text-zinc-400">
+                      <div className="flex-1" aria-hidden="true" />
+                      <div className="flex flex-1 items-center justify-end">
+                        <span className="leading-none pr-1">
+                          {t("visitorStats.weekdays.mon")}
+                        </span>
+                      </div>
+                      <div className="flex-1" aria-hidden="true" />
+                      <div className="flex flex-1 items-center justify-end">
+                        <span className="leading-none pr-1">
+                          {t("visitorStats.weekdays.wed")}
+                        </span>
+                      </div>
+                      <div className="flex-1" aria-hidden="true" />
+                      <div className="flex flex-1 items-center justify-end">
+                        <span className="leading-none pr-1">
+                          {t("visitorStats.weekdays.fri")}
+                        </span>
+                      </div>
+                      <div className="flex-1" aria-hidden="true" />
                     </div>
 
-                    {/* Columns of 7 days */}
-                    <div className="flex gap-[3.5px]">
+                    {/* Columns of 7 days filling the entire horizontal width */}
+                    <div className="flex flex-1 min-w-0 gap-[3px] sm:gap-1">
                       {statsData.weeks.map((week, wIndex) => (
-                        <div key={wIndex} className="flex flex-col gap-[3.5px]">
+                        <div key={wIndex} className="flex flex-1 min-w-0 flex-col gap-[3px] sm:gap-1">
                           {week.map((day) => {
                             const formattedDate = formatDate(day.date)
                             const tooltipTitle =
@@ -311,7 +354,7 @@ export function VisitorHeatmap() {
                                       count: String(day.count),
                                       date: formattedDate,
                                     })}
-                                    className={`h-3 w-3 rounded-[2px] transition-transform duration-75 hover:scale-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 sm:h-3.5 sm:w-3.5 dark:focus-visible:outline-zinc-100 ${getCellLevelClass(
+                                    className={`relative aspect-square w-full rounded-[2px] transition-transform duration-75 hover:scale-125 hover:z-10 focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 sm:rounded-[3px] dark:focus-visible:outline-zinc-100 ${getCellLevelClass(
                                       day.level
                                     )}`}
                                   />
