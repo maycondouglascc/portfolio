@@ -188,17 +188,6 @@ export async function detectVisitorLocation(): Promise<VisitorLocation> {
 export async function getVisitorStats(
   onVisitorDetected?: (loc: VisitorLocation) => void
 ): Promise<VisitorStatsData> {
-  // First, check local storage for baseline
-  let cachedData: VisitorStatsData | null = null
-  try {
-    const raw = window.localStorage.getItem(LOCAL_STATS_CACHE)
-    if (raw) {
-      cachedData = JSON.parse(raw) as VisitorStatsData
-    }
-  } catch {
-    // ignore
-  }
-
   // Detect current visitor asynchronously
   const visitor = await detectVisitorLocation()
   if (onVisitorDetected) {

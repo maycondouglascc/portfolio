@@ -80,7 +80,6 @@ export function VisitorHeatmap() {
     })
 
     // Filter out edge collisions (e.g. if a month has < 3 weeks at start or between labels)
-    const totalWeeks = statsData.weeks.length || 24
     const filtered: { weekIndex: number; label: string }[] = []
 
     for (let i = 0; i < monthStarts.length; i++) {

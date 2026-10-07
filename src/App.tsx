@@ -8,6 +8,7 @@ import { LanguageProvider, useLanguage } from "./context/LanguageContext"
 
 const Home = lazy(() => import("./pages/Home"))
 const CaseStudy = lazy(() => import("./pages/CaseStudy"))
+const VenddPrototypePage = lazy(() => import("./pages/VenddPrototypePage"))
 const PageTransition = lazy(() =>
   import("./components/PageTransition").then((m) => ({ default: m.PageTransition }))
 )
@@ -78,6 +79,22 @@ function AppContent() {
         element={
           <Suspense fallback={<LoadingFallback />}>
             <CaseStudy />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/prototypes/vendd"
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <VenddPrototypePage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/prototypes/vendd-web"
+        element={
+          <Suspense fallback={<LoadingFallback />}>
+            <VenddPrototypePage />
           </Suspense>
         }
       />
