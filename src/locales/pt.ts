@@ -16,16 +16,7 @@ export const pt = {
   settings: {
     label: "Configurações de aparência",
   },
-  palette: {
-    generate: "Sortear outra paleta de cores (atual: {name})",
-    names: {
-      studio: "Estúdio",
-      tide: "Maré",
-      moss: "Bosque",
-      clay: "Argila",
-      iris: "Íris",
-    },
-  },
+
   intro: {
     greeting: "Oi, eu sou Maycon",
     bio: "Trabalho como designer ha 8 anos e tenho experiencia em criar e manter websites, aplicacoes, SaaS e design systems. Minha experiencia inclui projetos para empresas multinacionais, via dti digital e BASE, e trabalhos freelancer para diferentes startups.",
@@ -68,5 +59,34 @@ export const pt = {
   },
   localTime: {
     prefix: "Hora local",
+  },
+  visitorStats: {
+    title: "Origem dos visitantes",
+    subtitle: "{visits} visitas em {cities} cidades e {countries} países",
+    currentLocation: "Visitando de {city}, {country}",
+    detectingLocation: "Identificando sua localização…",
+    periodLabel: "Últimos 6 meses",
+    totalVisits: "Visitas totais",
+    cities: "Cidades",
+    countries: "Países",
+    less: "Menos",
+    more: "Mais",
+    weekdays: {
+      mon: "Seg",
+      wed: "Qua",
+      fri: "Sex",
+    },
+    tooltipSingular: "{count} visita em {date}",
+    tooltipPlural: "{count} visitas em {date}",
+    tooltipEmpty: "Nenhuma visita em {date}",
+    tooltipCities: "Origem: {cities}",
+    tabActivity: "Atividade",
+    tabCountries: "Países",
+    tabCities: "Cidades",
+    otherCountries: "Outros países",
+    youIndicator: "Você",
+    showMore: "Ver mais",
+    showLess: "Ver menos",
+    cellAriaLabel: "{count} visitas em {date}",
   },
 } as const;

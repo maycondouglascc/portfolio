@@ -33,7 +33,7 @@ Top bar with language and color palette controls. The page follows the operating
 ## Core Feature Components
 
 ### `Intro` — `src/components/Intro.tsx`
-Hero section. Shows profile photo, name, bio, resume link. All text via `useLanguage()`. No props.
+Hero section. Shows profile photo, name, bio, and resume link. All text via `useLanguage()`. No props.
 
 ### `ProjectsGrid` — `src/components/ProjectsGrid.tsx`
 Displays all projects from `getProjects(language)`. Splits into two groups: projects with case studies and projects without. Renders `CaseCard` for each.
@@ -54,6 +54,9 @@ Card for a single project. Optional Lottie hover preview (tracks pointer positio
 
 ### `ExperienceList` — `src/components/ExperienceList.tsx`
 Renders work experience timeline from `getExperience(language)`. No props.
+
+### `VisitorHeatmap` — `src/components/VisitorHeatmap.tsx`
+Displays a GitHub-style visitor origin heatmap and audience distribution at the bottom of the home page. Automatically detects the current visitor's location (city, country) via serverless headers or client fallback, shows a live pulse badge, and visualizes visit activity across 24 weeks with interactive Radix tooltips, intensity levels, and GitHub language bar-style breakdowns for top countries and cities.
 
 ### `Footer` — `src/components/Footer.tsx`
 Contact section. Contains `CopyEmailLink`, LinkedIn link, and Literal link.
@@ -203,8 +206,3 @@ Responsive grid: 1 column on mobile, 2 columns on desktop.
 4. **Accessibility first** — every interactive element needs `aria-label` or visible label
 5. **Lazy loading** — pages are `React.lazy`; images use `loading="lazy"` and `decoding="async"`
 6. **dark: variants** — all color-affecting classes must have a `dark:` counterpart
-
-## ColorPaletteButton — src/components/ColorPaletteButton.tsx
-Generates a different curated palette on each click. Reads the current palette from AppearanceContext and persists the selection.
-
-The five options are Studio, Tide, Moss, Clay, and Iris. Each palette works in both light and dark mode.

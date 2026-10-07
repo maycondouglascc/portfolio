@@ -1,59 +1,76 @@
-# Appearance and Color Palettes
+# Theming
 
-The portfolio follows the operating system's light or dark color scheme automatically. A separate palette switcher changes the page's neutral hue and accent color while preserving readable contrast in both modes.
+Dark mode, light mode, and system preference support. Implemented via React Context (`ThemeContext`) and Tailwind's class strategy, syncing automatically with the user's operating system.
 
-## System Color Scheme
+---
 
-`AppearanceProvider` listens to `window.matchMedia("(prefers-color-scheme: dark)")` and applies the result to the root element:
+## How It Works
 
-- Adds or removes the `dark` class used by Tailwind's `dark:` variants.
-- Updates `color-scheme` so native browser controls match the page.
-- Updates `meta[name="theme-color"]` to the current palette's page color.
-- Tracks changes when the operating system preference changes.
+```
+ThemeContext: resolves to "light" or "dark" based on OS (window.matchMedia)
+        ↓
+"dark" class on <html>  →  Tailwind dark: variants activate
+        ↓
+meta[name="theme-color"] synced for browser chrome color
+```
 
-`index.html` applies the initial preference before the app renders to avoid a flash. The portfolio does not save a separate light/dark preference.
+---
 
-## Applying Light and Dark Styles
+## System Color Scheme Sync
 
-Use paired Tailwind classes for colors:
+- `ThemeContext` listens to `window.matchMedia("(prefers-color-scheme: dark)")`
+- Resolves to `"dark"` or `"light"` based on OS setting
+- Updates automatically when OS preference changes (event listener on `matchMedia`)
+
+---
+
+## Applying Dark Mode in JSX
 
 ```tsx
+// Always pair light + dark variants
 <div className="bg-white dark:bg-zinc-950">
-  <p className="text-zinc-900 dark:text-zinc-50">Content</p>
+  <p className="text-zinc-900 dark:text-zinc-100">Content</p>
   <span className="text-zinc-500 dark:text-zinc-400">Secondary</span>
 </div>
 ```
 
-Every color class should have a `dark:` counterpart. This is enforced by code review convention, not by a linter rule.
+---
 
-## Color Palette Switcher
+## DOM Side Effects
 
-`AppearanceProvider` stores the selected preset in `localStorage` under `color-palette` and applies it as `data-palette` on the root element. `ColorPaletteButton` selects a different preset each time it is clicked: Studio, Tide, Moss, Clay, or Iris.
+`ThemeContext` manages these side effects when theme changes:
 
-Each preset sets the neutral hue and accent hue, with separate contrast values for light and dark appearances. Tailwind's Zinc shades resolve to palette-aware CSS variables; the accent token colors links and palette details. The palette works independently from the operating system color scheme.
+```ts
+// 1. Toggle class on <html>
+document.documentElement.classList.toggle("dark", resolvedTheme === "dark")
 
-The initial palette is applied in the `index.html` head script so it is present on first paint. The appearance provider updates the browser chrome color when either the palette or system color scheme changes.
+// 2. Sync colorScheme style
+document.documentElement.style.colorScheme = resolvedTheme
+
+// 3. Update browser chrome color
+const meta = document.querySelector('meta[name="theme-color"]')
+meta.setAttribute("content", resolvedTheme === "dark" ? "#09090b" : "#ffffff")
+```
+
+---
 
 ## Tailwind Configuration
 
-Dark styles use Tailwind's `class` strategy:
+Theme is handled via Tailwind's `class` strategy:
 
 ```js
+// tailwind.config.js
 module.exports = {
   darkMode: "class",
   // ...
 }
 ```
 
-`AppearanceProvider` toggles `dark` on `<html>` based on the current operating system preference.
-
-## Smooth Transitions
-
-Body background and text color transition smoothly when the system color scheme or palette changes. The styles live in `src/index.css` and respect reduced-motion preferences.
+---
 
 ## Theme Color Reference
 
-| System preference | Background | Text | Browser chrome |
-|-------------------|------------|------|----------------|
-| Light | `zinc-50` (selected palette tint) | `zinc-900` | Selected palette tint |
-| Dark | `zinc-950` (selected palette tint) | `zinc-100` | Selected palette tint |
+| Resolved Theme | Background | Text | Chrome (meta) |
+|----------------|------------|------|---------------|
+| Light | `white` (#ffffff) | `zinc-900` | `#ffffff` |
+| Dark | `zinc-950` (#09090b) | `zinc-100` | `#09090b` |

@@ -13,7 +13,7 @@ const STORAGE_KEY = "viewMode"
 function getStoredOrDefault(): ViewMode {
   if (typeof window === "undefined") return "overview"
   const stored = window.localStorage.getItem(STORAGE_KEY)
-  if (stored === "visual" || stored === "overview" || stored === "detailed") return stored
+  if (stored === "visual" || stored === "overview") return stored
   return "overview"
 }
 
