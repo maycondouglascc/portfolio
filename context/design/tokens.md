@@ -1,6 +1,6 @@
 # Design Tokens
 
-Design tokens live in `tailwind.config.js` (type, spacing, shadows, animation) and `src/index.css` (live palette colors).
+All design tokens for the portfolio — typography scale, color palette, spacing, shadows, and animation values. Source of truth is `tailwind.config.js`.
 
 ---
 
@@ -60,23 +60,21 @@ Defined under `theme.extend.fontSize` in Tailwind config. Format: `[fontSize, { 
 
 ## Color Palette
 
-**Base palette:** Tailwind Zinc (all 11 shades: 50–950), mapped to live HSL tokens. The five curated presets are Studio, Tide, Moss, Clay, and Iris. Each sets a neutral hue, an accent hue, and contrast values for light and dark modes. Light-mode accents meet at least 4.5:1 contrast on zinc-50 and white surfaces.
-
-The selected preset is stored in local storage under color-palette and applied as data-palette on the root element.
+**Base palette:** Tailwind Zinc (all 11 shades: 50–950).
 
 ### Semantic Mapping
 
 | Semantic Role | Light Mode | Dark Mode |
 |---------------|------------|-----------|
 | Page BG | `zinc-50` / `white` | `zinc-950` |
-| Surface BG | `white` | `zinc-900` |
+| Surface BG | `zinc-100` | `zinc-900` |
 | Elevated Surface | `zinc-200` | `zinc-800` |
 | Border | `zinc-200` | `zinc-800` |
 | Border Muted | `zinc-100` | `zinc-900` |
-| Text Primary | `zinc-900` | `zinc-100` |
+| Text Primary | `zinc-900` | `zinc-50` |
 | Text Secondary | `zinc-500` | `zinc-400` |
 | Text Disabled | `zinc-300` | `zinc-700` |
-| Link | `accent` | `accent` |
+| Link | `zinc-900` | `zinc-100` |
 | Focus Ring | `zinc-900` | `zinc-100` |
 
 ### Status Colors
@@ -89,8 +87,8 @@ The selected preset is stored in local storage under color-palette and applied a
 ### Theme Colors (meta theme-color)
 | Theme | Color |
 |-------|-------|
-| Light | Selected palette tint (zinc-50) |
-| Dark | Selected palette tint (zinc-950) |
+| Light | `#fafafa` (zinc-50) |
+| Dark | `#09090b` (zinc-950) |
 
 ---
 

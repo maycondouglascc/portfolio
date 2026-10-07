@@ -156,7 +156,7 @@ export function VisitorHeatmap() {
           </div>
         ) : isDetecting ? (
           <div className="inline-flex w-fit items-center gap-2 rounded-full bg-zinc-200/40 px-3 py-1 text-caption-12-regular text-zinc-500 dark:bg-zinc-800/40 dark:text-zinc-400">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-zinc-400 dark:bg-zinc-500" />
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-zinc-400 motion-reduce:animate-none dark:bg-zinc-500" />
             <span>{t("visitorStats.detectingLocation")}</span>
           </div>
         ) : null}
@@ -201,14 +201,14 @@ export function VisitorHeatmap() {
           <div
             role="tablist"
             aria-label={t("visitorStats.title")}
-            className="inline-flex items-center gap-0.5 rounded-lg bg-zinc-300/40 p-1 dark:bg-zinc-900/60"
+            className="inline-flex items-center gap-0.5 rounded-lg bg-zinc-100 p-1 dark:bg-zinc-900"
           >
             <button
               type="button"
               role="tab"
               aria-selected={activeTab === "activity"}
               onClick={() => setActiveTab("activity")}
-              className={`rounded-md px-2.5 h-8 text-caption-12-regular font-medium transition-colors duration-200 whitespace-nowrap ${
+              className={`rounded-md px-2.5 h-8 text-caption-12-regular font-medium transition-colors duration-200 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100 ${
                 activeTab === "activity"
                   ? "bg-white text-zinc-900 shadow-xs dark:bg-zinc-800 dark:text-zinc-100"
                   : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
@@ -221,7 +221,7 @@ export function VisitorHeatmap() {
               role="tab"
               aria-selected={activeTab === "countries"}
               onClick={() => setActiveTab("countries")}
-              className={`rounded-md px-2.5 h-8 text-caption-12-regular font-medium transition-colors duration-200 whitespace-nowrap ${
+              className={`rounded-md px-2.5 h-8 text-caption-12-regular font-medium transition-colors duration-200 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100 ${
                 activeTab === "countries"
                   ? "bg-white text-zinc-900 shadow-xs dark:bg-zinc-800 dark:text-zinc-100"
                   : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
@@ -234,7 +234,7 @@ export function VisitorHeatmap() {
               role="tab"
               aria-selected={activeTab === "cities"}
               onClick={() => setActiveTab("cities")}
-              className={`rounded-md px-2.5 h-8 text-caption-12-regular font-medium transition-colors duration-200 whitespace-nowrap ${
+              className={`rounded-md px-2.5 h-8 text-caption-12-regular font-medium transition-colors duration-200 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100 ${
                 activeTab === "cities"
                   ? "bg-white text-zinc-900 shadow-xs dark:bg-zinc-800 dark:text-zinc-100"
                   : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
@@ -392,7 +392,7 @@ export function VisitorHeatmap() {
                       </span>
                       {isVisitorCountry && (
                         <span className="rounded bg-lime-500/20 px-1.5 py-0.5 text-caption-10-medium font-medium text-lime-700 dark:text-lime-300">
-                          {t("visitorStats.tabCities") ? "•" : ""}
+                          {t("visitorStats.youIndicator")}
                         </span>
                       )}
                     </div>
@@ -409,7 +409,7 @@ export function VisitorHeatmap() {
               <button
                 type="button"
                 onClick={() => setShowAllCountries((prev) => !prev)}
-                className="self-start text-caption-12-regular font-medium text-zinc-900 underline-offset-2 hover:underline focus-visible:outline-none dark:text-zinc-100"
+                className="self-start text-caption-12-regular font-medium text-zinc-900 underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 dark:text-zinc-100 dark:focus-visible:outline-zinc-100"
               >
                 {showAllCountries
                   ? t("visitorStats.showLess")
@@ -451,7 +451,7 @@ export function VisitorHeatmap() {
               <button
                 type="button"
                 onClick={() => setShowAllCities((prev) => !prev)}
-                className="self-start text-caption-12-regular font-medium text-zinc-900 underline-offset-2 hover:underline focus-visible:outline-none dark:text-zinc-100"
+                className="self-start text-caption-12-regular font-medium text-zinc-900 underline-offset-2 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-zinc-900 dark:text-zinc-100 dark:focus-visible:outline-zinc-100"
               >
                 {showAllCities
                   ? t("visitorStats.showLess")

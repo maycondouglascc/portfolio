@@ -84,6 +84,7 @@ export const pt = {
     tabCountries: "Países",
     tabCities: "Cidades",
     otherCountries: "Outros países",
+    youIndicator: "Você",
     showMore: "Ver mais",
     showLess: "Ver menos",
     cellAriaLabel: "{count} visitas em {date}",

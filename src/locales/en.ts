@@ -83,6 +83,7 @@ export const en = {
     tabCountries: "Countries",
     tabCities: "Cities",
     otherCountries: "Other countries",
+    youIndicator: "You",
     showMore: "Show more",
     showLess: "Show less",
     cellAriaLabel: "{count} visits on {date}",

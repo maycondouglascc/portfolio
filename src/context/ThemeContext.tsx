@@ -56,12 +56,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem(STORAGE_KEY, newTheme)
   }, [])
 
+  // Apply theme whenever theme preference or system preference changes
   useEffect(() => {
     const resolved = resolveTheme(theme)
     setResolvedTheme(resolved)
     applyTheme(resolved)
   }, [theme])
 
+  // Listen for OS preference changes (only matters when theme is "system")
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
 
