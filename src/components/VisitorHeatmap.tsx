@@ -190,7 +190,7 @@ export function VisitorHeatmap() {
       </div>
 
       {/* Main Container Card — matches CaseCard's rounded-2xl bg-zinc-200/40 */}
-      <div className="flex flex-col overflow-hidden rounded-2xl bg-zinc-200/40 p-5 sm:p-6 dark:bg-zinc-800/40">
+      <div className="flex flex-col overflow-hidden rounded-2xl bg-zinc-200/40 p-4 sm:p-6 dark:bg-zinc-800/40">
         {/* Metric Summary Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-300/40 pb-4 dark:border-zinc-700/40">
           <div className="flex flex-wrap items-center gap-5 sm:gap-6">
@@ -276,48 +276,54 @@ export function VisitorHeatmap() {
         {activeTab === "activity" && (
           <div className="pt-4">
             <TooltipProvider delayDuration={150}>
-              <div className="w-full overflow-x-auto pb-2 scrollbar-none">
-                <div className="w-full min-w-[340px]">
+              <div className="w-full overflow-hidden">
+                <div className="w-full">
                   {/* Month header row */}
-                  <div className="mb-2 flex items-center gap-2 sm:gap-2.5 text-caption-11-regular text-zinc-600 dark:text-zinc-400">
+                  <div className="mb-2 flex items-center gap-1.5 sm:gap-2.5 text-caption-11-regular text-zinc-600 dark:text-zinc-400">
                     {/* Spacer matching day labels column on the left */}
-                    <div className="w-6 shrink-0" aria-hidden="true" />
+                    <div className="w-5 sm:w-6 shrink-0" aria-hidden="true" />
 
                     {/* Months track matching the exact width of week columns */}
-                    <div className="relative h-4 flex-1">
-                      {monthLabels.map(({ weekIndex, label }) => (
-                        <span
-                          key={`${weekIndex}-${label}`}
-                          className="absolute capitalize select-none whitespace-nowrap"
-                          style={{
-                            left: `${(weekIndex / (statsData.weeks.length || 24)) * 100}%`,
-                          }}
-                        >
-                          {label}
-                        </span>
-                      ))}
+                    <div className="relative h-4 flex-1 overflow-hidden">
+                      {monthLabels.map(({ weekIndex, label }) => {
+                        const leftPercent =
+                          (weekIndex / (statsData.weeks.length || 24)) * 100
+                        const clampedPercent = Math.min(leftPercent, 88)
+
+                        return (
+                          <span
+                            key={`${weekIndex}-${label}`}
+                            className="absolute capitalize select-none whitespace-nowrap"
+                            style={{
+                              left: `${clampedPercent}%`,
+                            }}
+                          >
+                            {label}
+                          </span>
+                        )
+                      })}
                     </div>
                   </div>
 
                   {/* Main Heatmap Grid */}
-                  <div className="flex w-full items-stretch gap-2 sm:gap-2.5">
+                  <div className="flex w-full items-stretch gap-1.5 sm:gap-2.5">
                     {/* Day of week labels on left (Mon, Wed, Fri) aligned 1:1 with rows 1, 3, 5 */}
-                    <div className="flex w-6 shrink-0 flex-col gap-[3px] sm:gap-1 text-caption-10-regular text-zinc-600 select-none dark:text-zinc-400">
+                    <div className="flex w-5 sm:w-6 shrink-0 flex-col gap-[2px] sm:gap-1 text-caption-10-regular text-zinc-600 select-none dark:text-zinc-400">
                       <div className="flex-1" aria-hidden="true" />
                       <div className="flex flex-1 items-center justify-end">
-                        <span className="leading-none pr-1">
+                        <span className="leading-none pr-0.5 sm:pr-1">
                           {t("visitorStats.weekdays.mon")}
                         </span>
                       </div>
                       <div className="flex-1" aria-hidden="true" />
                       <div className="flex flex-1 items-center justify-end">
-                        <span className="leading-none pr-1">
+                        <span className="leading-none pr-0.5 sm:pr-1">
                           {t("visitorStats.weekdays.wed")}
                         </span>
                       </div>
                       <div className="flex-1" aria-hidden="true" />
                       <div className="flex flex-1 items-center justify-end">
-                        <span className="leading-none pr-1">
+                        <span className="leading-none pr-0.5 sm:pr-1">
                           {t("visitorStats.weekdays.fri")}
                         </span>
                       </div>
@@ -325,9 +331,9 @@ export function VisitorHeatmap() {
                     </div>
 
                     {/* Columns of 7 days filling the entire horizontal width */}
-                    <div className="flex flex-1 min-w-0 gap-[3px] sm:gap-1">
+                    <div className="flex flex-1 min-w-0 gap-[2px] sm:gap-1">
                       {statsData.weeks.map((week, wIndex) => (
-                        <div key={wIndex} className="flex flex-1 min-w-0 flex-col gap-[3px] sm:gap-1">
+                        <div key={wIndex} className="flex flex-1 min-w-0 flex-col gap-[2px] sm:gap-1">
                           {week.map((day) => {
                             const formattedDate = formatDate(day.date)
                             const tooltipTitle =
