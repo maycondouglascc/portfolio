@@ -3,7 +3,6 @@ import type { Language } from '../../context/LanguageContext'
 import danoneStudy from './danone'
 import gskpromxStudy from './gskpromx'
 import thriventStudy from './thrivent'
-import venddStudy from './vendd'
 
 type CaseStudyFactory = (language: Language) => CaseStudyData
 
@@ -11,7 +10,6 @@ const caseStudies: Record<string, CaseStudyFactory> = {
   'danone-north-america': danoneStudy,
   'gskpromx': gskpromxStudy,
   'thrivent-fp': thriventStudy,
-  'vendd-web': venddStudy,
 }
 
 export const caseStudySlugs = new Set<string>(Object.keys(caseStudies))
