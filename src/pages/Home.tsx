@@ -18,14 +18,16 @@ function Home() {
             <ProjectsGrid />
           </TransitionChild>
           <TransitionChild index={2}>
-            <VisitorHeatmap />
-          </TransitionChild>
-          <TransitionChild index={3}>
             <ExperienceList />
           </TransitionChild>
         </main>
-        <TransitionChild index={4}>
+        <TransitionChild index={3}>
           <Footer />
+        </TransitionChild>
+        <TransitionChild index={4}>
+          <div className="mt-12 border-t border-zinc-200 pt-12 dark:border-zinc-800">
+            <VisitorHeatmap />
+          </div>
         </TransitionChild>
       </div>
     </Wrapper>
