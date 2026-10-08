@@ -1,6 +1,12 @@
 {
+  "redirects": [
+    { "source": "/glance", "destination": "/glance/", "permanent": true }
+  ],
   "rewrites": [
+    { "source": "/glance/", "destination": "/glance/index.html" },
+    { "source": "/glance/:match*", "destination": "/glance/:match*" },
     { "source": "/proposta-:slug", "destination": "/api/proposta?slug=:slug" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
