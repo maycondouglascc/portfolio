@@ -49,11 +49,13 @@ async function saveInstalls(data, token) {
     await put(BLOB_PATH, JSON.stringify(data, null, 2), {
       access: "private",
       addRandomSuffix: false,
+      allowOverwrite: true,
       contentType: "application/json",
       token,
     })
   } catch (err) {
     console.error("Could not save installs to Blob:", err.message)
+    throw err
   }
 }
 
