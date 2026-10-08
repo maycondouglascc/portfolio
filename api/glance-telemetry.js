@@ -29,7 +29,7 @@ async function getStoredInstalls(token) {
   if (!token) return null
   try {
     const res = await get(BLOB_PATH, {
-      access: "public",
+      access: "private",
       token,
       useCache: false,
     })
@@ -47,7 +47,7 @@ async function saveInstalls(data, token) {
   if (!token) return
   try {
     await put(BLOB_PATH, JSON.stringify(data, null, 2), {
-      access: "public",
+      access: "private",
       addRandomSuffix: false,
       contentType: "application/json",
       token,
@@ -192,7 +192,11 @@ export default async function handler(req, res) {
     const combinedTotal = githubStats.totalDownloads + scriptTotal
 
     res.setHeader("Content-Type", "application/json; charset=utf-8")
-    res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=300")
+    if (req.query && (req.query.no_cache || req.query.fresh)) {
+      res.setHeader("Cache-Control", "no-store, max-age=0")
+    } else {
+      res.setHeader("Cache-Control", "public, s-maxage=30, stale-while-revalidate=120")
+    }
 
     return res.status(200).json({
       success: true,
