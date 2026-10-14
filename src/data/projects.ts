@@ -86,6 +86,7 @@ type LocalizedProject = {
   description: LocalizedText
   thumbnail: string
   hoverLottie?: string
+  hidden?: boolean
 }
 
 const projectsCatalog: LocalizedProject[] = [
@@ -116,6 +117,7 @@ const projectsCatalog: LocalizedProject[] = [
   },
   {
     slug: 'gskpromx',
+    hidden: true,
     title: {
       en: 'GSK Pro Mexico',
       pt: 'GSK Pro Mexico',
@@ -141,6 +143,18 @@ const projectsCatalog: LocalizedProject[] = [
 ]
 
 export function getProjects(language: Language): Project[] {
+  return projectsCatalog
+    .filter((project) => !project.hidden)
+    .map((project) => ({
+      slug: project.slug,
+      title: project.title[language],
+      description: project.description[language],
+      thumbnail: project.thumbnail,
+      hoverLottie: project.hoverLottie,
+    }))
+}
+
+export function getAllProjects(language: Language): Project[] {
   return projectsCatalog.map((project) => ({
     slug: project.slug,
     title: project.title[language],
