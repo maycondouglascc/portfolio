@@ -75,3 +75,17 @@ Analytics fire in development too (if `.env` is configured). To suppress analyti
 - Option 2: Add an `import.meta.env.PROD` guard around analytics initialization
 
 Currently there is no dev guard — analytics fire on localhost if the env vars are set.
+
+---
+
+## Visitor Geolocation & GitHub-Style Heatmap
+
+**Implementation:**
+- Serverless detection endpoint: `api/visitors.js` (reads Vercel `x-vercel-ip-city`, `x-vercel-ip-country`, `x-vercel-ip-country-region` headers)
+- Client-side tracking service: `src/services/visitorService.ts` (with multi-tier fallbacks: session storage, serverless endpoint, public IP APIs, and Intl timezone heuristic)
+- UI visualization: `src/components/VisitorHeatmap.tsx` (GitHub contribution graph + distribution bar for countries and cities)
+
+**Privacy & Characteristics:**
+- Anonymized: Only city and country are recorded/displayed; no IP address is stored or exposed.
+- Palette-integrated: Uses `--palette-accent-...` for heatmap levels and distribution bar, tinting seamlessly with Studio, Tide, Moss, Clay, and Iris palettes.
+- Localized: Full i18n support (`visitorStats` namespace in `en.ts` and `pt.ts`).

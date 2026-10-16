@@ -67,8 +67,8 @@ src/
     CaseStudy.tsx      # Dynamic case study renderer
 
   context/
-    AppearanceContext.tsx # palette state and operating system color scheme
-    LanguageContext.tsx   # useLanguage() + t() hook
+    ThemeContext.tsx   # useTheme() hook
+    LanguageContext.tsx # useLanguage() + t() hook
 
   data/
     projects.ts        # getProjects(language)
@@ -97,11 +97,12 @@ public/
 
 ```tsx
 const { language, setLanguage, t } = useLanguage()
+const { theme, resolvedTheme, setTheme } = useTheme()
 ```
 
 - `t("key.path")` — type-safe translation lookup
-- Language and selected color palette are persisted to `localStorage`
-- Light and dark appearance follow the operating system preference automatically
+- `resolvedTheme` — actual applied theme ("light" | "dark"), accounting for system preference
+- Language and theme are persisted to `localStorage`
 
 ---
 

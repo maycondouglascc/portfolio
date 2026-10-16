@@ -2,6 +2,7 @@ import Wrapper from "../components/Wrapper";
 import Intro from "../components/Intro";
 import ProjectsGrid from "../components/ProjectsGrid";
 import ExperienceList from "../components/ExperienceList";
+import VisitorHeatmap from "../components/VisitorHeatmap";
 import Footer from "../components/Footer";
 import { TransitionChild } from "../components/PageTransition";
 
@@ -19,8 +20,11 @@ function Home() {
           <TransitionChild index={2}>
             <ExperienceList />
           </TransitionChild>
+          <TransitionChild index={3}>
+            <VisitorHeatmap />
+          </TransitionChild>
         </main>
-        <TransitionChild index={3}>
+        <TransitionChild index={4}>
           <Footer />
         </TransitionChild>
       </div>

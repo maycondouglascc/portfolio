@@ -8,24 +8,17 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 
-const labelKeys: Record<
-  ViewMode,
-  "viewMode.visual" | "viewMode.overview" | "viewMode.detailed"
-> = {
+const labelKeys: Record<ViewMode, "viewMode.visual" | "viewMode.overview"> = {
   visual: "viewMode.visual",
   overview: "viewMode.overview",
-  detailed: "viewMode.detailed",
 };
 
 const descriptionKeys: Record<
   ViewMode,
-  | "viewMode.visualDescription"
-  | "viewMode.overviewDescription"
-  | "viewMode.detailedDescription"
+  "viewMode.visualDescription" | "viewMode.overviewDescription"
 > = {
   visual: "viewMode.visualDescription",
   overview: "viewMode.overviewDescription",
-  detailed: "viewMode.detailedDescription",
 };
 
 export default function ViewModeSelector() {

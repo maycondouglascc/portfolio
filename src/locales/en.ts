@@ -16,16 +16,7 @@ export const en = {
   settings: {
     label: "Appearance settings",
   },
-  palette: {
-    generate: "Generate another color palette (currently {name})",
-    names: {
-      studio: "Studio",
-      tide: "Tide",
-      moss: "Moss",
-      clay: "Clay",
-      iris: "Iris",
-    },
-  },
+
   intro: {
     greeting: "Hi, I'm Maycon",
     bio: "I've worked as a designer for 8 years and have experience in creating and maintaining websites, applications, SaaS, and design systems. My experience includes projects for multinational companies, via dti digital and BASE, and freelance work for different startups.",
@@ -67,5 +58,34 @@ export const en = {
   },
   localTime: {
     prefix: "Local time",
+  },
+  visitorStats: {
+    title: "Visitor origins",
+    subtitle: "{visits} visits from {cities} cities across {countries} countries",
+    currentLocation: "Visiting from {city}, {country}",
+    detectingLocation: "Detecting location…",
+    periodLabel: "Last 6 months",
+    totalVisits: "Total visits",
+    cities: "Cities",
+    countries: "Countries",
+    less: "Less",
+    more: "More",
+    weekdays: {
+      mon: "Mon",
+      wed: "Wed",
+      fri: "Fri",
+    },
+    tooltipSingular: "{count} visit on {date}",
+    tooltipPlural: "{count} visits on {date}",
+    tooltipEmpty: "No visits on {date}",
+    tooltipCities: "From: {cities}",
+    tabActivity: "Activity",
+    tabCountries: "Countries",
+    tabCities: "Cities",
+    otherCountries: "Other countries",
+    youIndicator: "You",
+    showMore: "Show more",
+    showLess: "Show less",
+    cellAriaLabel: "{count} visits on {date}",
   },
 } as const;

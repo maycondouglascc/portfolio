@@ -5,6 +5,7 @@
 
 import { useDialKit } from "dialkit"
 import type { Location } from "react-router-dom"
+import type { TransitionParams } from "./PageTransition"
 import {
   PageTransitionInner,
   DEFAULT_TIMING,
@@ -59,9 +60,10 @@ export function PageTransitionWithDialKit({
 
   return (
     <PageTransitionInner
-      children={children}
       routeLocation={routeLocation}
-      params={params}
-    />
+      params={params as unknown as TransitionParams}
+    >
+      {children}
+    </PageTransitionInner>
   )
 }
