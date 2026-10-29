@@ -401,7 +401,7 @@ function CaseStudy() {
                 <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
                   {t("caseStudy.seeOtherProjects")}
                 </h2>
-                <ul className="flex flex-row mb:flex-col gap-2">
+                <ul className="flex flex-col sm:flex-row gap-2">
                   {projects
                     .filter(
                       (project) =>
