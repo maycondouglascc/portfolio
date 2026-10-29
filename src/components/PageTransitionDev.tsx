@@ -58,10 +58,8 @@ export function PageTransitionWithDialKit({
   })
 
   return (
-    <PageTransitionInner
-      children={children}
-      routeLocation={routeLocation}
-      params={params}
-    />
+    <PageTransitionInner routeLocation={routeLocation} params={params}>
+      {children}
+    </PageTransitionInner>
   )
 }

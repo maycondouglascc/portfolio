@@ -9,7 +9,14 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'electrolux-comfort',
+    'tina',
+    'output',
+    'tmp',
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
