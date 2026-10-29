@@ -4,12 +4,15 @@ import ProjectsGrid from "../components/ProjectsGrid";
 import ExperienceList from "../components/ExperienceList";
 import Footer from "../components/Footer";
 import { TransitionChild } from "../components/PageTransition";
+import { usePageSeo } from "../hooks/usePageSeo";
 
 function Home() {
+  usePageSeo();
+
   return (
     <Wrapper>
       <div className="max-w-[600px] mx-auto">
-        <main id="main-content" className="flex flex-col gap-12">
+        <main id="main-content" className="flex flex-col gap-8 sm:gap-10">
           <TransitionChild index={0}>
             <Intro />
           </TransitionChild>

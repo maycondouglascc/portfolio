@@ -51,6 +51,8 @@ export const en = {
     coreGoal: "Core goal",
     scrollTop: "Scroll to the top",
     seeOtherProjects: "See other projects",
+    nextCaseEyebrow: "Next case study",
+    readNextCase: "Read next case study",
   },
   viewMode: {
     selectorLabel: "View mode",
