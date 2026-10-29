@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* ─────────────────────────────────────────────────────────
  * PAGE TRANSITION - ANIMATION STORYBOARD
  *
@@ -193,16 +194,16 @@ const PageTransitionWithDialKit = lazy(
 export function PageTransition({ children, routeLocation }: PageTransitionProps) {
   if (!import.meta.env.DEV) {
     return (
-      <PageTransitionInner
-        children={children}
-        routeLocation={routeLocation}
-        params={DEFAULT_PARAMS}
-      />
+      <PageTransitionInner routeLocation={routeLocation} params={DEFAULT_PARAMS}>
+        {children}
+      </PageTransitionInner>
     )
   }
   return (
     <Suspense fallback={null}>
-      <PageTransitionWithDialKit children={children} routeLocation={routeLocation} />
+      <PageTransitionWithDialKit routeLocation={routeLocation}>
+        {children}
+      </PageTransitionWithDialKit>
     </Suspense>
   )
 }
