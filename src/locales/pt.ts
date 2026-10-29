@@ -51,6 +51,8 @@ export const pt = {
     coreGoal: "Objetivo principal",
     scrollTop: "Voltar ao topo",
     seeOtherProjects: "Ver outros projetos",
+    nextCaseEyebrow: "Próximo estudo de caso",
+    readNextCase: "Ler próximo estudo de caso",
   },
   viewMode: {
     selectorLabel: "Modo de visualizacao",

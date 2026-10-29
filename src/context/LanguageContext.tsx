@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useState } from "react"
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react"
 import { en } from "../locales/en"
 import { pt } from "../locales/pt"
 
@@ -51,6 +51,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguageState(value)
     window.localStorage.setItem(STORAGE_KEY, value)
   }, [])
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = language === "pt" ? "pt-BR" : "en"
+    }
+  }, [language])
 
   const value = useMemo<LanguageContextValue>(() => {
     return {

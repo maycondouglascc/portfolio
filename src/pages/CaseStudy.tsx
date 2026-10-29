@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ChevronUp } from "react-feather";
 import { AnimatePresence, motion } from "motion/react";
@@ -18,6 +18,8 @@ import { TransitionChild } from "../components/PageTransition";
 import { useLanguage } from "../context/LanguageContext";
 import { useViewMode } from "../context/ViewModeContext";
 import { filterSectionsByMode } from "../utils/filterSectionsByMode";
+import { NextCaseCard } from "../components/case-study/NextCaseCard";
+import { usePageSeo } from "../hooks/usePageSeo";
 
 // ── Section renderer ──────────────────────────────────────────────
 
@@ -236,13 +238,10 @@ function CaseStudy() {
     });
   };
 
-  useEffect(() => {
-    const title = caseStudy?.title ?? project?.title ?? slug;
-    document.title = `${title} - ${t("meta.caseTitleSuffix")}`;
-    return () => {
-      document.title = t("meta.defaultTitle");
-    };
-  }, [caseStudy?.title, project?.title, slug, t]);
+  usePageSeo({
+    title: caseStudy?.title ?? project?.title ?? slug,
+    description: caseStudy?.description ?? project?.description,
+  });
 
   // ── No case study data yet — show placeholder ──
   if (!caseStudy) {
@@ -388,15 +387,19 @@ function CaseStudy() {
           </div>
         </TransitionChild>
 
+        <TransitionChild index={5}>
+          <NextCaseCard currentSlug={slug || ""} />
+        </TransitionChild>
+
         {!caseStudy.hideOtherProjects && (
           <>
             {/* ── Divider ── */}
-            <TransitionChild index={5}>
+            <TransitionChild index={6}>
               <hr className="mx-auto mb-0 mt-16 max-w-[1200px] border-0 border-t border-zinc-200 dark:border-zinc-800" />
             </TransitionChild>
 
             {/* ── See other projects ── */}
-            <TransitionChild index={6}>
+            <TransitionChild index={7}>
               <section className="flex flex-col gap-4 max-w-[1200px] mx-auto mt-16">
                 <h2 className="text-subheading-20-medium font-semibold text-zinc-900 dark:text-zinc-100">
                   {t("caseStudy.seeOtherProjects")}
