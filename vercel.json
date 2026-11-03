@@ -6,6 +6,11 @@
       "permanent": true
     },
     {
+      "source": "/glance/",
+      "destination": "https://glance.maycondouglas.work/",
+      "permanent": true
+    },
+    {
       "source": "/glance/:path*",
       "destination": "https://glance.maycondouglas.work/:path*",
       "permanent": true
