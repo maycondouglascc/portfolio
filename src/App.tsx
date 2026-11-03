@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react"
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from "react-router-dom"
 import Wrapper from "./components/Wrapper"
 import { AppearanceProvider } from "./context/AppearanceContext"
 import { ViewModeProvider } from "./context/ViewModeContext"
@@ -73,6 +73,8 @@ function AppContent() {
           </Suspense>
         }
       />
+      <Route path="/projects/gskpromx" element={<Navigate to="/" replace />} />
+      <Route path="/projects/thrivent-fp" element={<Navigate to="/" replace />} />
       <Route
         path="/projects/:slug"
         element={

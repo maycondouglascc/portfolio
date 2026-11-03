@@ -5,18 +5,8 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://maycondouglas.work/projects/thrivent-fp</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
+<url>
     <loc>https://maycondouglas.work/projects/danone-north-america</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://maycondouglas.work/projects/gskpromx</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

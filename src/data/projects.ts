@@ -91,18 +91,6 @@ type LocalizedProject = {
 
 const projectsCatalog: LocalizedProject[] = [
   {
-    slug: 'thrivent-fp',
-    title: {
-      en: 'Thrivent FP',
-      pt: 'Thrivent FP',
-    },
-    description: {
-      en: 'Building a design system foundation from scratch for a financial portal serving investment professionals, shipped in 4 weeks.',
-      pt: 'Construção da fundação do design system do zero para um portal financeiro voltado para profissionais de investimento, entregue em 4 semanas.',
-    },
-    thumbnail: '/files/case-thumbnails/project-thumbnail-4.png',
-  },
-  {
     slug: 'danone-north-america',
     title: {
       en: 'Danone North America',
@@ -114,19 +102,6 @@ const projectsCatalog: LocalizedProject[] = [
     },
     thumbnail: '/files/case-thumbnails/project-thumbnail-1.png',
     hoverLottie: 'danoneNorthAmerica',
-  },
-  {
-    slug: 'gskpromx',
-    hidden: true,
-    title: {
-      en: 'GSK Pro Mexico',
-      pt: 'GSK Pro Mexico',
-    },
-    description: {
-      en: "Redesigning GSK Mexico's portal with a scalable template system and personalized content architecture tailored to medical specialties",
-      pt: 'Redesign do portal da GSK Mexico com um sistema de templates escalavel e arquitetura de conteudo personalizada para especialidades medicas.',
-    },
-    thumbnail: '/files/case-thumbnails/project-thumbnail-2.png',
   },
   {
     slug: 'vendd-web',

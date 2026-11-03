@@ -37,7 +37,8 @@ describe("Home Page", () => {
   it("renders projects section with case study cards", () => {
     renderHome()
 
-    expect(screen.getByText("Thrivent FP")).toBeInTheDocument()
+    expect(screen.queryByText("Thrivent FP")).not.toBeInTheDocument()
+    expect(screen.queryByText("GSK Pro Mexico")).not.toBeInTheDocument()
     expect(screen.getAllByText(/Danone/i).length).toBeGreaterThan(0)
   })
 
