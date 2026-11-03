@@ -1,11 +1,13 @@
 import type { CaseStudyData } from '../projects'
 import type { Language } from '../../context/LanguageContext'
 import danoneStudy from './danone'
+import venddStudy from './vendd'
 
 type CaseStudyFactory = (language: Language) => CaseStudyData
 
 const caseStudies: Record<string, CaseStudyFactory> = {
   'danone-north-america': danoneStudy,
+  'vendd-web': venddStudy,
 }
 
 export const caseStudySlugs = new Set<string>(Object.keys(caseStudies))
