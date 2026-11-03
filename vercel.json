@@ -2,7 +2,12 @@
   "redirects": [
     {
       "source": "/glance",
-      "destination": "/glance/",
+      "destination": "https://glance.maycondouglas.work/",
+      "permanent": true
+    },
+    {
+      "source": "/glance/:path*",
+      "destination": "https://glance.maycondouglas.work/:path*",
       "permanent": true
     },
     {
@@ -17,14 +22,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/glance/",
-      "destination": "/glance/index.html"
-    },
-    {
-      "source": "/glance/:match*",
-      "destination": "/glance/:match*"
-    },
     {
       "source": "/proposta-:slug",
       "destination": "/api/proposta?slug=:slug"
