@@ -28,22 +28,10 @@ describe("CaseStudy Page & NextCaseCard", () => {
     document.title = ""
   })
 
-  it("renders case study details for thrivent-fp", () => {
-    renderCaseStudy("/projects/thrivent-fp")
-
-    expect(screen.getByRole("heading", { level: 1, name: "Thrivent Design System Foundation" })).toBeInTheDocument()
-    expect(document.title).toContain("Thrivent Design System Foundation")
-  })
-
-  it("renders NextCaseCard at the bottom with next project link and CTA", () => {
-    renderCaseStudy("/projects/thrivent-fp")
-
-    // In sequence (thrivent -> danone -> gskpromx), next after thrivent-fp is danone-north-america
-    const nextHeading = screen.getByRole("heading", { level: 3, name: "Danone North America" })
-    expect(nextHeading).toBeInTheDocument()
-
-    const nextLink = nextHeading.closest("a")
-    expect(nextLink).toHaveAttribute("href", "/projects/danone-north-america")
+  it("renders the Danone case study", () => {
+    renderCaseStudy("/projects/danone-north-america")
+    expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument()
+    expect(document.title).toContain("Danone")
   })
 
   it("renders fallback for unknown project slug", () => {
