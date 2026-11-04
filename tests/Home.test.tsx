@@ -29,7 +29,7 @@ describe("Home Page", () => {
   it("renders intro with avatar, greeting and resume link", () => {
     renderHome()
 
-    expect(screen.getByAltText("Maycon's profile picture")).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: "Maycon Douglas" })).toBeInTheDocument()
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument()
     expect(screen.getAllByText(/designer/i).length).toBeGreaterThan(0)
   })

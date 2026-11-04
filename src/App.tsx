@@ -93,9 +93,11 @@ function AppContent() {
       <a href="#main-content" className="skip-to-content">
         {t("app.skipToContent")}
       </a>
-      <div className="fixed right-3 top-3 z-40 sm:right-5 sm:top-5">
-        <SettingsBar />
-      </div>
+      {location.pathname !== "/" && (
+        <div className="fixed right-3 top-3 z-40 sm:right-5 sm:top-5">
+          <SettingsBar />
+        </div>
+      )}
       <div className="px-1 py-1 sm:px-2 sm:py-2">
         <Suspense fallback={routeElements}>
           <PageTransition routeLocation={location}>{routeElements}</PageTransition>

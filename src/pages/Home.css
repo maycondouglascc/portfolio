@@ -1,0 +1,82 @@
+.redesign-home { background: #111; color: #eaeaeb; min-height: 100vh; font-family: Inter, sans-serif; font-size: 15px; line-height: 24px; }
+.redesign-shell { max-width: 1440px; margin: 0 auto; padding: 40px; }
+.redesign-hero { padding: 200px 0 80px; }
+.redesign-hero-content { width: 600px; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+.redesign-hero h1, .redesign-label { font-size: 15px; font-weight: 500; line-height: 24px; }
+.redesign-hero p { color: #989ba0; margin: 0; }
+.redesign-home a { color: #95acda; text-decoration: none; }
+.redesign-hero a, .redesign-contacts, .redesign-label-link { color: #95acda; font-weight: 500; }
+.redesign-hero a:hover, .redesign-contacts a:hover, .redesign-contacts button:hover, .redesign-label-link:hover { color: #c5d4f1; }
+.redesign-home .redesign-card:hover { text-decoration: none; }
+.redesign-home a, .redesign-home button { transition: color 150ms ease; }
+@media (prefers-reduced-motion: no-preference) { html:has(.redesign-home) { scroll-behavior: smooth; } }
+.redesign-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 600px) minmax(0, 1fr); }
+.redesign-sidebar { grid-column: 1; justify-self: stretch; min-width: 0; padding-top: 80px; }
+.redesign-content { grid-column: 2; min-width: 0; }
+.redesign-row { padding: 80px 0; scroll-margin-top: 24px; }
+.redesign-nav { --nav-index: 0; position: sticky; top: calc(96px - var(--nav-index) * 34px); width: 200px; margin-left: calc(24px - (40px + max(0px, (100vw - 1440px) / 2))); display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 8px; font-weight: 500; background: #111; }
+.redesign-nav[data-scrolled="true"]::before { content: ''; position: absolute; z-index: 1; top: 0; left: 0; width: 100%; height: 58px; background: linear-gradient(#111, transparent); pointer-events: none; }
+.redesign-nav[data-active="side-projects"] { --nav-index: 1; }
+.redesign-nav[data-active="experience"] { --nav-index: 2; }
+.redesign-nav[data-active="recommendations"] { --nav-index: 3; }
+.redesign-nav:hover::before, .redesign-nav:focus-within::before { opacity: 0; }
+.redesign-nav::before { transition: opacity 150ms ease; }
+.redesign-nav-item { display: flex; align-items: baseline; white-space: nowrap; }
+.redesign-nav-item > a:first-child { color: #7c7c7c; line-height: 24px; }
+.redesign-nav-item > a:first-child[aria-current] { color: #eaeaeb; }
+.redesign-nav-item > a:first-child:hover { color: #eaeaeb; }
+.redesign-list { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.redesign-card { display: flex; align-items: stretch; overflow: hidden; border-radius: 8px; background: rgba(48,47,50,.4); color: #eaeaeb; }
+.redesign-case { height: 240px; }
+.redesign-case-image { width: 343px; height: 240px; object-fit: cover; flex: none; }
+.redesign-card-copy { min-width: 0; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 24px 32px; }
+.redesign-card-copy h2, .redesign-card-copy strong { font-size: 15px; line-height: 23px; font-weight: 500; }
+.redesign-card-copy p, .redesign-card-copy > span { margin: 0; color: #9a98a0; font-size: 14px; line-height: 22px; }
+.redesign-side-card { height: 150px; }
+.redesign-side-image { width: 46%; background: #2f3032; display: flex; align-items: center; justify-content: center; }
+
+.redesign-side-card .redesign-card-copy { padding: 24px; }
+.redesign-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.redesign-label-link { display: inline-flex; align-items: center; padding-left: 8px; font-size: 14px; }
+
+.redesign-experience { display: flex; flex-direction: column; gap: 12px; color: #9a98a0; font-size: 14px; line-height: 22px; }
+.redesign-job { display: flex; justify-content: space-between; gap: 12px; }
+.redesign-job-company { display: flex; align-items: center; gap: 8px; min-height: 24px; color: #eaeaeb; }
+.redesign-job-company strong { font-weight: 500; }
+.redesign-logo { width: 40px; height: 24px; display: flex; align-items: center; justify-content: center; flex: none; }
+.redesign-logo img { max-width: 40px; max-height: 20px; }
+.redesign-job-description { padding-left: 48px; display: flex; flex-direction: column; gap: 10px; }
+.redesign-job-description p { margin: 0; }
+.redesign-job time { white-space: nowrap; }
+.redesign-testimonial { margin: 0; padding: 24px; border-radius: 4px; background: rgba(48,47,50,.4); }
+.redesign-testimonial blockquote { display: flex; flex-direction: column; gap: 24px; margin: 0 0 16px; }
+.redesign-testimonial blockquote p { margin: 0; }
+.redesign-testimonial figcaption { display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 22px; }
+.redesign-testimonial figcaption strong { font-weight: 500; line-height: 23px; }
+.redesign-testimonial figcaption span { color: #9a98a0; }
+.redesign-contacts { display: flex; align-items: flex-start; gap: 12px; line-height: 23px; }
+.redesign-contacts button { border: 0; padding: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.redesign-contacts a { color: inherit; }
+.redesign-home :focus-visible { outline: 2px solid #95acda; outline-offset: 4px; }
+@media (max-width: 960px) {
+  .redesign-shell { padding: 24px 20px; }
+  .redesign-hero { padding: 96px 0 48px; }
+  .redesign-sections { display: block; }
+  .redesign-sidebar { display: none; }
+  .redesign-content { width: min(100%, 600px); margin: 0 auto; }
+  .redesign-row { padding: 48px 0; scroll-margin-top: 24px; }
+  .redesign-label { position: static; width: auto; height: auto; margin: 0 0 24px; overflow: visible; clip: auto; white-space: normal; }
+
+  .redesign-case { height: auto; flex-direction: column; }
+  .redesign-case-image { width: 100%; height: auto; aspect-ratio: 343 / 240; }
+  .redesign-case .redesign-card-copy { padding: 24px; }
+  .redesign-side-image { width: 42%; }
+  .redesign-job { flex-wrap: wrap; }
+  .redesign-job time { padding-left: 48px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .redesign-nav { transition: top 200ms cubic-bezier(0.23, 1, 0.32, 1); }
+  .redesign-nav .redesign-label-link { animation: linkedin-enter 180ms ease-in both; }
+  @keyframes linkedin-enter { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0); } }
+}
