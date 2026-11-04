@@ -50,4 +50,19 @@ describe("Home Page", () => {
     expect(metaDesc).not.toBeNull()
     expect(metaDesc?.getAttribute("content")).toContain("Maycon Douglas")
   })
+
+  it("renders recommendations with updated roles and Glance external link", () => {
+    renderHome()
+
+    expect(screen.getByText("CTO na Vendd")).toBeInTheDocument()
+    expect(screen.getByText("Coordenadora de Design na VML")).toBeInTheDocument()
+    expect(screen.getByText("Líder de Design na VML")).toBeInTheDocument()
+    expect(screen.getByText("Product Owner na VML")).toBeInTheDocument()
+    expect(screen.getByText("Product Designer na VML")).toBeInTheDocument()
+
+    const glanceLink = screen.getByRole("link", { name: /Glance/i })
+    expect(glanceLink).toHaveAttribute("href", "https://glance.maycondouglas.work/")
+    expect(glanceLink).toHaveAttribute("target", "_blank")
+    expect(glanceLink).toHaveAttribute("rel", "noreferrer")
+  })
 })
