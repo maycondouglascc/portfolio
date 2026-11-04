@@ -298,7 +298,7 @@ function Home() {
 
         <div className="redesign-sections">
           <aside className="redesign-sidebar">
-            <nav className="redesign-nav" aria-label="Page sections" data-active={activeSection} data-scrolled={activeSection !== 'case-studies'}>
+            <nav className="redesign-nav" aria-label="Page sections">
               {currentCopy.sections.map(([id, label]) => (
                 <div className="redesign-nav-item" key={id}>
                   <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined}>{label}</a>
