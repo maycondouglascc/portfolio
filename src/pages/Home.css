@@ -49,7 +49,7 @@
 .redesign-job-description p { margin: 0; }
 .redesign-job time { white-space: nowrap; }
 .redesign-testimonial { margin: 0; padding: 24px; border-radius: 4px; background: rgba(48,47,50,.4); }
-.redesign-testimonial blockquote { display: flex; flex-direction: column; gap: 24px; margin: 0 0 16px; }
+.redesign-testimonial blockquote { display: flex; flex-direction: column; gap: 12px; margin: 0 0 16px; }
 .redesign-testimonial blockquote p { margin: 0; }
 .redesign-testimonial figcaption { display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 22px; }
 .redesign-testimonial figcaption strong { font-weight: 500; line-height: 23px; }
