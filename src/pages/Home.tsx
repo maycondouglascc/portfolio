@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Download } from 'react-feather'
 import { usePageSeo } from '../hooks/usePageSeo'
+import resumePdf from '../assets/resume/curriculomaycondouglas.pdf'
 import './Home.css'
 
 const sections = [
@@ -126,8 +128,46 @@ function Home() {
         <section className="redesign-row" id="experience">
           <h2 className="redesign-label">Experience</h2>
           <div className="redesign-experience">
-            <div className="redesign-job"><div><div className="redesign-job-company"><span className="redesign-logo"><img src="/files/redesign/wpp.svg" alt="" /></span><strong>WPP Enterprise Solutions</strong></div><div className="redesign-job-description"><p>Product Designer</p><p>Atuação em projetos internacionais, com foco em reestruturação de produtos digitais.</p></div></div><time>Jan 2022 - Now</time></div>
-            <div className="redesign-job"><div><div className="redesign-job-company"><span className="redesign-logo"><img src="/files/redesign/base.svg" alt="" /></span><strong>WPP Enterprise Solutions</strong></div><div className="redesign-job-description"><p>UI Designer</p></div></div><time>Dec 2020 - Jan 2022</time></div>
+            <div className="redesign-job">
+              <div>
+                <div className="redesign-job-company">
+                  <span className="redesign-logo"><img src="/files/redesign/wpp.svg" alt="" /></span>
+                  <strong>WPP Enterprise Solutions</strong>
+                </div>
+                <div className="redesign-job-description">
+                  <p>Product Designer</p>
+                  <p>Design de produtos digitais (UX/UI), Design Systems e arquitetura de informação para plataformas corporativas internacionais (finanças, saúde e CMS enterprise). Prototipação funcional, validação com stakeholders, handoff técnico e QA de interface.</p>
+                  <p className="redesign-job-stack"><strong>Stack:</strong> Figma, Claude, Codex, Motion, Tailwind CSS</p>
+                </div>
+              </div>
+              <time>Jan 2022 - Now</time>
+            </div>
+            <div className="redesign-job">
+              <div>
+                <div className="redesign-job-company">
+                  <span className="redesign-logo"><img src="/files/redesign/base.svg" alt="" /></span>
+                  <strong>BASE Digital</strong>
+                </div>
+                <div className="redesign-job-description">
+                  <p>UI Designer</p>
+                  <p>Design de interfaces (UI) e visual design para plataformas de relacionamento e serviços digitais (Duratex, Oncoclínicas), integrando programas de fidelidade, gamificação e telemedicina.</p>
+                  <p className="redesign-job-stack"><strong>Stack:</strong> Figma, Suite Adobe</p>
+                </div>
+              </div>
+              <time>Dec 2020 - Jan 2022</time>
+            </div>
+          </div>
+          <div className="redesign-experience-actions">
+            <a
+              className="redesign-resume-link"
+              href={resumePdf}
+              target="_blank"
+              rel="noreferrer"
+              download="curriculo-maycon-douglas.pdf"
+            >
+              <Download size={16} aria-hidden="true" />
+              <span>Currículo</span>
+            </a>
           </div>
         </section>
 

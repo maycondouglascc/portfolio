@@ -65,4 +65,18 @@ describe("Home Page", () => {
     expect(glanceLink).toHaveAttribute("target", "_blank")
     expect(glanceLink).toHaveAttribute("rel", "noreferrer")
   })
+
+  it("renders updated experience with BASE Digital and resume download link", () => {
+    renderHome()
+
+    expect(screen.getByText("BASE Digital")).toBeInTheDocument()
+    expect(screen.getByText("WPP Enterprise Solutions")).toBeInTheDocument()
+    expect(screen.getByText(/Claude, Codex, Motion, Tailwind CSS/)).toBeInTheDocument()
+    expect(screen.getByText(/Figma, Suite Adobe/)).toBeInTheDocument()
+
+    const resumeLink = screen.getByRole("link", { name: /currículo/i })
+    expect(resumeLink).toBeInTheDocument()
+    expect(resumeLink).toHaveAttribute("target", "_blank")
+    expect(resumeLink).toHaveAttribute("download", "curriculo-maycon-douglas.pdf")
+  })
 })
