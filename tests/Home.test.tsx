@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from "vitest"
-import { render, screen } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 import Home from "../src/pages/Home"
 import { LanguageProvider } from "../src/context/LanguageContext"
@@ -54,11 +54,11 @@ describe("Home Page", () => {
   it("renders recommendations with updated roles and Glance external link", () => {
     renderHome()
 
-    expect(screen.getByText("CTO na Vendd")).toBeInTheDocument()
-    expect(screen.getByText("Coordenadora de Design na VML")).toBeInTheDocument()
-    expect(screen.getByText("Líder de Design na VML")).toBeInTheDocument()
-    expect(screen.getByText("Product Owner na VML")).toBeInTheDocument()
-    expect(screen.getByText("Product Designer na VML")).toBeInTheDocument()
+    expect(screen.getByText("CTO at Vendd")).toBeInTheDocument()
+    expect(screen.getByText("Design Coordinator at VML")).toBeInTheDocument()
+    expect(screen.getByText("Design Lead at VML")).toBeInTheDocument()
+    expect(screen.getByText("Product Owner at VML")).toBeInTheDocument()
+    expect(screen.getByText("Product Designer at VML")).toBeInTheDocument()
 
     const glanceLink = screen.getByRole("link", { name: /Glance/i })
     expect(glanceLink).toHaveAttribute("href", "https://glance.maycondouglas.work/")
@@ -74,9 +74,31 @@ describe("Home Page", () => {
     expect(screen.getByText(/Claude, Codex, Motion, Tailwind CSS/)).toBeInTheDocument()
     expect(screen.getByText(/Figma, Suite Adobe/)).toBeInTheDocument()
 
-    const resumeLink = screen.getByRole("link", { name: /currículo/i })
+    const resumeLink = screen.getByRole("link", { name: /resume/i })
     expect(resumeLink).toBeInTheDocument()
     expect(resumeLink).toHaveAttribute("target", "_blank")
-    expect(resumeLink).toHaveAttribute("download", "curriculo-maycon-douglas.pdf")
+    expect(resumeLink).toHaveAttribute("download", "maycon-douglas-resume.pdf")
+  })
+
+  it("toggles language between English and Portuguese using the minimal language selector", () => {
+    renderHome()
+
+    const ptButton = screen.getByRole("radio", { name: "PT" })
+    fireEvent.click(ptButton)
+
+    expect(screen.getByText("CTO na Vendd")).toBeInTheDocument()
+    expect(screen.getByText("Coordenadora de Design na VML")).toBeInTheDocument()
+    expect(screen.getByText("Líder de Design na VML")).toBeInTheDocument()
+    expect(screen.getByText("Danone América do Norte")).toBeInTheDocument()
+
+    const ptResumeLink = screen.getByRole("link", { name: /currículo/i })
+    expect(ptResumeLink).toBeInTheDocument()
+    expect(ptResumeLink).toHaveAttribute("download", "curriculo-maycon-douglas.pdf")
+
+    const enButton = screen.getByRole("radio", { name: "EN" })
+    fireEvent.click(enButton)
+
+    expect(screen.getByText("CTO at Vendd")).toBeInTheDocument()
+    expect(screen.getByText("Danone North America")).toBeInTheDocument()
   })
 })
