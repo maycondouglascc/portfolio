@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Download } from 'react-feather'
 import { usePageSeo } from '../hooks/usePageSeo'
@@ -12,32 +12,86 @@ const sections = [
   ['recommendations', 'Recommendations'],
 ] as const
 
-const testimonials = [
+interface Testimonial {
+  name: string
+  role: string
+  paragraphs: ReactNode[]
+}
+
+const testimonials: Testimonial[] = [
   {
     name: 'Isaías Ramos',
     role: 'CTO na Vendd',
-    paragraphs: ['O Maycon é super atencioso e sempre demonstra muita paciência em todo o processo de construção e refinamento das ideias. Ele não se contenta só em fazer algo bonito, está sempre disposto a entender o negócio, os objetivos por trás do projeto e como aquilo vai impactar de verdade o usuário. Se dedica de verdade e faz questão de entregar algo que funcione bem pra todos os lados.']
+    paragraphs: [
+      <>
+        O Maycon é super atencioso e sempre demonstra muita paciência em todo o processo de construção e refinamento das ideias.{' '}
+        <mark className="redesign-highlight">
+          Ele não se contenta só em fazer algo bonito, está sempre disposto a entender o negócio, os objetivos por trás do projeto e como aquilo vai impactar de verdade o usuário.
+        </mark>{' '}
+        Se dedica de verdade e faz questão de entregar algo que funcione bem pra todos os lados.
+      </>
+    ]
   },
   {
     name: 'Florencia Rodriguez',
     role: 'Coordenadora de Design na VML',
-    paragraphs: ['Contar com o Maycon em um projeto é ter tranquilidade. É saber que vai sair bem feito, nas mãos de alguém que sempre quer dar o seu melhor.', 'Nos quase quatro anos em que trabalhamos juntos, acompanhei de perto o talento do Maycon, que já era evidente desde o início, se desdobrar em algo ainda maior: consistência, curiosidade e um senso genuíno de responsabilidade.', 'Inconformidade com o status quo, sempre questionando. sede por conhecimento, sempre em treinamento, e empatia tanto com seus pares quanto usuários.']
+    paragraphs: [
+      <>
+        <mark className="redesign-highlight">Contar com o Maycon em um projeto é ter tranquilidade. É saber que vai sair bem feito</mark>, nas mãos de alguém que sempre quer dar o seu melhor.
+      </>,
+      <>
+        Nos quase quatro anos em que trabalhamos juntos, acompanhei de perto o talento do Maycon, que já era evidente desde o início, se desdobrar em algo ainda maior:{' '}
+        <mark className="redesign-highlight">consistência, curiosidade e um senso genuíno de responsabilidade</mark>.
+      </>,
+      <>
+        Inconformidade com o status quo, sempre questionando. sede por conhecimento, sempre em treinamento, e empatia tanto com seus pares quanto usuários.
+      </>
+    ]
   },
   {
     name: 'Paula Vio',
     role: 'Líder de Design na VML',
-    paragraphs: ['Sempre aprendemos alguma coisa quando trabalhamos com o Maycon; do Discovery à Prototipação sua entrega se destaca.', 'Super atento, criativo e com um olhar crítico, traz inovação, agilidade e qualidade para os projetos. Tem sempre na manga uma nova ferramenta, um novo processo e está sempre estudando para levar sua entrega a um outro nível.', 'Além disso, como sua gestora, vejo no Maycon um perfil receptivo à feedbacks e sempre em busca de aprender e evoluir.']
+    paragraphs: [
+      <>
+        Sempre aprendemos alguma coisa quando trabalhamos com o Maycon;{' '}
+        <mark className="redesign-highlight">do Discovery à Prototipação sua entrega se destaca</mark>.
+      </>,
+      <>
+        Super atento, criativo e com um olhar crítico,{' '}
+        <mark className="redesign-highlight">traz inovação, agilidade e qualidade para os projetos</mark>. Tem sempre na manga uma nova ferramenta, um novo processo e está sempre estudando para levar sua entrega a um outro nível.
+      </>,
+      <>
+        Além disso, como sua gestora, vejo no Maycon um{' '}
+        <mark className="redesign-highlight">perfil receptivo à feedbacks e sempre em busca de aprender e evoluir</mark>.
+      </>
+    ]
   },
   {
     name: 'Verusa Domethildes',
     role: 'Product Owner na VML',
-    paragraphs: ['Trabalhei com o Maycon no projeto [confidencial], onde pude constatar sua criatividade e foco em soluções. Mesmo diante das limitações técnicas impostas pela framework do cliente, ele sempre encontrava alternativas inovadoras para atender às demandas. Destaco também sua parceria e apoio em reuniões desafiadoras, registrando combinados e defendendo aspectos técnicos. Ah, e ele tem muita habilidade no uso de IA para otimizar soluções. Além de ser uma pessoa de ótima convivência.']
+    paragraphs: [
+      <>
+        Trabalhei com o Maycon no projeto [confidencial], onde pude constatar sua criatividade e foco em soluções.{' '}
+        <mark className="redesign-highlight">
+          Mesmo diante das limitações técnicas impostas pela framework do cliente, ele sempre encontrava alternativas inovadoras para atender às demandas.
+        </mark>{' '}
+        Destaco também sua parceria e apoio em reuniões desafiadoras, registrando combinados e defendendo aspectos técnicos. Ah, e ele tem{' '}
+        <mark className="redesign-highlight">muita habilidade no uso de IA para otimizar soluções</mark>. Além de ser uma pessoa de ótima convivência.
+      </>
+    ]
   },
   {
     name: 'Micael Ilieff Porto',
     role: 'Product Designer na VML',
-    paragraphs: ['Um colega de equipe valioso, sempre se mostrou aberto a conversas e trocas de experiências. Quaisquer sejam os desafios, Maycon se empenha em sempre trazer novos assuntos, práticas e técnicas para discussão, construindo assim, um ambiente saudável e que estimule o desenvolvimento de todos na equipe. Tenho um prazer enorme em participar dos mesmos projetos!']
-  },
+    paragraphs: [
+      <>
+        Um colega de equipe valioso, sempre se mostrou aberto a conversas e trocas de experiências. Quaisquer sejam os desafios, Maycon se empenha em sempre trazer novos assuntos, práticas e técnicas para discussão,{' '}
+        <mark className="redesign-highlight">
+          construindo assim, um ambiente saudável e que estimule o desenvolvimento de todos na equipe
+        </mark>. Tenho um prazer enorme em participar dos mesmos projetos!
+      </>
+    ]
+  }
 ]
 
 function Home() {
@@ -177,7 +231,7 @@ function Home() {
             {testimonials.map(({ name, role, paragraphs }) => (
               <figure className="redesign-testimonial" key={name}>
                 <blockquote>
-                  {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
                 </blockquote>
                 <figcaption>
                   <strong>{name}</strong>

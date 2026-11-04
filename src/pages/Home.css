@@ -53,8 +53,17 @@
 .redesign-resume-link:hover { color: #c5d4f1; }
 .redesign-job time { white-space: nowrap; }
 .redesign-testimonial { margin: 0; padding: 24px; border-radius: 4px; background: rgba(48,47,50,.4); }
-.redesign-testimonial blockquote { display: flex; flex-direction: column; gap: 12px; margin: 0 0 16px; }
-.redesign-testimonial blockquote p { margin: 0; }
+.redesign-testimonial blockquote { display: flex; flex-direction: column; gap: 12px; margin: 0 0 16px; color: #b3b5bb; }
+.redesign-testimonial blockquote p { margin: 0; line-height: 25px; }
+.redesign-highlight {
+  background: rgba(255, 255, 255, 0.09);
+  color: #f5f5f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-weight: 500;
+}
 .redesign-testimonial figcaption { display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 22px; }
 .redesign-testimonial figcaption strong { font-weight: 500; line-height: 23px; }
 .redesign-testimonial figcaption span { color: #9a98a0; }
