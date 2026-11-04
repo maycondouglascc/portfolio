@@ -81,10 +81,6 @@ function Home() {
         <section className="redesign-row redesign-projects" id="case-studies" aria-label="Case studies">
           <h2 className="redesign-label">Case studies</h2>
           <div className="redesign-list">
-            <article className="redesign-card redesign-case">
-              <img className="redesign-case-image" src="/files/redesign/vendd.png" alt="" />
-              <div className="redesign-card-copy"><h2>Vendd</h2><p>Saas web and app design</p></div>
-            </article>
             <Link className="redesign-card redesign-case" to="/projects/danone-north-america">
               <img className="redesign-case-image" src="/files/redesign/danone.png" alt="" />
               <div className="redesign-card-copy"><h2>Danone America do Norte</h2><p>Website redesign</p></div>
@@ -99,10 +95,6 @@ function Home() {
               <span className="redesign-side-image"><img src="/files/redesign/glance.svg" alt="" /></span>
               <span className="redesign-card-copy"><strong>Glance</strong><span>Monitor de processos para Linux</span></span>
             </a>
-            <article className="redesign-card redesign-side-card">
-              <span className="redesign-side-image"><img src="/files/redesign/glance.svg" alt="" /></span>
-              <span className="redesign-card-copy"><strong>Webcrawler</strong><span>Lightweight web crawler app</span></span>
-            </article>
           </div>
         </section>
 
