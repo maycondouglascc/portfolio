@@ -71,6 +71,8 @@ describe("Home Page", () => {
 
     expect(screen.getByText("BASE Digital")).toBeInTheDocument()
     expect(screen.getByText("WPP Enterprise Solutions")).toBeInTheDocument()
+    expect(screen.getByText(/Interfaces and systems for global brands/)).toBeInTheDocument()
+    expect(screen.getByText(/Interfaces and visual systems for digital platforms/)).toBeInTheDocument()
     expect(screen.getByText(/Claude, Codex, Motion, Tailwind CSS/)).toBeInTheDocument()
     expect(screen.getByText(/Figma, Suite Adobe/)).toBeInTheDocument()
 
@@ -90,6 +92,8 @@ describe("Home Page", () => {
     expect(screen.getByText("Coordenadora de Design na VML")).toBeInTheDocument()
     expect(screen.getByText("Líder de Design na VML")).toBeInTheDocument()
     expect(screen.getByText("Danone América do Norte")).toBeInTheDocument()
+    expect(screen.getByText(/Interfaces e sistemas para marcas globais/)).toBeInTheDocument()
+    expect(screen.getByText(/Interfaces e sistemas visuais para plataformas digitais/)).toBeInTheDocument()
 
     const ptResumeLink = screen.getByRole("link", { name: /currículo/i })
     expect(ptResumeLink).toBeInTheDocument()
