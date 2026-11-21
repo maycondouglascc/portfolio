@@ -1,0 +1,55 @@
+Maycon Douglas
+PRODUCT DESIGNER (UX/UI)
+Portfólio: maycondouglas.work | LinkedIn: linkedin.com/in/maycondouglascc
+E-mail: hi@maycondouglas.work
+
+Product Designer (UX/UI) com experiência no ciclo completo de design, da pesquisa exploratória e discovery à
+prototipação, validação com stakeholders e handoff. Atuação em produtos financeiros e plataformas digitais,
+transformando problemas complexos de negócio em experiências intuitivas, claras e consistentes. Perfil analítico,
+organizado e autônomo, com domínio de Figma e colaboração com Engenharia para equilibrar necessidades dos
+usuários, objetivos do negócio e viabilidade técnica.
+EXPERIÊNCIA PROFISSIONAL
+dti digital | Product Designer | set. 2024 - atual
+- GSK Pro México: realizei pesquisa qualitativa exploratória por meio de entrevistas com stakeholders, benchmark e
+análise de conteúdo. Conectei os achados aos indicadores de uso do discovery para identificar fricções de navegação
+e oportunidades de melhoria na experiência.
+- Fundamentei propostas de arquitetura de informação e jornadas em evidências: 62% dos profissionais relatavam
+dificuldade para localizar informações e mais de 300 páginas tinham menos de dez visitas em seis meses. Contribuí
+para sete jornadas por especialidade e mais de dez templates escaláveis.
+- Criei protótipos de alta fidelidade no Figma, validei soluções com stakeholders e traduzi decisões em documentação e
+handoff. Organizei padrões de conteúdo e interface para garantir clareza, usabilidade e consistência entre áreas
+terapêuticas.
+- Thrivent Asset Management: conduzi com autonomia o planejamento e a execução da fundação de um design system
+financeiro em quatro semanas. Defini etapas, entregáveis e prazos, comuniquei o racional à liderança de Design e
+alinhei componentes e tokens com desenvolvedores.
+- Prototipei fluxos de análise de fundos em React com Figma Make e Claude Code, verificando comportamento de
+filtros, tabelas, responsividade e navegação por teclado. Documentei componentes e especificações para facilitar a
+implementação e a evolução consistente da plataforma.
+
+VML (anteriormente Wunderman Thompson Technology) | Product Designer | jan. 2022 - set. 2024
+- DLL / AGCO Finance: transformei necessidades da operação comercial em interfaces para simulações financeiras
+offline-first. Considerei o contexto de uso dos vendedores em campo para simplificar a jornada, ampliar a autonomia e
+reduzir a dependência do back-office.
+- Danone North America: desenhei interfaces e mais de 20 componentes reutilizáveis no Figma para jornadas de
+consumidores, investidores e imprensa. Realizei revisão heurística e QA de acessibilidade e responsividade;
+documentei padrões de interação e especificações para desenvolvimento. O redesign foi acompanhado por
+crescimento de tráfego superior a 150% ante o ano anterior.
+
+BASE Digital | Product Designer | dez. 2020 - jan. 2022
+- Duratex: desenhei interfaces para o Clube Duratex, traduzindo objetivos de relacionamento e segmentação de
+marketing em uma experiência de fidelidade para marceneiros.
+- Oncoclínicas: participei da concepção e entrega do portal em cinco meses, organizando interfaces para acesso a
+conteúdo especializado e serviços de telemedicina e agendamento.
+
+COMPETÊNCIAS E FERRAMENTAS
+Product Design; UX/UI; design centrado no usuário; pesquisa qualitativa exploratória; entrevistas com
+stakeholders; análise de dados de uso; pensamento analítico; resolução de problemas; arquitetura de informação;
+mapeamento de jornadas e fluxos; design de interação; protótipos de alta fidelidade; validação com stakeholders;
+revisão heurística; usabilidade; acessibilidade; design systems; especificações e handoff. Figma avançado, FigJam,
+HTML, CSS, JavaScript e React.
+CURSOS E CERTIFICAÇÕES
+Design Circuit - Product Design | Meiuca - Design System Specialist
+Design Boost - Design de Interação | Webflow Practitioner Certification
+Idiomas: português nativo | inglês profissional (B2).
+
+

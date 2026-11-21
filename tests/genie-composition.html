@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Genie composition regression</title>
+<style>
+  body { margin: 0; font: 14px system-ui; background: #f7f8fb; }
+  #checks { padding: 16px; }
+  #result { white-space: pre-wrap; }
+</style>
+<div id="checks"><button id="run">Run regression</button><pre id="result">Ready</pre></div>
+<div id="fixture"></div>
+<script type="module">
+  // Run with the project's Vite server at /tests/genie-composition.html.
+  // Exercise real GPU output and the production React component, without an iframe.
+  import React from 'react'
+  import { createRoot } from 'react-dom/client'
+  import FeedbackPlayground from '/src/pages/FeedbackPlayground.tsx'
+  import { createGenieRenderer } from '/src/pages/genieRenderer.ts'
+
+  createRoot(document.querySelector('#fixture')).render(React.createElement(FeedbackPlayground))
+  const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+  const output = document.querySelector('#result')
+  document.querySelector('#run').onclick = () => setTimeout(run, 0)
+
+  async function run() {
+    output.textContent = 'Running'
+    const canvas = document.createElement('canvas')
+    const renderer = createGenieRenderer(canvas)
+    if (!renderer) { output.textContent = 'FAIL: WebGL unavailable'; return }
+    renderer.resize(160, 160,
+      { x: 8, y: 0, width: 144, height: 140 },
+      { x: 0, y: 104, width: 160, height: 56 })
+    const gl = canvas.getContext('webgl')
+    const pixels = new Uint8Array(canvas.width * canvas.height * 4)
+    let darkForegroundPixels = 0
+    for (const progress of [0.03, 0.25, 0.45, 0.65, 0.85, 0.97]) {
+      renderer.draw(progress)
+      gl.readPixels(0, 0, canvas.width, canvas.height, gl.RGBA, gl.UNSIGNED_BYTE, pixels)
+      for (let i = 0; i < pixels.length; i += 4) {
+        // White/pale foreground over #5058e8 cannot darken a fully opaque pixel.
+        if (pixels[i + 3] === 255 &&
+          (pixels[i] < 78 || pixels[i + 1] < 86 || pixels[i + 2] < 230)) darkForegroundPixels++
+      }
+    }
+    renderer.dispose()
+
+    const button = document.querySelector('button.feedback-card')
+    for (let i = 0; i < 100 && !button.style.getPropertyValue('--genie-hit-path'); i++) await pause(30)
+    if (button.getAttribute('aria-expanded') === 'false') { button.click(); await pause(1800) }
+    let activeSamples = 0
+    let duplicateSamples = 0
+    const observer = new MutationObserver(() => {
+      if (!button.classList.contains('feedback-card--genie')) return
+      activeSamples++
+      if ([...button.children].some((child) => {
+        const style = getComputedStyle(child)
+        return style.visibility === 'visible' && Number(style.opacity) > 0.001
+      })) duplicateSamples++
+    })
+    observer.observe(button, { attributes: true, subtree: true })
+    button.click()
+    for (let i = 0; i < 100; i++) {
+      await pause(30)
+      if (activeSamples > 0 && !button.classList.contains('feedback-card--genie')) break
+    }
+    observer.disconnect()
+    const settled = !button.classList.contains('feedback-card--genie')
+    const passed = darkForegroundPixels === 0 && duplicateSamples === 0 && activeSamples > 0 && settled
+    output.textContent = JSON.stringify({ darkForegroundPixels, duplicateSamples, activeSamples, settled, result: passed ? 'PASS' : 'FAIL' }, null, 2)
+  }
+</script>
+</html>
